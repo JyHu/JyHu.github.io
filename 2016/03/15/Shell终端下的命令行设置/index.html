@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Shell终端下的命令行设置 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="首先在终端输入 : vim ~/.bash_profile 命令，这时如果之前有这个文件就会打开，如果没有就会创建。添加以下命令：
+PS1=&amp;quot;\[\e[36;6m\][ \W ]\[\e[35;9m\] -&amp;gt; : \[\e[0m\]&amp;quot; (效果见最后的gif)
+下面简单说说环境下默认的特殊符号所代表的意义：
+\d ：代表日期，格式为weekday month date，例如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shell终端下的命令行设置">
+<meta property="og:url" content="http://yoursite.com/2016/03/15/Shell终端下的命令行设置/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="首先在终端输入 : vim ~/.bash_profile 命令，这时如果之前有这个文件就会打开，如果没有就会创建。添加以下命令：
+PS1=&amp;quot;\[\e[36;6m\][ \W ]\[\e[35;9m\] -&amp;gt; : \[\e[0m\]&amp;quot; (效果见最后的gif)
+下面简单说说环境下默认的特殊符号所代表的意义：
+\d ：代表日期，格式为weekday month date，例如">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/8acb15f3gw1f1xjp3ibqig208z0bfmyd.gif">
+<meta property="og:updated_time" content="2016-03-15T06:46:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Shell终端下的命令行设置">
+<meta name="twitter:description" content="首先在终端输入 : vim ~/.bash_profile 命令，这时如果之前有这个文件就会打开，如果没有就会创建。添加以下命令：
+PS1=&amp;quot;\[\e[36;6m\][ \W ]\[\e[35;9m\] -&amp;gt; : \[\e[0m\]&amp;quot; (效果见最后的gif)
+下面简单说说环境下默认的特殊符号所代表的意义：
+\d ：代表日期，格式为weekday month date，例如">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/8acb15f3gw1f1xjp3ibqig208z0bfmyd.gif">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scrollUp/image.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <div class="logo">
+        <img src="/logo.png" alt="Profile Picture">
+      </div>
+      <div id="title">Hexo</div>
+      
+       <ul class="my-socials">
+  
+  <li>
+  	<a href="https://github.com/JyHu" class="github" target="_blank">
+  		<i class="fa fa-github"></i>
+  	</a>
+  </li>
+  
+  <li>
+  	<a href="http://weibo.com" class="weibo" target="_blank">
+  		<i class="fa fa-weibo"></i>
+  	</a>
+  </li>
+  
+ 
+</ul>
+    </div>
+  </div>
+  <div id="header-inner" class="">
+    <nav id="main-nav">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!--
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      -->
+    </nav>
+    <nav id="title-nav" style="display:none">
+      <a href="/">Hexo</a>
+      <img src="/logo.png" alt="Profile Picture">
+      <!--
+      <span id="title-nav-socials">
+        
+          <a href="https://github.com/JyHu" class="github" target="_blank">
+            <i class="fa fa-github"></i>
+          </a>
+        
+          <a href="http://weibo.com" class="weibo" target="_blank">
+            <i class="fa fa-weibo"></i>
+          </a>
+        
+       
+     </span>
+      -->
+    </nav>
+    <nav id="sub-nav">
+      
+      <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+    </nav>
+    <div id="search-form-wrap">
+      <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+        <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Pesquisar">
+        <input type="submit" value="" class="search-form-submit">
+        <input name=tn type=hidden value="bds">
+        <input name=cl type=hidden value="3">
+        <input name=ct type=hidden value="2097152">
+        <input type="hidden" name="si" value="yoursite.com">
+      </form>
+    </div>
+  </div>
+  <div class="site-nav" style="display: none;">
+    <ul>
+    
+        <li><a href="/">首页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+    </ul>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Shell终端下的命令行设置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/15/Shell终端下的命令行设置/" class="article-date">
+  <time datetime="2016-03-15T06:44:48.000Z" itemprop="datePublished">2016-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Shell终端下的命令行设置
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先在终端输入 : vim ~/.bash_profile 命令，这时如果之前有这个文件就会打开，如果没有就会创建。<br>添加以下命令：</p>
+<p><code>PS1=&quot;\[\e[36;6m\][ \W ]\[\e[35;9m\] -&gt; : \[\e[0m\]&quot;</code> (效果见最后的gif)</p>
+<h2 id="下面简单说说环境下默认的特殊符号所代表的意义："><a href="#下面简单说说环境下默认的特殊符号所代表的意义：" class="headerlink" title="下面简单说说环境下默认的特殊符号所代表的意义："></a>下面简单说说环境下默认的特殊符号所代表的意义：</h2><ul>
+<li><code>\d</code> ：代表日期，格式为weekday month date，例如：”Mon Aug 1”</li>
+<li><code>\H</code> ：完整的主机名称。例如：我的机器名称为：fc4.linux，则这个名称就是fc4.linux</li>
+<li><code>\h</code> ：仅取主机的第一个名字，如上例，则为fc4，.linux则被省略</li>
+<li><code>\t</code> ：显示时间为24小时格式，如：HH：MM：SS</li>
+<li><code>\T</code> ：显示时间为12小时格式</li>
+<li><code>\A</code> ：显示时间为24小时格式：HH：MM</li>
+<li><code>\u</code> ：当前用户的账号名称</li>
+<li><code>\v</code> ：BASH的版本信息</li>
+<li><code>\w</code> ：完整的工作目录名称。家目录会以 ~代替</li>
+<li><code>\W</code> ：利用basename取得工作目录名称，所以只会列出最后一个目录</li>
+<li><code>\#</code> ：下达的第几个命令</li>
+<li><code>\$</code> ：提示字符，如果是root时，提示符为：# ，普通用户则为：$</li>
+</ul>
+<p>我们可以通过设置PS1变量使提示符成为彩色。在PS1中设置字符序列颜色的格式为：<br><code>\[\e[F;Bm\]</code><br>其中<code>F</code>为字体颜色，编号30~37；<code>B</code>为背景色，编号40~47。<br>可通过<code>\e[0m</code>关闭颜色输出；特别的，当B为1时，将显示加亮加粗的文字，详细请看下面的颜色表与代码表。</p>
+<h3 id="颜色表"><a href="#颜色表" class="headerlink" title="颜色表"></a>颜色表</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">前景</th>
+<th style="text-align:center">背景</th>
+<th style="text-align:center">颜色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">30</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">黑色</td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td style="text-align:center">41</td>
+<td style="text-align:center">紅色</td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td style="text-align:center">42</td>
+<td style="text-align:center">綠色</td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td style="text-align:center">43</td>
+<td style="text-align:center">黃色</td>
+</tr>
+<tr>
+<td style="text-align:center">34</td>
+<td style="text-align:center">44</td>
+<td style="text-align:center">藍色</td>
+</tr>
+<tr>
+<td style="text-align:center">35</td>
+<td style="text-align:center">45</td>
+<td style="text-align:center">紫紅色</td>
+</tr>
+<tr>
+<td style="text-align:center">36</td>
+<td style="text-align:center">46</td>
+<td style="text-align:center">青藍色</td>
+</tr>
+<tr>
+<td style="text-align:center">37</td>
+<td style="text-align:center">47</td>
+<td style="text-align:center">白色</td>
+</tr>
+</tbody>
+</table>
+<h3 id="代码含义"><a href="#代码含义" class="headerlink" title="代码含义"></a>代码含义</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">代码</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">OFF</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">高亮显示</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">underline</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">闪烁</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">反白显示</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">不可见</td>
+</tr>
+</tbody>
+</table>
+<p>测试了一下6、9，可以只显示颜色，不加上面的效果</p>
+<h2 id="附"><a href="#附" class="headerlink" title="附"></a>附</h2><p>开头的效果<br><br><img src="http://ww4.sinaimg.cn/large/8acb15f3gw1f1xjp3ibqig208z0bfmyd.gif" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/03/15/Shell终端下的命令行设置/" data-id="cilt2b5vj0003brz6v9ouoss7" class="article-share-link">Compartilhar</a>
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/15/KeyChainParameters/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">KeyChainParameters</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <!--
+      <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    -->
+    
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<script src="/js/jquery.scrollUp.min.js"></script>
+<script src="/js/jquery.transform.js"></script>
+<script src="/js/menu.js"></script>
+
+<script src="/js/script.js"></script>
+<script src="/js/scrollUp.js"></script>
+
+  </div>
+</body>
+</html>

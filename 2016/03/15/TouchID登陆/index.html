@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TouchID登陆 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="点击这里：KeyChain and TouchID Demo
+首先需要引入一个库#import &amp;lt;LocalAuthentication/LAContext.h&amp;gt;，官方的一个用于TouchID安全验证登陆的Framework，首先需要验证是否支持TouchID登陆：
+1234567// 判断是否支持TouchID登陆- (BOOL)canEvaluatePolicy&amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TouchID登陆">
+<meta property="og:url" content="http://yoursite.com/2016/03/15/TouchID登陆/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="点击这里：KeyChain and TouchID Demo
+首先需要引入一个库#import &amp;lt;LocalAuthentication/LAContext.h&amp;gt;，官方的一个用于TouchID安全验证登陆的Framework，首先需要验证是否支持TouchID登陆：
+1234567// 判断是否支持TouchID登陆- (BOOL)canEvaluatePolicy&amp;#123;">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/8acb15f3gw1f1xjjux1iwj20hs0vkaan.jpg">
+<meta property="og:updated_time" content="2016-03-15T06:42:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TouchID登陆">
+<meta name="twitter:description" content="点击这里：KeyChain and TouchID Demo
+首先需要引入一个库#import &amp;lt;LocalAuthentication/LAContext.h&amp;gt;，官方的一个用于TouchID安全验证登陆的Framework，首先需要验证是否支持TouchID登陆：
+1234567// 判断是否支持TouchID登陆- (BOOL)canEvaluatePolicy&amp;#123;">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/8acb15f3gw1f1xjjux1iwj20hs0vkaan.jpg">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scrollUp/image.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <div class="logo">
+        <img src="/logo.png" alt="Profile Picture">
+      </div>
+      <div id="title">Hexo</div>
+      
+       <ul class="my-socials">
+  
+  <li>
+  	<a href="https://github.com/JyHu" class="github" target="_blank">
+  		<i class="fa fa-github"></i>
+  	</a>
+  </li>
+  
+  <li>
+  	<a href="http://weibo.com" class="weibo" target="_blank">
+  		<i class="fa fa-weibo"></i>
+  	</a>
+  </li>
+  
+ 
+</ul>
+    </div>
+  </div>
+  <div id="header-inner" class="">
+    <nav id="main-nav">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!--
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      -->
+    </nav>
+    <nav id="title-nav" style="display:none">
+      <a href="/">Hexo</a>
+      <img src="/logo.png" alt="Profile Picture">
+      <!--
+      <span id="title-nav-socials">
+        
+          <a href="https://github.com/JyHu" class="github" target="_blank">
+            <i class="fa fa-github"></i>
+          </a>
+        
+          <a href="http://weibo.com" class="weibo" target="_blank">
+            <i class="fa fa-weibo"></i>
+          </a>
+        
+       
+     </span>
+      -->
+    </nav>
+    <nav id="sub-nav">
+      
+      <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+    </nav>
+    <div id="search-form-wrap">
+      <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+        <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Pesquisar">
+        <input type="submit" value="" class="search-form-submit">
+        <input name=tn type=hidden value="bds">
+        <input name=cl type=hidden value="3">
+        <input name=ct type=hidden value="2097152">
+        <input type="hidden" name="si" value="yoursite.com">
+      </form>
+    </div>
+  </div>
+  <div class="site-nav" style="display: none;">
+    <ul>
+    
+        <li><a href="/">首页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+    </ul>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-TouchID登陆" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/15/TouchID登陆/" class="article-date">
+  <time datetime="2016-03-15T06:32:43.000Z" itemprop="datePublished">2016-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TouchID登陆
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="点击这里：KeyChain-and-TouchID-Demo"><a href="#点击这里：KeyChain-and-TouchID-Demo" class="headerlink" title="点击这里：KeyChain and TouchID Demo"></a><a href="https://github.com/JyHu/TouchIDAndKeyChain.git" target="_blank" rel="external">点击这里：KeyChain and TouchID Demo</a></h2><p><img src="http://ww4.sinaimg.cn/large/8acb15f3gw1f1xjjux1iwj20hs0vkaan.jpg" width="320" height="568"></p>
+<p>首先需要引入一个库<code>#import &lt;LocalAuthentication/LAContext.h&gt;</code>，官方的一个用于TouchID安全验证登陆的<code>Framework</code>，首先需要验证是否支持TouchID登陆：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 判断是否支持TouchID登陆</span><br><span class="line">- (BOOL)canEvaluatePolicy</span><br><span class="line">&#123;</span><br><span class="line">    LAContext *context = [[LAContext alloc] init];</span><br><span class="line">    NSError *error;</span><br><span class="line">    return [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:&amp;error];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果不支持的话，就需要走自己APP中得密码验证方法来进行验证登陆；<br>如果支持的话，就调起TouchID验证的页面：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">- (void)evaluatePolicy</span><br><span class="line">&#123;</span><br><span class="line">    LAContext *context = [[LAContext alloc] init];</span><br><span class="line">    [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:@&quot;使用TouchID进入APP首页&quot; reply:^(BOOL success, NSError * _Nullable error) &#123;</span><br><span class="line">        dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">            if (success) &#123;</span><br><span class="line">                // ...</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                // ...</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote>
+<p><code>reply</code>这个block中得代码是在异步线程中执行的，如果有需要的话，必须得抛到主线程中去执行一些东西。</p>
+<p>TouchID的失败次数是有限制的，从开始算，如果失败了三次，系统就会自动的退出TouchID的验证界面，并在<code>reply</code>block中返回失败的信息，这时还可以调起TouchID的验证，此时如果失败两次即会退出验证界面。<br>在这种情况下，如果还想用TouchID验证，则必须输入手机的登陆密码才能继续验证。<br>需要注意的是，这个失败的次数在iOS设备中所有的APP是累加起来的。</p>
+</blockquote>
+<h1 id="KeyChain"><a href="#KeyChain" class="headerlink" title="KeyChain"></a><code>KeyChain</code></h1><p><code>keychain</code>是作为苹果中对于数据安全存储的一个地方，类似于<code>NSUserDefaults</code>，但又不同于<code>NSUserDefaults</code>。</p>
+<p>对于<code>keychain</code>来说，需要注意的方法有以下四个：</p>
+<ul>
+<li><code>SecItemAdd</code></li>
+<li><code>SecItemUpdate</code></li>
+<li><code>SecItemCopyMatching</code></li>
+<li><code>SecItemDelete</code></li>
+</ul>
+<h2 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h2><blockquote>
+<p>在使用的时候<strong>一定</strong>要注意<code>KeyChain</code>操作的返回值。</p>
+</blockquote>
+<p><code>KeyChain</code>操作中得一些参数的设定(<a href="https://github.com/JyHu/MDDocuments/blob/master/2016/03/KeyChainParameters.md" target="_blank" rel="external">一些相关参数的说明</a>)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (NSMutableDictionary *)getKeychainQueryWithService:(NSString *)service</span><br><span class="line">&#123;</span><br><span class="line">    NSMutableDictionary *query = [NSMutableDictionary dictionaryWithObjectsAndKeys:</span><br><span class="line">                (__bridge id)kSecClassGenericPassword, (__bridge id)kSecClass,</span><br><span class="line">                service, (__bridge id)kSecAttrService,</span><br><span class="line">                service, (__bridge id)kSecAttrAccount,</span><br><span class="line">                (__bridge id)kSecAttrAccessibleAfterFirstUnlock, (__bridge id)kSecAttrAccessible,</span><br><span class="line">            nil];</span><br><span class="line">    if (self.accessGroupName != nil) &#123;</span><br><span class="line">        [query setObject:self.accessGroupName forKey:(__bridge id)kSecAttrAccessGroup];</span><br><span class="line">    &#125;</span><br><span class="line">    return query;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="SecItemAdd"><a href="#SecItemAdd" class="headerlink" title="SecItemAdd"></a><code>SecItemAdd</code></h2><p>用于将个人数据条目保存到<code>keychain</code>中。</p>
+<ul>
+<li>方法原型：<code>OSStatus SecItemAdd(CFDictionaryRef attributes, CFTypeRef * result);</code><ul>
+<li><code>attributes</code> : 添加属性的设置。</li>
+<li><code>result</code> : 可以用与获取返回值，<code>&amp;res</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (OSStatus)saveObject:(id)object forService:(NSString *)service &#123;</span><br><span class="line">    NSMutableDictionary *keychainQuery = [self getKeychainQueryWithService:service];</span><br><span class="line">    // 需要检查数据的存在性，如果存在的话，就用SecItemUpdate更新，否则就添加</span><br><span class="line">    [keychainQuery setObject:[NSKeyedArchiver archivedDataWithRootObject:object] forKey:(__bridge id)kSecValueData];</span><br><span class="line">    return SecItemAdd((__bridge CFDictionaryRef)keychainQuery, NULL);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="SecItemUpdate"><a href="#SecItemUpdate" class="headerlink" title="SecItemUpdate"></a><code>SecItemUpdate</code></h2><p>用于更新<code>KeyChain</code>中保存的数据。</p>
+<ul>
+<li>方法原型：<code>OSStatus SecItemUpdate(CFDictionaryRef query, CFDictionaryRef attributesToUpdate);</code><ul>
+<li><code>query</code> : 查找属性的设置</li>
+<li><code>attributesToUpdate</code> : 要更新的数据</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (OSStatus)updateService:(NSString *)service withObject:(id)object</span><br><span class="line">&#123;</span><br><span class="line">    NSDictionary *keychainQuery = [self getKeychainQueryWithService:service];</span><br><span class="line">    NSDictionary *changes = @&#123;</span><br><span class="line">                              (__bridge id)kSecValueData : [NSKeyedArchiver archivedDataWithRootObject:object]</span><br><span class="line">                              &#125;;</span><br><span class="line">    return SecItemUpdate((__bridge CFDictionaryRef)keychainQuery, (__bridge CFDictionaryRef)changes);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="SecItemCopyMatching"><a href="#SecItemCopyMatching" class="headerlink" title="SecItemCopyMatching"></a><code>SecItemCopyMatching</code></h2><p>用于获取保存在<code>KeyChain</code>中得数据。</p>
+<ul>
+<li>方法原型：<code>OSStatus SecItemCopyMatching(CFDictionaryRef query, CFTypeRef * result);</code><ul>
+<li><code>query</code> : 保存在<code>KeyChain</code>中得数据信息。</li>
+<li><code>result</code> : 从<code>KeyChain</code>中取得的数据。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">- (id)loadObjectForService:(NSString *)service &#123;</span><br><span class="line">    NSMutableDictionary *keychainQuery = [self getKeychainQueryWithService:service];</span><br><span class="line">    [keychainQuery setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];</span><br><span class="line">    [keychainQuery setObject:(__bridge id)kSecMatchLimitAll forKey:(__bridge id)kSecMatchLimit];</span><br><span class="line">    CFDataRef dataRef = NULL;</span><br><span class="line">    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)keychainQuery, (CFTypeRef *)&amp;dataRef);</span><br><span class="line">    id results = nil;</span><br><span class="line">    if (status == errSecSuccess) &#123;</span><br><span class="line">        @try &#123;</span><br><span class="line">            results = [NSKeyedUnarchiver unarchiveObjectWithData:(__bridge NSData *)dataRef];</span><br><span class="line">        &#125;</span><br><span class="line">        @catch (NSException *exception) &#123;</span><br><span class="line">            NSLog(@&quot;%@&quot;, exception);</span><br><span class="line">        &#125;</span><br><span class="line">        @finally &#123;</span><br><span class="line">            NSLog(@&quot;finally&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    if (dataRef) &#123;</span><br><span class="line">        CFRelease(dataRef);</span><br><span class="line">    &#125;</span><br><span class="line">    return results;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="SecItemDelete"><a href="#SecItemDelete" class="headerlink" title="SecItemDelete"></a><code>SecItemDelete</code></h2><p>用于删除保存在<code>KeyChain</code>中得数据。</p>
+<ul>
+<li>方法原型:<code>OSStatus SecItemDelete(CFDictionaryRef query)</code><ul>
+<li><code>query</code>:要删除的数据的信息。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)delete:(NSString *)service &#123;</span><br><span class="line">    NSMutableDictionary *keychainQuery = [self getKeychainQueryWithService:service];</span><br><span class="line">    SecItemDelete((__bridge CFDictionaryRef)keychainQuery);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="附"><a href="#附" class="headerlink" title="附:"></a>附:</h1><h2 id="OSStatus状态码"><a href="#OSStatus状态码" class="headerlink" title="OSStatus状态码"></a><code>OSStatus</code>状态码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">CF_ENUM(OSStatus)</span><br><span class="line">&#123;</span><br><span class="line">    errSecSuccess                               = 0,       /* No error. */</span><br><span class="line">    errSecUnimplemented                         = -4,      /* Function or operation not implemented. */</span><br><span class="line">    errSecIO                                    = -36,     /*I/O error (bummers)*/</span><br><span class="line">    errSecOpWr                                  = -49,     /*file already open with with write permission*/</span><br><span class="line">    errSecParam                                 = -50,     /* One or more parameters passed to a function where not valid. */</span><br><span class="line">    errSecAllocate                              = -108,    /* Failed to allocate memory. */</span><br><span class="line">    errSecUserCanceled                          = -128,    /* User canceled the operation. */</span><br><span class="line">    errSecBadReq                                = -909,    /* Bad parameter or invalid state for operation. */</span><br><span class="line">    errSecInternalComponent                     = -2070,</span><br><span class="line">    errSecNotAvailable                          = -25291,  /* No keychain is available. You may need to restart your computer. */</span><br><span class="line">    errSecDuplicateItem                         = -25299,  /* The specified item already exists in the keychain. */</span><br><span class="line">    errSecItemNotFound                          = -25300,  /* The specified item could not be found in the keychain. */</span><br><span class="line">    errSecInteractionNotAllowed                 = -25308,  /* User interaction is not allowed. */</span><br><span class="line">    errSecDecode                                = -26275,  /* Unable to decode the provided data. */</span><br><span class="line">    errSecAuthFailed                            = -25293,  /* The user name or passphrase you entered is not correct. */</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/03/15/TouchID登陆/" data-id="cilt2b5vh0002brz6ekqjydjo" class="article-share-link">Compartilhar</a>
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/15/KeyChainParameters/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          KeyChainParameters
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/15/GitHu-Hexo创建基于Git的博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">GitHu+Hexo创建基于Git的博客</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <!--
+      <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    -->
+    
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<script src="/js/jquery.scrollUp.min.js"></script>
+<script src="/js/jquery.transform.js"></script>
+<script src="/js/menu.js"></script>
+
+<script src="/js/script.js"></script>
+<script src="/js/scrollUp.js"></script>
+
+  </div>
+</body>
+</html>

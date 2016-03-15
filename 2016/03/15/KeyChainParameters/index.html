@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>KeyChainParameters | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="iOSKeyChain相关的参数说明-  整理自Blog
+
+密钥类型键 CFTypeRef kSecClass
+
+CFTypeRef kSecClassGenericPassword   一般密码
+对应属性
+kSecAttrAccessible
+kSecAttrAccessGroup
+CFTypeRef kSecAttrCreationDate;      - 创建日期          CFDa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KeyChainParameters">
+<meta property="og:url" content="http://yoursite.com/2016/03/15/KeyChainParameters/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="iOSKeyChain相关的参数说明-  整理自Blog
+
+密钥类型键 CFTypeRef kSecClass
+
+CFTypeRef kSecClassGenericPassword   一般密码
+对应属性
+kSecAttrAccessible
+kSecAttrAccessGroup
+CFTypeRef kSecAttrCreationDate;      - 创建日期          CFDa">
+<meta property="og:updated_time" content="2016-03-15T06:43:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KeyChainParameters">
+<meta name="twitter:description" content="iOSKeyChain相关的参数说明-  整理自Blog
+
+密钥类型键 CFTypeRef kSecClass
+
+CFTypeRef kSecClassGenericPassword   一般密码
+对应属性
+kSecAttrAccessible
+kSecAttrAccessGroup
+CFTypeRef kSecAttrCreationDate;      - 创建日期          CFDa">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scrollUp/image.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <div class="logo">
+        <img src="/logo.png" alt="Profile Picture">
+      </div>
+      <div id="title">Hexo</div>
+      
+       <ul class="my-socials">
+  
+  <li>
+  	<a href="https://github.com/JyHu" class="github" target="_blank">
+  		<i class="fa fa-github"></i>
+  	</a>
+  </li>
+  
+  <li>
+  	<a href="http://weibo.com" class="weibo" target="_blank">
+  		<i class="fa fa-weibo"></i>
+  	</a>
+  </li>
+  
+ 
+</ul>
+    </div>
+  </div>
+  <div id="header-inner" class="">
+    <nav id="main-nav">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!--
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      -->
+    </nav>
+    <nav id="title-nav" style="display:none">
+      <a href="/">Hexo</a>
+      <img src="/logo.png" alt="Profile Picture">
+      <!--
+      <span id="title-nav-socials">
+        
+          <a href="https://github.com/JyHu" class="github" target="_blank">
+            <i class="fa fa-github"></i>
+          </a>
+        
+          <a href="http://weibo.com" class="weibo" target="_blank">
+            <i class="fa fa-weibo"></i>
+          </a>
+        
+       
+     </span>
+      -->
+    </nav>
+    <nav id="sub-nav">
+      
+      <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+    </nav>
+    <div id="search-form-wrap">
+      <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+        <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Pesquisar">
+        <input type="submit" value="" class="search-form-submit">
+        <input name=tn type=hidden value="bds">
+        <input name=cl type=hidden value="3">
+        <input name=ct type=hidden value="2097152">
+        <input type="hidden" name="si" value="yoursite.com">
+      </form>
+    </div>
+  </div>
+  <div class="site-nav" style="display: none;">
+    <ul>
+    
+        <li><a href="/">首页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+    </ul>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-KeyChainParameters" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/15/KeyChainParameters/" class="article-date">
+  <time datetime="2016-03-15T06:43:09.000Z" itemprop="datePublished">2016-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      KeyChainParameters
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="iOSKeyChain相关的参数说明"><a href="#iOSKeyChain相关的参数说明" class="headerlink" title="iOSKeyChain相关的参数说明"></a>iOS<code>KeyChain</code>相关的参数说明</h1><p>-  整理自<a href="http://blog.sina.com.cn/s/blog_7ea0400d0101fksj.html" target="_blank" rel="external">Blog</a></p>
+<ul>
+<li><p>密钥类型键 CFTypeRef kSecClass</p>
+<ul>
+<li>CFTypeRef kSecClassGenericPassword   一般密码<ul>
+<li>对应属性</li>
+<li>kSecAttrAccessible</li>
+<li>kSecAttrAccessGroup</li>
+<li>CFTypeRef kSecAttrCreationDate;      - 创建日期          CFDateRef</li>
+<li>CFTypeRef kSecAttrModificationDate;  - 最后一次修改日期   CFDateRef</li>
+<li>CFTypeRef kSecAttrDescription;       - 描述             CFStringRef</li>
+<li>CFTypeRef kSecAttrComment;           - 注释             CFStringRef</li>
+<li>CFTypeRef kSecAttrCreator;           - 创建者            CFNumberRef(4字符，如’aLXY’)</li>
+<li>CFTypeRef kSecAttrType;              - 类型             CFNumberRef(4字符，如’aTyp’)</li>
+<li>CFTypeRef kSecAttrLabel;             - 标签(给用户看)     CFStringRef</li>
+<li>CFTypeRef kSecAttrIsInvisible;       - 是否隐藏          CFBooleanRef(kCFBooleanTrue,kCFBooleanFalse)</li>
+<li>CFTypeRef kSecAttrIsNegative;        - 是否具有密码       CFBooleanRef(kCFBooleanTrue,kCFBooleanFalse)此项表示当前的item是否只是一个占位项，或者说是只有key没有value。</li>
+<li>CFTypeRef kSecAttrAccount;           - 账户名            CFStringRef</li>
+<li>CFTypeRef kSecAttrService;           - 所具有服务         CFStringRef</li>
+<li>CFTypeRef kSecAttrGeneric;           - 用户自定义内容      CFDataRef</li>
+</ul>
+</li>
+<li>CFTypeRef kSecClassInternetPassword  网络密码<ul>
+<li>对应属性</li>
+<li>kSecAttrAccessible</li>
+<li>kSecAttrAccessGroup</li>
+<li>kSecAttrCreationDate</li>
+<li>kSecAttrModificationDate</li>
+<li>kSecAttrDescription</li>
+<li>kSecAttrComment</li>
+<li>kSecAttrCreator</li>
+<li>kSecAttrType</li>
+<li>kSecAttrLabel</li>
+<li>kSecAttrIsInvisible</li>
+<li>kSecAttrIsNegative</li>
+<li>kSecAttrAccount</li>
+<li>kSecAttrSecurityDomain</li>
+<li>kSecAttrServer</li>
+<li>kSecAttrProtocol</li>
+<li>kSecAttrAuthenticationType</li>
+<li>kSecAttrPort    网络端口           CFNumberRef</li>
+<li>kSecAttrPath</li>
+</ul>
+</li>
+<li>CFTypeRef kSecClassCertificate 证书<ul>
+<li>对应属性</li>
+<li>kSecAttrAccessible</li>
+<li>kSecAttrAccessGroup</li>
+<li>kSecAttrCertificateType        证书类型            CFNumberRef</li>
+<li>kSecAttrCertificateEncoding</li>
+<li>kSecAttrLabel</li>
+<li>kSecAttrSubject   X.500主题名称      CFDataRef</li>
+<li>kSecAttrIssuer    X.500发行者名称     CFDataRef</li>
+<li>kSecAttrSerialNumber        序列号             CFDataRef</li>
+<li>kSecAttrSubjectKeyID        主题ID             CFDataRef</li>
+<li>kSecAttrPublicKeyHash        公钥Hash值         CFDataRef</li>
+</ul>
+</li>
+<li>CFTypeRef kSecClassKey  密钥<ul>
+<li>对应属性</li>
+<li>kSecAttrAccessible</li>
+<li>kSecAttrAccessGroup</li>
+<li>kSecAttrKeyClass</li>
+<li>值<ul>
+<li>CFTypeRef kSecAttrKeyClassPublic;     - 公钥</li>
+<li>CFTypeRef kSecAttrKeyClassPrivate;    - 私钥</li>
+<li>CFTypeRef kSecAttrKeyClassSymmetric;  - 对称密钥</li>
+</ul>
+</li>
+<li>kSecAttrLabel</li>
+<li>kSecAttrApplicationLabel      - 标签(给程序使用)          CFStringRef(通常是公钥的Hash值)</li>
+<li>kSecAttrIsPermanent       - 是否永久保存加密密钥       CFBooleanRef</li>
+<li>kSecAttrApplicationTag    - 标签(私有标签数据)         CFDataRef</li>
+<li>kSecAttrKeyType  - 加密密钥类型(算法)   CFNumberRef<ul>
+<li>值</li>
+<li>extern const CFTypeRef kSecAttrKeyTypeRSA;</li>
+</ul>
+</li>
+<li>CFTypeRef kSecAttrKeySizeInBits;     - 密钥总位数               CFNumberRef</li>
+<li>CFTypeRef kSecAttrEffectiveKeySize;  - 密钥有效位数              CFNumberRef</li>
+<li>CFTypeRef kSecAttrCanEncrypt;        - 密钥是否可用于加密         CFBooleanRef</li>
+<li>CFTypeRef kSecAttrCanDecrypt;        - 密钥是否可用于加密         CFBooleanRef</li>
+<li>CFTypeRef kSecAttrCanDerive;         - 密钥是否可用于导出其他密钥   CFBooleanRef</li>
+<li>CFTypeRef kSecAttrCanSign;           - 密钥是否可用于数字签名      CFBooleanRef</li>
+<li>CFTypeRef kSecAttrCanVerify;         - 密钥是否可用于验证数字签名   CFBooleanRef</li>
+<li>CFTypeRef kSecAttrCanWrap;           - 密钥是否可用于打包其他密钥   CFBooleanRef</li>
+<li>CFTypeRef kSecAttrCanUnwrap;         - 密钥是否可用于解包其他密钥   CFBooleanRef</li>
+<li>CFTypeRef kSecAttrAccessGroup;       - 访问组                   CFStringRef</li>
+</ul>
+</li>
+<li>CFTypeRef kSecClassIdentity                   - 身份证书(带私钥的证书)<ul>
+<li>kSecClassIdentity<ul>
+<li>对应属性</li>
+<li>证书属性</li>
+<li>私钥属性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>属性</p>
+<ul>
+<li>键</li>
+<li>CFTypeRef kSecAttrAccessible;                                        - 可访问性 类型透明<ul>
+<li>值</li>
+<li>CFTypeRef kSecAttrAccessibleWhenUnlocked;                  - 解锁可访问，备份</li>
+<li>CFTypeRef kSecAttrAccessibleAfterFirstUnlock;              - 第一次解锁后可访问，备份</li>
+<li>CFTypeRef kSecAttrAccessibleAlways;                        - 一直可访问，备份</li>
+<li>CFTypeRef kSecAttrAccessibleWhenUnlockedThisDeviceOnly;    - 解锁可访问，不备份</li>
+<li>CFTypeRef kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;- 第一次解锁后可访问，不备份</li>
+<li>CFTypeRef kSecAttrAccessibleAlwaysThisDeviceOnly;          - 一直可访问，不备份</li>
+<li>CFTypeRef kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly</li>
+</ul>
+</li>
+<li>键</li>
+<li>CFTypeRef kSecAttrProtocol;                      - 协议类型 CFNumberRef<ul>
+<li>值</li>
+<li>CFTypeRef kSecAttrProtocolFTP;       </li>
+<li>CFTypeRef kSecAttrProtocolFTPAccount;</li>
+<li>CFTypeRef kSecAttrProtocolHTTP;      </li>
+<li>CFTypeRef kSecAttrProtocolIRC;       </li>
+<li>CFTypeRef kSecAttrProtocolNNTP;      </li>
+<li>CFTypeRef kSecAttrProtocolPOP3;      </li>
+<li>CFTypeRef kSecAttrProtocolSMTP;      </li>
+<li>CFTypeRef kSecAttrProtocolSOCKS;     </li>
+<li>CFTypeRef kSecAttrProtocolIMAP;      </li>
+<li>CFTypeRef kSecAttrProtocolLDAP;      </li>
+<li>CFTypeRef kSecAttrProtocolAppleTalk; </li>
+<li>CFTypeRef kSecAttrProtocolAFP;       </li>
+<li>CFTypeRef kSecAttrProtocolTelnet;    </li>
+<li>CFTypeRef kSecAttrProtocolSSH;       </li>
+<li>CFTypeRef kSecAttrProtocolFTPS;      </li>
+<li>CFTypeRef kSecAttrProtocolHTTPS;     </li>
+<li>CFTypeRef kSecAttrProtocolHTTPProxy; </li>
+<li>CFTypeRef kSecAttrProtocolHTTPSProxy;</li>
+<li>CFTypeRef kSecAttrProtocolFTPProxy;  </li>
+<li>CFTypeRef kSecAttrProtocolSMB;       </li>
+<li>CFTypeRef kSecAttrProtocolRTSP;      </li>
+<li>CFTypeRef kSecAttrProtocolRTSPProxy; </li>
+<li>CFTypeRef kSecAttrProtocolDAAP;      </li>
+<li>CFTypeRef kSecAttrProtocolEPPC;      </li>
+<li>CFTypeRef kSecAttrProtocolIPP;       </li>
+<li>CFTypeRef kSecAttrProtocolNNTPS;     </li>
+<li>CFTypeRef kSecAttrProtocolLDAPS;     </li>
+<li>CFTypeRef kSecAttrProtocolTelnetS;   </li>
+<li>CFTypeRef kSecAttrProtocolIMAPS;     </li>
+<li>CFTypeRef kSecAttrProtocolIRCS;      </li>
+<li>CFTypeRef kSecAttrProtocolPOP3S;     </li>
+</ul>
+</li>
+<li>键</li>
+<li>CFTypeRef kSecAttrAuthenticationType;                      - 认证类型 CFNumberRef<ul>
+<li>值</li>
+<li>CFTypeRef kSecAttrAuthenticationTypeNTLM;       </li>
+<li>CFTypeRef kSecAttrAuthenticationTypeMSN;        </li>
+<li>CFTypeRef kSecAttrAuthenticationTypeDPA;        </li>
+<li>CFTypeRef kSecAttrAuthenticationTypeRPA;        </li>
+<li>CFTypeRef kSecAttrAuthenticationTypeHTTPBasic;  </li>
+<li>CFTypeRef kSecAttrAuthenticationTypeHTTPDigest; </li>
+<li>CFTypeRef kSecAttrAuthenticationTypeHTMLForm;   </li>
+<li>CFTypeRef kSecAttrAuthenticationTypeDefault;    </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>搜索</p>
+<ul>
+<li>CFTypeRef kSecMatchPolicy;                 - 指定策略            SecPolicyRef</li>
+<li>CFTypeRef kSecMatchItemList;               - 指定搜索范围         CFArrayRef(SecKeychainItemRef, SecKeyRef, SecCertificateRef, SecIdentityRef,CFDataRef)数组内的类型必须唯一。仍然会搜索钥匙串，但是搜索结果需要与该数组取交集作为最终结果。</li>
+<li>CFTypeRef kSecMatchSearchList;             - </li>
+<li>CFTypeRef kSecMatchIssuers;                - 指定发行人数组       CFArrayRef</li>
+<li>CFTypeRef kSecMatchEmailAddressIfPresent;  - 指定邮件地址         CFStringRef</li>
+<li>CFTypeRef kSecMatchSubjectContains;        - 指定主题            CFStringRef</li>
+<li>CFTypeRef kSecMatchCaseInsensitive;        - 指定是否不区分大小写  CFBooleanRef(kCFBooleanFalse或不提供此参数,区分大小写;kCFBooleanTrue,不区分大小写)</li>
+<li>CFTypeRef kSecMatchTrustedOnly;            - 指定只搜索可信证书    CFBooleanRef(kCFBooleanFalse或不提供此参数,全部证书;kCFBooleanTrue,只搜索可信证书)</li>
+<li>CFTypeRef kSecMatchValidOnDate;            - 指定有效日期         CFDateRef(kCFNull表示今天)</li>
+<li>CFTypeRef kSecMatchLimit;                  - 指定结果数量         CFNumberRef(kSecMatchLimitOne;kSecMatchLimitAll)</li>
+<li>CFTypeRef kSecMatchLimitOne;               - 首条结果</li>
+<li>CFTypeRef kSecMatchLimitAll;               - 全部结果</li>
+</ul>
+</li>
+<li><p>列表</p>
+<ul>
+<li>CFTypeRef kSecUseItemList;   - CFArrayRef(SecKeychainItemRef, SecKeyRef, SecCertificateRef, SecIdentityRef,CFDataRef)数组内的类型必须唯一。用户提供用于查询的列表。当这个列表被提供的时候，不会再搜索钥匙串。</li>
+</ul>
+</li>
+<li><p>返回值类型</p>
+<ul>
+<li>可以同时指定多种返回值类型</li>
+<li>CFTypeRef kSecReturnData;           - 返回数据(CFDataRef)                  CFBooleanRef</li>
+<li>CFTypeRef kSecReturnAttributes;     - 返回属性字典(CFDictionaryRef)         CFBooleanRef</li>
+<li>CFTypeRef kSecReturnRef;            - 返回实例(SecKeychainItemRef, SecKeyRef, SecCertificateRef, SecIdentityRef, or CFDataRef)         CFBooleanRef</li>
+<li>CFTypeRef kSecReturnPersistentRef;  - 返回持久型实例(CFDataRef)             CFBooleanRef</li>
+</ul>
+</li>
+<li><p>写入值类型</p>
+<ul>
+<li>CFTypeRef kSecValueData;</li>
+<li>CFTypeRef kSecValueRef;</li>
+<li>CFTypeRef kSecValuePersistentRef;</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/03/15/KeyChainParameters/" data-id="cilt2b5vd0001brz6eifw3n4s" class="article-share-link">Compartilhar</a>
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/15/Shell终端下的命令行设置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Shell终端下的命令行设置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/15/TouchID登陆/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">TouchID登陆</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <!--
+      <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    -->
+    
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<script src="/js/jquery.scrollUp.min.js"></script>
+<script src="/js/jquery.transform.js"></script>
+<script src="/js/menu.js"></script>
+
+<script src="/js/script.js"></script>
+<script src="/js/scrollUp.js"></script>
+
+  </div>
+</body>
+</html>

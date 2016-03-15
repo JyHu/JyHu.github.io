@@ -89,7 +89,7 @@
     </nav>
     <div id="search-form-wrap">
       <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
-        <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+        <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Pesquisar">
         <input type="submit" value="" class="search-form-submit">
         <input name=tn type=hidden value="bds">
         <input name=cl type=hidden value="3">
@@ -111,10 +111,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Shell终端下的命令行设置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/03/15/hello-world/" class="article-date">
-  <time datetime="2016-03-15T05:33:51.000Z" itemprop="datePublished">2016-03-15</time>
+    <a href="/2016/03/15/Shell终端下的命令行设置/" class="article-date">
+  <time datetime="2016-03-15T06:44:48.000Z" itemprop="datePublished">2016-03-15</time>
 </a>
     
   </div>
@@ -125,7 +125,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/15/hello-world/">Hello World</a>
+      <a class="article-title" href="/2016/03/15/Shell终端下的命令行设置/">Shell终端下的命令行设置</a>
     </h1>
   
 
@@ -133,21 +133,525 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>首先在终端输入 : vim ~/.bash_profile 命令，这时如果之前有这个文件就会打开，如果没有就会创建。<br>添加以下命令：</p>
+<p><code>PS1=&quot;\[\e[36;6m\][ \W ]\[\e[35;9m\] -&gt; : \[\e[0m\]&quot;</code> (效果见最后的gif)</p>
+<h2 id="下面简单说说环境下默认的特殊符号所代表的意义："><a href="#下面简单说说环境下默认的特殊符号所代表的意义：" class="headerlink" title="下面简单说说环境下默认的特殊符号所代表的意义："></a>下面简单说说环境下默认的特殊符号所代表的意义：</h2><ul>
+<li><code>\d</code> ：代表日期，格式为weekday month date，例如：”Mon Aug 1”</li>
+<li><code>\H</code> ：完整的主机名称。例如：我的机器名称为：fc4.linux，则这个名称就是fc4.linux</li>
+<li><code>\h</code> ：仅取主机的第一个名字，如上例，则为fc4，.linux则被省略</li>
+<li><code>\t</code> ：显示时间为24小时格式，如：HH：MM：SS</li>
+<li><code>\T</code> ：显示时间为12小时格式</li>
+<li><code>\A</code> ：显示时间为24小时格式：HH：MM</li>
+<li><code>\u</code> ：当前用户的账号名称</li>
+<li><code>\v</code> ：BASH的版本信息</li>
+<li><code>\w</code> ：完整的工作目录名称。家目录会以 ~代替</li>
+<li><code>\W</code> ：利用basename取得工作目录名称，所以只会列出最后一个目录</li>
+<li><code>\#</code> ：下达的第几个命令</li>
+<li><code>\$</code> ：提示字符，如果是root时，提示符为：# ，普通用户则为：$</li>
+</ul>
+<p>我们可以通过设置PS1变量使提示符成为彩色。在PS1中设置字符序列颜色的格式为：<br><code>\[\e[F;Bm\]</code><br>其中<code>F</code>为字体颜色，编号30~37；<code>B</code>为背景色，编号40~47。<br>可通过<code>\e[0m</code>关闭颜色输出；特别的，当B为1时，将显示加亮加粗的文字，详细请看下面的颜色表与代码表。</p>
+<h3 id="颜色表"><a href="#颜色表" class="headerlink" title="颜色表"></a>颜色表</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">前景</th>
+<th style="text-align:center">背景</th>
+<th style="text-align:center">颜色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">30</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">黑色</td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td style="text-align:center">41</td>
+<td style="text-align:center">紅色</td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td style="text-align:center">42</td>
+<td style="text-align:center">綠色</td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td style="text-align:center">43</td>
+<td style="text-align:center">黃色</td>
+</tr>
+<tr>
+<td style="text-align:center">34</td>
+<td style="text-align:center">44</td>
+<td style="text-align:center">藍色</td>
+</tr>
+<tr>
+<td style="text-align:center">35</td>
+<td style="text-align:center">45</td>
+<td style="text-align:center">紫紅色</td>
+</tr>
+<tr>
+<td style="text-align:center">36</td>
+<td style="text-align:center">46</td>
+<td style="text-align:center">青藍色</td>
+</tr>
+<tr>
+<td style="text-align:center">37</td>
+<td style="text-align:center">47</td>
+<td style="text-align:center">白色</td>
+</tr>
+</tbody>
+</table>
+<h3 id="代码含义"><a href="#代码含义" class="headerlink" title="代码含义"></a>代码含义</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">代码</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">OFF</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">高亮显示</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">underline</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">闪烁</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">反白显示</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">不可见</td>
+</tr>
+</tbody>
+</table>
+<p>测试了一下6、9，可以只显示颜色，不加上面的效果</p>
+<h2 id="附"><a href="#附" class="headerlink" title="附"></a>附</h2><p>开头的效果<br><br><img src="http://ww4.sinaimg.cn/large/8acb15f3gw1f1xjp3ibqig208z0bfmyd.gif" alt=""></p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/03/15/hello-world/" data-id="cilt1bmfp00006pz6ihui6s3f" class="article-share-link">Share</a>
+        <a data-url="http://yoursite.com/2016/03/15/Shell终端下的命令行设置/" data-id="cilt2b5vj0003brz6v9ouoss7" class="article-share-link">Compartilhar</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-KeyChainParameters" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/15/KeyChainParameters/" class="article-date">
+  <time datetime="2016-03-15T06:43:09.000Z" itemprop="datePublished">2016-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/15/KeyChainParameters/">KeyChainParameters</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="iOSKeyChain相关的参数说明"><a href="#iOSKeyChain相关的参数说明" class="headerlink" title="iOSKeyChain相关的参数说明"></a>iOS<code>KeyChain</code>相关的参数说明</h1><p>-  整理自<a href="http://blog.sina.com.cn/s/blog_7ea0400d0101fksj.html" target="_blank" rel="external">Blog</a></p>
+<ul>
+<li><p>密钥类型键 CFTypeRef kSecClass</p>
+<ul>
+<li>CFTypeRef kSecClassGenericPassword   一般密码<ul>
+<li>对应属性</li>
+<li>kSecAttrAccessible</li>
+<li>kSecAttrAccessGroup</li>
+<li>CFTypeRef kSecAttrCreationDate;      - 创建日期          CFDateRef</li>
+<li>CFTypeRef kSecAttrModificationDate;  - 最后一次修改日期   CFDateRef</li>
+<li>CFTypeRef kSecAttrDescription;       - 描述             CFStringRef</li>
+<li>CFTypeRef kSecAttrComment;           - 注释             CFStringRef</li>
+<li>CFTypeRef kSecAttrCreator;           - 创建者            CFNumberRef(4字符，如’aLXY’)</li>
+<li>CFTypeRef kSecAttrType;              - 类型             CFNumberRef(4字符，如’aTyp’)</li>
+<li>CFTypeRef kSecAttrLabel;             - 标签(给用户看)     CFStringRef</li>
+<li>CFTypeRef kSecAttrIsInvisible;       - 是否隐藏          CFBooleanRef(kCFBooleanTrue,kCFBooleanFalse)</li>
+<li>CFTypeRef kSecAttrIsNegative;        - 是否具有密码       CFBooleanRef(kCFBooleanTrue,kCFBooleanFalse)此项表示当前的item是否只是一个占位项，或者说是只有key没有value。</li>
+<li>CFTypeRef kSecAttrAccount;           - 账户名            CFStringRef</li>
+<li>CFTypeRef kSecAttrService;           - 所具有服务         CFStringRef</li>
+<li>CFTypeRef kSecAttrGeneric;           - 用户自定义内容      CFDataRef</li>
+</ul>
+</li>
+<li>CFTypeRef kSecClassInternetPassword  网络密码<ul>
+<li>对应属性</li>
+<li>kSecAttrAccessible</li>
+<li>kSecAttrAccessGroup</li>
+<li>kSecAttrCreationDate</li>
+<li>kSecAttrModificationDate</li>
+<li>kSecAttrDescription</li>
+<li>kSecAttrComment</li>
+<li>kSecAttrCreator</li>
+<li>kSecAttrType</li>
+<li>kSecAttrLabel</li>
+<li>kSecAttrIsInvisible</li>
+<li>kSecAttrIsNegative</li>
+<li>kSecAttrAccount</li>
+<li>kSecAttrSecurityDomain</li>
+<li>kSecAttrServer</li>
+<li>kSecAttrProtocol</li>
+<li>kSecAttrAuthenticationType</li>
+<li>kSecAttrPort    网络端口           CFNumberRef</li>
+<li>kSecAttrPath</li>
+</ul>
+</li>
+<li>CFTypeRef kSecClassCertificate 证书<ul>
+<li>对应属性</li>
+<li>kSecAttrAccessible</li>
+<li>kSecAttrAccessGroup</li>
+<li>kSecAttrCertificateType        证书类型            CFNumberRef</li>
+<li>kSecAttrCertificateEncoding</li>
+<li>kSecAttrLabel</li>
+<li>kSecAttrSubject   X.500主题名称      CFDataRef</li>
+<li>kSecAttrIssuer    X.500发行者名称     CFDataRef</li>
+<li>kSecAttrSerialNumber        序列号             CFDataRef</li>
+<li>kSecAttrSubjectKeyID        主题ID             CFDataRef</li>
+<li>kSecAttrPublicKeyHash        公钥Hash值         CFDataRef</li>
+</ul>
+</li>
+<li>CFTypeRef kSecClassKey  密钥<ul>
+<li>对应属性</li>
+<li>kSecAttrAccessible</li>
+<li>kSecAttrAccessGroup</li>
+<li>kSecAttrKeyClass</li>
+<li>值<ul>
+<li>CFTypeRef kSecAttrKeyClassPublic;     - 公钥</li>
+<li>CFTypeRef kSecAttrKeyClassPrivate;    - 私钥</li>
+<li>CFTypeRef kSecAttrKeyClassSymmetric;  - 对称密钥</li>
+</ul>
+</li>
+<li>kSecAttrLabel</li>
+<li>kSecAttrApplicationLabel      - 标签(给程序使用)          CFStringRef(通常是公钥的Hash值)</li>
+<li>kSecAttrIsPermanent       - 是否永久保存加密密钥       CFBooleanRef</li>
+<li>kSecAttrApplicationTag    - 标签(私有标签数据)         CFDataRef</li>
+<li>kSecAttrKeyType  - 加密密钥类型(算法)   CFNumberRef<ul>
+<li>值</li>
+<li>extern const CFTypeRef kSecAttrKeyTypeRSA;</li>
+</ul>
+</li>
+<li>CFTypeRef kSecAttrKeySizeInBits;     - 密钥总位数               CFNumberRef</li>
+<li>CFTypeRef kSecAttrEffectiveKeySize;  - 密钥有效位数              CFNumberRef</li>
+<li>CFTypeRef kSecAttrCanEncrypt;        - 密钥是否可用于加密         CFBooleanRef</li>
+<li>CFTypeRef kSecAttrCanDecrypt;        - 密钥是否可用于加密         CFBooleanRef</li>
+<li>CFTypeRef kSecAttrCanDerive;         - 密钥是否可用于导出其他密钥   CFBooleanRef</li>
+<li>CFTypeRef kSecAttrCanSign;           - 密钥是否可用于数字签名      CFBooleanRef</li>
+<li>CFTypeRef kSecAttrCanVerify;         - 密钥是否可用于验证数字签名   CFBooleanRef</li>
+<li>CFTypeRef kSecAttrCanWrap;           - 密钥是否可用于打包其他密钥   CFBooleanRef</li>
+<li>CFTypeRef kSecAttrCanUnwrap;         - 密钥是否可用于解包其他密钥   CFBooleanRef</li>
+<li>CFTypeRef kSecAttrAccessGroup;       - 访问组                   CFStringRef</li>
+</ul>
+</li>
+<li>CFTypeRef kSecClassIdentity                   - 身份证书(带私钥的证书)<ul>
+<li>kSecClassIdentity<ul>
+<li>对应属性</li>
+<li>证书属性</li>
+<li>私钥属性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>属性</p>
+<ul>
+<li>键</li>
+<li>CFTypeRef kSecAttrAccessible;                                        - 可访问性 类型透明<ul>
+<li>值</li>
+<li>CFTypeRef kSecAttrAccessibleWhenUnlocked;                  - 解锁可访问，备份</li>
+<li>CFTypeRef kSecAttrAccessibleAfterFirstUnlock;              - 第一次解锁后可访问，备份</li>
+<li>CFTypeRef kSecAttrAccessibleAlways;                        - 一直可访问，备份</li>
+<li>CFTypeRef kSecAttrAccessibleWhenUnlockedThisDeviceOnly;    - 解锁可访问，不备份</li>
+<li>CFTypeRef kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;- 第一次解锁后可访问，不备份</li>
+<li>CFTypeRef kSecAttrAccessibleAlwaysThisDeviceOnly;          - 一直可访问，不备份</li>
+<li>CFTypeRef kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly</li>
+</ul>
+</li>
+<li>键</li>
+<li>CFTypeRef kSecAttrProtocol;                      - 协议类型 CFNumberRef<ul>
+<li>值</li>
+<li>CFTypeRef kSecAttrProtocolFTP;       </li>
+<li>CFTypeRef kSecAttrProtocolFTPAccount;</li>
+<li>CFTypeRef kSecAttrProtocolHTTP;      </li>
+<li>CFTypeRef kSecAttrProtocolIRC;       </li>
+<li>CFTypeRef kSecAttrProtocolNNTP;      </li>
+<li>CFTypeRef kSecAttrProtocolPOP3;      </li>
+<li>CFTypeRef kSecAttrProtocolSMTP;      </li>
+<li>CFTypeRef kSecAttrProtocolSOCKS;     </li>
+<li>CFTypeRef kSecAttrProtocolIMAP;      </li>
+<li>CFTypeRef kSecAttrProtocolLDAP;      </li>
+<li>CFTypeRef kSecAttrProtocolAppleTalk; </li>
+<li>CFTypeRef kSecAttrProtocolAFP;       </li>
+<li>CFTypeRef kSecAttrProtocolTelnet;    </li>
+<li>CFTypeRef kSecAttrProtocolSSH;       </li>
+<li>CFTypeRef kSecAttrProtocolFTPS;      </li>
+<li>CFTypeRef kSecAttrProtocolHTTPS;     </li>
+<li>CFTypeRef kSecAttrProtocolHTTPProxy; </li>
+<li>CFTypeRef kSecAttrProtocolHTTPSProxy;</li>
+<li>CFTypeRef kSecAttrProtocolFTPProxy;  </li>
+<li>CFTypeRef kSecAttrProtocolSMB;       </li>
+<li>CFTypeRef kSecAttrProtocolRTSP;      </li>
+<li>CFTypeRef kSecAttrProtocolRTSPProxy; </li>
+<li>CFTypeRef kSecAttrProtocolDAAP;      </li>
+<li>CFTypeRef kSecAttrProtocolEPPC;      </li>
+<li>CFTypeRef kSecAttrProtocolIPP;       </li>
+<li>CFTypeRef kSecAttrProtocolNNTPS;     </li>
+<li>CFTypeRef kSecAttrProtocolLDAPS;     </li>
+<li>CFTypeRef kSecAttrProtocolTelnetS;   </li>
+<li>CFTypeRef kSecAttrProtocolIMAPS;     </li>
+<li>CFTypeRef kSecAttrProtocolIRCS;      </li>
+<li>CFTypeRef kSecAttrProtocolPOP3S;     </li>
+</ul>
+</li>
+<li>键</li>
+<li>CFTypeRef kSecAttrAuthenticationType;                      - 认证类型 CFNumberRef<ul>
+<li>值</li>
+<li>CFTypeRef kSecAttrAuthenticationTypeNTLM;       </li>
+<li>CFTypeRef kSecAttrAuthenticationTypeMSN;        </li>
+<li>CFTypeRef kSecAttrAuthenticationTypeDPA;        </li>
+<li>CFTypeRef kSecAttrAuthenticationTypeRPA;        </li>
+<li>CFTypeRef kSecAttrAuthenticationTypeHTTPBasic;  </li>
+<li>CFTypeRef kSecAttrAuthenticationTypeHTTPDigest; </li>
+<li>CFTypeRef kSecAttrAuthenticationTypeHTMLForm;   </li>
+<li>CFTypeRef kSecAttrAuthenticationTypeDefault;    </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>搜索</p>
+<ul>
+<li>CFTypeRef kSecMatchPolicy;                 - 指定策略            SecPolicyRef</li>
+<li>CFTypeRef kSecMatchItemList;               - 指定搜索范围         CFArrayRef(SecKeychainItemRef, SecKeyRef, SecCertificateRef, SecIdentityRef,CFDataRef)数组内的类型必须唯一。仍然会搜索钥匙串，但是搜索结果需要与该数组取交集作为最终结果。</li>
+<li>CFTypeRef kSecMatchSearchList;             - </li>
+<li>CFTypeRef kSecMatchIssuers;                - 指定发行人数组       CFArrayRef</li>
+<li>CFTypeRef kSecMatchEmailAddressIfPresent;  - 指定邮件地址         CFStringRef</li>
+<li>CFTypeRef kSecMatchSubjectContains;        - 指定主题            CFStringRef</li>
+<li>CFTypeRef kSecMatchCaseInsensitive;        - 指定是否不区分大小写  CFBooleanRef(kCFBooleanFalse或不提供此参数,区分大小写;kCFBooleanTrue,不区分大小写)</li>
+<li>CFTypeRef kSecMatchTrustedOnly;            - 指定只搜索可信证书    CFBooleanRef(kCFBooleanFalse或不提供此参数,全部证书;kCFBooleanTrue,只搜索可信证书)</li>
+<li>CFTypeRef kSecMatchValidOnDate;            - 指定有效日期         CFDateRef(kCFNull表示今天)</li>
+<li>CFTypeRef kSecMatchLimit;                  - 指定结果数量         CFNumberRef(kSecMatchLimitOne;kSecMatchLimitAll)</li>
+<li>CFTypeRef kSecMatchLimitOne;               - 首条结果</li>
+<li>CFTypeRef kSecMatchLimitAll;               - 全部结果</li>
+</ul>
+</li>
+<li><p>列表</p>
+<ul>
+<li>CFTypeRef kSecUseItemList;   - CFArrayRef(SecKeychainItemRef, SecKeyRef, SecCertificateRef, SecIdentityRef,CFDataRef)数组内的类型必须唯一。用户提供用于查询的列表。当这个列表被提供的时候，不会再搜索钥匙串。</li>
+</ul>
+</li>
+<li><p>返回值类型</p>
+<ul>
+<li>可以同时指定多种返回值类型</li>
+<li>CFTypeRef kSecReturnData;           - 返回数据(CFDataRef)                  CFBooleanRef</li>
+<li>CFTypeRef kSecReturnAttributes;     - 返回属性字典(CFDictionaryRef)         CFBooleanRef</li>
+<li>CFTypeRef kSecReturnRef;            - 返回实例(SecKeychainItemRef, SecKeyRef, SecCertificateRef, SecIdentityRef, or CFDataRef)         CFBooleanRef</li>
+<li>CFTypeRef kSecReturnPersistentRef;  - 返回持久型实例(CFDataRef)             CFBooleanRef</li>
+</ul>
+</li>
+<li><p>写入值类型</p>
+<ul>
+<li>CFTypeRef kSecValueData;</li>
+<li>CFTypeRef kSecValueRef;</li>
+<li>CFTypeRef kSecValuePersistentRef;</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/03/15/KeyChainParameters/" data-id="cilt2b5vd0001brz6eifw3n4s" class="article-share-link">Compartilhar</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-TouchID登陆" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/15/TouchID登陆/" class="article-date">
+  <time datetime="2016-03-15T06:32:43.000Z" itemprop="datePublished">2016-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/15/TouchID登陆/">TouchID登陆</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="点击这里：KeyChain-and-TouchID-Demo"><a href="#点击这里：KeyChain-and-TouchID-Demo" class="headerlink" title="点击这里：KeyChain and TouchID Demo"></a><a href="https://github.com/JyHu/TouchIDAndKeyChain.git" target="_blank" rel="external">点击这里：KeyChain and TouchID Demo</a></h2><p><img src="http://ww4.sinaimg.cn/large/8acb15f3gw1f1xjjux1iwj20hs0vkaan.jpg" width="320" height="568"></p>
+<p>首先需要引入一个库<code>#import &lt;LocalAuthentication/LAContext.h&gt;</code>，官方的一个用于TouchID安全验证登陆的<code>Framework</code>，首先需要验证是否支持TouchID登陆：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 判断是否支持TouchID登陆</span><br><span class="line">- (BOOL)canEvaluatePolicy</span><br><span class="line">&#123;</span><br><span class="line">    LAContext *context = [[LAContext alloc] init];</span><br><span class="line">    NSError *error;</span><br><span class="line">    return [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:&amp;error];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果不支持的话，就需要走自己APP中得密码验证方法来进行验证登陆；<br>如果支持的话，就调起TouchID验证的页面：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">- (void)evaluatePolicy</span><br><span class="line">&#123;</span><br><span class="line">    LAContext *context = [[LAContext alloc] init];</span><br><span class="line">    [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:@&quot;使用TouchID进入APP首页&quot; reply:^(BOOL success, NSError * _Nullable error) &#123;</span><br><span class="line">        dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">            if (success) &#123;</span><br><span class="line">                // ...</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                // ...</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote>
+<p><code>reply</code>这个block中得代码是在异步线程中执行的，如果有需要的话，必须得抛到主线程中去执行一些东西。</p>
+<p>TouchID的失败次数是有限制的，从开始算，如果失败了三次，系统就会自动的退出TouchID的验证界面，并在<code>reply</code>block中返回失败的信息，这时还可以调起TouchID的验证，此时如果失败两次即会退出验证界面。<br>在这种情况下，如果还想用TouchID验证，则必须输入手机的登陆密码才能继续验证。<br>需要注意的是，这个失败的次数在iOS设备中所有的APP是累加起来的。</p>
+</blockquote>
+<h1 id="KeyChain"><a href="#KeyChain" class="headerlink" title="KeyChain"></a><code>KeyChain</code></h1><p><code>keychain</code>是作为苹果中对于数据安全存储的一个地方，类似于<code>NSUserDefaults</code>，但又不同于<code>NSUserDefaults</code>。</p>
+<p>对于<code>keychain</code>来说，需要注意的方法有以下四个：</p>
+<ul>
+<li><code>SecItemAdd</code></li>
+<li><code>SecItemUpdate</code></li>
+<li><code>SecItemCopyMatching</code></li>
+<li><code>SecItemDelete</code></li>
+</ul>
+<h2 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h2><blockquote>
+<p>在使用的时候<strong>一定</strong>要注意<code>KeyChain</code>操作的返回值。</p>
+</blockquote>
+<p><code>KeyChain</code>操作中得一些参数的设定(<a href="https://github.com/JyHu/MDDocuments/blob/master/2016/03/KeyChainParameters.md" target="_blank" rel="external">一些相关参数的说明</a>)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (NSMutableDictionary *)getKeychainQueryWithService:(NSString *)service</span><br><span class="line">&#123;</span><br><span class="line">    NSMutableDictionary *query = [NSMutableDictionary dictionaryWithObjectsAndKeys:</span><br><span class="line">                (__bridge id)kSecClassGenericPassword, (__bridge id)kSecClass,</span><br><span class="line">                service, (__bridge id)kSecAttrService,</span><br><span class="line">                service, (__bridge id)kSecAttrAccount,</span><br><span class="line">                (__bridge id)kSecAttrAccessibleAfterFirstUnlock, (__bridge id)kSecAttrAccessible,</span><br><span class="line">            nil];</span><br><span class="line">    if (self.accessGroupName != nil) &#123;</span><br><span class="line">        [query setObject:self.accessGroupName forKey:(__bridge id)kSecAttrAccessGroup];</span><br><span class="line">    &#125;</span><br><span class="line">    return query;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="SecItemAdd"><a href="#SecItemAdd" class="headerlink" title="SecItemAdd"></a><code>SecItemAdd</code></h2><p>用于将个人数据条目保存到<code>keychain</code>中。</p>
+<ul>
+<li>方法原型：<code>OSStatus SecItemAdd(CFDictionaryRef attributes, CFTypeRef * result);</code><ul>
+<li><code>attributes</code> : 添加属性的设置。</li>
+<li><code>result</code> : 可以用与获取返回值，<code>&amp;res</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (OSStatus)saveObject:(id)object forService:(NSString *)service &#123;</span><br><span class="line">    NSMutableDictionary *keychainQuery = [self getKeychainQueryWithService:service];</span><br><span class="line">    // 需要检查数据的存在性，如果存在的话，就用SecItemUpdate更新，否则就添加</span><br><span class="line">    [keychainQuery setObject:[NSKeyedArchiver archivedDataWithRootObject:object] forKey:(__bridge id)kSecValueData];</span><br><span class="line">    return SecItemAdd((__bridge CFDictionaryRef)keychainQuery, NULL);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="SecItemUpdate"><a href="#SecItemUpdate" class="headerlink" title="SecItemUpdate"></a><code>SecItemUpdate</code></h2><p>用于更新<code>KeyChain</code>中保存的数据。</p>
+<ul>
+<li>方法原型：<code>OSStatus SecItemUpdate(CFDictionaryRef query, CFDictionaryRef attributesToUpdate);</code><ul>
+<li><code>query</code> : 查找属性的设置</li>
+<li><code>attributesToUpdate</code> : 要更新的数据</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (OSStatus)updateService:(NSString *)service withObject:(id)object</span><br><span class="line">&#123;</span><br><span class="line">    NSDictionary *keychainQuery = [self getKeychainQueryWithService:service];</span><br><span class="line">    NSDictionary *changes = @&#123;</span><br><span class="line">                              (__bridge id)kSecValueData : [NSKeyedArchiver archivedDataWithRootObject:object]</span><br><span class="line">                              &#125;;</span><br><span class="line">    return SecItemUpdate((__bridge CFDictionaryRef)keychainQuery, (__bridge CFDictionaryRef)changes);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="SecItemCopyMatching"><a href="#SecItemCopyMatching" class="headerlink" title="SecItemCopyMatching"></a><code>SecItemCopyMatching</code></h2><p>用于获取保存在<code>KeyChain</code>中得数据。</p>
+<ul>
+<li>方法原型：<code>OSStatus SecItemCopyMatching(CFDictionaryRef query, CFTypeRef * result);</code><ul>
+<li><code>query</code> : 保存在<code>KeyChain</code>中得数据信息。</li>
+<li><code>result</code> : 从<code>KeyChain</code>中取得的数据。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">- (id)loadObjectForService:(NSString *)service &#123;</span><br><span class="line">    NSMutableDictionary *keychainQuery = [self getKeychainQueryWithService:service];</span><br><span class="line">    [keychainQuery setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];</span><br><span class="line">    [keychainQuery setObject:(__bridge id)kSecMatchLimitAll forKey:(__bridge id)kSecMatchLimit];</span><br><span class="line">    CFDataRef dataRef = NULL;</span><br><span class="line">    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)keychainQuery, (CFTypeRef *)&amp;dataRef);</span><br><span class="line">    id results = nil;</span><br><span class="line">    if (status == errSecSuccess) &#123;</span><br><span class="line">        @try &#123;</span><br><span class="line">            results = [NSKeyedUnarchiver unarchiveObjectWithData:(__bridge NSData *)dataRef];</span><br><span class="line">        &#125;</span><br><span class="line">        @catch (NSException *exception) &#123;</span><br><span class="line">            NSLog(@&quot;%@&quot;, exception);</span><br><span class="line">        &#125;</span><br><span class="line">        @finally &#123;</span><br><span class="line">            NSLog(@&quot;finally&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    if (dataRef) &#123;</span><br><span class="line">        CFRelease(dataRef);</span><br><span class="line">    &#125;</span><br><span class="line">    return results;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="SecItemDelete"><a href="#SecItemDelete" class="headerlink" title="SecItemDelete"></a><code>SecItemDelete</code></h2><p>用于删除保存在<code>KeyChain</code>中得数据。</p>
+<ul>
+<li>方法原型:<code>OSStatus SecItemDelete(CFDictionaryRef query)</code><ul>
+<li><code>query</code>:要删除的数据的信息。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)delete:(NSString *)service &#123;</span><br><span class="line">    NSMutableDictionary *keychainQuery = [self getKeychainQueryWithService:service];</span><br><span class="line">    SecItemDelete((__bridge CFDictionaryRef)keychainQuery);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="附"><a href="#附" class="headerlink" title="附:"></a>附:</h1><h2 id="OSStatus状态码"><a href="#OSStatus状态码" class="headerlink" title="OSStatus状态码"></a><code>OSStatus</code>状态码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">CF_ENUM(OSStatus)</span><br><span class="line">&#123;</span><br><span class="line">    errSecSuccess                               = 0,       /* No error. */</span><br><span class="line">    errSecUnimplemented                         = -4,      /* Function or operation not implemented. */</span><br><span class="line">    errSecIO                                    = -36,     /*I/O error (bummers)*/</span><br><span class="line">    errSecOpWr                                  = -49,     /*file already open with with write permission*/</span><br><span class="line">    errSecParam                                 = -50,     /* One or more parameters passed to a function where not valid. */</span><br><span class="line">    errSecAllocate                              = -108,    /* Failed to allocate memory. */</span><br><span class="line">    errSecUserCanceled                          = -128,    /* User canceled the operation. */</span><br><span class="line">    errSecBadReq                                = -909,    /* Bad parameter or invalid state for operation. */</span><br><span class="line">    errSecInternalComponent                     = -2070,</span><br><span class="line">    errSecNotAvailable                          = -25291,  /* No keychain is available. You may need to restart your computer. */</span><br><span class="line">    errSecDuplicateItem                         = -25299,  /* The specified item already exists in the keychain. */</span><br><span class="line">    errSecItemNotFound                          = -25300,  /* The specified item could not be found in the keychain. */</span><br><span class="line">    errSecInteractionNotAllowed                 = -25308,  /* User interaction is not allowed. */</span><br><span class="line">    errSecDecode                                = -26275,  /* Unable to decode the provided data. */</span><br><span class="line">    errSecAuthFailed                            = -25293,  /* The user name or passphrase you entered is not correct. */</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/03/15/TouchID登陆/" data-id="cilt2b5vh0002brz6ekqjydjo" class="article-share-link">Compartilhar</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-GitHu-Hexo创建基于Git的博客" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/15/GitHu-Hexo创建基于Git的博客/" class="article-date">
+  <time datetime="2016-03-15T06:29:24.000Z" itemprop="datePublished">2016-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/15/GitHu-Hexo创建基于Git的博客/">GitHu+Hexo创建基于Git的博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#GitHub + Hexo 创建自己的静态博客</p>
+<h2 id="一、创建GitHub项目"><a href="#一、创建GitHub项目" class="headerlink" title="一、创建GitHub项目"></a>一、创建GitHub项目</h2><ol>
+<li>到<code>https://github.com</code>创建一个自己的账号；</li>
+<li>创建一个用于放置Blog内容的Repository(代码仓库)，Repository名为 <code>&lt;username&gt;.github.io</code>；</li>
+<li>在本地新建一个文件夹，并把创建好的Repository Clone到本地目录下；</li>
+<li>CD到项目的根目录下，创建一个测试用的html文件：<code>printf &quot;&lt;h1&gt;Testing page&lt;h1&gt; It works.\n&quot; &gt; index.html</code></li>
+<li>push到master分支，然后再浏览器中浏览测试的网页 <code>&lt;username&gt;.github.io</code>，如果出现刚才新建的页面就说明成功了；</li>
+<li>清空刚才的测试文件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm -rf .</span><br><span class="line">git commit -a -m &quot;modify&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="二、安装Hexo"><a href="#二、安装Hexo" class="headerlink" title="二、安装Hexo"></a>二、安装<code>Hexo</code></h2><ol>
+<li>检查有没有安装<code>npm</code>，<code>npm -v</code>，如果出现版本信息的话，就OK，直接第6步</li>
+<li>检查有没有<code>port</code>，<code>port -v</code>，如果出现了版本信息的话，就OK，直接第5步</li>
+<li>去<code>http://www.macports.org/</code>下载安装Mac版的<code>MacPort</code></li>
+<li>重启终端，使用<code>port -v</code>查看<code>port</code>的版本是否可用。如果出现版本信息的话，就OK。</li>
+<li>使用<code>sudo port -d sync</code>来更新<code>MacPort</code>套件，可能会出现一堆<code>sources.conf</code>的错误，解决方法是修改<code>/opt/local/etc/macports/sources.conf</code>文件的最后几行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//rsync://rsync.macports.org/release/tarballs/ports.tar [default]</span><br><span class="line">#rsync://rsync.macports.org/release/ports/ [default]</span><br><span class="line">http://www.macports.org/files/ports.tar.gz [default]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>6.  然后使用<code>sudo port install -g npm</code>就能安装<code>npm</code>套件及<code>NodeJS</code>相关组件</p>
+<h2 id="三、使用Hexo创建、管理Blog"><a href="#三、使用Hexo创建、管理Blog" class="headerlink" title="三、使用Hexo创建、管理Blog"></a>三、使用<code>Hexo</code>创建、管理Blog</h2><ol>
+<li>新建一个文件夹<code>mkdir hexoBlog</code></li>
+<li>创建一个hexo Blog : <code>hexo init</code>进行初始化</li>
+<li><code>hexo server</code> 可以用来调试，在本地浏览器打开 <code>http://localhost:4000</code>可以调试本地的静态页面</li>
+<li>创建一个静态文章页面，<code>hexo new &quot;post name&quot;</code>，会创建到<code>/hexo/source/_posts</code>目录下</li>
+<li><code>hexo generate</code>生成一系列的CSS、HTML等内容</li>
+<li>打开<code>_config.yml</code>配置文件，修改最后：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:&lt;username&gt;/&lt;username&gt;.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>注意：</strong>每个冒号后面必须有一个空格，不然会出现语法错误。<br><br>然后打开电脑的SSH：系统偏好设置–&gt;共享–&gt;远程登录<br><br><code>npm install hexo -deployer -git --save</code><br><br><code>hexo g</code><br><br><code>hexo d</code>  部署到github上page页面。</p>
+<h2 id="四、Hexo操作及美化"><a href="#四、Hexo操作及美化" class="headerlink" title="四、Hexo操作及美化"></a>四、<code>Hexo</code>操作及美化</h2><p><a href="http://www.tuicool.com/articles/AfQnQjy/" target="_blank" rel="external">一些操作和美化的方法</a></p>
+<h2 id="五、多平台操作"><a href="#五、多平台操作" class="headerlink" title="五、多平台操作"></a>五、多平台操作</h2><p>如果你有多台电脑，那么你就可能在多台设备上进行Blog内容的更新，对于Hexo来说，你就需要将你创建的Hexo目录在你的多个电脑上进行共享使用，然后才能进行Blog内容的更新。<br><br>可以使用iCloud、百度云、Google Driver、Dropbox等进行内容的同步。<br><br>下面还有一篇用<code>Dropbox</code>同步的教程：<a href="http://lucifr.com/2013/06/02/hexo-on-cloud-with-dropbox-and-vps/" target="_blank" rel="external">教程</a></p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>遇到的问题及解决的渠道</p>
+<p><a href="http://www.cnblogs.com/8586/archive/2012/12/02/2797911.html" target="_blank" rel="external">MacPort update</a><br><br><a href="https://github.com/nodejs-tw/nodejs-wiki-book/blob/master/zh-tw/node_npm.rst" target="_blank" rel="external">npm install</a><br><br><a href="http://zhidao.baidu.com/link?url=5-PHhRLedH74rZJ-H07LzLKaAU2jyj8_oFbvzOfnJ9NNl4VXausjsrRIxAA_lCamKSCwV49tiPGuCLoqzf_4svIl6JMkmCwSX90gh2-jMoS" target="_blank" rel="external">hexo deploy</a><br><br><a href="http://blog.csdn.net/martin_liang/article/details/4002006" target="_blank" rel="external">SSH open share</a><br></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/03/15/GitHu-Hexo创建基于Git的博客/" data-id="cilt2b5v80000brz6rc7abgjv" class="article-share-link">Compartilhar</a>
       
 
       
