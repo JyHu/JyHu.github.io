@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>iOS7以后的富文本 | Joyous&#39;s Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x5728;iOS7&amp;#x4EE5;&amp;#x524D;&amp;#x5982;&amp;#x679C;&amp;#x60F3;&amp;#x8981;&amp;#x505A;&amp;#x5BCC;&amp;#x6587;&amp;#x672C;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x5230;CoreText&amp;#x8BF8;&amp;#x5982;&amp;#x6B64;&amp;#x7C7B;&amp;#x7684;framework&amp;#x548C;&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS7以后的富文本">
+<meta property="og:url" content="https://github.com/JyHu/2016/03/22/iOS7以后的富文本/index.html">
+<meta property="og:site_name" content="Joyous's Home">
+<meta property="og:description" content="&amp;#x5728;iOS7&amp;#x4EE5;&amp;#x524D;&amp;#x5982;&amp;#x679C;&amp;#x60F3;&amp;#x8981;&amp;#x505A;&amp;#x5BCC;&amp;#x6587;&amp;#x672C;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x5230;CoreText&amp;#x8BF8;&amp;#x5982;&amp;#x6B64;&amp;#x7C7B;&amp;#x7684;framework&amp;#x548C;&amp;#x">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/8acb15f3gw1f25sguu83cj20af062mx9.jpg">
+<meta property="og:updated_time" content="2016-03-23T02:52:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS7以后的富文本">
+<meta name="twitter:description" content="&amp;#x5728;iOS7&amp;#x4EE5;&amp;#x524D;&amp;#x5982;&amp;#x679C;&amp;#x60F3;&amp;#x8981;&amp;#x505A;&amp;#x5BCC;&amp;#x6587;&amp;#x672C;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x5230;CoreText&amp;#x8BF8;&amp;#x5982;&amp;#x6B64;&amp;#x7C7B;&amp;#x7684;framework&amp;#x548C;&amp;#x">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/8acb15f3gw1f25sguu83cj20af062mx9.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Joyous&#39;s Home" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://ww4.sinaimg.cn/large/8acb15f3jw1f23fmmzow2j20hs0hsmxh.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Joyous&#39;s Home</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/iOS">iOS</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/JyHu" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/210127055" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/KeyChain/" style="font-size: 10px;">KeyChain</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/TouchID/" style="font-size: 10px;">TouchID</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">低头不是认输,是要看清自己的路。仰头不是骄傲,是要看见自己的天空。So，我就是我，不一样的烟火。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Joyous&#39;s Home</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://ww4.sinaimg.cn/large/8acb15f3jw1f23fmmzow2j20hs0hsmxh.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Joyous&#39;s Home</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/iOS">iOS</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/JyHu" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/210127055" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-iOS7以后的富文本" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/22/iOS7以后的富文本/" class="article-date">
+  	<time datetime="2016-03-22T09:52:07.000Z" itemprop="datePublished">2016-03-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS7以后的富文本
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NSAttributedString/">NSAttributedString</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x5728;iOS7&#x4EE5;&#x524D;&#x5982;&#x679C;&#x60F3;&#x8981;&#x505A;&#x5BCC;&#x6587;&#x672C;&#xFF0C;&#x9700;&#x8981;&#x7528;&#x5230;<code>CoreText</code>&#x8BF8;&#x5982;&#x6B64;&#x7C7B;&#x7684;<code>framework</code>&#x548C;&#x53D6;&#x5DE7;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x662F;&#x4E00;&#x4EF6;&#x5F88;&#x8D39;&#x52B2;&#x7684;&#x4E8B;&#xFF0C;&#x867D;&#x7136;&#x6709;&#x5F88;&#x591A;&#x5C01;&#x88C5;&#x597D;&#x7684;&#x7C7B;&#x5E93;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E;&#x522B;&#x4EBA;&#x5C01;&#x88C5;&#x7684;&#x5F88;&#x9F50;&#x5168;&#xFF0C;&#x6211;&#x4EEC;&#x7528;&#x5230;&#x7684;&#x53C8;&#x53EA;&#x662F;&#x5176;&#x4E2D;&#x5F88;&#x5C11;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x8FD9;&#x5C31;&#x9020;&#x6210;&#x4E86;&#x4EE3;&#x7801;&#x7684;&#x5197;&#x4F59;&#x3002;<br>&#x5728;iOS7&#x4EE5;&#x540E;&#x82F9;&#x679C;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;<code>&lt;TextKit&gt;</code>&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x79CD;&#x9EBB;&#x70E6;&#x4E8B;&#xFF0C;&#x4E0D;&#x8FC7;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E00;&#x822C;&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x6765;&#x8BF4;&#x7684;&#x8BDD;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#x5C31;&#x591F;&#x7528;&#x4E86;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x6765;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<ul>
+<li>&#x9996;&#x5148;&#x5728;&#x8BD5;&#x56FE;&#x63A7;&#x5236;&#x5668;&#x4E0A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;TextView(&#x5F53;&#x7136;UITextField&#x3001;UILabel&#x4E5F;&#x884C;)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">self.textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 200)];</span><br><span class="line">self.textView.delegate = self;</span><br><span class="line">self.textView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.2];</span><br><span class="line">self.textView.editable = NO;</span><br><span class="line">[self.view addSubview:self.textView];</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>&#x7136;&#x540E;&#x518D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x56FE;&#x7247;&#x7684;&#x5BCC;&#x6587;&#x672C;</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (NSAttributedString *)attachmentStringWithImage:(UIImage *)image</span><br><span class="line">{</span><br><span class="line">    NSData *data = UIImageJPEGRepresentation(image, 1.0);</span><br><span class="line">    NSTextAttachment *imageAttachment = [[NSTextAttachment alloc] initWithData:data ofType:@&quot;png&quot;];</span><br><span class="line">    imageAttachment.image = image;</span><br><span class="line">    imageAttachment.bounds = CGRectMake(0, 0, 64, 64);</span><br><span class="line">    NSAttributedString *attachAttributeString = [NSAttributedString attributedStringWithAttachment:imageAttachment];</span><br><span class="line">    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithAttributedString:attachAttributeString];</span><br><span class="line">    [attributeString addAttribute:NSLinkAttributeName value:[NSURL URLWithString:@&quot;http://www.baidu.com&quot;] range:NSMakeRange(0, attributeString.length)];</span><br><span class="line">    </span><br><span class="line">    return attributeString;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<ul>
+<li>&#x6700;&#x540E;&#x5C06;&#x56FE;&#x7247;&#x5BCC;&#x6587;&#x672C;&#x548C;&#x6587;&#x5B57;&#x878D;&#x5408;&#x5728;&#x4E00;&#x8D77;</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (NSAttributedString *)generateTestAttributeString</span><br><span class="line">{</span><br><span class="line">    NSString *imgTagString = @&quot;[img]&quot;;</span><br><span class="line">    NSString *oriString = @&quot;&#x6211;&#x662F;&#x7528;&#x6765;&#x6D4B;&#x8BD5;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4E0B;&#x9762;&#x63D2;&#x64AD;&#x4E00;&#x4E2A;&#x56FE;&#x7247;&#xFF1A;[img]\n&#x56FE;&#x7247;&#x8FC7;&#x540E;&#x53C8;&#x662F;&#x4E00;&#x6BB5;&#x6587;&#x5B57;&quot;;</span><br><span class="line">    NSAttributedString *imageAttributeString = [self attachmentStringWithImage:[UIImage imageNamed:@&quot;icon&quot;]];</span><br><span class="line">    NSMutableAttributedString *attribteString = [[NSMutableAttributedString alloc] initWithString:oriString];</span><br><span class="line">    [attribteString replaceCharactersInRange:[oriString rangeOfString:imgTagString] withAttributedString:imageAttributeString];</span><br><span class="line">    return attribteString;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x8981;&#x60F3;&#x5B9E;&#x73B0;&#x8D85;&#x94FE;&#x63A5;&#x70B9;&#x51FB;&#x8DF3;&#x8F6C;&#xFF0C;&#x9700;&#x8981;&#x5B9E;&#x73B0;<code>UITextView</code>&#x7684;&#x4E00;&#x4E2A;&#x534F;&#x8BAE;&#x65B9;&#x6CD5;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange</span><br><span class="line">{</span><br><span class="line">    NSLog(@&quot;%@&quot;, [URL absoluteString]);</span><br><span class="line">    return YES;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x4E0B;&#x9762;&#x6765;&#x6D4B;&#x8BD5;&#x4E00;&#x4E0B;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.textView.attributedText = [self generateTestAttributeString];</span><br></pre></td></tr></table></figure></p>
+<p>&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF0C;&#x70B9;&#x51FB;&#x56FE;&#x7247;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x8DF3;&#x8F6C;&#x5230;Safari&#x4E2D;&#x5E76;&#x6253;&#x5F00;&#x767E;&#x5EA6;&#xFF1A;<br><img src="http://ww2.sinaimg.cn/large/8acb15f3gw1f25sguu83cj20af062mx9.jpg" alt=""></p>
+<hr>
+<h2 id="&#x4E00;&#x3001;NSTextAttachment&#x6587;&#x672C;&#x9644;&#x4EF6;&#xFF0C;NS-CLASS-AVAILABLE-10-0-7-0"><a href="#&#x4E00;&#x3001;NSTextAttachment&#x6587;&#x672C;&#x9644;&#x4EF6;&#xFF0C;NS-CLASS-AVAILABLE-10-0-7-0" class="headerlink" title="&#x4E00;&#x3001;NSTextAttachment&#x6587;&#x672C;&#x9644;&#x4EF6;&#xFF0C;NS_CLASS_AVAILABLE(10_0, 7_0)"></a><strong>&#x4E00;&#x3001;<code>NSTextAttachment</code>&#x6587;&#x672C;&#x9644;&#x4EF6;&#xFF0C;<code>NS_CLASS_AVAILABLE(10_0, 7_0)</code></strong></h2><h3 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h3><p>&#x5728;&#x5236;&#x4F5C;&#x5BCC;&#x6587;&#x672C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F7F;&#x7528;<code>NSTextAttachment</code>&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x9644;&#x4EF6;&#x5BF9;&#x8C61;&#xFF0C;&#x6DFB;&#x52A0;&#x5230;&#x5BCC;&#x6587;&#x672C;&#x4E2D;&#x3002;<br>&#x5B83;&#x6574;&#x4E2A;&#x7C7B;&#x90FD;&#x6CA1;&#x591A;&#x5C11;&#x4E1C;&#x897F;&#x3002;</p>
+<ul>
+<li><code>contents(NSData*)</code> &#x9644;&#x4EF6;&#x5185;&#x5BB9;&#xFF0C;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#x5C31;&#x662F;&#x8981;&#x6DFB;&#x52A0;&#x7684;&#x56FE;&#x7247;&#x6570;&#x636E;&#x3002;</li>
+<li><code>fileType(NSString*)</code> &#x9644;&#x4EF6;&#x7684;&#x7C7B;&#x578B;&#xFF0C;png&#x3001;jpg&#x7B49;</li>
+<li><code>image(UIImage*)</code> &#x8981;&#x5E03;&#x5C40;&#x5230;&#x5BCC;&#x6587;&#x672C;&#x4E2D;&#x7684;&#x56FE;&#x7247;</li>
+<li><code>bounds(CGRect)</code> &#x56FE;&#x7247;&#x5728;&#x5BCC;&#x6587;&#x672C;&#x4E2D;&#x5F97;&#x4F4D;&#x7F6E;&#xFF0C;&#x4E00;&#x822C;&#x6765;&#x8BF4;point&#x4F1A;&#x7528;&#x4E8E;&#x56FE;&#x7247;&#x4F4D;&#x7F6E;&#x7684;&#x504F;&#x79FB;&#xFF0C;&#x800C;size&#x5219;&#x662F;&#x91CD;&#x8981;&#x7684;&#x51B3;&#x5B9A;&#x56FE;&#x7247;&#x7684;&#x5927;&#x5C0F;</li>
+<li><code>- (instancetype)initWithData:(nullable NSData *)contentData ofType:(nullable NSString *)uti</code><br>&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF0C;&#x5F53;&#x7136;&#x4E5F;&#x80FD;&#x4F7F;&#x7528;&#x7236;&#x7C7B;<code>NSObject</code>&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x6240;&#x5BF9;&#x5E94;&#x7684;&#x53C2;&#x6570;&#x5728;&#x4E0A;&#x9762;&#x90FD;&#x6709;&#x8BF4;&#x660E;&#x3002;</li>
+<li><code>NSFileWrapper(NSFileWrapper*)</code> &#x5982;&#x679C;&#x9644;&#x4EF6;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x4E0D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x56FE;&#x7247;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x52A0;&#x8F7D;&#x672C;&#x5730;&#x7684;&#x8D44;&#x6E90;&#x3002;</li>
+</ul>
+<h3 id="&#x4F7F;&#x7528;"><a href="#&#x4F7F;&#x7528;" class="headerlink" title="&#x4F7F;&#x7528;"></a>&#x4F7F;&#x7528;</h3><p><code>NSTextAttachment</code>&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x5728;&#x4E0A;&#x9762;&#x5DF2;&#x7ECF;&#x6709;&#x4E86;&#x5B9E;&#x4F8B;&#x4E86;&#x3002;<br>&#x770B;&#x82F9;&#x679C;&#x5B98;&#x65B9;&#x7684;SDK&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x5B83;&#x5B9E;&#x73B0;&#x4E86;<code>NSTextAttachmentContainer</code>&#x534F;&#x8BAE;&#xFF0C;&#x8FD9;&#x5C31;&#x8BF4;&#x80FD;&#x8BA9;&#x6211;&#x4EEC;&#x6309;&#x522B;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x4F7F;&#x7528;&#x5B83;&#x3002;<br>&#x4F8B;&#x5982;&#xFF0C;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x7EE7;&#x627F;&#x81EA;<code>NSTextAttachment</code>&#xFF0C;&#x7136;&#x540E;&#x5B9E;&#x73B0;&#x4EE3;&#x7406;&#x65B9;&#x6CD5;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@implementation AUUTextAttachment</span><br><span class="line">- (CGRect)attachmentBoundsForTextContainer:(NSTextContainer *)textContainer proposedLineFragment:(CGRect)lineFrag glyphPosition:(CGPoint)position characterIndex:(NSUInteger)charIndex</span><br><span class="line">{</span><br><span class="line">    return CGRectMake(0, 0, 64, 64);</span><br><span class="line">}</span><br><span class="line">- (UIImage *)imageForBounds:(CGRect)imageBounds textContainer:(NSTextContainer *)textContainer characterIndex:(NSUInteger)charIndex</span><br><span class="line">{</span><br><span class="line">    return [UIImage imageNamed:@&quot;icon&quot;];</span><br><span class="line">}</span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
+<p>&#x5176;&#x4E2D;&#x65B9;&#x6CD5;&#x4E00;&#xFF0C;&#x8FD4;&#x56DE;<code>NSTextAttachment</code>&#x6240;&#x5728;&#x4F4D;&#x7F6E;&#x7684;<code>bounds</code><br>&#x65B9;&#x6CD5;&#x4E8C;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5728;<code>textContainer</code>&#x4E2D;&#x7531;<code>NSLayoutManager</code>&#x6E32;&#x67D3;&#x7684;&#x56FE;&#x7247;&#x3002;&#x5B83;&#x5FC5;&#x987B;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x56FE;&#x7247;&#xFF0C;&#x5982;&#x679C;&#x8FD4;&#x56DE;&#x7684;&#x662F;nil&#xFF0C;&#x7CFB;&#x7EDF;&#x5C06;&#x4F1A;&#x9ED8;&#x8BA4;&#x7684;&#x6839;&#x636E;<code>contents</code>&#x548C;<code>fileType</code>&#x5C55;&#x73B0;&#x4E00;&#x4E2A;&#x76F8;&#x5E94;&#x7684;&#x5360;&#x4F4D;&#x56FE;&#x50CF;&#x3002;<br>&#x8FD9;&#x65F6;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E0B;&#xFF0C;&#x5C31;&#x80FD;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<code>attachment</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AUUTextAttachment *imageAttachment = [[AUUTextAttachment alloc] init];</span><br></pre></td></tr></table></figure></p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x8FD9;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x4E3E;&#x4F8B;&#x6D4B;&#x8BD5;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x4F60;&#x7684;&#x5B9E;&#x9645;&#x9700;&#x8981;&#x6765;&#x5B9E;&#x73B0;&#x7B26;&#x5408;&#x4F60;&#x81EA;&#x5DF1;&#x9700;&#x6C42;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<hr>
+<h2 id="&#x4E8C;&#x3001;NSAttributedString&#x5BCC;&#x6587;&#x672C;"><a href="#&#x4E8C;&#x3001;NSAttributedString&#x5BCC;&#x6587;&#x672C;" class="headerlink" title="&#x4E8C;&#x3001;NSAttributedString&#x5BCC;&#x6587;&#x672C;"></a><strong>&#x4E8C;&#x3001;<code>NSAttributedString</code>&#x5BCC;&#x6587;&#x672C;</strong></h2><p>&#x5728;&#x505A;&#x5B57;&#x7B26;&#x4E32;&#x5904;&#x7406;&#x7684;&#x65F6;&#x5019;&#x5F88;&#x5E38;&#x7528;&#x7684;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x4F46;&#x662F;&#x76F4;&#x5230;iOS6&#x4EE5;&#x540E;&#xFF0C;&#x7ED3;&#x5408;&#x4E00;&#x4E9B;&#x5BCC;&#x6587;&#x672C;&#x5C5E;&#x6027;&#x624D;&#x5F97;&#x4EE5;&#x53D7;&#x5230;&#x4EBA;&#x4EEC;&#x7684;&#x559C;&#x7231;&#xFF0C;&#x7136;&#x540E;&#x5230;&#x4E86;iOS7&#x4EE5;&#x540E;&#x66F4;&#x591A;&#x7684;&#x5C5E;&#x6027;&#x53CA;<code>NSTextAttachment</code>&#x7684;&#x63A8;&#x51FA;&#xFF0C;&#x624D;&#x8BA9;&#x5B83;&#x53D1;&#x6325;&#x51FA;&#x66F4;&#x5927;&#x7684;&#x4F5C;&#x7528;&#x3002;<br>&#x5176;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x8DDF;&#x5B57;&#x7B26;&#x4E32;<code>NSString</code>&#x7684;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#x5F88;&#x7C7B;&#x4F3C;&#xFF0C;&#x4E0B;&#x9762;&#x8981;&#x4ECB;&#x7ECD;&#x7684;&#x662F;&#x5B83;&#x7684;&#x4E00;&#x4E9B;&#x5C5E;&#x6027;&#x3002;</p>
+<h3 id="Attributes"><a href="#Attributes" class="headerlink" title="Attributes"></a>Attributes</h3><ul>
+<li><p><code>NSFontAttributeName</code></p>
+<blockquote>
+<p>&#x5B57;&#x4F53;&#xFF0C;&#x503C;&#x662F;<code>UIFont</code>&#x7C7B;&#x578B;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>NSParagraphStyleAttributeName</code></p>
+<blockquote>
+<p>&#x6BB5;&#x843D;&#x5C5E;&#x6027;&#xFF0C;<code>NSParagraphStyle</code></p>
+</blockquote>
+</li>
+<li><p><code>NSForegroundColorAttributeName</code></p>
+<blockquote>
+<p>&#x5B57;&#x4F53;&#x989C;&#x8272;</p>
+</blockquote>
+</li>
+<li><p><code>NSBackgroundColorAttributeName</code></p>
+<blockquote>
+<p>&#x80CC;&#x666F;&#x8272;</p>
+</blockquote>
+</li>
+<li><p><code>NSLigatureAttributeName</code></p>
+<blockquote>
+<p>&#x8FDE;&#x4F53;&#x5B57;&#x7B26;&#xFF0C;&#x662F;&#x6307;&#x67D0;&#x4E9B;&#x8FDE;&#x5728;&#x4E00;&#x8D77;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x5B83;&#x4EEC;&#x91C7;&#x7528;&#x5355;&#x4E2A;&#x7684;&#x56FE;&#x5143;&#x7B26;&#x53F7;&#x3002;&#x503C;&#x4E3A;<code>NSNumber(integer)</code>&#x7C7B;&#x578B;&#x3002;<br>0 &#x8868;&#x793A;&#x6CA1;&#x6709;&#x8FDE;&#x4F53;&#x5B57;&#x7B26;&#x3002;<br>1 &#x8868;&#x793A;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x8FDE;&#x4F53;&#x5B57;&#x7B26;&#x3002;<br>2&#x8868;&#x793A;&#x4F7F;&#x7528;&#x6240;&#x6709;&#x8FDE;&#x4F53;&#x7B26;&#x53F7;&#x3002;<br>&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; 1&#xFF08;iOS&#x4E0D;&#x652F;&#x6301;&#x503C;&#x4E3A;2&#xFF09;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>NSKernAttributeName</code></p>
+<blockquote>
+<p>&#x8BBE;&#x5B9A;&#x6587;&#x5B57;&#x95F4;&#x8DDD;&#xFF0C;&#x503C;&#x4E3A;<code>NSNumber(float)</code>&#x7C7B;&#x578B;&#xFF0C;&#x6B63;&#x503C;&#x8868;&#x793A;&#x95F4;&#x8DDD;&#x53D8;&#x5927;&#xFF0C;&#x8D1F;&#x6570;&#x7D27;&#x7F29;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>NSStrikethroughStyleAttributeName</code></p>
+<blockquote>
+<p>&#x5220;&#x9664;&#x7EBF;&#xFF0C;&#x503C;&#x4E3A;<code>NSUnderlineStyle</code>&#x679A;&#x4E3E;&#x7C7B;&#x578B;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>NSUnderlineStyleAttributeName</code></p>
+<blockquote>
+<p>&#x6587;&#x5B57;&#x5185;&#x5BB9;&#x5E95;&#x90E8;&#x7684;&#x4E0B;&#x5212;&#x7EBF;&#xFF0C;&#x503C;&#x4E3A;<code>NSUnderlineStyle</code>&#x679A;&#x4E3E;&#x7C7B;&#x578B;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>NSStrokeColorAttributeName</code></p>
+<blockquote>
+<p>&#x9542;&#x7A7A;&#x7684;&#x6587;&#x5B57;&#x5185;&#x5BB9;&#x63CF;&#x8FB9;&#x7684;&#x989C;&#x8272;</p>
+</blockquote>
+</li>
+<li><p><code>NSStrokeWidthAttributeName</code></p>
+<blockquote>
+<p>&#x7528;&#x4E8E;&#x6539;&#x53D8;&#x6587;&#x5B57;&#x63CF;&#x8FB9;&#x5BBD;&#x5EA6;(&#x76F8;&#x5BF9;&#x4E8E;&#x5B57;&#x4F53;size&#x7684;&#x767E;&#x5206;&#x6BD4;)&#xFF0C;&#x503C;&#x4E3A;<code>NSNumber(float)</code>&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;0&#xFF0C;&#x5373;&#x4E0D;&#x6539;&#x53D8;&#x3002;&#x6B63;&#x6570;&#x53EA;&#x6539;&#x53D8;&#x63CF;&#x8FB9;&#x5BBD;&#x5EA6;&#xFF0C;&#x8D1F;&#x6570;&#x540C;&#x65F6;&#x6539;&#x53D8;&#x6587;&#x5B57;&#x7684;&#x63CF;&#x8FB9;&#x548C;&#x586B;&#x5145;&#x5BBD;&#x5EA6;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5BF9;&#x4E8E;&#x5E38;&#x89C1;&#x7684;&#x7A7A;&#x5FC3;&#x5B57;&#xFF0C;&#x8FD9;&#x4E2A;&#x503C;&#x901A;&#x5E38;&#x4E3A;3.0&#x3002;<br><strong>&#x6CE8;&#x610F;</strong>&#xFF0C;&#x5FC5;&#x987B;&#x4E0E;<code>NSStrokeColorAttributeName</code>&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x624D;&#x884C;&#xFF0C;&#x5F53;&#x8FD9;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x4E00;&#x8D77;&#x8BBE;&#x7F6E;&#x7684;&#x65F6;&#x5019;&#xFF0C;<code>NSForegroundColorAttributeName</code>&#x5C06;&#x65E0;&#x6548;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>NSShadowAttributeName</code></p>
+<blockquote>
+<p>&#x8BBE;&#x7F6E;&#x6587;&#x5B57;&#x7684;&#x786C;&#x6027;&#x5C5E;&#x6027;&#xFF0C;&#x503C;&#x4E3A;<code>NSShadow</code>&#x7C7B;&#x578B;&#x3002;&#x7C7B;&#x4F3C;&#x4E8E;<code>layer</code>&#x4E2D;&#x5F97;<code>shadow</code>&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>NSTextEffectAttributeName</code></p>
+<blockquote>
+<p>&#x8BBE;&#x7F6E;&#x6587;&#x672C;&#x7684;&#x7279;&#x6B8A;&#x6548;&#x679C;&#xFF0C;&#x73B0;&#x5728;&#x53EA;&#x80FD;&#x8BBE;&#x7F6E;&#x4E3A;<code>NSTextEffectLetterpressStyle</code></p>
+</blockquote>
+</li>
+<li><p><code>NSAttachmentAttributeName</code></p>
+<blockquote>
+<p>&#x503C;&#x4E3A;<code>NSTextAttachment</code>&#x7C7B;&#x578B;&#xFF0C;&#x4E0A;&#x9762;&#x5DF2;&#x7ECF;&#x6709;&#x8BF4;&#x660E;</p>
+</blockquote>
+</li>
+<li><p><code>NSLinkAttributeName</code></p>
+<blockquote>
+<p>&#x503C;&#x4E3A;&#x4E00;&#x4E2A;<code>NSURL</code>&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x5728;<code>UITextView</code>&#x4E2D;&#xFF0C;&#x89C1;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;</p>
+</blockquote>
+</li>
+<li><p><code>NSBaselineOffsetAttributeName</code></p>
+<blockquote>
+<p>&#x6587;&#x5B57;&#x5185;&#x5BB9;&#x5728;&#x5782;&#x76F4;&#x65B9;&#x5411;&#x7684;&#x504F;&#x79FB;&#xFF0C;&#x7528;&#x4E8E;&#x5C06;&#x6587;&#x5B57;&#x5728;&#x5782;&#x76F4;&#x65B9;&#x5411;&#x5C45;&#x4E2D;&#x3002;&#x5176;&#x503C;&#x4E3A;<code>NSNumber(float)</code>&#x7C7B;&#x578B;&#xFF0C;&#x6B63;&#x6570;&#x4E3A;&#x5411;&#x4E0A;&#x504F;&#x79FB;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>NSUnderlineColorAttributeName</code></p>
+<blockquote>
+<p>&#x4E0B;&#x5212;&#x7EBF;&#x7684;&#x989C;&#x8272;&#xFF0C;&#x9700;&#x7ED3;&#x5408;<code>NSUnderlineStyleAttributeName</code>&#x4E00;&#x8D77;&#x4F7F;&#x7528;</p>
+</blockquote>
+</li>
+<li><p><code>NSStrikethroughColorAttributeName</code></p>
+<blockquote>
+<p>&#x5220;&#x9664;&#x7EBF;&#x7684;&#x989C;&#x8272;&#xFF0C;&#x9700;&#x7ED3;&#x5408;<code>NSStrikethroughStyleAttributeName</code>&#x4E00;&#x8D77;&#x4F7F;&#x7528;</p>
+</blockquote>
+</li>
+<li><p><code>NSObliquenessAttributeName</code></p>
+<blockquote>
+<p>&#x8BBE;&#x7F6E;&#x5B57;&#x4F53;&#x7684;&#x503E;&#x659C;&#x7A0B;&#x5EA6;&#xFF0C;&#x503C;&#x8D8A;&#x5927;&#x5C31;&#x503E;&#x659C;&#x7684;&#x5C31;&#x8D8A;&#x5389;&#x5BB3;&#xFF0C;&#x5176;&#x503C;&#x4E3A;<code>NSNumber(float)</code>&#x7C7B;&#x578B;&#xFF0C;&#x6D4B;&#x8BD5;&#x5F53;&#x503C;&#x4E3A;1&#x7684;&#x65F6;&#x5019;&#x521A;&#x597D;</p>
+</blockquote>
+</li>
+<li><p><code>NSExpansionAttributeName</code></p>
+<blockquote>
+<p>&#x6C34;&#x5E73;&#x65B9;&#x5411;&#x62C9;&#x4F38;&#x7684;&#x7A0B;&#x5EA6;&#xFF0C;&#x503C;&#x4E3A;<code>NSNumber(float)</code>&#x7C7B;&#x578B;&#xFF0C;&#x6D4B;&#x8BD5;0.5&#x7684;&#x65F6;&#x5019;&#x521A;&#x597D;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>NSWritingDirectionAttributeName</code></p>
+<blockquote>
+<p>&#x6587;&#x672C;&#x7684;&#x4E66;&#x5199;&#x65B9;&#x5411;&#xFF0C;&#x4ECE;&#x5DE6;&#x5F80;&#x53F3;&#x6216;&#x8005;&#x4ECE;&#x53F3;&#x5F80;&#x5DE6;&#xFF0C;&#x503C;&#x4E3A;&#x4E0B;&#x9762;&#x7684;<code>NSWritingDirectionFormatType</code>&#x679A;&#x4E3E;&#x7C7B;&#x578B;</p>
+</blockquote>
+</li>
+<li><p><code>NSVerticalGlyphFormAttributeName</code></p>
+<blockquote>
+<p> &#x7AD6;&#x76F4;&#x65B9;&#x5411;&#x6392;&#x7248;&#x7C7B;&#x578B;</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Values"><a href="#Values" class="headerlink" title="Values"></a>Values</h3><p><code>NSUnderlineStyleAttributeName</code> &#x548C; <code>NSStrikethroughStyleAttributeName</code> &#x7684;&#x503C;&#x5F97;&#x7C7B;&#x578B;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// NSUnderlineStyleAttributeName and NSStrikethroughStyleAttributeName</span><br><span class="line"></span><br><span class="line">typedef NS_ENUM(NSInteger, NSUnderlineStyle) {</span><br><span class="line">    NSUnderlineStyleNone  			= 0x00,</span><br><span class="line">    NSUnderlineStyleSingle    		= 0x01,</span><br><span class="line">    NSUnderlineStyleThick	      	= 0x02,</span><br><span class="line">    NSUnderlineStyleDouble     		= 0x09,</span><br><span class="line"></span><br><span class="line">    NSUnderlinePatternSolid       	= 0x0000,</span><br><span class="line">    NSUnderlinePatternDot       	= 0x0100,</span><br><span class="line">    NSUnderlinePatternDash       	= 0x0200,</span><br><span class="line">    NSUnderlinePatternDashDot     	= 0x0300,</span><br><span class="line">    NSUnderlinePatternDashDotDot	= 0x0400,</span><br><span class="line"></span><br><span class="line">    NSUnderlineByWord 	       		= 0x8000</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p><code>NSWritingDirectionAttributeName</code>&#x7684;&#x503C;&#x5F97;&#x7C7B;&#x578B;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typedef NS_ENUM(NSInteger, NSWritingDirectionFormatType) {</span><br><span class="line">    NSWritingDirectionEmbedding     = (0 &lt;&lt; 1),</span><br><span class="line">    NSWritingDirectionOverride      = (1 &lt;&lt; 1)</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/15/Shell终端下的命令行设置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Shell终端下的命令行设置</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Joyous&#39;s Home
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
