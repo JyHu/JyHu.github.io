@@ -105,7 +105,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/KeyChain/" style="font-size: 10px;">KeyChain</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/TouchID/" style="font-size: 10px;">TouchID</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a>
+						<a href="/tags/BLE4-0/" style="font-size: 10px;">BLE4.0</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/CoreBluetooth/" style="font-size: 10px;">CoreBluetooth</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/KeyChain/" style="font-size: 10px;">KeyChain</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/TouchID/" style="font-size: 10px;">TouchID</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a>
 					</div>
 				</section>
 				
@@ -168,6 +168,66 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-iOS-BLE4-0-Programming" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/03/iOS-BLE4-0-Programming/" class="article-date">
+  	<time datetime="2016-04-03T10:54:18.000Z" itemprop="datePublished">2016-04-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/03/iOS-BLE4-0-Programming/">iOS BLE4.0 Programming 之 Central</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x6211;&#x7684;&#x4E0A;&#x4E00;&#x4EFD;&#x5DE5;&#x4F5C;&#x7684;&#x516C;&#x53F8;&#x662F;&#x505A;&#x667A;&#x80FD;&#x4F53;&#x6E29;&#x8BA1;&#x7684;&#xFF0C;&#x786C;&#x4EF6;&#x8BBE;&#x5907;&#x901A;&#x8FC7;<code>BLE4.0</code>&#x6765;&#x8FDB;&#x884C;&#x4F53;&#x6E29;&#x6570;&#x636E;&#x7684;&#x4F20;&#x8F93;&#xFF0C;&#x5728;&#x6B64;&#x8FC7;&#x7A0B;&#x4E2D;&#x5C31;&#x9700;&#x8981;&#x63A5;&#x89E6;BLE&#x76F8;&#x5173;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x4E8E;&#x662F;&#x6211;&#x5C31;&#x5F00;&#x59CB;&#x4E86;&#x4E00;&#x6BB5;&#x6478;&#x7D22;&#x4E0E;&#x8E29;&#x5751;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E0D;&#x8FC7;&#xFF0C;&#x901A;&#x8FC7;apple&#x7684;<a href="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/AboutCoreBluetooth/Introduction.html#//apple_ref/doc/uid/TP40013257-CH1-SW1">&#x5B98;&#x65B9;&#x6587;&#x6863;</a>&#x8FD8;&#x6709;Google&#xFF0C;&#x6211;&#x8FD8;&#x7B97;&#x662F;&#x5C0F;&#x6709;&#x6536;&#x83B7;&#x5427;&#x3002;<br>&#x73B0;&#x5728;&#x79BB;&#x5F00;&#x4E0A;&#x4E00;&#x5BB6;&#x516C;&#x53F8;&#x6709;&#x5C06;&#x8FD1;&#x5927;&#x534A;&#x5E74;&#x7684;&#x65F6;&#x95F4;&#x4E86;&#x5427;&#xFF0C;&#x8FD8;&#x662F;&#x51B3;&#x5B9A;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#xFF0C;&#x6BD5;&#x7ADF;&#x597D;&#x8BB0;&#x6027;&#x4E0D;&#x5982;&#x70C2;&#x7B14;&#x5934;&#x561B;&#xFF0C;&#x867D;&#x7136;&#x73B0;&#x5728;&#x4E0D;&#x505A;<code>BLE</code>&#x4E86;&#xFF0C;&#x4E07;&#x4E00;&#x4EE5;&#x540E;&#x5565;&#x65F6;&#x5019;&#x9700;&#x8981;&#x5462;&#xFF1F;<br><code>BLE4.0</code>(&#x4E00;&#x79CD;&#x8FD1;&#x8DDD;&#x79BB;&#x4F4E;&#x529F;&#x8017;&#x65E0;&#x7EBF;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x534F;&#x8BAE;)&#xFF0C;&#x7531;&#x84DD;&#x7259;&#x8054;&#x76DF;&#x5236;&#x5B9A;(<a href="https://www.bluetooth.com">Bluetooth.com</a>)&#x3002;<br>&#x5728;&#x82F9;&#x679C;iOS&#x8BBE;&#x5907;&#x4E2D;&#xFF0C;&#x4ECE;iPhone 4s&#x3001;<code>iOS5.0</code>&#x5F00;&#x59CB;&#x652F;&#x6301;&#x3002;</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BLE4-0/">BLE4.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CoreBluetooth/">CoreBluetooth</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/03/iOS-BLE4-0-Programming/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-iOS7以后的富文本" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -268,6 +328,10 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/">Shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/terminal/">terminal</a></li></ul>
+	</div>
+
       
 
       
@@ -318,25 +382,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="iOSKeyChain&#x76F8;&#x5173;&#x7684;&#x53C2;&#x6570;&#x8BF4;&#x660E;"><a href="#iOSKeyChain&#x76F8;&#x5173;&#x7684;&#x53C2;&#x6570;&#x8BF4;&#x660E;" class="headerlink" title="iOSKeyChain&#x76F8;&#x5173;&#x7684;&#x53C2;&#x6570;&#x8BF4;&#x660E;"></a>iOS<code>KeyChain</code>&#x76F8;&#x5173;&#x7684;&#x53C2;&#x6570;&#x8BF4;&#x660E;</h1><p>-  &#x6574;&#x7406;&#x81EA;<a href="http://blog.sina.com.cn/s/blog_7ea0400d0101fksj.html">Blog</a></p>
-<ul>
-<li><p>&#x5BC6;&#x94A5;&#x7C7B;&#x578B;&#x952E; CFTypeRef kSecClass</p>
-<ul>
-<li>CFTypeRef kSecClassGenericPassword   &#x4E00;&#x822C;&#x5BC6;&#x7801;<ul>
-<li>&#x5BF9;&#x5E94;&#x5C5E;&#x6027;</li>
-<li>kSecAttrAccessible</li>
-<li>kSecAttrAccessGroup</li>
-<li>CFTypeRef kSecAttrCreationDate;      - &#x521B;&#x5EFA;&#x65E5;&#x671F;          CFDateRef</li>
-<li>CFTypeRef kSecAttrModificationDate;  - &#x6700;&#x540E;&#x4E00;&#x6B21;&#x4FEE;&#x6539;&#x65E5;&#x671F;   CFDateRef</li>
-<li>CFTypeRef kSecAttrDescription;       - &#x63CF;&#x8FF0;             CFStringRef</li>
-<li>CFTypeRef kSecAttrComment;           - &#x6CE8;&#x91CA;             CFStringRef</li>
-<li>CFTypeRef kSecAttrCreator;           - &#x521B;&#x5EFA;&#x8005;            CFNumberRef(4&#x5B57;&#x7B26;&#xFF0C;&#x5982;&#x2019;aLXY&#x2019;)</li>
-<li>CFTypeRef kSecAttrType;              - &#x7C7B;&#x578B;             CFNumberRef(4&#x5B57;&#x7B26;&#xFF0C;&#x5982;&#x2019;aTyp&#x2019;)</li>
-<li>CFTypeRef kSecAttrLabel;             - &#x6807;&#x7B7E;(&#x7ED9;&#x7528;&#x6237;&#x770B;)     CFStringRef</li>
-<li>CFTypeRef kSecAttrIsInvisible;       - &#x662F;&#x5426;&#x9690;&#x85CF;          CFBooleanRef(kCFBooleanTrue,kCFBooleanFalse)</li>
-<li>CFTypeRef kSecAttrIsNegative;        - &#x662F;&#x5426;&#x5177;&#x6709;&#x5BC6;&#x7801;       CFBooleanRef(kCFBooleanTrue,kCFBooleanFalse)&#x6B64;&#x9879;&#x8868;&#x793A;&#x5F53;&#x524D;&#x7684;item&#x662F;&#x5426;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x5360;&#x4F4D;&#x9879;&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x662F;&#x53EA;&#x6709;key&#x6CA1;&#x6709;value&#x3002;</li>
-<li>CFTypeRef kSecAttrAccount;           - &#x8D26;&#x6237;&#x540D;            CFStringRef</li>
-<li>CFTypeRef kSecAttrService;           - &#x6240;&#x5177;&#x6709;&#x670D;&#x52A1;         CFStringRef</li>
-<li>CFTypeRef kSecAttrGeneric;           - &#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x5185;&#x5BB9;      CFDataRef</li></ul></li></ul></li></ul>
+<p><img src="http://ww2.sinaimg.cn/large/8acb15f3jw1f2l0nykrsej20b407ajsn.jpg" alt=""></p>
       
     </div>
     
@@ -396,8 +442,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain-and-TouchID-Demo"><a href="#&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain-and-TouchID-Demo" class="headerlink" title="&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain and TouchID Demo"></a><a href="https://github.com/JyHu/TouchIDAndKeyChain.git">&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain and TouchID Demo</a></h2><p><img src="http://ww1.sinaimg.cn/large/8acb15f3gw1f23p0d0da3j208w0fsglq.jpg" alt="TIDLogin"></p>
-<p>&#x9996;&#x5148;&#x9700;&#x8981;&#x5F15;&#x5165;&#x4E00;&#x4E2A;&#x5E93;<code>#import &lt;LocalAuthentication/LAContext.h&gt;</code>&#xFF0C;&#x5B98;&#x65B9;&#x7684;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;TouchID&#x5B89;&#x5168;&#x9A8C;&#x8BC1;&#x767B;&#x9646;&#x7684;<code>Framework</code>&#xFF0C;&#x9996;&#x5148;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x652F;&#x6301;TouchID&#x767B;&#x9646;&#xFF1A;</p>
+        <h2 id="&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain-and-TouchID-Demo"><a href="#&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain-and-TouchID-Demo" class="headerlink" title="&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain and TouchID Demo"></a><a href="https://github.com/JyHu/TouchIDAndKeyChain.git">&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain and TouchID Demo</a></h2><p>&#x9996;&#x5148;&#x9700;&#x8981;&#x5F15;&#x5165;&#x4E00;&#x4E2A;&#x5E93;<code>#import &lt;LocalAuthentication/LAContext.h&gt;</code>&#xFF0C;&#x5B98;&#x65B9;&#x7684;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;TouchID&#x5B89;&#x5168;&#x9A8C;&#x8BC1;&#x767B;&#x9646;&#x7684;<code>Framework</code>&#xFF0C;&#x9996;&#x5148;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x652F;&#x6301;TouchID&#x767B;&#x9646;&#xFF1A;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// &#x5224;&#x65AD;&#x662F;&#x5426;&#x652F;&#x6301;TouchID&#x767B;&#x9646;</span><br><span class="line">- (BOOL)canEvaluatePolicy</span><br><span class="line">{</span><br><span class="line">    LAContext *context = [[LAContext alloc] init];</span><br><span class="line">    NSError *error;</span><br><span class="line">    return [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:&amp;error];</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -465,7 +510,7 @@
 <li>&#x5728;&#x672C;&#x5730;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5E76;&#x628A;&#x521B;&#x5EFA;&#x597D;&#x7684;Repository Clone&#x5230;&#x672C;&#x5730;&#x76EE;&#x5F55;&#x4E0B;&#xFF1B;</li>
 <li>CD&#x5230;&#x9879;&#x76EE;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x7684;html&#x6587;&#x4EF6;&#xFF1A;<code>printf &quot;&lt;h1&gt;Testing page&lt;h1&gt; It works.\n&quot; &gt; index.html</code></li>
 <li>push&#x5230;master&#x5206;&#x652F;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x6D4F;&#x89C8;&#x6D4B;&#x8BD5;&#x7684;&#x7F51;&#x9875; <code>&lt;username&gt;.github.io</code>&#xFF0C;&#x5982;&#x679C;&#x51FA;&#x73B0;&#x521A;&#x624D;&#x65B0;&#x5EFA;&#x7684;&#x9875;&#x9762;&#x5C31;&#x8BF4;&#x660E;&#x6210;&#x529F;&#x4E86;&#xFF1B;</li>
-<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x7236;&#x8282;&#x70B9;&#x7684;&#x5206;&#x652F;&#xFF0C;&#x5E76;&#x6E05;&#x7A7A;&#x521A;&#x624D;&#x7684;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#xFF1A;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout --orphan gh-pages</span><br><span class="line">git rm -rf .</span><br><span class="line">git commit -a -m &quot;modify&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x7236;&#x8282;&#x70B9;&#x7684;&#x5206;&#x652F;&#xFF0C;&#x5E76;&#x6E05;&#x7A7A;&#x521A;&#x624D;&#x7684;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#xFF1A;<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout <span class="comment">--orphan gh-pages</span></span><br><span class="line">git rm -rf .</span><br><span class="line">git <span class="keyword">commit</span> -a -m <span class="string">&quot;modify&quot;</span></span><br><span class="line">git push origin <span class="keyword">master</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
       
