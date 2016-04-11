@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>iOS相册操作之&#39;ALAssetsLibrary&#39; | Joyous&#39;s Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x5728;iOS8.0&amp;#x4E4B;&amp;#x524D;&amp;#xFF0C;&amp;#x76F8;&amp;#x518C;&amp;#x3001;&amp;#x56FE;&amp;#x7247;&amp;#x64CD;&amp;#x4F5C;&amp;#x4F7F;&amp;#x7528;&amp;#x7684;&amp;#x662F;AssetsLibrary.framework(&amp;#x4EE5;&amp;#x4E0B;&amp;#x7B80;&amp;#x79F0;AF)&amp;#xFF0C;&amp;#x4E4B">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS相册操作之'ALAssetsLibrary'">
+<meta property="og:url" content="https://github.com/JyHu/2016/04/10/iOS相册操作之-ALAssetsLibrary/index.html">
+<meta property="og:site_name" content="Joyous's Home">
+<meta property="og:description" content="&amp;#x5728;iOS8.0&amp;#x4E4B;&amp;#x524D;&amp;#xFF0C;&amp;#x76F8;&amp;#x518C;&amp;#x3001;&amp;#x56FE;&amp;#x7247;&amp;#x64CD;&amp;#x4F5C;&amp;#x4F7F;&amp;#x7528;&amp;#x7684;&amp;#x662F;AssetsLibrary.framework(&amp;#x4EE5;&amp;#x4E0B;&amp;#x7B80;&amp;#x79F0;AF)&amp;#xFF0C;&amp;#x4E4B">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/0060lm7Tgw1f2t5gquk4jj30xc0butb5.jpg">
+<meta property="og:updated_time" content="2016-04-11T14:52:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS相册操作之'ALAssetsLibrary'">
+<meta name="twitter:description" content="&amp;#x5728;iOS8.0&amp;#x4E4B;&amp;#x524D;&amp;#xFF0C;&amp;#x76F8;&amp;#x518C;&amp;#x3001;&amp;#x56FE;&amp;#x7247;&amp;#x64CD;&amp;#x4F5C;&amp;#x4F7F;&amp;#x7528;&amp;#x7684;&amp;#x662F;AssetsLibrary.framework(&amp;#x4EE5;&amp;#x4E0B;&amp;#x7B80;&amp;#x79F0;AF)&amp;#xFF0C;&amp;#x4E4B">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/0060lm7Tgw1f2t5gquk4jj30xc0butb5.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Joyous&#39;s Home" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://ww4.sinaimg.cn/large/8acb15f3jw1f23fmmzow2j20hs0hsmxh.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Joyous&#39;s Home</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/iOS">iOS</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/JyHu" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/210127055" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/BLE4-0/" style="font-size: 10px;">BLE4.0</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/CoreBluetooth/" style="font-size: 10px;">CoreBluetooth</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/KeyChain/" style="font-size: 10px;">KeyChain</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/TouchID/" style="font-size: 10px;">TouchID</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/相册/" style="font-size: 10px;">相册</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">低头不是认输,是要看清自己的路。仰头不是骄傲,是要看见自己的天空。So，我就是我，不一样的烟火。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Joyous&#39;s Home</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://ww4.sinaimg.cn/large/8acb15f3jw1f23fmmzow2j20hs0hsmxh.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Joyous&#39;s Home</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/iOS">iOS</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/JyHu" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/210127055" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-iOS相册操作之-ALAssetsLibrary" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/10/iOS相册操作之-ALAssetsLibrary/" class="article-date">
+  	<time datetime="2016-04-10T06:36:45.000Z" itemprop="datePublished">2016-04-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS相册操作之&#39;ALAssetsLibrary&#39;
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/相册/">相册</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x5728;<code>iOS8.0</code>&#x4E4B;&#x524D;&#xFF0C;&#x76F8;&#x518C;&#x3001;&#x56FE;&#x7247;&#x64CD;&#x4F5C;&#x4F7F;&#x7528;&#x7684;&#x662F;<a href="https://developer.apple.com/library/ios/documentation/AssetsLibrary/Reference/AssetsLibraryFramework/index.html#//apple_ref/doc/uid/TP40009730" target="_blank" rel="external"><code>AssetsLibrary.framework</code></a>(&#x4EE5;&#x4E0B;&#x7B80;&#x79F0;<code>AF</code>)&#xFF0C;&#x4E4B;&#x540E;&#x5462;&#x53C8;&#x65B0;&#x589E;&#x4E86;&#x4E00;&#x4E2A;&#x6846;&#x67B6;<code>Photos.framework</code>(&#x4EE5;&#x4E0B;&#x7B80;&#x79F0;<code>PF</code>)&#xFF0C;&#x6240;&#x4EE5;&#x5462;<code>AF</code>&#x5C31;&#x968F;&#x4E4B;&#x88AB;&#x5E9F;&#x5F03;&#x6389;&#x4E86;&#xFF0C;&#x4EE5;&#x82F9;&#x679C;&#x7684;&#x60EF;&#x4F8B;&#x5462;&#xFF0C;&#x867D;&#x7136;&#x662F;&#x5E9F;&#x5F03;&#xFF0C;&#x4F46;&#x662F;&#x80AF;&#x5B9A;&#x8FD8;&#x5728;&#x7EF4;&#x62A4;&#xFF0C;&#x5BF9;&#x4E8E;&#x7248;&#x672C;&#x8981;&#x6C42;8&#x4EE5;&#x4E0B;&#x7684;APP&#x6765;&#x8BF4;&#xFF0C;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x4F7F;&#x7528;<code>AF</code>&#x7684;&#xFF1B;&#x5F53;&#x7136;&#x5BF9;&#x4E8E;&#x53EA;&#x8981;&#x6C42;8&#x4EE5;&#x4E0A;&#x7684;APP&#x6765;&#x8BF4;&#xFF0C;&#x90A3;&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;<code>PF</code>&#x5566;&#xFF0C;&#x8FD9;&#x4E2A;&#x5728;&#x4EE5;&#x540E;&#x518D;&#x8BF4;&#x3002;<br><code>AF</code>&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x5217;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x8FDB;&#x884C;&#x56FE;&#x7247;&#x3001;&#x76F8;&#x518C;&#x3001;&#x89C6;&#x9891;&#x7B49;&#x7684;&#x8BFB;&#x53D6;&#x548C;&#x5199;&#x5165;&#xFF0C;&#x5176;&#x4E2D;&#x7684;&#x64CD;&#x4F5C;&#x5927;&#x591A;&#x662F;&#x901A;&#x8FC7;<code>Block</code>&#x6765;&#x64CD;&#x4F5C;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x6570;&#x636E;&#x7684;&#x8BFB;&#x53D6;&#x4E5F;&#x5927;&#x591A;&#x662F;&#x901A;&#x8FC7;<code>KVC</code>&#x6765;&#x83B7;&#x53D6;&#x7684;&#x3002;<br>&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5BF9;&#x4E8E;&#x76F8;&#x518C;&#x7684;&#x64CD;&#x4F5C;&#x662F;&#x9700;&#x8981;&#x7528;&#x6237;&#x6743;&#x9650;&#x7684;&#xFF0C;&#x5F53;&#x7136;&#x4E0D;&#x9700;&#x8981;&#x4F60;&#x53BB;&#x4E3B;&#x52A8;&#x8BF7;&#x6C42;&#x6388;&#x6743;&#xFF0C;&#x7CFB;&#x7EDF;&#x4F1A;&#x5728;&#x4F60;&#x521D;&#x6B21;&#x64CD;&#x4F5C;&#x76F8;&#x518C;&#x7684;&#x65F6;&#x5019;&#x53BB;&#x5411;&#x7528;&#x6237;&#x7533;&#x8BF7;&#x6743;&#x9650;&#x3002;</p>
+<a id="more"></a>
+<p>&#x4E0B;&#x9762;&#x8FDB;&#x5165;&#x6B63;&#x9898;&#x3002;</p>
+<hr>
+<h1 id="&#x7B80;&#x5355;&#x5730;&#x64CD;&#x4F5C;&#x6D41;&#x7A0B;"><a href="#&#x7B80;&#x5355;&#x5730;&#x64CD;&#x4F5C;&#x6D41;&#x7A0B;" class="headerlink" title="&#x7B80;&#x5355;&#x5730;&#x64CD;&#x4F5C;&#x6D41;&#x7A0B;"></a>&#x7B80;&#x5355;&#x5730;&#x64CD;&#x4F5C;&#x6D41;&#x7A0B;</h1><hr>
+<h2 id="&#x83B7;&#x53D6;&#x76F8;&#x518C;"><a href="#&#x83B7;&#x53D6;&#x76F8;&#x518C;" class="headerlink" title="&#x83B7;&#x53D6;&#x76F8;&#x518C;"></a>&#x83B7;&#x53D6;&#x76F8;&#x518C;</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)loadAssetsGroup {</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">self</span>.assetsLibrary) {</span><br><span class="line">    	<span class="comment">// &#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;ALAssetsLibrary</span></span><br><span class="line">        <span class="keyword">self</span>.assetsLibrary = [[ALAssetsLibrary alloc] init];</span><br><span class="line">    }</span><br><span class="line">   <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^{</span><br><span class="line">        @weakify(<span class="keyword">self</span>)</span><br><span class="line">        [<span class="keyword">self</span>.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll</span><br><span class="line">        					usingBlock:^(ALAssetsGroup *group, <span class="built_in">BOOL</span> *stop) {</span><br><span class="line">            @strongify(<span class="keyword">self</span>)</span><br><span class="line">            <span class="keyword">if</span> (group) {</span><br><span class="line">                [group setAssetsFilter:[ALAssetsFilter allPhotos]];		<span class="comment">// &#x8BBE;&#x7F6E;&#x8FC7;&#x6EE4;&#xFF0C;&#x5F53;&#x524D;&#x53EA;&#x8BFB;&#x53D6;&#x76F8;&#x518C;&#x4E2D;&#x7684;&#x56FE;&#x7247;</span></span><br><span class="line">                <span class="keyword">if</span> ([group numberOfAssets] &gt; <span class="number">0</span>) {	<span class="comment">// &#x5224;&#x65AD;&#x662F;&#x5F53;&#x524D;&#x76F8;&#x518C;&#x662F;&#x5426;&#x6709;&#x56FE;&#x7247;</span></span><br><span class="line">                    <span class="keyword">if</span> (ALAssetsGroupSavedPhotos == [[group valueForProperty:ALAssetsGroupPropertyType] integerValue]) {</span><br><span class="line">                        [<span class="keyword">self</span>.assetsGroupArray insertObject:group atIndex:<span class="number">0</span>];	<span class="comment">// &#x5982;&#x679C;&#x662F;&#x7CFB;&#x7EDF;&#x76F8;&#x518C;&#x7684;&#x8BDD;&#x5C31;&#x653E;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;</span></span><br><span class="line">                    } <span class="keyword">else</span> {</span><br><span class="line">                        [<span class="keyword">self</span>.assetsGroupArray addObject:group];</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">            } <span class="keyword">else</span> {	<span class="comment">// &#x5982;&#x679C;group&#x4E3A;nil&#xFF0C;&#x8BF4;&#x660E;&#x679A;&#x4E3E;&#x5230;&#x6700;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5237;&#x65B0;&#x9875;&#x9762;&#x4E86;</span></span><br><span class="line">                <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^{</span><br><span class="line">                    <span class="keyword">self</span>.assetsGroup = <span class="keyword">self</span>.assetsGroupArray[<span class="number">0</span>];</span><br><span class="line">                    [<span class="keyword">self</span> loadAssetsFromAssetsGroup];</span><br><span class="line">                });</span><br><span class="line">            }</span><br><span class="line">        } failureBlock:^(<span class="built_in">NSError</span> *error) {</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, [error userInfo]);</span><br><span class="line">        }];</span><br><span class="line">    });</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="&#x83B7;&#x53D6;&#x76F8;&#x518C;&#x4E2D;&#x7684;ALAsset"><a href="#&#x83B7;&#x53D6;&#x76F8;&#x518C;&#x4E2D;&#x7684;ALAsset" class="headerlink" title="&#x83B7;&#x53D6;&#x76F8;&#x518C;&#x4E2D;&#x7684;ALAsset"></a>&#x83B7;&#x53D6;&#x76F8;&#x518C;&#x4E2D;&#x7684;<code>ALAsset</code></h2><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">void</span>)loadAssetsFromAssetsGroup {</span><br><span class="line">    [self.assetsArray removeAllObjects];</span><br><span class="line">    dispatch_async(dispatch_get_global_queue(<span class="type">DISPATCH_QUEUE_PRIORITY_DEFAULT</span>, <span class="number">0</span>), ^{</span><br><span class="line">        @weakify(self)</span><br><span class="line">        [self.assetsGroup   enumerateAssetsWithOptions:<span class="type">NSEnumerationReverse</span></span><br><span class="line">        					usingBlock:^(<span class="type">ALAsset</span> *<span class="literal">result</span>, <span class="type">NSUInteger</span> index, <span class="type">BOOL</span> *stop) {</span><br><span class="line">            @strongify(self)</span><br><span class="line">            <span class="keyword">if</span> (<span class="literal">result</span>) {</span><br><span class="line">                // &#x83B7;&#x53D6;&#x5230;&#x540E;&#xFF0C;&#x4FDD;&#x5B58;&#x8D77;&#x6765;</span><br><span class="line">                [self.assetsArray addObject:<span class="literal">result</span>];</span><br><span class="line">                <span class="keyword">if</span> (self.assetsArray.count % <span class="number">50</span> == <span class="number">0</span>) {</span><br><span class="line">                    // &#x6BCF;&#x83B7;&#x53D6;&#x5230;<span class="number">50</span>&#x5F20;&#x540E;&#x5237;&#x65B0;&#x4E00;&#x4E0B;&#x754C;&#x9762;&#xFF0C;&#x907F;&#x514D;&#x56FE;&#x7247;&#x8FC7;&#x591A;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7531;&#x4E8E;&#x83B7;&#x53D6;&#x65F6;&#x95F4;&#x8FC7;&#x957F;&#xFF0C;&#x8BA9;&#x7528;&#x6237;&#x7B49;&#x5F85;&#x8FC7;&#x4E45;</span><br><span class="line">                    dispatch_async(dispatch_get_main_queue(), ^{</span><br><span class="line">                        [self.photoListCollectionView reloadData];</span><br><span class="line">                    });</span><br><span class="line">                }</span><br><span class="line">            } <span class="keyword">else</span> {	// &#x5982;&#x679C;<span class="literal">result</span>&#x4E3A;<span class="keyword">nil</span>&#xFF0C;&#x8BF4;&#x660E;&#x679A;&#x4E3E;&#x5230;&#x6700;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5237;&#x65B0;&#x9875;&#x9762;&#x4E86;&#x3002;</span><br><span class="line">                dispatch_async(dispatch_get_main_queue(), ^{</span><br><span class="line">                    [self.photoListCollectionView reloadData];</span><br><span class="line">                });</span><br><span class="line">            }</span><br><span class="line">        }];</span><br><span class="line">    });</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="&#x4F7F;&#x7528;&#x7167;&#x7247;"><a href="#&#x4F7F;&#x7528;&#x7167;&#x7247;" class="headerlink" title="&#x4F7F;&#x7528;&#x7167;&#x7247;"></a>&#x4F7F;&#x7528;&#x7167;&#x7247;</h2><p>&#x83B7;&#x53D6;&#x7F29;&#x7565;&#x56FE;&#xFF1A;<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[UIImage imageWithCGImage:[asset thumbnail]]<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>&#x83B7;&#x53D6;&#x539F;&#x56FE;&#xFF1A;<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="built_in">UIImage</span> *)originalImageWithAsset:(ALAsset *)asset</span><br><span class="line">{</span><br><span class="line">	ALAssetRepresentation *assetRepresentation = [img defaultRepresentation];</span><br><span class="line">    <span class="built_in">CGFloat</span> imageScale = [assetRepresentation scale];</span><br><span class="line">    <span class="built_in">UIImageOrientation</span> imageOrientation = (<span class="built_in">UIImageOrientation</span>)[assetRepresentation orientation];</span><br><span class="line">    <span class="built_in">CGImageRef</span> imageReference = [assetRepresentation fullResolutionImage];</span><br><span class="line">    <span class="keyword">return</span> [<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:imageReference scale:imageScale orientation:imageOrientation];</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x8FD9;&#x4E48;&#x505A;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x5728;&#x81EA;&#x5DF1;&#x5199;&#x56FE;&#x7247;&#x4FDD;&#x5B58;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x6709;&#x65B9;&#x5411;&#x4E0D;&#x5BF9;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#x4F7F;&#x7528;&#x7684;&#x56FE;&#x7247;&#x5C31;&#x4F1A;&#x6B63;&#x5E38;&#x3002;</p>
+<h2 id="UIImagePickerController&#x62CD;&#x7167;&#x540E;&#x7684;&#x4FDD;&#x5B58;"><a href="#UIImagePickerController&#x62CD;&#x7167;&#x540E;&#x7684;&#x4FDD;&#x5B58;" class="headerlink" title="UIImagePickerController&#x62CD;&#x7167;&#x540E;&#x7684;&#x4FDD;&#x5B58;"></a><code>UIImagePickerController</code>&#x62CD;&#x7167;&#x540E;&#x7684;&#x4FDD;&#x5B58;</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x62CD;&#x7167;&#x6210;&#x529F;&#x540E;&#x7684;&#x4EE3;&#x7406;&#x65B9;&#x6CD5;</span></span><br><span class="line">- (<span class="keyword">void</span>)imagePickerController:(<span class="built_in">UIImagePickerController</span> *)picker didFinishPickingMediaWithInfo:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="keyword">id</span>&gt; *)info</span><br><span class="line">{</span><br><span class="line">    <span class="comment">// &#x62CD;&#x597D;&#x7684;&#x7167;&#x7247;</span></span><br><span class="line">    <span class="built_in">UIImage</span> *image = [info objectForKey:<span class="built_in">UIImagePickerControllerOriginalImage</span>];</span><br><span class="line">    <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^{</span><br><span class="line">        @weakify(<span class="keyword">self</span>)</span><br><span class="line">        <span class="comment">// &#x5C06;&#x56FE;&#x7247;&#x4FDD;&#x5B58;&#x5230;&#x76F8;&#x518C;</span></span><br><span class="line">        [<span class="keyword">self</span>.assetsLibrary writeImageToSavedPhotosAlbum:[image <span class="built_in">CGImage</span>]</span><br><span class="line">        									 orientation:(ALAssetOrientation)[image imageOrientation]</span><br><span class="line">                                         completionBlock:^(<span class="built_in">NSURL</span> *assetURL, <span class="built_in">NSError</span> *error) {</span><br><span class="line">            @strongify(<span class="keyword">self</span>)</span><br><span class="line">            <span class="comment">// &#x5982;&#x679C;&#x4FDD;&#x5B58;&#x6210;&#x529F;&#xFF0C;&#x5C31;&#x627E;&#x8FD9;&#x4E2A;&#x56FE;&#x7247;&#x7684;Asset&#xFF0C;&#x7136;&#x540E;&#x5B58;&#x4E0B;&#x6765;</span></span><br><span class="line">            [<span class="keyword">self</span>.assetsLibrary assetForURL:assetURL resultBlock:^(ALAsset *asset) {</span><br><span class="line">                <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^{</span><br><span class="line">                    [<span class="keyword">self</span>.selectionAssetsArr addObject:asset];</span><br><span class="line">                    <span class="comment">// &#x5982;&#x679C;&#x5F53;&#x524D;&#x76F8;&#x518C;&#x662F;&#x6B63;&#x5728;&#x5C55;&#x793A;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x5237;&#x65B0;&#x4E00;&#x4E0B;&#x6570;&#x636E;</span></span><br><span class="line">                    <span class="keyword">if</span> ([[<span class="keyword">self</span>.assetsGroup valueForProperty:ALAssetsGroupPropertyType] integerValue] == ALAssetsGroupSavedPhotos) {</span><br><span class="line">                        [<span class="keyword">self</span>.groupView reload];</span><br><span class="line">                        [<span class="keyword">self</span> loadAssetsFromAssetsGroup];</span><br><span class="line">                    }</span><br><span class="line">                });</span><br><span class="line">            } failureBlock:^(<span class="built_in">NSError</span> *error) {</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, [error userInfo]);</span><br><span class="line">            }];</span><br><span class="line">        }];</span><br><span class="line">    });</span><br><span class="line">    [picker dismissViewControllerAnimated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="&#x5E93;&#x6587;&#x4EF6;&#x7684;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;"><a href="#&#x5E93;&#x6587;&#x4EF6;&#x7684;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;" class="headerlink" title="&#x5E93;&#x6587;&#x4EF6;&#x7684;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;"></a>&#x5E93;&#x6587;&#x4EF6;&#x7684;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;</h1><hr>
+<p><img src="http://ww4.sinaimg.cn/large/0060lm7Tgw1f2t5gquk4jj30xc0butb5.jpg" alt="AssetsLibrary"></p>
+<h2 id="lt-AssetsLibrary-ALAssetsLibrary-h-gt"><a href="#lt-AssetsLibrary-ALAssetsLibrary-h-gt" class="headerlink" title="&lt;AssetsLibrary/ALAssetsLibrary.h&gt;"></a><a href="https://developer.apple.com/library/ios/documentation/AssetsLibrary/Reference/ALAssetsLibrary_Class/index.html#//apple_ref/occ/cl/ALAssetsLibrary" target="_blank" rel="external"><code>&lt;AssetsLibrary/ALAssetsLibrary.h&gt;</code></a></h2><p>&#x8FD9;&#x4E2A;&#x7C7B;&#x7528;&#x6765;&#x7BA1;&#x7406;&#x6240;&#x6709;&#x7684;&#x56FE;&#x7247;&#x3001;&#x89C6;&#x9891;&#x96C6;&#x5408;&#x3002;</p>
+<h3 id="Blocks"><a href="#Blocks" class="headerlink" title="Blocks"></a><code>Blocks</code></h3><ul>
+<li><p><code>typedef void (^ALAssetsLibraryGroupsEnumerationResultsBlock)(ALAssetsGroup *group, BOOL *stop)</code></p>
+<blockquote>
+<p>&#x8FD9;&#x4E2A;block&#x662F;&#x5728;&#x679A;&#x4E3E;&#x5230;&#x5339;&#x914D;&#x7684;group&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#xFF0C;&#x5F53;&#x679A;&#x4E3E;&#x5230;&#x6700;&#x540E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;group&#x4E3A;nil&#x3002;&#x5728;&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x5BF9;group&#x7684;&#x5185;&#x5BB9;&#x8FDB;&#x884C;&#x7B5B;&#x9009;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>typedef void (^ALAssetsLibraryAssetForURLResultBlock)(ALAsset *asset)</code></p>
+<blockquote>
+<p>&#x8FD9;&#x4E2A;block&#x662F;&#x5728;&#x7528;&#x6237;&#x901A;&#x8FC7;url&#x6765;&#x67E5;&#x8BE2;asset&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x67E5;&#x5230;&#x7ED3;&#x679C;&#xFF0C;asset&#x5C06;&#x4E3A;nil&#x3002;<br>&#x6BD4;&#x5982;&#x5728;&#x4FDD;&#x5B58;&#x56FE;&#x7247;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4FDD;&#x5B58;&#x6210;&#x529F;&#x4E86;&#x7CFB;&#x7EDF;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;url&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;url&#x6765;&#x67E5;&#x8BE2;&#x4FDD;&#x5B58;&#x5230;&#x76F8;&#x518C;&#x4E2D;&#x5F97;&#x56FE;&#x7247;&#x6240;&#x5728;&#x7684;asset&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>typedef void (^ALAssetsLibraryGroupResultBlock)(ALAssetsGroup *group)</code></p>
+<blockquote>
+<p>&#x8FD9;&#x4E2A;block&#x662F;&#x5728;&#x7528;&#x6237;&#x67E5;&#x8BE2;&#x3001;&#x4FEE;&#x6539;&#x3001;&#x589E;&#x52A0;asset group&#x7684;&#x65F6;&#x5019;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6210;&#x529F;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5219;group&#x5C06;&#x4E3A;nil&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>typedef void (^ALAssetsLibraryAccessFailureBlock)(NSError *error)</code></p>
+<blockquote>
+<p>&#x7528;&#x6237;&#x8FDB;&#x884C;asset&#x6216;&#x8005;group&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x7528;&#x6237;&#x6CA1;&#x6709;&#x540C;&#x610F;&#x4F7F;&#x7528;&#x76F8;&#x518C;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x5C06;&#x4F1A;&#x8FD4;&#x56DE;&#x8FD9;&#x4E2A;&#x9519;&#x8BEF;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>typedef void (^ALAssetsLibraryWriteImageCompletionBlock)(NSURL *assetURL, NSError *error)</code></p>
+<blockquote>
+<p>&#x8FD9;&#x4E2A;block&#x5728;&#x5199;&#x5165;&#x56FE;&#x7247;&#x6709;&#x7ED3;&#x679C;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x3002;<br><code>assetURL</code>&#x4FDD;&#x5B58;&#x5230;&#x76F8;&#x518C;&#x7684;asset&#x7684;url&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x4EE5;&#x540E;&#x4F7F;&#x7528;</p>
+</blockquote>
+</li>
+<li><p><code>typedef void (^ALAssetsLibraryWriteVideoCompletionBlock)(NSURL *assetURL, NSError *error)</code></p>
+<blockquote>
+<p>&#x5F53;&#x7528;&#x6237;&#x4FDD;&#x5B58;&#x89C6;&#x9891;&#x5230;&#x76F8;&#x518C;&#x540E;&#x8C03;&#x7528;&#x7684;Block&#x3002;<br>&#x56E0;&#x4E3A;&#x76F8;&#x518C;&#x89C6;&#x9891;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;&#x4E0D;&#x53EF;&#x80FD;&#x76F4;&#x63A5;&#x4F20;&#x9012;&#x8FC7;&#x6765;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x83B7;&#x53D6;&#x5728;&#x672C;&#x5730;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x7136;&#x540E;&#x7EC4;&#x88C5;&#x6210;url&#x518D;&#x4FDD;&#x5B58;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a><code>Methods</code></h3><ul>
+<li><p><code>- (void)enumerateGroupsWithTypes:(ALAssetsGroupType)types usingBlock:(ALAssetsLibraryGroupsEnumerationResultsBlock)enumerationBlock failureBlock:(ALAssetsLibraryAccessFailureBlock)failureBlock</code></p>
+<blockquote>
+<p>&#x679A;&#x4E3E;&#x6240;&#x6709;Group&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x53C2;&#x6570;&#x4E2D;&#x7684;&#x4E24;&#x4E2A;Block&#x4E0A;&#x9762;&#x6709;&#x8BF4;&#x660E;&#x3002;<code>ALAssetsGroupType</code>&#x662F;&#x679A;&#x4E3E;group&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x5E38;&#x7528;&#x7684;&#x662F;ALAssetsGroupAll&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>- (void)assetForURL:(NSURL *)assetURL resultBlock:(ALAssetsLibraryAssetForURLResultBlock)resultBlock failureBlock:(ALAssetsLibraryAccessFailureBlock)failureBlock</code></p>
+<blockquote>
+<p>&#x6839;&#x636E;&#x7ED9;&#x51FA;&#x7684;url&#x6765;&#x67E5;&#x627E;&#x5728;&#x76F8;&#x518C;&#x4E2D;&#x6307;&#x5B9A;&#x7684;ALAsset&#xFF0C;&#x67E5;&#x627E;&#x7ED3;&#x679C;&#x901A;&#x8FC7;block&#x56DE;&#x4F20;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>- (void)groupForURL:(NSURL *)groupURL resultBlock:(ALAssetsLibraryGroupResultBlock)resultBlock failureBlock:(ALAssetsLibraryAccessFailureBlock)failureBlock</code></p>
+<blockquote>
+<p>&#x6839;&#x636E;&#x7ED9;&#x51FA;&#x7684;url&#x6765;&#x67E5;&#x627E;&#x76F8;&#x518C;&#x4E2D;&#x6307;&#x5B9A;&#x7684;group&#xFF0C;&#x67E5;&#x627E;&#x7ED3;&#x679C;&#x901A;&#x8FC7;block&#x56DE;&#x4F20;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>- (void)addAssetsGroupAlbumWithName:(NSString *)name resultBlock:(ALAssetsLibraryGroupResultBlock)resultBlock failureBlock:(ALAssetsLibraryAccessFailureBlock)failureBlock</code></p>
+<blockquote>
+<p>&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684;<code>ALAssetsGroup</code>&#x5230;&#x76F8;&#x518C;&#x3002;<br><code>name</code>&#x4E3A;group&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x4E0D;&#x80FD;&#x91CD;&#x590D;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>- (void)writeImageToSavedPhotosAlbum:(CGImageRef)imageRef orientation:(ALAssetOrientation)orientation completionBlock:(ALAssetsLibraryWriteImageCompletionBlock)completionBlock</code></p>
+<blockquote>
+<p>&#x5C06;&#x56FE;&#x7247;&#x4FDD;&#x5B58;&#x5230;&#x7CFB;&#x7EDF;&#x9ED8;&#x8BA4;&#x7684;&#x76F8;&#x518C;&#x4E2D;&#x3002;<br><code>imageRef</code>&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>[UIImage CGImage]</code>&#x6765;&#x83B7;&#x53D6;&#x3002;<br><code>orientation</code>&#xFF0C;&#x56FE;&#x7247;&#x7684;&#x65B9;&#x5411;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>[UIImage imageOrientation]</code>&#x6765;&#x83B7;&#x53D6;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>- (void)writeImageToSavedPhotosAlbum:(CGImageRef)imageRef metadata:(NSDictionary *)metadata completionBlock:(ALAssetsLibraryWriteImageCompletionBlock)completionBlock</code></p>
+<blockquote>
+<p>&#x5C06;&#x56FE;&#x7247;&#x4FDD;&#x5B58;&#x5230;&#x7CFB;&#x7EDF;&#x9ED8;&#x8BA4;&#x7684;&#x76F8;&#x518C;&#x4E2D;&#x3002;<br>metadata&#xFF0C;&#x5143;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x6765;&#x63CF;&#x8FF0;image&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>- (void)writeImageDataToSavedPhotosAlbum:(NSData *)imageData metadata:(NSDictionary *)metadata completionBlock:(ALAssetsLibraryWriteImageCompletionBlock)completionBlock</code></p>
+<blockquote>
+<p>&#x5C06;NSData&#x7C7B;&#x578B;&#x7684;&#x56FE;&#x7247;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5230;&#x7CFB;&#x7EDF;&#x9ED8;&#x8BA4;&#x7684;&#x76F8;&#x518C;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x56FE;&#x7247;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x4E0E;metadata&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x6709;&#x51B2;&#x7A81;&#x7684;&#x8BDD;&#xFF0C;&#x56FE;&#x7247;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x5C06;&#x88AB;&#x8986;&#x76D6;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>- (void)writeVideoAtPathToSavedPhotosAlbum:(NSURL *)videoPathURL completionBlock:(ALAssetsLibraryWriteVideoCompletionBlock)completionBlock</code></p>
+<blockquote>
+<p>&#x5C06;&#x4E00;&#x4E2A;&#x89C6;&#x9891;&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x5230;&#x76F8;&#x518C;<br><code>videoPathURL</code>&#x4E3A;&#x89C6;&#x9891;&#x6587;&#x4EF6;&#x5728;&#x672C;&#x5730;&#x7684;&#x8DEF;&#x5F84;</p>
+</blockquote>
+</li>
+<li><p><code>- (BOOL)videoAtPathIsCompatibleWithSavedPhotosAlbum:(NSURL *)videoPathURL</code></p>
+<blockquote>
+<p>&#x7528;&#x6765;&#x5224;&#x65AD;&#x7ED9;&#x51FA;&#x7684;url&#x5904;&#x7684;&#x89C6;&#x9891;&#x662F;&#x5426;&#x80FD;&#x591F;&#x4FDD;&#x5B58;&#x5230;&#x76F8;&#x518C;&#x4E2D;</p>
+</blockquote>
+</li>
+<li><p><code>+ (ALAuthorizationStatus)authorizationStatus</code></p>
+<blockquote>
+<p>&#x83B7;&#x53D6;&#x76F8;&#x518C;&#x7684;&#x6388;&#x6743;&#x72B6;&#x6001;</p>
+</blockquote>
+</li>
+<li><p><code>+ (void)disableSharedPhotoStreamsSupport</code></p>
+<blockquote>
+<p>&#x7981;&#x7528;&#x5171;&#x4EAB;&#x7167;&#x7247;&#x6D41;&#x7684;&#x901A;&#x77E5;</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Notifications"><a href="#Notifications" class="headerlink" title="Notifications"></a><code>Notifications</code></h3><ul>
+<li><code>extern NSString *const ALAssetsLibraryChangedNotification</code><blockquote>
+<p>&#x5F53;<code>ALAssetsLibrary</code>&#x7684;&#x5185;&#x5BB9;&#x6709;&#x53D8;&#x5316;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x4F1A;&#x53D1;&#x9001;&#x8FD9;&#x4E2A;&#x901A;&#x77E5;&#x3002;<br>&#x5176;&#x4E2D;&#x7684;userinfo&#x5305;&#x542B;&#x7740;&#x4E0B;&#x9762;&#x8FD9;&#x4E9B;key&#xFF0C;&#x7528;&#x6765;&#x83B7;&#x53D6;&#x53D8;&#x52A8;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x53D6;&#x5230;&#x7684;value&#x90FD;&#x662F;NSSet&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#xFF1B;&#x5982;&#x679C;userInfo&#x4E3A;nil&#xFF0C;&#x90A3;&#x4E48;&#x6240;&#x6709;&#x7684;<code>ALAssets</code>&#x548C;<code>ALAssetGroups</code>&#x5E94;&#x8BE5;&#x90FD;&#x5F97;&#x91CD;&#x65B0;&#x83B7;&#x53D6;&#x5E76;&#x5237;&#x65B0;&#x3002;</p>
+<ul>
+<li><code>extern NSString *const ALAssetLibraryUpdatedAssetsKey</code></li>
+<li><code>extern NSString *const ALAssetLibraryInsertedAssetGroupsKey</code></li>
+<li><code>extern NSString *const ALAssetLibraryUpdatedAssetGroupsKey</code></li>
+<li><code>extern NSString *const ALAssetLibraryDeletedAssetGroupsKey</code></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="Errors"><a href="#Errors" class="headerlink" title="Errors"></a><code>Errors</code></h3><ul>
+<li><code>extern NSString *const ALAssetsLibraryErrorDomain</code><blockquote>
+<p>&#x4ECE;<code>NSError</code>&#x91CD;&#x83B7;&#x53D6;<code>AssetsLibrary</code>&#x5931;&#x8D25;&#x4FE1;&#x606F;</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="lt-AssetsLibrary-ALAssetsGroup-h-gt"><a href="#lt-AssetsLibrary-ALAssetsGroup-h-gt" class="headerlink" title="&lt;AssetsLibrary/ALAssetsGroup.h&gt;"></a><a href="https://developer.apple.com/library/ios/documentation/AssetsLibrary/Reference/ALAssetsGroup_Class/index.html#//apple_ref/occ/cl/ALAssetsGroup" target="_blank" rel="external"><code>&lt;AssetsLibrary/ALAssetsGroup.h&gt;</code></a></h2><p><code>ALAssetsGroup</code>&#x662F;<code>assets</code>&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x7740;&#x8FD9;&#x4E2A;&#x5206;&#x7EC4;&#x7684;&#x5C01;&#x9762;&#x56FE;&#x3001;&#x540D;&#x79F0;&#x3001;&#x7167;&#x7247;&#x6570;&#x91CF;&#x7B49;&#x7B49;&#x4FE1;&#x606F;&#xFF0C;&#x5F53;&#x7136;&#x91CD;&#x8981;&#x7684;&#x662F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B83;&#x6765;&#x679A;&#x4E3E;&#x51FA;&#x8BE5;&#x5206;&#x7EC4;&#x4E0B;&#x5F97;&#x6240;&#x6709;&#x56FE;&#x7247;&#x6570;&#x636E;&#xFF0C;&#x4E0D;&#x8FC7;&#x90FD;&#x662F;<code>ALAsset</code>&#x5BF9;&#x8C61;&#x3002;&#x5BF9;&#x4ED6;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5FC5;&#x987B;&#x5728;&#x7528;&#x6237;&#x6388;&#x6743;&#x5F53;&#x524D;APP&#x4E4B;&#x540E;&#x624D;&#x53EF;&#x4EE5;&#x3002;</p>
+<h3 id="Blocks-1"><a href="#Blocks-1" class="headerlink" title="Blocks"></a><code>Blocks</code></h3><ul>
+<li><code>typedef void (^ALAssetsGroupEnumerationResultsBlock)(ALAsset *result, NSUInteger index, BOOL *stop)</code><blockquote>
+<p>&#x5728;<code>ALAssetsGroup</code>&#x4E2D;&#x679A;&#x4E3E;&#x5230;asset&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;<code>Block</code>&#x3002;<br>&#x5982;&#x679C;&#x679A;&#x4E3E;&#x5230;&#x6570;&#x636E;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;&#x76F8;&#x5E94;&#x5730;<code>asset</code>&#x548C;&#x7D22;&#x5F15;&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;<code>nil</code>&#x548C;<code>NSNotFound</code>&#x5E76;&#x4E14;&#x505C;&#x6B62;&#x679A;&#x4E3E;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Groups-Properties"><a href="#Groups-Properties" class="headerlink" title="Groups Properties"></a><code>Groups Properties</code></h3><ul>
+<li><code>extern NSString *const ALAssetsGroupPropertyName</code> &#x83B7;&#x53D6;&#x5206;&#x7EC4;&#x7684;&#x540D;&#x5B57;</li>
+<li><code>extern NSString *const ALAssetsGroupPropertyType</code> &#x83B7;&#x53D6;&#x5206;&#x7EC4;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x7C7B;&#x578B;&#x4E3A;<code>NSNumber</code>(<code>ALAssetsGroupType</code>)</li>
+<li><code>extern NSString *const ALAssetsGroupPropertyPersistentID</code> &#x83B7;&#x53D6;&#x5206;&#x7EC4;&#x5728;&#x76F8;&#x518C;&#x4E2D;&#x6301;&#x4E45;&#x5316;&#x5B58;&#x50A8;&#x7684;<code>ID</code></li>
+<li><code>extern NSString *const ALAssetsGroupPropertyURL</code> &#x83B7;&#x53D6;&#x5206;&#x7EC4;&#x5728;&#x76F8;&#x518C;&#x4E2D;&#x56FA;&#x5B9A;&#x7684;<code>URL</code></li>
+</ul>
+<h3 id="Methods-1"><a href="#Methods-1" class="headerlink" title="Methods"></a><code>Methods</code></h3><ul>
+<li><p><code>- (id)valueForProperty:(NSString *)property</code></p>
+<blockquote>
+<p>&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6765;&#x901A;&#x8FC7;<code>KVC</code>&#x7684;&#x65B9;&#x5F0F;&#x83B7;&#x53D6;&#x5206;&#x7EC4;&#x7684;&#x5C5E;&#x6027;</p>
+</blockquote>
+</li>
+<li><p><code>- (CGImageRef)posterImage</code></p>
+<blockquote>
+<p>&#x83B7;&#x53D6;&#x5206;&#x7EC4;&#x7684;&#x5C01;&#x9762;&#x7F29;&#x7565;&#x56FE;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>- (void)setAssetsFilter:(ALAssetsFilter *)filter</code></p>
+<blockquote>
+<p>&#x8BBE;&#x7F6E;&#x8FC7;&#x6EE4;&#x7C7B;&#x578B;&#xFF0C;&#x5E76;&#x4E14;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x662F;&#x6709;&#x6548;&#x7684;&#xFF0C;&#x8FC7;&#x6EE4;&#x7684;&#x7C7B;&#x578B;&#x5728;<code>ALAssetsFilter</code>&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x8BBE;&#x7F6E;&#x7684;&#x8BDD;&#xFF0C;&#x5C06;&#x4F1A;&#x679A;&#x4E3E;&#x5F53;&#x524D;&#x5206;&#x7EC4;&#x4E2D;&#x6240;&#x6709;&#x7684;asset&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>- (NSInteger)numberOfAssets</code></p>
+<blockquote>
+<p>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5206;&#x7EC4;&#x4E2D;asset&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#x8FC7;&#x6EE4;&#x7C7B;&#x578B;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;&#x8FC7;&#x6EE4;&#x540E;&#x7684;asset&#x7684;&#x4E2A;&#x6570;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>- (void)enumerateAssetsUsingBlock:(ALAssetsGroupEnumerationResultsBlock)enumerationBlock</code></p>
+<blockquote>
+<p>&#x679A;&#x4E3E;&#x5206;&#x7EC4;&#x4E2D;&#x6240;&#x6709;&#x7684;asset</p>
+</blockquote>
+</li>
+<li><p><code>- (void)enumerateAssetsWithOptions:(NSEnumerationOptions)options usingBlock:(ALAssetsGroupEnumerationResultsBlock)enumerationBlock</code></p>
+<blockquote>
+<p>&#x6309;&#x7167;&#x6307;&#x5B9A;&#x7684;&#x65B9;&#x5F0F;&#x679A;&#x4E3E;&#x5206;&#x7EC4;&#x4E2D;&#x6240;&#x6709;&#x7684;asset&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>- (void)enumerateAssetsAtIndexes:(NSIndexSet *)indexSet options:(NSEnumerationOptions)options usingBlock:(ALAssetsGroupEnumerationResultsBlock)enumerationBlock</code></p>
+<blockquote>
+<p>&#x6309;&#x7167;&#x7ED9;&#x5B9A;&#x7684;&#x65B9;&#x5F0F;&#x548C;&#x7ED9;&#x5B9A;&#x7684;&#x7D22;&#x5F15;&#x96C6;&#x5408;&#x6765;&#x679A;&#x4E3E;&#x5206;&#x7EC4;&#x4E2D;&#x7684;asset&#xFF0C;&#x4F46;&#x662F;&#x6240;&#x6709;&#x7684;&#x7D22;&#x5F15;&#x90FD;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;&#x5206;&#x7EC4;&#x4E2D;&#x5F97;asset&#x7684;&#x603B;&#x6570;&#x91CF;(<code>numberOfAssets</code>)&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>@property (nonatomic, readonly, getter=isEditable) BOOL editable</code></p>
+<blockquote>
+<p>&#x6765;&#x83B7;&#x53D6;&#x5F53;&#x524D;APP&#x662F;&#x5426;&#x6709;&#x6743;&#x9650;&#x6765;&#x4FEE;&#x6539;&#x5F53;&#x524D;&#x7684;&#x8FD9;&#x4E2A;&#x5206;&#x7EC4;</p>
+</blockquote>
+</li>
+<li><p><code>- (BOOL)addAsset:(ALAsset *)asset</code></p>
+<blockquote>
+<p>&#x5728;&#x5F53;&#x524D;&#x5206;&#x7EC4;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7ED9;&#x5B9A;&#x7684;asset&#xFF0C;&#x5728;&#x6DFB;&#x52A0;&#x524D;&#x9700;&#x8981;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7684;APP&#x662F;&#x5426;&#x80FD;&#x591F;&#x6765;&#x4FEE;&#x6539;&#x8FD9;&#x4E2A;&#x5206;&#x7EC4;</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="lt-AssetsLibrary-ALAssetsFilter-h-gt"><a href="#lt-AssetsLibrary-ALAssetsFilter-h-gt" class="headerlink" title="&lt;AssetsLibrary/ALAssetsFilter.h&gt;"></a><a href="https://developer.apple.com/library/ios/documentation/AssetsLibrary/Reference/ALAssetsFilter_Class/index.html#//apple_ref/occ/cl/ALAssetsFilter" target="_blank" rel="external"><code>&lt;AssetsLibrary/ALAssetsFilter.h&gt;</code></a></h2><p>&#x7528;&#x6765;&#x8FC7;&#x6EE4;&#x5206;&#x7EC4;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#xFF0C;&#x5C31;&#x53EA;&#x4F1A;&#x679A;&#x4E3E;&#x5230;&#x6240;&#x6307;&#x5B9A;&#x7684;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x3002;&#x5F53;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x8BBE;&#x7F6E;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x4F1A;&#x679A;&#x4E3E;&#x5230;&#x5206;&#x7EC4;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<h3 id="Methods-2"><a href="#Methods-2" class="headerlink" title="Methods"></a><code>Methods</code></h3><ul>
+<li><p><code>+ (ALAssetsFilter *)allPhotos;</code></p>
+<blockquote>
+<p>&#x6240;&#x6709;&#x7684;&#x56FE;&#x7247;</p>
+</blockquote>
+</li>
+<li><p><code>+ (ALAssetsFilter *)allVideos;</code></p>
+<blockquote>
+<p>&#x6240;&#x6709;&#x7684;&#x89C6;&#x9891;</p>
+</blockquote>
+</li>
+<li><p><code>+ (ALAssetsFilter *)allAssets;</code></p>
+<blockquote>
+<p>&#x6240;&#x6709;&#x7C7B;&#x578B;&#x7684;&#x6587;&#x4EF6;</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="lt-AssetsLibrary-ALAsset-h-gt"><a href="#lt-AssetsLibrary-ALAsset-h-gt" class="headerlink" title="&lt;AssetsLibrary/ALAsset.h&gt;"></a><a href="https://developer.apple.com/library/ios/documentation/AssetsLibrary/Reference/ALAsset_Class/index.html#//apple_ref/occ/cl/ALAsset" target="_blank" rel="external"><code>&lt;AssetsLibrary/ALAsset.h&gt;</code></a></h2><p>&#x4E00;&#x4E2A;<code>ALAsset</code>&#x4EE3;&#x8868;&#x7740;&#x4E00;&#x4E2A;&#x7531;&#x5F53;&#x524D;APP&#x7BA1;&#x7406;&#x7684;&#x6570;&#x636E;&#x96C6;&#x5408;&#xFF0C;&#x6BD4;&#x5982;&#x7F29;&#x7565;&#x56FE;&#x3001;&#x56FE;&#x7247;&#x5730;&#x5740;&#x3001;&#x539F;&#x59CB;&#x56FE;&#x3001;&#x5927;&#x5C0F;&#x3001;&#x65B9;&#x5411;&#x7B49;&#x7B49;&#x3002;</p>
+<h3 id="Error"><a href="#Error" class="headerlink" title="Error"></a><code>Error</code></h3><ul>
+<li><code>extern NSString *const ALErrorInvalidProperty</code></li>
+</ul>
+<h3 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a><code>Properties</code></h3><ul>
+<li><code>extern NSString *const ALAssetPropertyType</code> &#x83B7;&#x53D6;&#x5F53;&#x524D;asset&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD; : <code>ALAssetTypePhoto</code>&#x3001; <code>ALAssetTypeVideo</code>&#x3001;<code>ALAssetTypeUnknown</code></li>
+<li><code>extern NSString *const ALAssetPropertyLocation</code> &#x83B7;&#x53D6;&#x5F53;&#x524D;asset&#x7684;&#x5730;&#x7406;&#x4F4D;&#x7F6E;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x662F;&#x53EA;&#x6709;&#x4F4D;&#x7F6E;&#x670D;&#x52A1;&#x652F;&#x6301;&#x7684;&#x8BBE;&#x5907;&#x624D;&#x53EF;&#x4EE5;</li>
+<li><code>extern NSString *const ALAssetPropertyDuration</code> &#x83B7;&#x53D6;<code>video asset</code>&#x7684;<code>NSNumber(Double)</code>&#x7C7B;&#x578B;&#x7684;&#x64AD;&#x653E;&#x65F6;&#x957F;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x4E00;&#x4E2A;&#x56FE;&#x7247;&#x7684;&#x8BDD;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;<code>kALErrorInvalidProperty</code></li>
+<li><code>extern NSString *const ALAssetPropertyOrientation</code> &#x56FE;&#x7247;&#x7684;&#x65B9;&#x5411;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;<code>NSNumber</code>(<code>ALAssetOrientation</code>)&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;</li>
+<li><code>extern NSString *const ALAssetPropertyDate</code> &#x83B7;&#x53D6;&#x5F53;&#x524D;asset&#x7684;&#x521B;&#x5EFA;&#x65F6;&#x95F4;</li>
+</ul>
+<h3 id="Properties-related-to-multiple-photo-representations"><a href="#Properties-related-to-multiple-photo-representations" class="headerlink" title="Properties related to multiple photo representations"></a><code>Properties related to multiple photo representations</code></h3><ul>
+<li><code>extern NSString *const ALAssetPropertyRepresentations</code> &#x83B7;&#x53D6;&#x6240;&#x6709;asset&#x7684;representation(&#x5305;&#x542B;&#x4E86;&#x539F;&#x59CB;&#x56FE;&#x7B49;&#x6570;&#x636E;)</li>
+<li><code>extern NSString *const ALAssetPropertyURLs</code> &#x83B7;&#x53D6;&#x6240;&#x6709;asset&#x7684;url&#xFF0C;&#x952E;&#x503C;&#x5206;&#x522B;&#x662F;&#x6587;&#x4EF6;&#x540D;&#x548C;&#x6587;&#x4EF6;&#x7684;url</li>
+<li><code>extern NSString *const ALAssetPropertyAssetURL</code> &#x83B7;&#x53D6;asset&#x552F;&#x4E00;&#x7684;url</li>
+</ul>
+<h2 id="Methods-3"><a href="#Methods-3" class="headerlink" title="Methods"></a><code>Methods</code></h2><ul>
+<li><p><code>- (id)valueForProperty:(NSString *)property</code></p>
+<blockquote>
+<p>&#x901A;&#x8FC7;KVC&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;asset&#x7684;&#x4E00;&#x4E9B;&#x5C5E;&#x6027;&#x6216;&#x8005;&#x6570;&#x636E;</p>
+</blockquote>
+</li>
+<li><p><code>- (ALAssetRepresentation *)defaultRepresentation</code></p>
+<blockquote>
+<p>&#x83B7;&#x53D6;asset&#x7684;representation&#x5BF9;&#x8C61;</p>
+</blockquote>
+</li>
+<li><p><code>- (ALAssetRepresentation *)representationForUTI:(NSString *)representationUTI</code></p>
+<blockquote>
+<p>&#x6839;&#x636E;&#x7ED9;&#x5B9A;&#x7684;UTI(&#x4ECE;asset&#x7684;representation&#x4E2D;&#x83B7;&#x53D6;)&#x83B7;&#x53D6;representation</p>
+</blockquote>
+</li>
+<li><p><code>- (CGImageRef)thumbnail</code></p>
+<blockquote>
+<p>&#x83B7;&#x53D6;&#x56FE;&#x7247;&#x7684;&#x7F29;&#x7565;&#x56FE;&#xFF0C;&#x5728;iOS9&#x4EE5;&#x4E0A;&#x4F1A;&#x6BD4;&#x8F83;&#x6A21;&#x7CCA;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#x66FF;&#x4EE3;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>- (CGImageRef)aspectRatioThumbnail</code></p>
+<blockquote>
+<p>&#x83B7;&#x5F97;&#x7684;&#x662F;&#x539F;&#x59CB;&#x56FE;&#x7247;&#x7684;&#x7F29;&#x7565;&#x56FE;&#xFF0C;&#x6CE8;&#x610F;&#x4E0D;&#x662F;&#x65B9;&#x5F62;&#x7684;&#x56FE;&#x7247;&#x3002;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x5BF9;<code>imageView</code>&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#xFF1A;<code>[imageView setContentMode:UIViewContentModeScaleAspectFill];</code><br>&#x7531;&#x4E8E;&#x8FD9;&#x4E2A;&#x7F29;&#x7565;&#x56FE;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x88C1;&#x526A;&#xFF1A;</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">__weak typeof(<span class="name">self</span>) weakself = self<span class="comment">;</span></span><br><span class="line">dispatch_async(<span class="name">dispatch_get_global_queue</span>(<span class="name">DISPATCH_QUEUE_PRIORITY_DEFAULT</span>, <span class="number">0</span>), ^{</span><br><span class="line">    //&#x88C1;&#x5207;</span><br><span class="line">    weakself.image = [weakself.image imageCroppedToFitSize:(<span class="name">CGSize</span>){<span class="number">150</span>,<span class="number">150</span>}]<span class="comment">;</span></span><br><span class="line">    dispatch_async(<span class="name">dispatch_get_main_queue</span>(), ^{</span><br><span class="line">        //&#x5B8C;&#x6210;&#xFF0C;&#x8BBE;&#x7F6E;&#x5230;view</span><br><span class="line">        [weakself.imageView setImage<span class="symbol">:weakself</span>.image]<span class="comment">;</span></span><br><span class="line">    })<span class="comment">;</span></span><br><span class="line">})<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><code>- (void)writeModifiedImageDataToSavedPhotosAlbum:(NSData *)imageData metadata:(NSDictionary *)metadata completionBlock:(ALAssetsLibraryWriteImageCompletionBlock)completionBlock</code></p>
+<blockquote>
+<p>&#x5C06;&#x56FE;&#x7247;&#x6570;&#x636E;&#x548C;metadata&#x5199;&#x5165;&#x5F53;&#x524D;&#x7684;asset&#x4E2D;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x91CD;&#x7F6E;&#x6570;&#x636E;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>- (void)writeModifiedVideoAtPathToSavedPhotosAlbum:(NSURL *)videoPathURL completionBlock:(ALAssetsLibraryWriteVideoCompletionBlock)completionBlock</code></p>
+<blockquote>
+<p>&#x6839;&#x636E;&#x7ED9;&#x5B9A;&#x7684;&#x89C6;&#x9891;&#x7684;url&#x6765;&#x5199;&#x5165;&#x5F53;&#x524D;&#x7684;asset&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x4FEE;&#x6539;&#x4E86;&#x5185;&#x5BB9;</p>
+</blockquote>
+</li>
+<li><p><code>@property (nonatomic, readonly) ALAsset *originalAsset</code></p>
+<blockquote>
+<p>&#x5F53;&#x8C03;&#x7528;&#x4E86;&#x5199;&#x65B9;&#x6CD5;&#x6765;&#x91CD;&#x7F6E;&#x5F53;&#x524D;asset&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x539F;&#x59CB;&#x7684;asset&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x91CD;&#x7F6E;&#x8FC7;&#x7684;&#x8BDD;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;nil</p>
+</blockquote>
+</li>
+<li><p><code>@property (nonatomic, readonly, getter=isEditable) BOOL editable</code></p>
+<blockquote>
+<p>&#x68C0;&#x67E5;&#x5F53;&#x524D;APP&#x662F;&#x5426;&#x80FD;&#x591F;&#x6216;&#x8005;&#x6709;&#x6743;&#x9650;&#x53BB;&#x7F16;&#x8F91;&#x8FD9;&#x4E2A;asset</p>
+</blockquote>
+</li>
+<li><p><code>- (void)setImageData:(NSData *)imageData metadata:(NSDictionary *)metadata completionBlock:(ALAssetsLibraryWriteImageCompletionBlock)completionBlock</code></p>
+<blockquote>
+<p>&#x6839;&#x636E;&#x7ED9;&#x5B9A;&#x7684;&#x56FE;&#x7247;&#x6570;&#x636E;&#x548C;metadata&#x6765;&#x66FF;&#x6362;asset&#x4E2D;&#x7684;&#x56FE;&#x7247;&#x6570;&#x636E;&#xFF0C;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#x5FC5;&#x987B;&#x5148;&#x68C0;&#x67E5;&#x4E00;&#x4E0B;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x7F16;&#x8F91;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7F16;&#x8F91;&#x6743;&#x9650;&#x7684;&#x8BDD;&#xFF0C;&#x6B64;&#x65F6;&#x4F1A;&#x5728;block&#x4E2D;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;url&#x548C;<code>ALAssetsLibraryWriteFailedError</code>&#x9519;&#x8BEF;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>- (void)setVideoAtPath:(NSURL *)videoPathURL completionBlock:(ALAssetsLibraryWriteVideoCompletionBlock)completionBlock</code></p>
+<blockquote>
+<p>&#x6839;&#x636E;&#x7ED9;&#x5B9A;&#x7684;url&#x6765;&#x66FF;&#x6362;asset&#x4E2D;&#x7684;&#x89C6;&#x9891;&#x6587;&#x4EF6;&#xFF0C;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#x5FC5;&#x987B;&#x5148;&#x68C0;&#x67E5;&#x4E00;&#x4E0B;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x7F16;&#x8F91;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7F16;&#x8F91;&#x6743;&#x9650;&#x7684;&#x8BDD;&#xFF0C;&#x6B64;&#x65F6;&#x4F1A;&#x5728;block&#x4E2D;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;url&#x548C;<code>ALAssetsLibraryWriteFailedError</code>&#x9519;&#x8BEF;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="lt-AssetsLibrary-ALAssetRepresentation-h-gt"><a href="#lt-AssetsLibrary-ALAssetRepresentation-h-gt" class="headerlink" title="&lt;AssetsLibrary/ALAssetRepresentation.h&gt;"></a><a href="https://developer.apple.com/library/ios/documentation/AssetsLibrary/Reference/ALAssetRepresentation_Class/index.html#//apple_ref/occ/cl/ALAssetRepresentation" target="_blank" rel="external"><code>&lt;AssetsLibrary/ALAssetRepresentation.h&gt;</code></a></h2><h3 id="Methods-4"><a href="#Methods-4" class="headerlink" title="Methods"></a><code>Methods</code></h3><ul>
+<li><p><code>- (NSString *)UTI</code></p>
+<blockquote>
+<p>&#x83B7;&#x53D6;<code>UTI</code>&#xFF0C;&#x6D4B;&#x8BD5;&#x7684;&#x65F6;&#x5019;&#x6253;&#x5370;&#x7684;&#x90FD;&#x662F;<code>public.jpeg</code></p>
+</blockquote>
+</li>
+<li><p><code>- (CGSize)dimensions</code></p>
+<blockquote>
+<p>&#x83B7;&#x53D6;&#x56FE;&#x7247;&#x7684;&#x539F;&#x59CB;&#x5C3A;&#x5BF8;&#xFF0C;&#x5982;&#x679C;representation&#x4E0D;&#x652F;&#x6301;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x8BDD;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;CGSizeZero</p>
+</blockquote>
+</li>
+<li><p><code>- (long long)size</code></p>
+<blockquote>
+<p>&#x83B7;&#x53D6;representation&#x6240;&#x5360;&#x5185;&#x5B58;&#x5927;&#x5C0F;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>- (NSUInteger)getBytes:(uint8_t *)buffer fromOffset:(long long)offset length:(NSUInteger)length error:(NSError **)error</code></p>
+<blockquote>
+<p>&#x5728;&#x6570;&#x636E;&#x6D41;&#x4E2D;&#x6839;&#x636E;&#x6307;&#x5B9A;&#x7684;&#x5927;&#x5C0F;&#x548C;&#x4FBF;&#x5B9C;&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;&#x6570;&#x636E;</p>
+</blockquote>
+</li>
+<li><p><code>- (CGImageRef)CGImageWithOptions:(NSDictionary *)options</code></p>
+<blockquote>
+<p>&#x901A;&#x8FC7;&#x7531;<code>CGImageSourceCreateWithData()</code>&#x3001;<code>CGImageSourceCreateWithURL()</code>&#x521B;&#x5EFA;&#x7684;option&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x539F;&#x59CB;&#x6700;&#x5927;&#x5206;&#x8FA8;&#x7387;&#x7684;&#x56FE;&#x7247;</p>
+</blockquote>
+</li>
+<li><p><code>- (CGImageRef)fullScreenImage</code></p>
+<blockquote>
+<p>&#x83B7;&#x53D6;&#x539F;&#x59CB;&#x7684;&#x56FE;&#x7247;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x521D;&#x59CB;&#x5316;&#x4E3A;UIImage&#xFF0C;&#x5982;&#xFF1A;<br><code>UIImage *image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];</code></p>
+</blockquote>
+</li>
+<li><p><code>- (CGImageRef)fullResolutionImage</code></p>
+<blockquote>
+<p>&#x83B7;&#x53D6;&#x539F;&#x59CB;&#x7684;&#x56FE;&#x7247;&#x6570;&#x636E;&#xFF0C;&#x9700;&#x8981;&#x7ECF;&#x8FC7;&#x5904;&#x7406;&#x540E;&#x624D;&#x53EF;&#x4F7F;&#x7528;&#xFF0C;&#x5982;&#xFF1A;</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:(__bridge <span class="built_in">CGImageRef</span> _Nonnull)(<span class="keyword">self</span>.asset.defaultRepresentation)</span><br><span class="line">                                     scale:<span class="keyword">self</span>.asset.defaultRepresentation.scale</span><br><span class="line">                               orientation:(<span class="built_in">UIImageOrientation</span>)<span class="keyword">self</span>.asset.defaultRepresentation.orientation];</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<p><strong>&#x6CE8;&#x610F;</strong>&#xFF1A;<code>&#x5728;iPhone6+&#x4E0A;&#xFF0C;fullScreenImage&#x83B7;&#x53D6;&#x7684;&#x5C3A;&#x5BF8;  &#x5982;&#x679C;&#x4E3A;x&#xFF0C; &#x90A3;&#x4E48;fullResolutionImage&#x83B7;&#x53D6;&#x7684;&#x56FE;&#x7247;&#x5C3A;&#x5BF8;&#x5219;&#x4E3A;x/3</code></p>
+<ul>
+<li><p><code>- (NSURL *)url</code></p>
+<blockquote>
+<p>&#x83B7;&#x53D6;&#x552F;&#x4E00;&#x7684;url&#x6807;&#x8BC6;</p>
+</blockquote>
+</li>
+<li><p><code>- (NSDictionary *)metadata</code></p>
+<blockquote>
+<p>&#x83B7;&#x53D6;&#x5143;&#x6570;&#x636E;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E9B;&#x56FE;&#x7247;&#x7684;&#x4FE1;&#x606F;</p>
+</blockquote>
+</li>
+<li><p><code>- (ALAssetOrientation)orientation</code></p>
+<blockquote>
+<p>&#x56FE;&#x7247;&#x7684;&#x65B9;&#x5411;</p>
+</blockquote>
+</li>
+<li><p><code>- (float)scale</code></p>
+<blockquote>
+<p>&#x56FE;&#x7247;&#x7F29;&#x5C0F;&#x7684;&#x6BD4;&#x4F8B;</p>
+</blockquote>
+</li>
+<li><p><code>- (NSString *)filename</code></p>
+<blockquote>
+<p>&#x83B7;&#x53D6;representation&#x6587;&#x4EF6;&#x5728;&#x672C;&#x5730;&#x7684;&#x540D;&#x5B57;</p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/10/记录一次‘unrecognized-selector-sent-to-instance-’问题的解决过程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">unrecognized selector sent to instance</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Joyous&#39;s Home
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
