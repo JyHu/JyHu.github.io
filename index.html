@@ -105,7 +105,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BLE4-0/" style="font-size: 10px;">BLE4.0</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/CoreBluetooth/" style="font-size: 10px;">CoreBluetooth</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/KeyChain/" style="font-size: 10px;">KeyChain</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/TouchID/" style="font-size: 10px;">TouchID</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/相册/" style="font-size: 10px;">相册</a> <a href="/tags/通知/" style="font-size: 10px;">通知</a>
+						<a href="/tags/BLE4-0/" style="font-size: 15px;">BLE4.0</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/CoreBluetooth/" style="font-size: 15px;">CoreBluetooth</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/KeyChain/" style="font-size: 10px;">KeyChain</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/TouchID/" style="font-size: 10px;">TouchID</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/相册/" style="font-size: 10px;">相册</a> <a href="/tags/通知/" style="font-size: 10px;">通知</a>
 					</div>
 				</section>
 				
@@ -168,6 +168,68 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-iOS-BLE-Programming-之-PeripheralManager" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/02/iOS-BLE-Programming-之-PeripheralManager/" class="article-date">
+  	<time datetime="2016-05-01T18:31:26.000Z" itemprop="datePublished">2016-05-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/02/iOS-BLE-Programming-之-PeripheralManager/">iOS BLE Programming 之 PeripheralManager</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x5728;&#x4E4B;&#x524D;&#x6211;&#x4EEC;&#x8BF4;&#x4E86;&#x5728;iOS&#x7684;&#x84DD;&#x7259;&#x5F00;&#x53D1;&#x4E2D;&#x4F5C;&#x4E3A;&#x5BA2;&#x6237;&#x7AEF;&#x7684;<code>CBCentralManager</code>&#xFF0C;&#x5F53;&#x65F6;&#x5C31;&#x8BF4;&#x8FC7;&#x8FD8;&#x6709;&#x4F5C;&#x4E3A;&#x670D;&#x52A1;&#x5668;&#x7684;<code>CBPeripheralManager</code>&#x7B49;&#x7740;&#x4EE5;&#x540E;&#x518D;&#x8BF4;&#xFF0C;&#x521A;&#x597D;&#x4ECA;&#x5929;&#x6709;&#x65F6;&#x95F4;&#x5C31;&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#x3002;</p>
+<p><a href="http://jyhu.github.io/2016/04/03/iOS%20BLE%20Programming%20&#x4E4B;%20Central/">&#x4F20;&#x9001;&#x95E8;</a></p>
+<p>&#x5728;&#x4E0A;&#x4E00;&#x8282;&#x4E2D;&#x8BF4;&#x5230;&#x4E86;&#x4E00;&#x4E2A;<code>CBPeripheral</code>&#xFF0C;&#x662F;&#x84DD;&#x7259;&#x5916;&#x8BBE;&#x5728;iOS&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x8EAB;&#x4EFD;&#x5BF9;&#x8C61;&#xFF0C;&#x5728;&#x4ECA;&#x5929;&#x770B;&#x6765;&#x5462;&#xFF0C;&#x5C31;&#x662F;<code>CBPeripheralManager</code>&#x5728;&#x4E2D;&#x5FC3;&#x8BBE;&#x5907;(&#x5373;&#x5BA2;&#x6237;&#x7AEF;-<code>CBCentralManager</code>)&#x4E2D;&#x7684;&#x4F53;&#x73B0;&#x3002;<br>&#x90A3;&#x53CD;&#x8FC7;&#x6765;&#x60F3;&#xFF0C;&#x5F53;&#x7136;&#x5C31;&#x80FD;&#x60F3;&#x5230;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x4E5F;&#x6709;&#x4E00;&#x79CD;&#x8868;&#x73B0;&#x5F62;&#x5F0F;&#xFF0C;&#x90A3;&#x5C31;&#x662F;<code>CBCentral</code>&#xFF0C;&#x6BCF;&#x4E2A;&#x8FDE;&#x63A5;&#x5230;<code>CBPeripheralManager</code>&#x4E0A;&#x7684;&#x5916;&#x8BBE;&#x90FD;&#x662F;&#x4E00;&#x4E2A;<code>CBCentral</code>&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;<code>CBCentral</code>&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5C31;&#x80FD;&#x5B9E;&#x73B0;&#x5BF9;&#x5355;&#x4E2A;&#x8BBE;&#x5907;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x7684;&#x901A;&#x4FE1;&#x3002;<br>&#x4E0B;&#x9762;&#x662F;&#x51E0;&#x4E2A;&#x6BD4;&#x55BB;&#xFF1A;<br><strong> &#x6570;&#x636E;&#x4F20;&#x8F93;&#x8F7D;&#x4F53; -<code>CBCharacteristic</code> </strong>:&#x7528;&#x6765;&#x4E92;&#x76F8;&#x7684;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x4EA4;&#x4E92;&#xFF0C;&#x4F20;&#x9012;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x7B49;&#x3002;<code>CBService</code>&#x662F;&#x770B;&#x4E00;&#x770B;&#x505A;&#x662F;&#x4E00;&#x7EC4;&#x529F;&#x80FD;&#x7C7B;&#x4F3C;&#x7684;&#x6570;&#x636E;&#x8F7D;&#x4F53;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x6709;&#x5355;&#x72EC;&#x7684;&#x7279;&#x5F81;&#x548C;&#x8868;&#x73B0;&#x5F62;&#x5F0F;&#x3002;<br><strong> &#x670D;&#x52A1;&#x5668;-<code>CBPeripheralManager</code> </strong>:&#x6240;&#x6709;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x8F7D;&#x4F53;&#x90FD;&#x662F;&#x7531;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x51FA;&#xFF0C;&#x5E76;&#x5728;&#x8FDE;&#x63A5;&#x6210;&#x529F;&#x540E;&#x548C;&#x5916;&#x8BBE;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x4EA4;&#x4E92;&#x3002;&#x670D;&#x52A1;&#x5668;&#x53EF;&#x4EE5;&#x5411;&#x5916;&#x65E0;&#x76EE;&#x6807;&#x7684;&#x5E7F;&#x64AD;&#x6570;&#x636E;&#xFF0C;&#x4E5F;&#x80FD;&#x5411;&#x7279;&#x5B9A;&#x7684;&#x5916;&#x8BBE;&#x5E7F;&#x64AD;&#x6570;&#x636E;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x80FD;&#x63A5;&#x53D7;&#x5BA2;&#x6237;&#x7AEF;&#x5199;&#x5165;&#x8FC7;&#x6765;&#x7684;&#x6570;&#x636E;&#x5305;&#x3002;<br><strong> &#x5BA2;&#x6237;&#x7AEF;-<code>CBCentralManager</code> </strong>:&#x53EA;&#x80FD;&#x5728;&#x626B;&#x63CF;&#x5230;&#x5E76;&#x4E14;&#x8FDE;&#x63A5;&#x6210;&#x529F;&#x670D;&#x52A1;&#x5668;&#x4EE5;&#x540E;&#x624D;&#x80FD;&#x4F7F;&#x7528;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x7684;&#x8F7D;&#x4F53;&#xFF0C;&#x624D;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x4EA4;&#x4E92;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8BFB;&#x53D6;&#x6216;&#x8005;&#x8BBE;&#x7F6E;&#x901A;&#x77E5;&#x76D1;&#x542C;&#x6570;&#x636E;&#x7684;&#x53D8;&#x52A8;&#x6765;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x7684;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#x3002;&#x5B83;&#x4E5F;&#x540C;&#x65F6;&#x5177;&#x5907;&#x63A5;&#x53D7;&#x6570;&#x636E;&#x548C;&#x76F8;&#x8FDE;&#x63A5;&#x5230;&#x7684;&#x8BBE;&#x5907;&#x5199;&#x5165;&#x6570;&#x636E;&#x7684;&#x529F;&#x80FD;&#x3002;&#x6CE8;&#x610F;&#x662F;&#x5728;<strong>&#x6210;&#x529F;&#x8FDE;&#x63A5;&#x4E0A;</strong>&#x4EE5;&#x540E;&#x3002;</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BLE4-0/">BLE4.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CoreBluetooth/">CoreBluetooth</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/02/iOS-BLE-Programming-之-PeripheralManager/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-在方法中使用可变参数" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -472,10 +534,10 @@
 
 
   
-    <article id="post-iOS BLE Programming 之 Central" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-iOS BLE Programming 之 CentralManager" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/03/iOS BLE Programming 之 Central/" class="article-date">
+      <a href="/2016/04/03/iOS BLE Programming 之 CentralManager/" class="article-date">
   	<time datetime="2016-04-03T10:54:18.000Z" itemprop="datePublished">2016-04-03</time>
 </a>
     </div>
@@ -489,7 +551,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/03/iOS BLE Programming 之 Central/">iOS BLE Programming 之 Central</a>
+      <a class="article-title" href="/2016/04/03/iOS BLE Programming 之 CentralManager/">iOS BLE Programming 之 CentralManager</a>
     </h1>
   
 
@@ -499,6 +561,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>&#x6211;&#x7684;&#x4E0A;&#x4E00;&#x4EFD;&#x5DE5;&#x4F5C;&#x7684;&#x516C;&#x53F8;&#x662F;&#x505A;&#x667A;&#x80FD;&#x4F53;&#x6E29;&#x8BA1;&#x7684;&#xFF0C;&#x786C;&#x4EF6;&#x8BBE;&#x5907;&#x901A;&#x8FC7;<code>BLE4.0</code>&#x6765;&#x8FDB;&#x884C;&#x4F53;&#x6E29;&#x6570;&#x636E;&#x7684;&#x4F20;&#x8F93;&#xFF0C;&#x5728;&#x6B64;&#x8FC7;&#x7A0B;&#x4E2D;&#x5C31;&#x9700;&#x8981;&#x63A5;&#x89E6;BLE&#x76F8;&#x5173;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x4E8E;&#x662F;&#x6211;&#x5C31;&#x5F00;&#x59CB;&#x4E86;&#x4E00;&#x6BB5;&#x6478;&#x7D22;&#x4E0E;&#x8E29;&#x5751;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E0D;&#x8FC7;&#xFF0C;&#x901A;&#x8FC7;apple&#x7684;<a href="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/AboutCoreBluetooth/Introduction.html#//apple_ref/doc/uid/TP40013257-CH1-SW1">&#x5B98;&#x65B9;&#x6587;&#x6863;</a>&#x8FD8;&#x6709;Google&#xFF0C;&#x6211;&#x8FD8;&#x7B97;&#x662F;&#x5C0F;&#x6709;&#x6536;&#x83B7;&#x5427;&#x3002;<br>&#x73B0;&#x5728;&#x79BB;&#x5F00;&#x4E0A;&#x4E00;&#x5BB6;&#x516C;&#x53F8;&#x6709;&#x5C06;&#x8FD1;&#x5927;&#x534A;&#x5E74;&#x7684;&#x65F6;&#x95F4;&#x4E86;&#x5427;&#xFF0C;&#x8FD8;&#x662F;&#x51B3;&#x5B9A;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#xFF0C;&#x6BD5;&#x7ADF;&#x597D;&#x8BB0;&#x6027;&#x4E0D;&#x5982;&#x70C2;&#x7B14;&#x5934;&#x561B;&#xFF0C;&#x867D;&#x7136;&#x73B0;&#x5728;&#x4E0D;&#x505A;<code>BLE</code>&#x4E86;&#xFF0C;&#x4E07;&#x4E00;&#x4EE5;&#x540E;&#x5565;&#x65F6;&#x5019;&#x9700;&#x8981;&#x5462;&#xFF1F;<br><code>BLE4.0</code>(&#x4E00;&#x79CD;&#x8FD1;&#x8DDD;&#x79BB;&#x4F4E;&#x529F;&#x8017;&#x65E0;&#x7EBF;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x534F;&#x8BAE;)&#xFF0C;&#x7531;&#x84DD;&#x7259;&#x8054;&#x76DF;&#x5236;&#x5B9A;(<a href="https://www.bluetooth.com">Bluetooth.com</a>)&#x3002;<br>&#x5728;&#x82F9;&#x679C;iOS&#x8BBE;&#x5907;&#x4E2D;&#xFF0C;&#x4ECE;iPhone 4s&#x3001;<code>iOS5.0</code>&#x5F00;&#x59CB;&#x652F;&#x6301;&#x3002;</p>
+<p><code>CentralManager</code> &#xFF1A;&#x84DD;&#x7259;&#x6570;&#x636E;&#x901A;&#x4FE1;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x3002;</p>
       
     </div>
     
@@ -513,7 +576,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/03/iOS BLE Programming 之 Central/#more">more >></a>
+          <a  href="/2016/04/03/iOS BLE Programming 之 CentralManager/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -701,67 +764,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/03/15/KeyChainParameters/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-TouchID登陆" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/15/TouchID登陆/" class="article-date">
-  	<time datetime="2016-03-15T06:32:43.000Z" itemprop="datePublished">2016-03-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/15/TouchID登陆/">TouchID 登陆</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain-and-TouchID-Demo"><a href="#&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain-and-TouchID-Demo" class="headerlink" title="&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain and TouchID Demo"></a><a href="https://github.com/JyHu/TouchIDAndKeyChain.git">&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain and TouchID Demo</a></h2><p>&#x9996;&#x5148;&#x9700;&#x8981;&#x5F15;&#x5165;&#x4E00;&#x4E2A;&#x5E93;<code>#import &lt;LocalAuthentication/LAContext.h&gt;</code>&#xFF0C;&#x5B98;&#x65B9;&#x7684;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;TouchID&#x5B89;&#x5168;&#x9A8C;&#x8BC1;&#x767B;&#x9646;&#x7684;<code>Framework</code>&#xFF0C;&#x9996;&#x5148;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x652F;&#x6301;TouchID&#x767B;&#x9646;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// &#x5224;&#x65AD;&#x662F;&#x5426;&#x652F;&#x6301;TouchID&#x767B;&#x9646;</span><br><span class="line">- (BOOL)canEvaluatePolicy</span><br><span class="line">{</span><br><span class="line">    LAContext *context = [[LAContext alloc] init];</span><br><span class="line">    NSError *error;</span><br><span class="line">    return [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:&amp;error];</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TouchID/">TouchID</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/15/TouchID登陆/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
