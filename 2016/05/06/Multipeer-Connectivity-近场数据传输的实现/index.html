@@ -15,7 +15,11 @@ The Multipeer Connectivity framework provides support for discovering ser">
 <meta property="og:description" content="&amp;#x5F15;&amp;#x7528;&amp;#x4E00;&amp;#x4E0B;&amp;#x82F9;&amp;#x679C;&amp;#x5B98;&amp;#x65B9;&amp;#x7684;&amp;#x6587;&amp;#x5B57;(About Multipeer Connectivity)&amp;#xFF1A;
 The Multipeer Connectivity framework provides support for discovering ser">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/8acb15f3jw1f3m2ngdfeuj208w04074h.jpg">
-<meta property="og:updated_time" content="2016-05-07T15:43:13.000Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/8acb15f3jw1f3nxuxt39uj20hs091mxi.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/8acb15f3jw1f3nxvgwuxnj20hs0dvjry.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/8acb15f3jw1f3nxwkvn4dj20pw0ck3zs.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/8acb15f3jw1f3nxwx2xerj20hs0eymxr.jpg">
+<meta property="og:updated_time" content="2016-05-08T06:05:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Multipeer Connectivity 近场数据传输的实现">
 <meta name="twitter:description" content="&amp;#x5F15;&amp;#x7528;&amp;#x4E00;&amp;#x4E0B;&amp;#x82F9;&amp;#x679C;&amp;#x5B98;&amp;#x65B9;&amp;#x7684;&amp;#x6587;&amp;#x5B57;(About Multipeer Connectivity)&amp;#xFF1A;
@@ -234,6 +238,7 @@ The Multipeer Connectivity framework provides support for discovering ser">
 <li><a href="#4&#x3001;MCAdvertiserAssistant-&#x7528;&#x4E8E;&#x5E7F;&#x64AD;&#x901A;&#x77E5;">4&#x3001;MCAdvertiserAssistant-&#x7528;&#x4E8E;&#x5E7F;&#x64AD;&#x901A;&#x77E5;</a></li>
 <li><a href="#5&#x3001;MCNearbyServiceBrowser-&#x7528;&#x4E8E;&#x641C;&#x7D22;&#x5E7F;&#x64AD;&#x901A;&#x77E5;">5&#x3001;MCNearbyServiceBrowser-&#x7528;&#x4E8E;&#x641C;&#x7D22;&#x5E7F;&#x64AD;&#x901A;&#x77E5;</a></li>
 <li><a href="#6&#x3001;MCBrowserViewController-&#x7528;&#x4E8E;&#x641C;&#x7D22;&#x5E7F;&#x64AD;&#x901A;&#x77E5;">6&#x3001;MCBrowserViewController-&#x7528;&#x4E8E;&#x641C;&#x7D22;&#x5E7F;&#x64AD;&#x901A;&#x77E5;</a></li>
+<li><a href="#7&#x3001;&#x8FDE;&#x63A5;&#x8FC7;&#x7A0B;&#x5C55;&#x793A;">7&#x3001;&#x8FDE;&#x63A5;&#x8FC7;&#x7A0B;&#x5C55;&#x793A;</a></li>
 </ul>
 </li>
 <li><a href="#&#x56DB;&#x3001;&#x6570;&#x636E;&#x4EA4;&#x4E92;">&#x56DB;&#x3001;&#x6570;&#x636E;&#x4EA4;&#x4E92;</a><ul>
@@ -242,6 +247,7 @@ The Multipeer Connectivity framework provides support for discovering ser">
 <li><a href="#3&#x3001;&#x4EE5;&#x6570;&#x636E;&#x6D41;&#x7684;&#x65B9;&#x5F0F;&#x53D1;&#x9001;">3&#x3001;&#x4EE5;&#x6570;&#x636E;&#x6D41;&#x7684;&#x65B9;&#x5F0F;&#x53D1;&#x9001;</a></li>
 </ul>
 </li>
+<li><a href="#&#x4E94;&#x3001;&#x540E;&#x8BB0;">&#x4E94;&#x3001;&#x540E;&#x8BB0;</a></li>
 </ul>
 <hr>
 <h1 id="&#x4E00;&#x3001;MultipeerConnectivityHeaders"><a href="#&#x4E00;&#x3001;MultipeerConnectivityHeaders" class="headerlink" title="&#x4E00;&#x3001;MultipeerConnectivityHeaders"></a>&#x4E00;&#x3001;MultipeerConnectivityHeaders</h1><p>&#x4E0B;&#x9762;&#x662F;<code>MultipeerConnectivity.framework</code>&#x6846;&#x67B6;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x5934;&#x6587;&#x4EF6;&#xFF1A;</p>
@@ -361,6 +367,22 @@ The Multipeer Connectivity framework provides support for discovering ser">
 <blockquote>
 <p>&#x5F53;&#x65B0;&#x53D1;&#x73B0;&#x4E00;&#x4E2A;&#x53D1;&#x9001;&#x5E7F;&#x64AD;&#x7684;&#x7528;&#x6237;&#x8BBE;&#x5907;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x662F;&#x5426;&#x5C55;&#x793A;&#x5230;&#x7528;&#x6237;&#x7684;&#x754C;&#x9762;&#x3002;</p>
 </blockquote>
+<h2 id="7&#x3001;&#x8FDE;&#x63A5;&#x8FC7;&#x7A0B;&#x5C55;&#x793A;"><a href="#7&#x3001;&#x8FDE;&#x63A5;&#x8FC7;&#x7A0B;&#x5C55;&#x793A;" class="headerlink" title="7&#x3001;&#x8FDE;&#x63A5;&#x8FC7;&#x7A0B;&#x5C55;&#x793A;"></a>7&#x3001;&#x8FDE;&#x63A5;&#x8FC7;&#x7A0B;&#x5C55;&#x793A;</h2><ul>
+<li><strong>&#x53D1;&#x73B0;</strong></li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/large/8acb15f3jw1f3nxuxt39uj20hs091mxi.jpg" alt="Discovery"></p>
+<ul>
+<li><strong>&#x9009;&#x62E9;&#x8BBE;&#x5907;&#x53BB;&#x8FDE;&#x63A5;</strong></li>
+</ul>
+<p><img src="http://ww4.sinaimg.cn/large/8acb15f3jw1f3nxvgwuxnj20hs0dvjry.jpg" alt="Connecting"></p>
+<ul>
+<li><strong>&#x8FDE;&#x63A5;&#x786E;&#x8BA4;</strong></li>
+</ul>
+<p><img src="http://ww3.sinaimg.cn/large/8acb15f3jw1f3nxwkvn4dj20pw0ck3zs.jpg" alt="Confirmed"></p>
+<ul>
+<li><strong>&#x8FDE;&#x63A5;&#x6210;&#x529F;</strong></li>
+</ul>
+<p><img src="http://ww2.sinaimg.cn/large/8acb15f3jw1f3nxwx2xerj20hs0eymxr.jpg" alt="Connected"></p>
 <h1 id="&#x56DB;&#x3001;&#x6570;&#x636E;&#x4EA4;&#x4E92;"><a href="#&#x56DB;&#x3001;&#x6570;&#x636E;&#x4EA4;&#x4E92;" class="headerlink" title="&#x56DB;&#x3001;&#x6570;&#x636E;&#x4EA4;&#x4E92;"></a>&#x56DB;&#x3001;&#x6570;&#x636E;&#x4EA4;&#x4E92;</h1><p>&#x5728;&#x8FD9;&#x91CC;&#x5F00;&#x59CB;&#x518D;&#x6B21;&#x4F7F;&#x7528;<code>session</code>&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x5B9E;&#x73B0;&#x5B83;&#x7684;&#x51E0;&#x4E2A;&#x534F;&#x8BAE;&#x65B9;&#x6CD5;&#x3002;<br>&#x4E0D;&#x7BA1;&#x662F;&#x63A5;&#x6536;&#x65B9;&#x8FD8;&#x662F;&#x5E7F;&#x64AD;&#x65B9;&#xFF0C;&#x53EA;&#x8981;&#x4E0E;&#x5BF9;&#x65B9;&#x8FDE;&#x63A5;&#x6210;&#x529F;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>session</code>&#x8FDB;&#x884C;&#x6570;&#x636E;&#x53D1;&#x9001;&#x4E0E;&#x63A5;&#x6536;&#x3002;<br><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x6570;&#x636E;&#x4EA4;&#x4E92;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x90FD;&#x662F;<code>NSData</code>&#x3002;</p>
 <h2 id="1&#x3001;&#x76F4;&#x63A5;&#x53D1;&#x9001;&#x6570;&#x636E;"><a href="#1&#x3001;&#x76F4;&#x63A5;&#x53D1;&#x9001;&#x6570;&#x636E;" class="headerlink" title="1&#x3001;&#x76F4;&#x63A5;&#x53D1;&#x9001;&#x6570;&#x636E;"></a>1&#x3001;&#x76F4;&#x63A5;&#x53D1;&#x9001;&#x6570;&#x636E;</h2><ul>
 <li><strong>&#x53D1;&#x9001;&#x65B9;</strong></li>
@@ -485,14 +507,14 @@ The Multipeer Connectivity framework provides support for discovering ser">
       </div>
     </div>
     
+    
+      
+	<script type="text/javascript">
+		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cspan id='cnzz_stat_icon_1259025141'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259025141%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+	</script>
 
-
-<script type="text/javascript">
-	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-	document.write(unescape("%3Cspan id='cnzz_stat_icon_1259025141'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259025141%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
-</script>
-
-
+    
 
   </div>
 </footer>
