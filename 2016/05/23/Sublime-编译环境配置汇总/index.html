@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Sublime 编译环境配置汇总 | Joyous&#39;s Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x5229;&amp;#x7528;&amp;#x5F3A;&amp;#x5927;&amp;#x7684;Sublime&amp;#x8FDB;&amp;#x884C;&amp;#x5404;&amp;#x79CD;&amp;#x8BED;&amp;#x8A00;&amp;#x7684;&amp;#x7F16;&amp;#x8BD1;&amp;#x8C03;&amp;#x8BD5;&amp;#x3002;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sublime 编译环境配置汇总">
+<meta property="og:url" content="https://github.com/JyHu/2016/05/23/Sublime-编译环境配置汇总/index.html">
+<meta property="og:site_name" content="Joyous's Home">
+<meta property="og:description" content="&amp;#x5229;&amp;#x7528;&amp;#x5F3A;&amp;#x5927;&amp;#x7684;Sublime&amp;#x8FDB;&amp;#x884C;&amp;#x5404;&amp;#x79CD;&amp;#x8BED;&amp;#x8A00;&amp;#x7684;&amp;#x7F16;&amp;#x8BD1;&amp;#x8C03;&amp;#x8BD5;&amp;#x3002;">
+<meta property="og:image" content="http://i4.buimg.com/f9020d5ae2812f19.png">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/8acb15f3jw1f45hn28jfnj20jd0h20up.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/8acb15f3jw1f45hney4i4j20cm09hq4d.jpg">
+<meta property="og:updated_time" content="2016-05-23T14:05:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sublime 编译环境配置汇总">
+<meta name="twitter:description" content="&amp;#x5229;&amp;#x7528;&amp;#x5F3A;&amp;#x5927;&amp;#x7684;Sublime&amp;#x8FDB;&amp;#x884C;&amp;#x5404;&amp;#x79CD;&amp;#x8BED;&amp;#x8A00;&amp;#x7684;&amp;#x7F16;&amp;#x8BD1;&amp;#x8C03;&amp;#x8BD5;&amp;#x3002;">
+<meta name="twitter:image" content="http://i4.buimg.com/f9020d5ae2812f19.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Joyous&#39;s Home" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://ww4.sinaimg.cn/large/8acb15f3jw1f23fmmzow2j20hs0hsmxh.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Joyous&#39;s Home</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/iOS">iOS</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/JyHu" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/210127055" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="/auu.aug@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/BLE/" style="font-size: 10px;">BLE</a> <a href="/tags/BLE4-0/" style="font-size: 15px;">BLE4.0</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/CoreBluetooth/" style="font-size: 15px;">CoreBluetooth</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/KeyChain/" style="font-size: 10px;">KeyChain</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TouchID/" style="font-size: 10px;">TouchID</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/相册/" style="font-size: 10px;">相册</a> <a href="/tags/通知/" style="font-size: 10px;">通知</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">低头不是认输,是要看清自己的路。仰头不是骄傲,是要看见自己的天空。So，我就是我，不一样的烟火。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Joyous&#39;s Home</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://ww4.sinaimg.cn/large/8acb15f3jw1f23fmmzow2j20hs0hsmxh.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Joyous&#39;s Home</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/iOS">iOS</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/JyHu" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/210127055" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="/auu.aug@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Sublime-编译环境配置汇总" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/23/Sublime-编译环境配置汇总/" class="article-date">
+  	<time datetime="2016-05-23T10:14:00.000Z" itemprop="datePublished">2016-05-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Sublime 编译环境配置汇总
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime/">Sublime</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x5229;&#x7528;&#x5F3A;&#x5927;&#x7684;Sublime&#x8FDB;&#x884C;&#x5404;&#x79CD;&#x8BED;&#x8A00;&#x7684;&#x7F16;&#x8BD1;&#x8C03;&#x8BD5;&#x3002;</p>
+<p><img src="http://i4.buimg.com/f9020d5ae2812f19.png" alt=""></p>
+<a id="more"></a>
+<h1 id="&#x4E00;&#x3001;&#x6DFB;&#x52A0;&#x65B9;&#x6CD5;"><a href="#&#x4E00;&#x3001;&#x6DFB;&#x52A0;&#x65B9;&#x6CD5;" class="headerlink" title="&#x4E00;&#x3001;&#x6DFB;&#x52A0;&#x65B9;&#x6CD5;"></a>&#x4E00;&#x3001;&#x6DFB;&#x52A0;&#x65B9;&#x6CD5;</h1><p><code>Tools</code> &#x2013;&gt; <code>Build System</code> &#x2013;&gt; <code>New Build System ...</code><br>&#x8FD9;&#x65F6;&#x5019;Sublime&#x4F1A;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x6587;&#x672C;&#x7F16;&#x8F91;&#x7A97;&#x53E3;&#xFF0C;&#x5728;&#x91CC;&#x9762;&#x8F93;&#x5165;&#x8981;&#x6DFB;&#x52A0;&#x7684;&#x7F16;&#x8BD1;&#x5185;&#x5BB9;&#xFF0C;&#x7136;&#x540E;&#x4FDD;&#x5B58;&#x4E00;&#x4E0B;&#x5C31;&#x884C;&#x4E86;&#x3002;<br>&#x6CE8;&#x610F;&#xFF0C;&#x4FDD;&#x5B58;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x540E;&#x7F00;&#x5FC5;&#x987B;&#x662F;<code>.sublime-build</code>&#x3002;<br>&#x4FDD;&#x5B58;&#x5B8C;&#x4EE5;&#x540E;&#x5C31;&#x4F1A;&#x5728;<code>Build System</code>&#x4E2D;&#x770B;&#x5230;&#x4F60;&#x6DFB;&#x52A0;&#x7684;&#x7F16;&#x8BD1;&#x73AF;&#x5883;&#x4E86;&#x3002;<br>&#x8981;&#x60F3;&#x67E5;&#x770B;&#x81EA;&#x5DF1;&#x914D;&#x7F6E;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x8BE6;&#x7EC6;&#x5185;&#x5BB9;&#xFF0C;&#x53EF;&#x4EE5;&#x9009;&#x62E9;<code>Sublime Text</code> &#x2013;&gt; <code>Preferences</code> &#x2013;&gt; <code>Browse Packages...</code>&#xFF0C;&#x5728;&#x6253;&#x5F00;&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#x7684;<code>User</code>&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x5373;&#x662F;&#x81EA;&#x5DF1;&#x7684;&#x6240;&#x6709;&#x914D;&#x7F6E;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<p><img src="http://ww1.sinaimg.cn/large/8acb15f3jw1f45hn28jfnj20jd0h20up.jpg" alt=""></p>
+<p><img src="http://ww3.sinaimg.cn/large/8acb15f3jw1f45hney4i4j20cm09hq4d.jpg" alt=""></p>
+<h1 id="&#x4E8C;&#x3001;&#x7F16;&#x8BD1;&#x73AF;&#x5883;"><a href="#&#x4E8C;&#x3001;&#x7F16;&#x8BD1;&#x73AF;&#x5883;" class="headerlink" title="&#x4E8C;&#x3001;&#x7F16;&#x8BD1;&#x73AF;&#x5883;"></a>&#x4E8C;&#x3001;&#x7F16;&#x8BD1;&#x73AF;&#x5883;</h1><h2 id="1&#x3001;C&#x8BED;&#x8A00;"><a href="#1&#x3001;C&#x8BED;&#x8A00;" class="headerlink" title="1&#x3001;C&#x8BED;&#x8A00;"></a>1&#x3001;C&#x8BED;&#x8A00;</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;bash&quot;</span>, <span class="string">&quot;-c&quot;</span>, <span class="string">&quot;g++ -Wall -std=c++11 -O2 &apos;${file}&apos; -o &apos;${file_path}/${file_base_name}&apos; &amp;&amp; osascript -e &apos;tell application \&quot;Terminal\&quot; to activate do script \&quot; cd \\\&quot;${file_path}\\\&quot; &amp;&amp;start_ms=\\$(ruby -e \\\&quot;puts (Time.now.to_f * 1000).to_i\\\&quot;)&amp;&amp;clear&amp;&amp;\\\&quot;${file_path}/${file_base_name}\\\&quot; &amp;&amp;elapsed_ms=\\$((\\$(ruby -e \\\&quot;puts (Time.now.to_f * 1000).to_i\\\&quot;) - start_ms))&amp;&amp; read -p \\\&quot;Press Enter to exit(\\$elapsed_ms ms).\\\&quot;&amp;&amp;exit\&quot;&apos;&quot;</span>],</span><br><span class="line">    <span class="string">&quot;file_regex&quot;</span>: <span class="string">&quot;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&quot;</span>,</span><br><span class="line">    <span class="string">&quot;working_dir&quot;</span>: <span class="string">&quot;${file_path}&quot;</span>,</span><br><span class="line">    <span class="string">&quot;selector&quot;</span>: <span class="string">&quot;source.c, source.c++&quot;</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="2&#x3001;Java"><a href="#2&#x3001;Java" class="headerlink" title="2&#x3001;Java"></a>2&#x3001;Java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="string">&quot;shell_cmd&quot;</span>: <span class="string">&quot;javac -encoding utf-8 $file_name &amp;&amp; java $file_base_name&quot;</span>,</span><br><span class="line">    <span class="string">&quot;file_regex&quot;</span>: <span class="string">&quot;^ *\\[javac\\] (.+):([0-9]+):() (.*)$&quot;</span>,</span><br><span class="line">    <span class="string">&quot;selector&quot;</span>: <span class="string">&quot;source.java&quot;</span>,</span><br><span class="line">    <span class="string">&quot;encoding&quot;</span>: <span class="string">&quot;gbk&quot;</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="3&#x3001;Javascript"><a href="#3&#x3001;Javascript" class="headerlink" title="3&#x3001;Javascript"></a>3&#x3001;Javascript</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc&quot;</span>, <span class="string">&quot;$file&quot;</span>],</span><br><span class="line">    <span class="string">&quot;selector&quot;</span>: <span class="string">&quot;source.js&quot;</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="4&#x3001;C"><a href="#4&#x3001;C" class="headerlink" title="4&#x3001;C++"></a>4&#x3001;C++</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;bsh&quot;</span>, <span class="string">&quot;-c&quot;</span>, <span class="string">&quot;g++ &apos;${file}&apos; -o &apos;${file_path}/${file_base_name}&apos; &amp;&amp; osascript -e &apos;tell application \&quot;Terminal\&quot; to activate do script \&quot;clear&amp;&amp;${file_path}/${file_base_name} &amp;&amp; read -p \\\&quot;Press Enter to exit.\\\&quot;&amp;&amp;exit\&quot;&apos;&quot;</span>],</span><br><span class="line">    <span class="string">&quot;file_regex&quot;</span>: <span class="string">&quot;^(..{FNXX==XXFN}*):([0-9]+):?([0-9]+)?:? (.*)$&quot;</span>,</span><br><span class="line">    <span class="string">&quot;working_dir&quot;</span>: <span class="string">&quot;${file_path}&quot;</span>,</span><br><span class="line">    <span class="string">&quot;selector&quot;</span>: <span class="string">&quot;source.c, source.c++&quot;</span>,</span><br><span class="line">    <span class="string">&quot;variants&quot;</span>:</span><br><span class="line">    [</span><br><span class="line">        {</span><br><span class="line">            <span class="string">&quot;name&quot;</span>: <span class="string">&quot;Run&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;bash&quot;</span>, <span class="string">&quot;-c&quot;</span>, <span class="string">&quot;g++ &apos;${file}&apos; -o &apos;${file_path}/${file_base_name}&apos; &amp;&amp; &apos;${file_path}/${file_base_name}&apos;&quot;</span>]</span><br><span class="line">        }</span><br><span class="line">    ]</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="5&#x3001;PHP"><a href="#5&#x3001;PHP" class="headerlink" title="5&#x3001;PHP"></a>5&#x3001;PHP</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;php&quot;</span>, <span class="string">&quot;$file&quot;</span>],</span><br><span class="line">    <span class="string">&quot;file_regex&quot;</span>: <span class="string">&quot;php$&quot;</span>,</span><br><span class="line">    <span class="string">&quot;selector&quot;</span>: <span class="string">&quot;source.php&quot;</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/06/Multipeer-Connectivity-近场数据传输的实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Multipeer Connectivity 近场数据传输的实现</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style" style="float:left;margin-left:40px">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		
+		<a class="jiathis_button_qzone"></a>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_tqq"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_fb"></a>
+		<a class="jiathis_button_ydnote"></a>
+		<a class="jiathis_button_evernote"></a>
+		<a class="jiathis_button_copy"></a>
+
+    	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Sublime-编译环境配置汇总" data-title="Sublime 编译环境配置汇总" data-url="https://github.com/JyHu/2016/05/23/Sublime-编译环境配置汇总/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Joyous&#39;s Home
+    	</div>
+      <div class="footer-right">
+      	<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      </div>
+    </div>
+    
+    
+      
+	<script type="text/javascript">
+		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cspan id='cnzz_stat_icon_1259025141'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259025141%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+
+    
+
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
