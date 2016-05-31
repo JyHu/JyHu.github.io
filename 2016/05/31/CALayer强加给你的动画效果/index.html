@@ -4,18 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Mac OSX 升级JDK至1.8 | Joyous&#39;s Home</title>
+  <title>CALayer强加给你的动画效果 | Joyous&#39;s Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mac OSX&amp;#x539F;&amp;#x751F;&amp;#x81EA;&amp;#x5E26;&amp;#x7684;Java JDK&amp;#x7248;&amp;#x672C;&amp;#x662F;1.6&amp;#xFF0C;&amp;#x800C;&amp;#x6709;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x5462;&amp;#x9700;&amp;#x8981;&amp;#x9AD8;&amp;#x4E00;&amp;#x70B9;&amp;#x7684;&amp;#x7248;&amp;#x672">
+  <meta name="description" content="&amp;#x8FD9;&amp;#x4E2A;&amp;#x662F;&amp;#x4E4B;&amp;#x524D;&amp;#x6CE2;&amp;#x795E;&amp;#x95EE;&amp;#x8FC7;&amp;#x6211;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x8FD8;&amp;#x662F;&amp;#x5148;&amp;#x770B;&amp;#x4E00;&amp;#x5F20;&amp;#x56FE;&amp;#x7247;&amp;#x5427;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac OSX 升级JDK至1.8">
-<meta property="og:url" content="https://github.com/JyHu/2016/05/23/Mac OSX 升级JDK至1.8/index.html">
+<meta property="og:title" content="CALayer强加给你的动画效果">
+<meta property="og:url" content="https://github.com/JyHu/2016/05/31/CALayer强加给你的动画效果/index.html">
 <meta property="og:site_name" content="Joyous's Home">
-<meta property="og:description" content="Mac OSX&amp;#x539F;&amp;#x751F;&amp;#x81EA;&amp;#x5E26;&amp;#x7684;Java JDK&amp;#x7248;&amp;#x672C;&amp;#x662F;1.6&amp;#xFF0C;&amp;#x800C;&amp;#x6709;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x5462;&amp;#x9700;&amp;#x8981;&amp;#x9AD8;&amp;#x4E00;&amp;#x70B9;&amp;#x7684;&amp;#x7248;&amp;#x672">
-<meta property="og:updated_time" content="2016-05-23T16:14:23.000Z">
+<meta property="og:description" content="&amp;#x8FD9;&amp;#x4E2A;&amp;#x662F;&amp;#x4E4B;&amp;#x524D;&amp;#x6CE2;&amp;#x795E;&amp;#x95EE;&amp;#x8FC7;&amp;#x6211;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x8FD8;&amp;#x662F;&amp;#x5148;&amp;#x770B;&amp;#x4E00;&amp;#x5F20;&amp;#x56FE;&amp;#x7247;&amp;#x5427;">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw1024/8acb15f3gw1f4evr6uuytg20na08xmy4.gif">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw1024/8acb15f3gw1f4ewkjls8aj20tc08nmzx.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw1024/8acb15f3gw1f4ewkhvj9qj20dj04jaai.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw1024/8acb15f3gw1f4ewkjh552j20io05d755.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw1024/8acb15f3gw1f4ewkhxml5j20ia01xdg1.jpg">
+<meta property="og:updated_time" content="2016-05-31T14:09:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac OSX 升级JDK至1.8">
-<meta name="twitter:description" content="Mac OSX&amp;#x539F;&amp;#x751F;&amp;#x81EA;&amp;#x5E26;&amp;#x7684;Java JDK&amp;#x7248;&amp;#x672C;&amp;#x662F;1.6&amp;#xFF0C;&amp;#x800C;&amp;#x6709;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x5462;&amp;#x9700;&amp;#x8981;&amp;#x9AD8;&amp;#x4E00;&amp;#x70B9;&amp;#x7684;&amp;#x7248;&amp;#x672">
+<meta name="twitter:title" content="CALayer强加给你的动画效果">
+<meta name="twitter:description" content="&amp;#x8FD9;&amp;#x4E2A;&amp;#x662F;&amp;#x4E4B;&amp;#x524D;&amp;#x6CE2;&amp;#x795E;&amp;#x95EE;&amp;#x8FC7;&amp;#x6211;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x8FD8;&amp;#x662F;&amp;#x5148;&amp;#x770B;&amp;#x4E00;&amp;#x5F20;&amp;#x56FE;&amp;#x7247;&amp;#x5427;">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/mw1024/8acb15f3gw1f4evr6uuytg20na08xmy4.gif">
   
     <link rel="alternative" href="/atom.xml" title="Joyous&#39;s Home" type="application/atom+xml">
   
@@ -172,11 +178,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Mac OSX 升级JDK至1.8" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-CALayer强加给你的动画效果" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/23/Mac OSX 升级JDK至1.8/" class="article-date">
-  	<time datetime="2016-05-23T14:20:15.000Z" itemprop="datePublished">2016-05-23</time>
+      <a href="/2016/05/31/CALayer强加给你的动画效果/" class="article-date">
+  	<time datetime="2016-05-31T13:04:04.000Z" itemprop="datePublished">2016-05-31</time>
 </a>
     </div>
   
@@ -189,7 +195,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Mac OSX 升级JDK至1.8
+      CALayer强加给你的动画效果
     </h1>
   
 
@@ -198,7 +204,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac-OSX/">Mac OSX</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
 	</div>
 
         
@@ -209,31 +215,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Mac OSX&#x539F;&#x751F;&#x81EA;&#x5E26;&#x7684;Java JDK&#x7248;&#x672C;&#x662F;1.6&#xFF0C;&#x800C;&#x6709;&#x7684;&#x65F6;&#x5019;&#x5462;&#x9700;&#x8981;&#x9AD8;&#x4E00;&#x70B9;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x5C31;&#x9700;&#x8981;&#x5347;&#x7EA7;JDK&#x7684;&#x7248;&#x672C;&#x3002;</p>
-<p>&#x9996;&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x6211;&#x8FD9;&#x8FB9;&#x7684;java&#x7248;&#x672C;:</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -<span class="built_in">version</span></span><br></pre></td></tr></table></figure>
-<p>&#x6211;&#x8FD9;&#x8FB9;&#x663E;&#x793A;&#x7684;&#x7248;&#x672C;&#x662F; &#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ava version &quot;1.6.0_65&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.6.0_65-b14-468-11M4833)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 20.65-b04-468, mixed mode)</span><br></pre></td></tr></table></figure>
+        <p>&#x8FD9;&#x4E2A;&#x662F;&#x4E4B;&#x524D;<a href="https://github.com/MickeyHub">&#x6CE2;&#x795E;</a>&#x95EE;&#x8FC7;&#x6211;&#x7684;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x8FD8;&#x662F;&#x5148;&#x770B;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#x5427;&#xFF0C;&#x5DE6;&#x8FB9;&#x662F;&#x5168;&#x90E8;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x53F3;&#x8FB9;&#x662F;&#x70B9;&#x51FB;&#x7684;&#x6548;&#x679C;&#xFF1A;</p>
+<p><img src="http://ww2.sinaimg.cn/mw1024/8acb15f3gw1f4evr6uuytg20na08xmy4.gif" alt="LayerAnimation"></p>
 <a id="more"></a>
-<ul>
-<li><strong>1.</strong> &#x9996;&#x5148;&#x53BB;&#x4E0B;&#x8F7D;<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">Java SE Developent Kit</a>&#xFF0C;&#x4E0B;&#x8F7D;&#x5B8C;&#x6210;&#x540E;&#x5B89;&#x88C5;&#x4E0A;&#xFF0C;&#x5B89;&#x88C5;&#x597D;&#x7684;jdk&#x5728;&#x8FD9;&#x4E2A;&#x4F4D;&#x7F6E;:<code>/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents</code></li>
-</ul>
-<ul>
-<li><p><strong>2.</strong> &#x7136;&#x540E;&#x53BB;&#x82F9;&#x679C;&#x7684;&#x5B98;&#x7F51;&#x4E0B;&#x8F7D;&#x6700;&#x65B0;&#x7684;java&#x7248;&#x672C; <a href="https://support.apple.com/en-us/HT204036" target="_blank" rel="external">Java From Apple</a>,&#x4E0B;&#x8F7D;&#x5B8C;&#x6210;&#x5B89;&#x88C5;&#x4E0A;&#x4EE5;&#x540E;&#x53EF;&#x4EE5;&#x5728; &#x7CFB;&#x7EDF;&#x504F;&#x597D;&#x8BBE;&#x7F6E;&#x2013;&gt;Java&#x2013;&gt;Java&#x63A7;&#x5236;&#x9762;&#x677F; &#x4E2D;&#x67E5;&#x770B;Java&#x76F8;&#x5173;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
-</li>
-<li><p><strong>3.</strong> &#x53BB;JavaFramework&#x7D22;&#x5F15;&#x76EE;&#x5F55;&#x4E0B;&#x4FEE;&#x6539;&#x5F53;&#x524D;&#x7684;jdk&#x5F15;&#x7528;&#x8DEF;&#x5F84;:<code>cd /System/Library/Frameworks/JavaVM.framework/Versions</code></p>
-</li>
-<li><p><strong>4.</strong> &#x79FB;&#x9664;&#x65E7;&#x7684;&#x5F15;&#x7528;:<code>sudo rm CurrentJDK</code>&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x7684;&#x7CFB;&#x7EDF;&#x662F;&#x6700;&#x65B0;&#x7684;<code>10.10</code>&#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x6709;&#x8FD9;&#x4E2A;&#x63D0;&#x793A;&#xFF1A;<code>rm: CurrentJDK: Operation not permitted</code>&#x3002;</p>
-<blockquote>
-<p>&#x8FD9;&#x662F;&#x56E0;&#x4E3A;<code>EI Capitan</code>&#x52A0;&#x5165;&#x4E86;<code>Rootless&#x673A;&#x5236;</code>&#xFF0C;&#x4E0D;&#x518D;&#x80FD;&#x591F;&#x968F;&#x5FC3;&#x6240;&#x6B32;&#x7684;&#x8BFB;&#x5199;&#x5F88;&#x591A;&#x8DEF;&#x5F84;&#x4E0B;&#x5F97;&#x5185;&#x5BB9;&#x4E86;&#xFF0C;&#x5373;&#x4F7F;&#x662F;&#x8BBE;&#x7F6E;&#x4E86;<code>root</code>&#x6743;&#x9650;&#x4E5F;&#x4E0D;&#x884C;&#x3002;<br>&#x82F9;&#x679C;&#x8FD9;&#x6837;&#x505A;&#x4E5F;&#x662F;&#x4E3A;&#x4E86;&#x7528;&#x6237;&#x7684;&#x5B89;&#x5168;&#x8003;&#x8651;&#xFF0C;&#x907F;&#x514D;&#x7528;&#x6237;&#x8BEF;&#x5220;&#x6587;&#x4EF6;&#xFF0C;&#x5F53;&#x7136;&#x4E5F;&#x80FD;&#x591F;&#x5728;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0B;&#x51CF;&#x5C0F;&#x6076;&#x610F;&#x8F6F;&#x4EF6;&#x5BF9;&#x7528;&#x6237;&#x9020;&#x6210;&#x5371;&#x5BB3;&#x7684;&#x51E0;&#x7387;&#x3002;<br>&#x4F46;&#x662F;&#x8FD9;&#x662F;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x9700;&#x8981;&#x8FD9;&#x6837;&#x7684;&#x64CD;&#x4F5C;&#x600E;&#x4E48;&#x529E;&#x5462; &#xFF1F;&#x82F9;&#x679C;&#x4E5F;&#x8003;&#x8651;&#x5230;&#x4E86;&#x5927;&#x5BB6;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x4E48;&#x505A;&#xFF1A;<br><strong> 1). </strong> &#x91CD;&#x542F;&#x7535;&#x8111;&#xFF0C;&#x5728;&#x5C06;&#x8981;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x6309;&#x4F4F; <code>Command + R</code>&#x952E;&#xFF0C;&#x8FDB;&#x5165;&#x6062;&#x590D;&#x6A21;&#x5F0F;&#xFF1B;<br><strong> 2). </strong> &#x9009;&#x62E9;&#x83DC;&#x5355;&#x680F;&#x4E2D;&#x5F97;&#x4F7F;&#x7528;&#x5DE5;&#x5177;&#xFF0C;&#x5728;&#x5176;&#x4E2D;&#x6253;&#x5F00;&#x7EC8;&#x7AEF;&#xFF1B;<br><strong> 3). </strong> &#x8F93;&#x5165; <code>csrutil disable</code>&#xFF0C;&#x6682;&#x65F6;&#x5173;&#x95ED;<code>Rootless</code>&#xFF1B;<br><strong> 4). </strong> &#x91CD;&#x542F;&#x5373;&#x53EF;&#x7EE7;&#x7EED;&#x64CD;&#x4F5C;&#x3002;<br><strong> 5). </strong> &#x5982;&#x679C;&#x60F3;&#x8981;&#x6062;&#x590D;&#xFF0C;&#x53EF;&#x4EE5;&#x518D;&#x6B21;&#x91CD;&#x542F;&#x5E76;&#x8FDB;&#x5165;&#x7EC8;&#x7AEF;&#xFF0C;&#x8F93;&#x5165; <code>csrutil enable</code> &#x5373;&#x53EF;&#x3002;</p>
-</blockquote>
-</li>
-<li><p><strong>5.</strong> &#x5220;&#x9664; <code>CurrentJDK</code> &#x540E;&#xFF0C;&#x4E0D;&#x8981;&#x79BB;&#x5F00;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#xFF0C;&#x6DFB;&#x52A0;&#x65B0;&#x7684;jdk&#x5F15;&#x7528;&#x8DEF;&#x5F84;&#xFF1A;<code>sudo ln -s /Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents CurrentJDK</code></p>
-</li>
-</ul>
-<p>&#x73B0;&#x5728;&#x518D;&#x6765;&#x67E5;&#x770B;&#x6211;&#x7684;jdk&#x7248;&#x672C;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ava version &quot;1.8.0_92&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_92-b14)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.92-b14, mixed mode)</span><br></pre></td></tr></table></figure>
-<p>OK&#xFF0C;&#x5927;&#x529F;&#x544A;&#x6210;&#x3002;</p>
+<p>&#x60F3;&#x5FC5;&#x5927;&#x5BB6;&#x4E5F;&#x770B;&#x5F97;&#x51FA;&#x6765;&#x4E86;&#xFF0C;&#x5728;&#x5F88;&#x77ED;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x6211;&#x53EA;&#x8BBE;&#x7F6E;&#x4E86;<code>testLayer</code>&#x7684;<code>frame</code>&#x4E14;&#x5E76;&#x6CA1;&#x6709;&#x7ED9;&#x5B83;&#x52A0;&#x4EFB;&#x4F55;&#x52A8;&#x753B;&#xFF0C;&#x4F46;&#x662F;&#x4ED6;&#x600E;&#x4E48;&#x4F1A;&#x51FA;&#x73B0;&#x4E86;&#x8FC7;&#x6E21;&#x7684;&#x52A8;&#x753B;&#x6548;&#x679C;&#x5462; &#xFF1F;<br>&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x60F3;&#x6CD5;&#x5C31;&#x662F;&#x901A;&#x8FC7;<code>Xcode</code>&#x67E5;&#x770B;<code>SDK</code>&#xFF0C;&#x901A;&#x8FC7;<code>Xcode</code>&#x786E;&#x5B9E;&#x662F;&#x6CA1;&#x53D1;&#x73B0;&#x4EC0;&#x4E48;&#x4E1C;&#x897F;&#xFF0C;&#x7136;&#x540E;&#x53BB;&#x4E86;&#x82F9;&#x679C;&#x7684;&#x5B98;&#x7F51;&#xFF0C;&#x641C;&#x4E86;&#x4E00;&#x4E0B;<a href="https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreAnimation_guide/AnimatableProperties/AnimatableProperties.html" target="_blank" rel="external">CALayer&#x7684;&#x5B98;&#x65B9;&#x6587;&#x6863;</a>&#xFF0C;&#x53D1;&#x73B0;&#x4E86;&#x4E0B;&#x9762;&#x7684;&#x5185;&#x5BB9;</p>
+<p><img src="http://ww3.sinaimg.cn/mw1024/8acb15f3gw1f4ewkjls8aj20tc08nmzx.jpg" alt=""></p>
+<p><img src="http://ww4.sinaimg.cn/mw1024/8acb15f3gw1f4ewkhvj9qj20dj04jaai.jpg" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;<code>CABasicAnimation</code>&#x662F;&#x7EE7;&#x627F;&#x81EA;<code>CAAnimation</code>&#x7684;&#xFF0C;&#x4E8E;&#x662F;&#x6211;&#x53C8;Google&#x4EE5;<code>CAAnimation</code>+<code>CALayer</code>&#x4E3A;&#x5173;&#x952E;&#x8BCD;&#x641C;&#x7D22;&#x4E00;&#x4E0B;&#x95EE;&#x9898;&#xFF0C;&#x5076;&#x7136;&#x95F4;&#x53D1;&#x73B0;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;<a href="http://stackoverflow.com/questions/4122348/animate-custom-calayer-properties-inside-a-catransaction" target="_blank" rel="external">&#x95EE;&#x9898;</a>:</p>
+<p><img src="http://ww3.sinaimg.cn/mw1024/8acb15f3gw1f4ewkjh552j20io05d755.jpg" alt=""></p>
+<p>&#x5173;&#x952E;&#x662F;&#x6700;&#x540E;&#x4E00;&#x53E5;&#x8BDD;&#xFF0C;&#x5927;&#x6982;&#x610F;&#x601D;&#x5C31;&#x662F;&#x4EFB;&#x4F55;&#x6DFB;&#x52A0;&#x5728;<code>[CATransaction begin]</code>&#x548C;<code>[CATransaction commit]</code>&#x4E4B;&#x95F4;&#x7684;&#x52A8;&#x753B;&#x90FD;&#x662F;<code>CATransaction</code>&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;</p>
+<p>&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x540E;&#xFF0C;&#x53C8;&#x5728;&#x82F9;&#x679C;&#x7684;&#x5B98;&#x7F51;&#x67E5;&#x4E86;&#x4E00;&#x4E0B;<a href="https://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CATransaction_class/#//apple_ref/occ/clm/CATransaction/begin" target="_blank" rel="external">CATransaction</a>&#x7684;&#x8D44;&#x6599;&#xFF0C;&#x679C;&#x7136;&#x53D1;&#x73B0;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x8BF4;&#x6CD5;&#xFF1A;</p>
+<p><img src="http://ww4.sinaimg.cn/mw1024/8acb15f3gw1f4ewkhxml5j20ia01xdg1.jpg" alt=""></p>
+<p>&#x6700;&#x540E;&#x5C1D;&#x8BD5;&#x505A;&#x4E86;&#x4E00;&#x4E0B;&#x4EE5;&#x4E0B;&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CATransaction.begin()</span><br><span class="line">CATransaction.setDisableActions(true)</span><br><span class="line">if self.count % 2 == 0 {</span><br><span class="line">    self.testLayer.frame = CGRect(x: 100, y: 100, width: 10, height: 199)</span><br><span class="line">} else {</span><br><span class="line">    self.testLayer.frame = CGRect(x: 10, y: 30, width: 100, height: 100)</span><br><span class="line">}</span><br><span class="line">CATransaction.commit()</span><br></pre></td></tr></table></figure>
+<p>OK&#xFF0C;It works &#x3002;&#x3002;&#x3002;<br>&#x518D;&#x6B21;&#x4FEE;&#x6539;frame&#x5C31;&#x4E0D;&#x4F1A;&#x6709;&#x52A8;&#x753B;&#x4E86;&#x3002;</p>
 
       
     </div>
@@ -243,18 +238,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/05/31/CALayer强加给你的动画效果/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          CALayer强加给你的动画效果
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/05/23/Sublime-编译环境配置汇总/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Sublime 编译环境配置汇总</div>
+    <a href="/2016/05/23/Mac OSX 升级JDK至1.8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mac OSX 升级JDK至1.8</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -292,7 +278,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Mac OSX 升级JDK至1.8" data-title="Mac OSX 升级JDK至1.8" data-url="https://github.com/JyHu/2016/05/23/Mac OSX 升级JDK至1.8/"></div>
+	<div class="ds-thread" data-thread-key="CALayer强加给你的动画效果" data-title="CALayer强加给你的动画效果" data-url="https://github.com/JyHu/2016/05/31/CALayer强加给你的动画效果/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
