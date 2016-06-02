@@ -107,7 +107,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BLE/" style="font-size: 10px;">BLE</a> <a href="/tags/BLE4-0/" style="font-size: 15px;">BLE4.0</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/CoreBluetooth/" style="font-size: 15px;">CoreBluetooth</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/KeyChain/" style="font-size: 10px;">KeyChain</a> <a href="/tags/Mac-OSX/" style="font-size: 10px;">Mac OSX</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TouchID/" style="font-size: 10px;">TouchID</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/相册/" style="font-size: 10px;">相册</a> <a href="/tags/通知/" style="font-size: 10px;">通知</a>
+						<a href="/tags/BLE/" style="font-size: 10px;">BLE</a> <a href="/tags/BLE4-0/" style="font-size: 15px;">BLE4.0</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/CoreBluetooth/" style="font-size: 15px;">CoreBluetooth</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/KeyChain/" style="font-size: 10px;">KeyChain</a> <a href="/tags/Mac-OSX/" style="font-size: 10px;">Mac OSX</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TouchID/" style="font-size: 10px;">TouchID</a> <a href="/tags/VFL/" style="font-size: 10px;">VFL</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/相册/" style="font-size: 10px;">相册</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/通知/" style="font-size: 10px;">通知</a>
 					</div>
 				</section>
 				
@@ -172,6 +172,67 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-记录一次‘unrecognized-selector-sent-to-instance-’问题的解决过程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/10/记录一次‘unrecognized-selector-sent-to-instance-’问题的解决过程/" class="article-date">
+  	<time datetime="2016-04-10T04:55:54.000Z" itemprop="datePublished">2016-04-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/10/记录一次‘unrecognized-selector-sent-to-instance-’问题的解决过程/">unrecognized selector sent to instance</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="&#x95EE;&#x9898;&#x51FA;&#x73B0;&#x7684;&#x8FC7;&#x7A0B;"><a href="#&#x95EE;&#x9898;&#x51FA;&#x73B0;&#x7684;&#x8FC7;&#x7A0B;" class="headerlink" title="&#x95EE;&#x9898;&#x51FA;&#x73B0;&#x7684;&#x8FC7;&#x7A0B;"></a>&#x95EE;&#x9898;&#x51FA;&#x73B0;&#x7684;&#x8FC7;&#x7A0B;</h1><p>&#x70B9;&#x51FB;&#x4E00;&#x4E2A;&#x6309;&#x94AE;&#xFF0C;&#x9875;&#x9762;&#x90FD;&#x8FD8;&#x6CA1;&#x51FA;&#x73B0;&#x7684;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x76F4;&#x63A5;&#x5C31;&#x7A0B;&#x5E8F;&#x5D29;&#x6E83;&#xFF0C;&#x5E76;&#x4E14;&#x65AD;&#x5728;&#x4E86;<code>main.m</code>&#x4E2D;&#xFF0C;&#x5E76;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x51FA;&#x73B0;&#x4E0B;&#x9762;&#x7684;&#x9519;&#x8BEF;&#x63D0;&#x793A;&#x5185;&#x5BB9;&#xFF1A;</p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2016-04-08 17:09:17.529 mxyc[262:12134] -[__NSCFNumber rangeOfCharacterFromSet:]: unrecognized selector sent to<span class="built_in"> instance </span>0xb000000532432803</span><br><span class="line">libc++abi.dylib: terminate_handler unexpectedly threw an exception</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bug/">Bug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/10/记录一次‘unrecognized-selector-sent-to-instance-’问题的解决过程/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-iOS BLE Programming 之 CentralManager" class="article article-type-post" itemscope itemprop="blogPost">
   
