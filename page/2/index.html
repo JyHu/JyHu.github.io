@@ -107,7 +107,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BLE/" style="font-size: 10px;">BLE</a> <a href="/tags/BLE4-0/" style="font-size: 15px;">BLE4.0</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/CoreBluetooth/" style="font-size: 15px;">CoreBluetooth</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/KeyChain/" style="font-size: 10px;">KeyChain</a> <a href="/tags/Mac-OSX/" style="font-size: 10px;">Mac OSX</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TouchID/" style="font-size: 10px;">TouchID</a> <a href="/tags/VFL/" style="font-size: 10px;">VFL</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/相册/" style="font-size: 10px;">相册</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/通知/" style="font-size: 10px;">通知</a> <a href="/tags/问题/" style="font-size: 10px;">问题</a>
+						<a href="/tags/BLE/" style="font-size: 10px;">BLE</a> <a href="/tags/BLE4-0/" style="font-size: 15px;">BLE4.0</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/CoreBluetooth/" style="font-size: 15px;">CoreBluetooth</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/KeyChain/" style="font-size: 10px;">KeyChain</a> <a href="/tags/Mac-OSX/" style="font-size: 10px;">Mac OSX</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TouchID/" style="font-size: 10px;">TouchID</a> <a href="/tags/VFL/" style="font-size: 10px;">VFL</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/相册/" style="font-size: 10px;">相册</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/通知/" style="font-size: 10px;">通知</a> <a href="/tags/问题/" style="font-size: 10px;">问题</a>
 					</div>
 				</section>
 				
@@ -172,6 +172,67 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-iOS在桌面及锁屏状态下的推送交互操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/12/iOS在桌面及锁屏状态下的推送交互操作/" class="article-date">
+  	<time datetime="2016-04-12T09:19:45.000Z" itemprop="datePublished">2016-04-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/12/iOS在桌面及锁屏状态下的推送交互操作/">iOS在桌面及锁屏状态下的推送交互操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://ww1.sinaimg.cn/large/8acb15f3jw1f2uancr54wj20ku05k0t9.jpg" alt=""></p>
+<p><code>iOS</code>&#x7684;&#x901A;&#x77E5;&#xFF0C;&#x4E0D;&#x7BA1;&#x662F;&#x672C;&#x5730;&#x901A;&#x77E5;&#x8FD8;&#x662F;<code>APNS</code>&#x63A8;&#x9001;&#x901A;&#x77E5;&#xFF0C;&#x5728;<code>iOS8</code>&#x4E4B;&#x524D;&#x90FD;&#x53EA;&#x6709;&#x5C55;&#x793A;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x5E76;&#x4F1A;&#x63D0;&#x4F9B;&#x7ED9;&#x5F00;&#x53D1;&#x8005;&#x4E00;&#x4E9B;&#x4EA4;&#x4E92;&#x6027;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x662F;&#x5728;<code>iOS8</code>&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x63A8;&#x51FA;&#x4E86;&#x6309;&#x94AE;&#x9009;&#x62E9;&#x6027;&#x7684;&#x4EA4;&#x4E92;&#xFF0C;&#x5728;<code>iOS9</code>&#x4EE5;&#x540E;&#x53C8;&#x63A8;&#x51FA;&#x4E86;&#x8F93;&#x5165;&#x5185;&#x5BB9;&#x7684;&#x4EA4;&#x4E92;&#x3002;&#x6BD4;&#x5982;&#x5FAE;&#x4FE1;&#x548C;&#x77ED;&#x4FE1;&#x7684;&#x4E0B;&#x62C9;&#x56DE;&#x590D;&#x3002;<br><strong>&#x6CE8;&#x610F;</strong>&#xFF1A;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#x90FD;&#x5728;<code>APPDelegate</code>&#x4E2D;&#x8FDB;&#x884C;&#x3002;</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/通知/">通知</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/12/iOS在桌面及锁屏状态下的推送交互操作/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-iOS相册操作之-ALAssetsLibrary" class="article article-type-post" itemscope itemprop="blogPost">
   
