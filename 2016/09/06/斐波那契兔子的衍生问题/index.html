@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>斐波那契兔子的衍生问题 | Joyous&#39;s Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x5199;&amp;#x5728;&amp;#x5934;&amp;#x91CC;&amp;#x7684;&amp;#x516C;&amp;#x5F0F;&amp;#xFF1A;
+a[i] = a[i-1] + a[i-(x-1)]&amp;#x5927;&amp;#x5BB6;&amp;#x5728;&amp;#x5B66;&amp;#x4E60;C&amp;#x8BED;&amp;#x8A00;&amp;#x57FA;&amp;#x7840;&amp;#x6216;&amp;#x5176;&amp;#x4ED6;&amp;#x8BED;&amp;#x8">
+<meta property="og:type" content="article">
+<meta property="og:title" content="斐波那契兔子的衍生问题">
+<meta property="og:url" content="https://github.com/JyHu/2016/09/06/斐波那契兔子的衍生问题/index.html">
+<meta property="og:site_name" content="Joyous's Home">
+<meta property="og:description" content="&amp;#x5199;&amp;#x5728;&amp;#x5934;&amp;#x91CC;&amp;#x7684;&amp;#x516C;&amp;#x5F0F;&amp;#xFF1A;
+a[i] = a[i-1] + a[i-(x-1)]&amp;#x5927;&amp;#x5BB6;&amp;#x5728;&amp;#x5B66;&amp;#x4E60;C&amp;#x8BED;&amp;#x8A00;&amp;#x57FA;&amp;#x7840;&amp;#x6216;&amp;#x5176;&amp;#x4ED6;&amp;#x8BED;&amp;#x8">
+<meta property="og:updated_time" content="2016-09-06T04:39:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="斐波那契兔子的衍生问题">
+<meta name="twitter:description" content="&amp;#x5199;&amp;#x5728;&amp;#x5934;&amp;#x91CC;&amp;#x7684;&amp;#x516C;&amp;#x5F0F;&amp;#xFF1A;
+a[i] = a[i-1] + a[i-(x-1)]&amp;#x5927;&amp;#x5BB6;&amp;#x5728;&amp;#x5B66;&amp;#x4E60;C&amp;#x8BED;&amp;#x8A00;&amp;#x57FA;&amp;#x7840;&amp;#x6216;&amp;#x5176;&amp;#x4ED6;&amp;#x8BED;&amp;#x8">
+  
+    <link rel="alternative" href="/atom.xml" title="Joyous&#39;s Home" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://ww4.sinaimg.cn/large/8acb15f3jw1f23fmmzow2j20hs0hsmxh.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Joyous&#39;s Home</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/iOS">iOS</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/JyHu" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/210127055" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="/auu.aug@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/BLE/" style="font-size: 10px;">BLE</a> <a href="/tags/BLE4-0/" style="font-size: 15px;">BLE4.0</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/CoreBluetooth/" style="font-size: 15px;">CoreBluetooth</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/KeyChain/" style="font-size: 10px;">KeyChain</a> <a href="/tags/Mac-OSX/" style="font-size: 10px;">Mac OSX</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TouchID/" style="font-size: 10px;">TouchID</a> <a href="/tags/VFL/" style="font-size: 10px;">VFL</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/斐波那契/" style="font-size: 10px;">斐波那契</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/相册/" style="font-size: 10px;">相册</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/递归/" style="font-size: 10px;">递归</a> <a href="/tags/通知/" style="font-size: 10px;">通知</a> <a href="/tags/问题/" style="font-size: 10px;">问题</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">低头不是认输,是要看清自己的路。仰头不是骄傲,是要看见自己的天空。So，我就是我，不一样的烟火。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Joyous&#39;s Home</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://ww4.sinaimg.cn/large/8acb15f3jw1f23fmmzow2j20hs0hsmxh.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Joyous&#39;s Home</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/iOS">iOS</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/JyHu" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/210127055" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="/auu.aug@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-斐波那契兔子的衍生问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/06/斐波那契兔子的衍生问题/" class="article-date">
+  	<time datetime="2016-09-06T01:21:28.000Z" itemprop="datePublished">2016-09-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      斐波那契兔子的衍生问题
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/斐波那契/">斐波那契</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/递归/">递归</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x5199;&#x5728;&#x5934;&#x91CC;&#x7684;&#x516C;&#x5F0F;&#xFF1A;</p>
+<h2 id="a-i-a-i-1-a-i-x-1"><a href="#a-i-a-i-1-a-i-x-1" class="headerlink" title="a[i] = a[i-1] + a[i-(x-1)]"></a><code>a[i] = a[i-1] + a[i-(x-1)]</code></h2><p>&#x5927;&#x5BB6;&#x5728;&#x5B66;&#x4E60;C&#x8BED;&#x8A00;&#x57FA;&#x7840;&#x6216;&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x57FA;&#x7840;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x80AF;&#x5B9A;&#x90FD;&#x5B66;&#x8FC7;&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x8FD9;&#x662F;&#x7531;&#x5154;&#x5B50;&#x4EA7;&#x4ED4;&#x95EE;&#x9898;&#x5F15;&#x7533;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x5982;<a href="http://baike.baidu.com/view/112871.htm" target="_blank" rel="external">&#x767E;&#x5EA6;&#x767E;&#x79D1;</a>&#x4E2D;&#x6240;&#x8FF0;&#x3002;<br>&#x4F46;&#x662F;&#x6628;&#x5929;&#x5728;&#x7F51;&#x4E0A;&#x770B;&#x5230;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x662F;&#x8FD9;&#x4E48;&#x8BF4;&#x7684;&#xFF1A;<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x53E4;&#x5178;&#x95EE;&#x9898;&#xFF1A;&#x6709;&#x4E00;&#x5BF9;&#x5154;&#x5B50;&#xFF0C;&#x4ECE;&#x51FA;&#x751F;&#x540E;&#x7B2C;3&#x4E2A;&#x6708;&#x8D77;&#x6BCF;&#x4E2A;&#x6708;&#x90FD;&#x751F;&#x4E00;&#x5BF9;&#x5154;&#x5B50;&#xFF0C;&#x5C0F;&#x5154;&#x5B50;&#x957F;&#x5230;&#x7B2C;&#x56DB;&#x4E2A;&#x6708;&#x540E;&#x6BCF;&#x4E2A;&#x6708;&#x53C8;&#x751F;&#x4E00;&#x5BF9;&#x5154;&#x5B50;&#xFF0C;&#x5047;&#x5982;&#x5154;&#x5B50;&#x90FD;&#x4E0D;&#x6B7B;&#xFF0C;&#x95EE;&#x6BCF;&#x4E2A;&#x6708;&#x7684;&#x5154;&#x5B50;&#x603B;&#x6570;&#x4E3A;&#x591A;&#x5C11;&#xFF1F;</span><br></pre></td></tr></table></figure></p>
+<p>&#x770B;&#x4E86;&#x89E3;&#x6CD5;&#x662F;&#x7528;&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;&#x53BB;&#x89E3;&#x5F97;&#xFF0C;&#x5F53;&#x65F6;&#x4E5F;&#x6CA1;&#x60F3;&#x5230;&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x7684;&#x6765;&#x7531;&#xFF0C;&#x5C31;&#x81EA;&#x5DF1;&#x63B0;&#x624B;&#x6307;&#x7B97;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;&#x611F;&#x89C9;&#x4E0D;&#x5BF9;&#x52B2;&#xFF0C;&#x6700;&#x540E;&#x63B0;&#x51FA;&#x6765;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;<br><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">1 </span><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">6</span> <span class="number">9</span> <span class="number">13</span> <span class="number">19</span> ....</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>&#x8FD9;&#x5B8C;&#x5168;&#x4E0D;&#x662F;&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x554A; ~ &#x628A;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x629B;&#x7ED9;&#x670B;&#x53CB;&#x4EEC;&#x53BB;&#x89E3;&#xFF0C;&#x7136;&#x540E;&#x624D;&#x53D1;&#x73B0;&#x539F;&#x6765;&#x662F;&#x9898;&#x4E3B;&#x5199;&#x9519;&#x95EE;&#x9898;&#x4E86;&#x800C;&#x4E14;&#x95EE;&#x9898;&#x8FD8;&#x6709;&#x6B67;&#x4E49;&#x2026;&#x2026;<br>&#x4E8E;&#x662F;&#xFF0C;&#x5F15;&#x7533;&#x4E00;&#x4E0B;&#x95EE;&#x9898;&#xFF1A;<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x5047;&#x5982;&#x6BCF;&#x5BF9;&#x5154;&#x5B50;&#x4ECE;&#x51FA;&#x751F;&#x7B2C;4&#x4E2A;&#x6708;&#x5F00;&#x59CB;&#x6BCF;&#x4E2A;&#x6708;&#x90FD;&#x4F1A;&#x751F;&#x4E00;&#x5BF9;&#x5154;&#x5B50;&#xFF0C;&#x800C;&#x4E14;&#x5154;&#x5B50;&#x4E0D;&#x6B7B;&#xFF0C;&#x90A3;&#x73B0;&#x5728;&#x521A;&#x51FA;&#x751F;&#x4E00;&#x5BF9;&#x5154;&#x5B50;&#xFF0C;&#x5728;&#x7B2C;<span class="keyword">n</span>&#x4E2A;&#x6708;&#x7684;&#x65F6;&#x5019;&#x5171;&#x6709;&#x591A;&#x5C11;&#x5154;&#x5B50;</span><br></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x5C31;&#x8DDF;&#x9898;&#x4E3B;&#x7684;&#x95EE;&#x9898;&#x6709;&#x4E9B;&#x7C7B;&#x4F3C;&#x4E86;&#x3002;<br>&#x770B;&#x7740;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x6709;3&#x4E2A;&#x5173;&#x952E;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x5154;&#x5B50;&#x5E74;&#x9F84;&#x6BCF;&#x6708;&#x8981;&#x589E;&#x52A0;1</li>
+<li>&#x5154;&#x5B50;&#x957F;&#x5927;&#x540E;&#x6BCF;&#x4E2A;&#x6708;&#x90FD;&#x8FD8;&#x80FD;&#x751F;&#x4E00;&#x5BF9;&#x5154;&#x5B50;</li>
+<li>&#x5154;&#x5B50;&#x4E0D;&#x6B7B;</li>
+</ul>
+<p>&#x4E8E;&#x662F;&#x52A8;&#x624B;&#x5199;&#x4E86;&#x7B2C;&#x4E00;&#x7248;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;(&#x65B9;&#x6CD5;1&#xFF0C;&#x6700;&#x540E;&#x6709;&#x4F18;&#x5316;)&#xFF1A;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x7C7B;&#x4F3C;&#x94FE;&#x8868;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;</span></span><br><span class="line"></span><br><span class="line">s = <span class="number">0</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rabbit</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">		self.childs = []</span><br><span class="line">		self.age = <span class="number">0</span></span><br><span class="line">		<span class="keyword">global</span> s</span><br><span class="line">		s += <span class="number">1</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">add_year</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">if</span> len(self.childs) &gt; <span class="number">0</span>:</span><br><span class="line">			<span class="keyword">for</span> child <span class="keyword">in</span> self.childs:</span><br><span class="line">				child.add_year()</span><br><span class="line">		self.age += <span class="number">1</span></span><br><span class="line">		<span class="keyword">if</span> self.age &gt;= <span class="number">3</span>:</span><br><span class="line">			self.childs.append(Rabbit())</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">	t = Rabbit()</span><br><span class="line">	m = <span class="number">20</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, m - <span class="number">1</span>):</span><br><span class="line">		t.add_year()</span><br><span class="line">	print(<span class="string">&quot;&#x7B2C;%d&#x4E2A;&#x6708;&#x6709;%d&#x5BF9;&#x5154;&#x5B50;&quot;</span> % (m, s))</span><br></pre></td></tr></table></figure></p>
+<p>&#x901A;&#x8FC7;&#x7C7B;&#x4F3C;&#x94FE;&#x8868;&#x7684;&#x65B9;&#x6CD5;&#x8BB0;&#x5F55;&#x4E0B;&#x6BCF;&#x53EA;&#x5154;&#x5B50;&#x7684;&#x5E74;&#x9F84;&#x548C;&#x5B69;&#x5B50;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x6BCF;&#x6B21;&#x51FA;&#x751F;&#x7684;(&#x5373;&#x5728;init&#x7684;&#x65F6;&#x5019;)&#x5C0F;&#x5154;&#x5B50;&#x52A0;1&#xFF0C;&#x6700;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x5C31;&#x662F;&#x5171;&#x6709;&#x591A;&#x5C11;&#x5BF9;&#x3002;<br>&#x6765;&#x4E2A;&#x904D;&#x5386;&#xFF1A;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">20</span>):</span><br><span class="line">		s = <span class="number">0</span></span><br><span class="line">		t = Rabbit()</span><br><span class="line">		<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>, i):</span><br><span class="line">			t.add_year()</span><br><span class="line">		print(s)</span><br></pre></td></tr></table></figure></p>
+<p>&#x5F97;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x7ED3;&#x679C;&#xFF1A;<code>1 1 1 2 3 4 6 9 13 19 28 41 60 88 129 189</code>&#x3002;<br>&#x4ED4;&#x7EC6;&#x770B;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x8FD9;&#x6837;&#x7684;&#x89C4;&#x5F8B;&#xFF0C;&#x5373;<code>a[i] = a[i-1] + a[i-3]</code>&#xFF0C;&#x6B64;&#x65F6;&#x5154;&#x5B50;&#x4EA7;&#x4ED4;&#x662F;&#x5728;&#x7B2C;4&#x4E2A;&#x6708;&#xFF1B;<br>&#x800C;&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;&#x7684;&#x89C4;&#x5F8B;&#x662F;&#x8FD9;&#x6837;&#x7684;:<code>a[i] = a[i-1] + a[i-2]</code>&#xFF0C;&#x5154;&#x5B50;&#x4EA7;&#x4ED4;&#x662F;&#x5728;&#x7B2C;3&#x4E2A;&#x6708;&#x3002;<br>&#x8C8C;&#x4F3C;&#x5176;&#x4E2D;&#x6709;&#x8E4A;&#x8DF7;&#xFF0C;&#x5047;&#x5982;&#x628A;&#x51FA;&#x751F;&#x540E;&#x4EA7;&#x4ED4;&#x7684;&#x65F6;&#x95F4;&#x8BBE;&#x4E3A;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;<code>x</code>&#xFF0C;&#x5E94;&#x8BE5;&#x4F1A;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x89C4;&#x5F8B;&#xFF1A;<code>a[i] = a[i-1] + a[i-(x-1)]</code><br>&#x90A3;&#x4E48;&#x6309;&#x7167;&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;&#x7684;&#x7B97;&#x6CD5;&#x6765;&#x5199;&#xFF0C;&#x4F1A;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x7ED3;&#x679C;&#xFF1A;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># i &#x7B2C;&#x51E0;&#x4E2A;&#x6570;</span></span><br><span class="line"><span class="comment"># s &#x6B65;&#x957F;&#xFF0C;&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;&#x6B65;&#x957F;&#x662F;3</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ter_fib</span><span class="params">(i, s)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> s &lt;= <span class="number">1</span>:</span><br><span class="line">		print(<span class="string">&quot;&#x6B65;&#x957F;&#x592A;&#x5C0F;&#xFF0C;&#x65E0;&#x6CD5;&#x8BA1;&#x7B97;&quot;</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">	<span class="keyword">if</span> i &lt;= (s - <span class="number">2</span>):</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">	<span class="keyword">return</span> ter_fib(i - <span class="number">1</span>, s) + ter_fib(i - (s - <span class="number">1</span>), s)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">	<span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">20</span>):</span><br><span class="line">		print(ter_fib(x, <span class="number">4</span>))</span><br></pre></td></tr></table></figure></p>
+<p>&#x7136;&#x540E;&#x628A;&#x65B9;&#x6CD5;1&#x6539;&#x6210;&#x5E26;&#x53C2;&#x6570;&#x7684;&#x5982;&#x4E0B;(&#x6700;&#x540E;&#x6709;&#x4F18;&#x5316;)&#xFF1A;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x7C7B;&#x4F3C;&#x94FE;&#x8868;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;</span></span><br><span class="line"></span><br><span class="line">s = <span class="number">0</span>	<span class="comment"># &#x6709;&#x591A;&#x5C11;&#x5BF9;&#x5154;&#x5B50;</span></span><br><span class="line">d = <span class="number">0</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rabbit</span>:</span></span><br><span class="line">	<span class="comment"># gmonth &#x7B2C;&#x51E0;&#x4E2A;&#x6708;&#x53EF;&#x4EE5;&#x751F;&#x5C0F;&#x5154;&#x5B50;</span></span><br><span class="line">	<span class="comment"># dmonth &#x957F;&#x5230;&#x591A;&#x5C11;&#x4E2A;&#x6708;&#x540E;&#x4F1A;&#x6B7B;&#x53BB;</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, gmonth, dmonth = <span class="number">-1</span>)</span>:</span></span><br><span class="line">		self.childs = []	<span class="comment"># &#x5154;&#x5B50;&#x7684;&#x5B69;&#x5B50;</span></span><br><span class="line">		self.age = <span class="number">0</span>		<span class="comment"># &#x5154;&#x5B50;&#x7684;&#x5E74;&#x9F84;(&#x6708;)</span></span><br><span class="line">		self.gmonth = gmonth</span><br><span class="line">		self.dmonth = dmonth</span><br><span class="line">		<span class="keyword">global</span> s</span><br><span class="line">		s += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">	<span class="comment"># &#x5154;&#x5B50;&#x7684;&#x5E74;&#x9F84;&#x52A0;1&#xFF0C;&#x5B83;&#x7684;&#x5B69;&#x5B50;&#x4E5F;&#x90FD;&#x5E74;&#x9F84;&#x52A0;1</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">add_year</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">if</span> len(self.childs) &gt; <span class="number">0</span>:</span><br><span class="line">			<span class="keyword">for</span> child <span class="keyword">in</span> self.childs:</span><br><span class="line">				child.add_year()</span><br><span class="line">		self.age += <span class="number">1</span></span><br><span class="line">		<span class="keyword">if</span> self.age &lt; self.dmonth <span class="keyword">or</span> self.dmonth == <span class="number">-1</span>:</span><br><span class="line">			<span class="keyword">if</span> self.age &gt;= self.gmonth - <span class="number">1</span>:</span><br><span class="line">				self.childs.append(Rabbit(self.gmonth, self.dmonth))</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="keyword">global</span> d</span><br><span class="line">			d += <span class="number">1</span></span><br><span class="line">			<span class="comment"># print(&quot;&#x6B7B;&#x4E86;&#x4E00;&#x5BF9;&#x5154;&#x5B50;&quot;)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">30</span>):</span><br><span class="line">		s = <span class="number">0</span></span><br><span class="line">		d = <span class="number">0</span></span><br><span class="line">		t = Rabbit(<span class="number">4</span>, <span class="number">10</span>)</span><br><span class="line">		<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>, i):</span><br><span class="line">			t.add_year()</span><br><span class="line">		print(<span class="string">&quot;%d %d&quot;</span> % (s, d))</span><br></pre></td></tr></table></figure></p>
+<p>&#x591A;&#x8BD5;&#x9A8C;&#x51E0;&#x6B21;&#x6B65;&#x957F;&#xFF0C;&#x7528;&#x4E0A;&#x8FF0;&#x65B9;&#x6CD5;&#x53BB;&#x9A8C;&#x8BC1;&#xFF0C;&#x5B8C;&#x7F8E;&#x901A;&#x8FC7; ~</p>
+<p>&#x4E8E;&#x662F;&#xFF0C;&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x5154;&#x5B50;&#x95EE;&#x9898;&#xFF0C;&#x53EF;&#x4EE5;&#x6539;&#x6210;&#x8FD9;&#x6837;&#x4E86;&#xFF1A;<br><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x5047;&#x5982;&#x6BCF;&#x5BF9;&#x5154;&#x5B50;&#x4ECE;&#x51FA;&#x751F;&#x7B2C;<span class="keyword">x</span>&#x4E2A;&#x6708;&#x5F00;&#x59CB;&#x6BCF;&#x4E2A;&#x6708;&#x90FD;&#x4F1A;&#x751F;&#x4E00;&#x5BF9;&#x5154;&#x5B50;&#xFF0C;&#x800C;&#x4E14;&#x5154;&#x5B50;&#x4E0D;&#x6B7B;&#xFF0C;&#x90A3;&#x73B0;&#x5728;&#x521A;&#x51FA;&#x751F;&#x4E00;&#x5BF9;&#x5154;&#x5B50;&#xFF0C;&#x5728;&#x7B2C;n&#x4E2A;&#x6708;&#x7684;&#x65F6;&#x5019;&#x5171;&#x6709;&#x591A;&#x5C11;&#x5154;&#x5B50;</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x6D4B;&#x8BD5;&#x5404;&#x79CD;&#x6B65;&#x957F;&#x7684;&#x524D;20&#x4E2A;&#x6570;&#x636E;"><a href="#&#x6D4B;&#x8BD5;&#x5404;&#x79CD;&#x6B65;&#x957F;&#x7684;&#x524D;20&#x4E2A;&#x6570;&#x636E;" class="headerlink" title="&#x6D4B;&#x8BD5;&#x5404;&#x79CD;&#x6B65;&#x957F;&#x7684;&#x524D;20&#x4E2A;&#x6570;&#x636E;"></a>&#x6D4B;&#x8BD5;&#x5404;&#x79CD;&#x6B65;&#x957F;&#x7684;&#x524D;20&#x4E2A;&#x6570;&#x636E;</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">&#x6B65;&#x957F;</th>
+<th style="text-align:left">&#x7ED3;&#x679C;(&#x524D;20&#x4E2A;)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left"><code>1 2 4 8 16 3 64 128 256 512 1024 2048 4096 8192 16384 32768 65536 131072 262144 524288</code></td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left"><code>1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765</code></td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><code>1 1 1 2 3 4 6 9 13 19 28 41 60 88 129 189 277 406 595 872</code></td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><code>1 1 1 1 2 3 4 5 7 10 14 19 26 36 50 69 95 131 181 250</code></td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left"><code>1 1 1 1 1 2 3 4 5 6 8 11 15 20 26 34 45 60 80 106</code></td>
+</tr>
+</tbody>
+</table>
+<h1 id="&#x9644;"><a href="#&#x9644;" class="headerlink" title="&#x9644;"></a>&#x9644;</h1><p><strong>&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;&#xFF1A;</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ter_fib</span><span class="params">(i)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> i &lt;= <span class="number">1</span>: <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> ter_fib(i - <span class="number">1</span>) + ter_fib(i - <span class="number">2</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">20</span>): print(ter_fib(x))</span><br></pre></td></tr></table></figure></p>
+<h3 id="&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x600E;&#x4E48;&#x5C11;&#x5F97;&#x4E86;&#x4F1F;&#x5927;&#x7684;for&#x5FAA;&#x73AF;&#x5462;&#xFF0C;&#x9012;&#x5F52;&#x867D;&#x7136;&#x5F88;&#x7701;&#x4E8B;&#xFF0C;&#x4F46;&#x662F;&#x5F88;&#x8D39;&#x4E8B;&#xFF0C;&#x505A;&#x4E86;&#x5F88;&#x591A;&#x65E0;&#x7528;&#x529F;&#xFF0C;for&#x5FAA;&#x73AF;&#x6709;&#x65F6;&#x5019;&#x5728;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x8FD8;&#x662F;&#x80FD;&#x5927;&#x5927;&#x7684;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#xFF0C;&#x6BD4;&#x5982;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x7528;&#x9012;&#x5F52;&#x548C;for&#x5FAA;&#x73AF;&#x53BB;&#x8BA1;&#x7B97;&#x7B2C;20&#x4E2A;&#x3001;&#x7B2C;50&#x4E2A;&#x6570;&#x8BD5;&#x8BD5;&#xFF1F;"><a href="#&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x600E;&#x4E48;&#x5C11;&#x5F97;&#x4E86;&#x4F1F;&#x5927;&#x7684;for&#x5FAA;&#x73AF;&#x5462;&#xFF0C;&#x9012;&#x5F52;&#x867D;&#x7136;&#x5F88;&#x7701;&#x4E8B;&#xFF0C;&#x4F46;&#x662F;&#x5F88;&#x8D39;&#x4E8B;&#xFF0C;&#x505A;&#x4E86;&#x5F88;&#x591A;&#x65E0;&#x7528;&#x529F;&#xFF0C;for&#x5FAA;&#x73AF;&#x6709;&#x65F6;&#x5019;&#x5728;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x8FD8;&#x662F;&#x80FD;&#x5927;&#x5927;&#x7684;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#xFF0C;&#x6BD4;&#x5982;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x7528;&#x9012;&#x5F52;&#x548C;for&#x5FAA;&#x73AF;&#x53BB;&#x8BA1;&#x7B97;&#x7B2C;20&#x4E2A;&#x3001;&#x7B2C;50&#x4E2A;&#x6570;&#x8BD5;&#x8BD5;&#xFF1F;" class="headerlink" title="&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x600E;&#x4E48;&#x5C11;&#x5F97;&#x4E86;&#x4F1F;&#x5927;&#x7684;for&#x5FAA;&#x73AF;&#x5462;&#xFF0C;&#x9012;&#x5F52;&#x867D;&#x7136;&#x5F88;&#x7701;&#x4E8B;&#xFF0C;&#x4F46;&#x662F;&#x5F88;&#x8D39;&#x4E8B;&#xFF0C;&#x505A;&#x4E86;&#x5F88;&#x591A;&#x65E0;&#x7528;&#x529F;&#xFF0C;for&#x5FAA;&#x73AF;&#x6709;&#x65F6;&#x5019;&#x5728;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x8FD8;&#x662F;&#x80FD;&#x5927;&#x5927;&#x7684;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#xFF0C;&#x6BD4;&#x5982;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x7528;&#x9012;&#x5F52;&#x548C;for&#x5FAA;&#x73AF;&#x53BB;&#x8BA1;&#x7B97;&#x7B2C;20&#x4E2A;&#x3001;&#x7B2C;50&#x4E2A;&#x6570;&#x8BD5;&#x8BD5;&#xFF1F;"></a>&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x600E;&#x4E48;&#x5C11;&#x5F97;&#x4E86;&#x4F1F;&#x5927;&#x7684;<code>for</code>&#x5FAA;&#x73AF;&#x5462;&#xFF0C;&#x9012;&#x5F52;&#x867D;&#x7136;&#x5F88;&#x7701;&#x4E8B;&#xFF0C;&#x4F46;&#x662F;&#x5F88;&#x8D39;&#x4E8B;&#xFF0C;&#x505A;&#x4E86;&#x5F88;&#x591A;&#x65E0;&#x7528;&#x529F;&#xFF0C;for&#x5FAA;&#x73AF;&#x6709;&#x65F6;&#x5019;&#x5728;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x8FD8;&#x662F;&#x80FD;&#x5927;&#x5927;&#x7684;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#xFF0C;&#x6BD4;&#x5982;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x7528;&#x9012;&#x5F52;&#x548C;for&#x5FAA;&#x73AF;&#x53BB;&#x8BA1;&#x7B97;&#x7B2C;20&#x4E2A;&#x3001;&#x7B2C;50&#x4E2A;&#x6570;&#x8BD5;&#x8BD5;&#xFF1F;</h3><p><strong>&#x5154;&#x5B50;&#x95EE;&#x9898;&#x901A;&#x7528;&#x89E3;&#x6CD5;&#xFF1A;</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x7B2C;&#x51E0;&#x4E2A;&#x6570;</span></span><br><span class="line"><span class="comment"># &#x6B65;&#x957F;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ter_fib</span><span class="params">(i, s)</span>:</span></span><br><span class="line">    fibs = []</span><br><span class="line">    <span class="keyword">if</span> s &lt;= <span class="number">1</span>: <span class="keyword">return</span> <span class="number">-1</span> <span class="comment"># &#x6B65;&#x957F;&#x592A;&#x77ED;&#xFF0C;&#x65E0;&#x6CD5;&#x8BA1;&#x7B97;</span></span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">0</span>, s - <span class="number">1</span>): fibs.append(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(s - <span class="number">1</span>, i): fibs.append(fibs[j - <span class="number">1</span>] + fibs[j - (s - <span class="number">1</span>)])</span><br><span class="line">    <span class="keyword">return</span> fibs</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    fibs = ter_fib(<span class="number">50</span>, <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">50</span>): print(fibs[x])</span><br></pre></td></tr></table></figure></p>
+<p><strong>&#x65B9;&#x6CD5;1&#x4F18;&#x5316;&#xFF1A;</strong><br>&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x5154;&#x5B50;&#x95EE;&#x9898;&#x7684;&#x9A8C;&#x8BC1;&#x7A0B;&#x5E8F;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rabbit</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.age = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># month &#x7B2C;&#x51E0;&#x4E2A;&#x6708;</span></span><br><span class="line"><span class="comment"># gmonth &#x957F;&#x5230;&#x51E0;&#x4E2A;&#x6708;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x751F;&#x5C0F;&#x5154;&#x5B50;&#x4E86;</span></span><br><span class="line"><span class="comment"># lmonth &#x591A;&#x5C11;&#x4E2A;&#x6708;&#x540E;&#x6B7B;&#x4EA1;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_rabbit</span><span class="params">(month, gmonth, lmonth = <span class="number">-1</span>)</span>:</span></span><br><span class="line">    rabbits = []    <span class="comment"># &#x603B;&#x5171;&#x6709;&#x591A;&#x5C11;&#x5154;&#x5B50;</span></span><br><span class="line">    d_rabbit = <span class="number">0</span>    <span class="comment"># &#x6B7B;&#x4EA1;&#x7684;&#x5154;&#x5B50;&#x6709;&#x591A;&#x5C11;&#x5BF9;</span></span><br><span class="line">    <span class="keyword">if</span> len(rabbits) == <span class="number">0</span>:</span><br><span class="line">        rabbits.append(Rabbit())</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, month):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>, len(rabbits)):</span><br><span class="line">            rabbit = rabbits[j]</span><br><span class="line">            rabbit.age += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> (rabbit.age &lt; lmonth <span class="keyword">or</span> lmonth == <span class="number">-1</span>) <span class="keyword">and</span> rabbit.age  &gt;= gmonth - <span class="number">1</span>:</span><br><span class="line">                rabbits.append(Rabbit())</span><br><span class="line">            <span class="keyword">else</span>: d_rabbit += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> (len(rabbits), d_rabbit)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">20</span>):</span><br><span class="line">        print(count_rabbit(i, <span class="number">4</span>, <span class="number">10</span>))</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/08/26/正则表达式简明示例教程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">正则表达式简明示例教程</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style" style="float:left;margin-left:40px">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		
+		<a class="jiathis_button_qzone"></a>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_tqq"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_fb"></a>
+		<a class="jiathis_button_ydnote"></a>
+		<a class="jiathis_button_evernote"></a>
+		<a class="jiathis_button_copy"></a>
+
+    	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="斐波那契兔子的衍生问题" data-title="斐波那契兔子的衍生问题" data-url="https://github.com/JyHu/2016/09/06/斐波那契兔子的衍生问题/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Joyous&#39;s Home
+    	</div>
+      <div class="footer-right">
+      	<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      </div>
+    </div>
+    
+    
+      
+	<script type="text/javascript">
+		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cspan id='cnzz_stat_icon_1259025141'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259025141%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+
+    
+
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

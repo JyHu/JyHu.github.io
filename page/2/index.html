@@ -107,7 +107,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BLE/" style="font-size: 10px;">BLE</a> <a href="/tags/BLE4-0/" style="font-size: 15px;">BLE4.0</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/CoreBluetooth/" style="font-size: 15px;">CoreBluetooth</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/KeyChain/" style="font-size: 10px;">KeyChain</a> <a href="/tags/Mac-OSX/" style="font-size: 10px;">Mac OSX</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TouchID/" style="font-size: 10px;">TouchID</a> <a href="/tags/VFL/" style="font-size: 10px;">VFL</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/相册/" style="font-size: 10px;">相册</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/通知/" style="font-size: 10px;">通知</a> <a href="/tags/问题/" style="font-size: 10px;">问题</a>
+						<a href="/tags/BLE/" style="font-size: 10px;">BLE</a> <a href="/tags/BLE4-0/" style="font-size: 15px;">BLE4.0</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/CoreBluetooth/" style="font-size: 15px;">CoreBluetooth</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/KeyChain/" style="font-size: 10px;">KeyChain</a> <a href="/tags/Mac-OSX/" style="font-size: 10px;">Mac OSX</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TouchID/" style="font-size: 10px;">TouchID</a> <a href="/tags/VFL/" style="font-size: 10px;">VFL</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/斐波那契/" style="font-size: 10px;">斐波那契</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/相册/" style="font-size: 10px;">相册</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/递归/" style="font-size: 10px;">递归</a> <a href="/tags/通知/" style="font-size: 10px;">通知</a> <a href="/tags/问题/" style="font-size: 10px;">问题</a>
 					</div>
 				</section>
 				
@@ -172,6 +172,66 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-iOS方法调用之NSInvocation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/30/iOS方法调用之NSInvocation/" class="article-date">
+  	<time datetime="2016-04-30T15:50:41.000Z" itemprop="datePublished">2016-04-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/30/iOS方法调用之NSInvocation/">iOS方法调用之NSInvocation</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x5728;iOS&#x4E2D;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x4E00;&#x79CD;&#x662F;<code>performSelecter</code>&#x7CFB;&#x5217;&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x662F;&#x6211;&#x4EEC;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x3002;<br>&#x4F8B;&#x5982;&#xFF0C;&#x8C03;&#x7528;&#x6D4B;&#x8BD5;&#x7C7B;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@implementation TestClass</span><br><span class="line">- (NSString *)testWithArg1:(NSString *)arg1 arg2:(NSString *)arg2</span><br><span class="line">{</span><br><span class="line">    NSString *res = [NSString stringWithFormat:@&quot;you called me with %@ and %@&quot;, arg1, arg2];</span><br><span class="line">    NSLog(@&quot;%@&quot;, res);</span><br><span class="line">    return res;</span><br><span class="line">}</span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/30/iOS方法调用之NSInvocation/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-iOS在桌面及锁屏状态下的推送交互操作" class="article article-type-post" itemscope itemprop="blogPost">
   
