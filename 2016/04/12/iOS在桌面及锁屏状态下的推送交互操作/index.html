@@ -1,12 +1,90 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<!doctype html>
+
+
+
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>iOS在桌面及锁屏状态下的推送交互操作 | Joyous&#39;s Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS&amp;#x7684;&amp;#x901A;&amp;#x77E5;&amp;#xFF0C;&amp;#x4E0D;&amp;#x7BA1;&amp;#x662F;&amp;#x672C;&amp;#x5730;&amp;#x901A;&amp;#x77E5;&amp;#x8FD8;&amp;#x662F;APNS&amp;#x63A8;&amp;#x9001;&amp;#x901A;&amp;#x77E5;&amp;#xFF0C;&amp;#x5728;iOS8&amp;#x4E4B;&amp;#x524D;&amp;#x90FD;&amp;#x53EA;&amp;#x6">
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,通知," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/logo.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="iOS&amp;#x7684;&amp;#x901A;&amp;#x77E5;&amp;#xFF0C;&amp;#x4E0D;&amp;#x7BA1;&amp;#x662F;&amp;#x672C;&amp;#x5730;&amp;#x901A;&amp;#x77E5;&amp;#x8FD8;&amp;#x662F;APNS&amp;#x63A8;&amp;#x9001;&amp;#x901A;&amp;#x77E5;&amp;#xFF0C;&amp;#x5728;iOS8&amp;#x4E4B;&amp;#x524D;&amp;#x90FD;&amp;#x53EA;&amp;#x6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS在桌面及锁屏状态下的推送交互操作">
 <meta property="og:url" content="https://github.com/JyHu/2016/04/12/iOS在桌面及锁屏状态下的推送交互操作/index.html">
@@ -25,198 +103,203 @@
 <meta name="twitter:title" content="iOS在桌面及锁屏状态下的推送交互操作">
 <meta name="twitter:description" content="iOS&amp;#x7684;&amp;#x901A;&amp;#x77E5;&amp;#xFF0C;&amp;#x4E0D;&amp;#x7BA1;&amp;#x662F;&amp;#x672C;&amp;#x5730;&amp;#x901A;&amp;#x77E5;&amp;#x8FD8;&amp;#x662F;APNS&amp;#x63A8;&amp;#x9001;&amp;#x901A;&amp;#x77E5;&amp;#xFF0C;&amp;#x5728;iOS8&amp;#x4E4B;&amp;#x524D;&amp;#x90FD;&amp;#x53EA;&amp;#x6">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/8acb15f3jw1f2uancr54wj20ku05k0t9.jpg">
-  
-    <link rel="alternative" href="/atom.xml" title="Joyous&#39;s Home" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Joyous'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://github.com/JyHu/2016/04/12/iOS在桌面及锁屏状态下的推送交互操作/"/>
+
+  <title> iOS在桌面及锁屏状态下的推送交互操作 | Joyous's Home </title>
 </head>
 
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="http://ww4.sinaimg.cn/large/8acb15f3jw1f23fmmzow2j20hs0hsmxh.jpg" class="js-avatar">
-			
-		</a>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-		<hgroup>
-		  <h1 class="header-author"><a href="/">Joyous&#39;s Home</a></h1>
-		</hgroup>
+  
+  
+    
+  
 
-		
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
 
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>标签</li>
-						
-						
-						<li>关于我</li>
-						
-					</ul>
-				</div>
-			</div>
-		
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
 
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">所有文章</a></li>
-				        
-							<li><a href="/tags/iOS">iOS</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://github.com/JyHu" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="http://weibo.com/210127055" title="weibo">weibo</a>
-					        
-								<a class="mail" target="_blank" href="/auu.aug@gmail.com" title="mail">mail</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BLE/" style="font-size: 10px;">BLE</a> <a href="/tags/BLE4-0/" style="font-size: 13.33px;">BLE4.0</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/C/" style="font-size: 13.33px;">C</a> <a href="/tags/CoreBluetooth/" style="font-size: 13.33px;">CoreBluetooth</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/KeyChain/" style="font-size: 10px;">KeyChain</a> <a href="/tags/Mac-OSX/" style="font-size: 10px;">Mac OSX</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/TouchID/" style="font-size: 10px;">TouchID</a> <a href="/tags/VFL/" style="font-size: 10px;">VFL</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a> <a href="/tags/二叉树/" style="font-size: 10px;">二叉树</a> <a href="/tags/斐波那契/" style="font-size: 10px;">斐波那契</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/相册/" style="font-size: 10px;">相册</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/递归/" style="font-size: 10px;">递归</a> <a href="/tags/通知/" style="font-size: 10px;">通知</a> <a href="/tags/问题/" style="font-size: 10px;">问题</a>
-					</div>
-				</section>
-				
-				
-				
-
-				
-				
-				<section class="switch-part switch-part3">
-				
-					<div id="js-aboutme">低头不是认输,是要看清自己的路。仰头不是骄傲,是要看见自己的天空。So，我就是我，不一样的烟火。</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Joyous's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
 </div>
 
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">Joyous&#39;s Home</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-			
-				<img lazy-src="http://ww4.sinaimg.cn/large/8acb15f3jw1f23fmmzow2j20hs0hsmxh.jpg" class="js-avatar">
-			
-			</div>
-			<hgroup>
-			  <h1 class="header-author">Joyous&#39;s Home</h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">所有文章</a></li>
-		        
-					<li><a href="/tags/iOS">iOS</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/JyHu" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/210127055" title="weibo">weibo</a>
-			        
-						<a class="mail" target="_blank" href="/auu.aug@gmail.com" title="mail">mail</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
 </nav>
 
-      <div class="body-wrap"><article id="post-iOS在桌面及锁屏状态下的推送交互操作" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/12/iOS在桌面及锁屏状态下的推送交互操作/" class="article-date">
-  	<time datetime="2016-04-12T09:19:45.000Z" itemprop="datePublished">2016-04-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+
   
-    <h1 class="article-title" itemprop="name">
-      iOS在桌面及锁屏状态下的推送交互操作
-    </h1>
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS在桌面及锁屏状态下的推送交互操作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-12T17:19:45+08:00" content="2016-04-12">
+              2016-04-12
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/12/iOS在桌面及锁屏状态下的推送交互操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/12/iOS在桌面及锁屏状态下的推送交互操作/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
       </header>
-      
-      <div class="article-info article-info-post">
-        
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/通知/">通知</a></li></ul>
-	</div>
-
-        
-
-        <div class="clearfix"></div>
-      </div>
-      
     
-    <div class="article-entry" itemprop="articleBody">
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
       
         <p><img src="http://ww1.sinaimg.cn/large/8acb15f3jw1f2uancr54wj20ku05k0t9.jpg" alt=""></p>
 <p><code>iOS</code>&#x7684;&#x901A;&#x77E5;&#xFF0C;&#x4E0D;&#x7BA1;&#x662F;&#x672C;&#x5730;&#x901A;&#x77E5;&#x8FD8;&#x662F;<code>APNS</code>&#x63A8;&#x9001;&#x901A;&#x77E5;&#xFF0C;&#x5728;<code>iOS8</code>&#x4E4B;&#x524D;&#x90FD;&#x53EA;&#x6709;&#x5C55;&#x793A;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x5E76;&#x4F1A;&#x63D0;&#x4F9B;&#x7ED9;&#x5F00;&#x53D1;&#x8005;&#x4E00;&#x4E9B;&#x4EA4;&#x4E92;&#x6027;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x662F;&#x5728;<code>iOS8</code>&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x63A8;&#x51FA;&#x4E86;&#x6309;&#x94AE;&#x9009;&#x62E9;&#x6027;&#x7684;&#x4EA4;&#x4E92;&#xFF0C;&#x5728;<code>iOS9</code>&#x4EE5;&#x540E;&#x53C8;&#x63A8;&#x51FA;&#x4E86;&#x8F93;&#x5165;&#x5185;&#x5BB9;&#x7684;&#x4EA4;&#x4E92;&#x3002;&#x6BD4;&#x5982;&#x5FAE;&#x4FE1;&#x548C;&#x77ED;&#x4FE1;&#x7684;&#x4E0B;&#x62C9;&#x56DE;&#x590D;&#x3002;<br><strong>&#x6CE8;&#x610F;</strong>&#xFF1A;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#x90FD;&#x5728;<code>APPDelegate</code>&#x4E2D;&#x8FDB;&#x884C;&#x3002;</p>
@@ -289,151 +372,376 @@
 
       
     </div>
-    
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/04/30/iOS方法调用之NSInvocation/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          iOS方法调用之NSInvocation
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/04/10/iOS相册操作之-ALAssetsLibrary/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iOS相册操作之&#39;ALAssetsLibrary&#39;</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
 
-  
-</article>
-
-
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style" style="float:left;margin-left:40px">
-		<span class="jiathis_txt">分享到: &nbsp; </span>
-		
-		<a class="jiathis_button_qzone"></a>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_tqq"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_fb"></a>
-		<a class="jiathis_button_ydnote"></a>
-		<a class="jiathis_button_evernote"></a>
-		<a class="jiathis_button_copy"></a>
-
-    	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="iOS在桌面及锁屏状态下的推送交互操作" data-title="iOS在桌面及锁屏状态下的推送交互操作" data-url="https://github.com/JyHu/2016/04/12/iOS在桌面及锁屏状态下的推送交互操作/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
-
-</div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2016 Joyous&#39;s Home
-    	</div>
-      <div class="footer-right">
-      	<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      </div>
-    </div>
-    
-    
+    <div>
       
-	<script type="text/javascript">
-		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-		document.write(unescape("%3Cspan id='cnzz_stat_icon_1259025141'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259025141%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
-	</script>
+        
 
-    
-
-  </div>
-</footer>
+      
     </div>
-    
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/通知/" rel="tag">#通知</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/10/iOS相册操作之-ALAssetsLibrary/" rel="next" title="iOS相册操作之'ALAssetsLibrary'">
+                <i class="fa fa-chevron-left"></i> iOS相册操作之'ALAssetsLibrary'
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/30/iOS方法调用之NSInvocation/" rel="prev" title="iOS方法调用之NSInvocation">
+                iOS方法调用之NSInvocation <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
 
 
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
 
-
-
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
+      
+    </div>
   </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/12/iOS在桌面及锁屏状态下的推送交互操作/"
+           data-title="iOS在桌面及锁屏状态下的推送交互操作" data-url="https://github.com/JyHu/2016/04/12/iOS在桌面及锁屏状态下的推送交互操作/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/logo.png"
+               alt="Joyous's Home" />
+          <p class="site-author-name" itemprop="name">Joyous's Home</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JyHu" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/210127055" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#UIUserNotificationAction"><span class="nav-number">1.</span> <span class="nav-text">UIUserNotificationAction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIUserNotificationCategory"><span class="nav-number">2.</span> <span class="nav-text">UIUserNotificationCategory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIUserNotificationSettings"><span class="nav-number">3.</span> <span class="nav-text">UIUserNotificationSettings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册通知和设置项"><span class="nav-number">4.</span> <span class="nav-text">注册通知和设置项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交互操作的处理"><span class="nav-number">5.</span> <span class="nav-text">交互操作的处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地推送的效果展示"><span class="nav-number">6.</span> <span class="nav-text">本地推送的效果展示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#default-default"><span class="nav-number">6.1.</span> <span class="nav-text">default + default</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#default-textInput"><span class="nav-number">6.2.</span> <span class="nav-text">default + textInput</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#textInput-textInput"><span class="nav-number">6.3.</span> <span class="nav-text">textInput + textInput</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#textInput输入的时候"><span class="nav-number">6.4.</span> <span class="nav-text">textInput输入的时候</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附-：测试代码"><span class="nav-number">7.</span> <span class="nav-text">附 ：测试代码</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1259025141'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259025141%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+  </div>
+
+
+
+
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Joyous's Home</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jyhu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>
