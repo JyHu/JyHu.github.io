@@ -90,7 +90,7 @@
 <meta property="og:url" content="https://github.com/JyHu/2016/08/26/正则表达式简明示例教程/index.html">
 <meta property="og:site_name" content="Joyous's Home">
 <meta property="og:description" content="&amp;#x4E00;&amp;#x3001;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x6B63;&amp;#x5219;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x6B63;&amp;#x5219;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x4EBA;&amp;#x4EEC;&amp;#x4E3A;&amp;#x4E86;&amp;#x89E3;&amp;#x51B3;&amp;#x67D0;">
-<meta property="og:updated_time" content="2016-08-26T17:02:31.000Z">
+<meta property="og:updated_time" content="2016-11-17T04:01:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式简明示例教程">
 <meta name="twitter:description" content="&amp;#x4E00;&amp;#x3001;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x6B63;&amp;#x5219;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x6B63;&amp;#x5219;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x4EBA;&amp;#x4EEC;&amp;#x4E3A;&amp;#x4E86;&amp;#x89E3;&amp;#x51B3;&amp;#x67D0;">
@@ -353,6 +353,8 @@
 <h3 id="4&#x3001;&#x6355;&#x83B7;"><a href="#4&#x3001;&#x6355;&#x83B7;" class="headerlink" title="4&#x3001;&#x6355;&#x83B7;"></a>4&#x3001;&#x6355;&#x83B7;</h3><ul>
 <li><p><code>(exp)</code> : &#x5339;&#x914D;<code>exp</code>&#xFF0C;&#x5E76;&#x6355;&#x83B7;&#x6587;&#x672C;&#x5230;&#x81EA;&#x52A8;&#x547D;&#x540D;&#x7684;&#x7EC4;&#x91CC;&#xFF0C;<code>exp</code>&#x53EF;&#x4EE5;&#x662F;&#x5B57;&#x7B26;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x3002;<br>&#x5728;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5339;&#x914D;&#x7ED3;&#x679C;&#x4E2D;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x7684;&#x5C06;&#x6574;&#x4E2A;&#x7684;&#x5339;&#x914D;&#x7ED3;&#x679C;&#x547D;&#x540D;&#x4E3A;<code>0</code>&#x7EC4;&#xFF0C;&#x5982;&#x4E0A;&#x9762;&#x6240;&#x6709;&#x5F97;&#x4E86;&#x4F8B;&#x5B50;&#x4E2D;&#x90FD;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x5230;&#x5206;&#x7EC4;&#xFF0C;&#x5176;&#x5B9E;&#x4ED6;&#x4EEC;&#x7684;&#x7ED3;&#x679C;&#x90FD;&#x88AB;&#x81EA;&#x52A8;&#x5206;&#x914D;&#x5230;&#x4E86;0&#x7EC4;&#x91CC;&#xFF0C;&#x4E8E;&#x662F;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x8BE5;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x4E2D;&#x5269;&#x4E0B;&#x7684;&#x81EA;&#x5DF1;&#x5206;&#x7684;&#x7EC4;&#x5C31;&#x5F97;&#x4ECE;<code>1</code>&#x5F00;&#x59CB;&#x4E86;&#x3002;<br>&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x7528;&#xFF0C;&#x4F7F;&#x7528;&#x6B63;&#x5219;<code>(abc).*?\1</code>&#x5339;&#x914D;<code>asabcaasd9fabcsdf</code>&#xFF0C;&#x5C06;&#x4F1A;&#x5339;&#x914D;&#x5230;<code>abcaasd9fabc</code>&#x8FD9;&#x6BB5;&#x5185;&#x5BB9;&#x3002;&#x540E;&#x9762;&#x7684;<code>\1</code>&#x5C31;&#x662F;&#x53EA;&#x5206;&#x7EC4;1&#x7684;&#x5185;&#x5BB9;&#x3002;<br>&#x5F53;&#x7136;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5206;&#x66F4;&#x591A;&#x7684;&#x7EC4;&#x3002;</p>
 </li>
+<li><p><code>(?&lt;name&gt;exp)</code> : &#x5339;&#x914D;<code>exp</code>&#xFF0C;&#x5E76;&#x6355;&#x83B7;&#x6587;&#x672C;&#x5230;&#x81EA;&#x5DF1;&#x547D;&#x540D;&#x7684;<code>name</code>&#x7EC4;&#x91CC;&#xFF0C;&#x4F7F;&#x7528;&#x524D;&#x9762;&#x7684;&#x81EA;&#x5DF1;&#x547D;&#x540D;&#x7684;&#x7EC4;&#x7684;&#x8BDD;&#xFF0C;&#x6CE8;&#x610F;&#x4F7F;&#x7528;<code>\k&lt;name&gt;</code>&#xFF1A;<br>&#x6D4B;&#x8BD5;&#x6587;&#x672C;:<code>0123hahaha2345678hahaha</code><br>&#x6D4B;&#x8BD5;&#x6B63;&#x5219;:<code>(?&lt;num&gt;\d+).*?\k&lt;num&gt;</code><br>&#x6574;&#x4F53;&#x5339;&#x914D;&#x5230;&#x7ED3;&#x679C;&#x662F;<code>23hahaha23</code>&#xFF0C;&#x5728;<code>name</code>&#x7EC4;&#x91CC;&#x6355;&#x83B7;&#x5230;&#x7684;&#x662F;<code>23</code>&#x3002;</p>
+</li>
 <li><p><code>(?:exp)</code> : &#x5339;&#x914D;<code>exp</code>&#xFF0C;&#x4E0D;&#x6355;&#x83B7;&#x5339;&#x914D;&#x7684;&#x6587;&#x672C;&#xFF0C;&#x4E5F;&#x4E0D;&#x7ED9;&#x6B64;&#x5206;&#x7EC4;&#x5206;&#x914D;&#x7EC4;&#x53F7;&#x3002;&#x4E0B;&#x9762;&#x5DE6;&#x4FA7;&#x6D4B;&#x8BD5;&#xFF1A;<br>&#x6D4B;&#x8BD5;&#x6587;&#x672C;:<code>hello world hello world !</code><br>&#x6D4B;&#x8BD5;&#x6B63;&#x5219;1:<code>(hello).*?\1</code>&#xFF0C;&#x5339;&#x914D;&#x7ED3;&#x679C;&#x662F; <code>hello world hello</code>;<br>&#x6D4B;&#x8BD5;&#x6B63;&#x5219;2:<code>(?:hello)\s+(world).*?\1</code>&#xFF0C;&#x5339;&#x914D;&#x7ED3;&#x679C;&#x662F; <code>hello world hello world</code>;<br>&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x6D4B;&#x8BD5;2&#x4E2D;&#x867D;&#x7136;&#x524D;&#x9762;&#x6709;&#x4E2A;&#x5206;&#x7EC4;&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x6CA1;&#x6709;&#x5206;&#x914D;&#x7EC4;&#x53F7;&#xFF0C;1&#x5206;&#x7EC4;&#x5206;&#x7ED9;&#x4E86;&#x540E;&#x9762;&#x7684;&#x5206;&#x7EC4;&#x53BB;&#x4E86;</p>
 </li>
 </ul>
@@ -413,8 +415,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/29/使用O-n-的复杂度找重复的数/" rel="next" title="使用O(n)的复杂度找重复的数">
-                <i class="fa fa-chevron-left"></i> 使用O(n)的复杂度找重复的数
+              <a href="/2016/06/02/Visual-Formate-Language-VFL/" rel="next" title="Visual Formate Language (VFL)">
+                <i class="fa fa-chevron-left"></i> Visual Formate Language (VFL)
               </a>
             
           </div>
@@ -518,7 +520,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -528,7 +530,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
