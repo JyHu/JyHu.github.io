@@ -1,0 +1,686 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C,问题," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/logo.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x8FD9;&amp;#x662F;&amp;#x5728;&amp;#x53BB;&amp;#x8001;&amp;#x864E;&amp;#x91D1;&amp;#x878D;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x9762;&amp;#x8BD5;&amp;#x5B98;&amp;#x95EE;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x5F53;&amp;#x65F6;&amp;#x95EE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试中遇到的一个问题：整数反转">
+<meta property="og:url" content="https://github.com/JyHu/2016/12/03/面试中遇到的一个问题：整数反转/index.html">
+<meta property="og:site_name" content="Joyous's Home">
+<meta property="og:description" content="&amp;#x8FD9;&amp;#x662F;&amp;#x5728;&amp;#x53BB;&amp;#x8001;&amp;#x864E;&amp;#x91D1;&amp;#x878D;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x9762;&amp;#x8BD5;&amp;#x5B98;&amp;#x95EE;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x5F53;&amp;#x65F6;&amp;#x95EE">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/0060lm7Tgw1fadfg2c33mj31kw0pok1m.jpg">
+<meta property="og:updated_time" content="2016-12-03T11:51:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试中遇到的一个问题：整数反转">
+<meta name="twitter:description" content="&amp;#x8FD9;&amp;#x662F;&amp;#x5728;&amp;#x53BB;&amp;#x8001;&amp;#x864E;&amp;#x91D1;&amp;#x878D;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x9762;&amp;#x8BD5;&amp;#x5B98;&amp;#x95EE;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x5F53;&amp;#x65F6;&amp;#x95EE">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/0060lm7Tgw1fadfg2c33mj31kw0pok1m.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Joyous'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://github.com/JyHu/2016/12/03/面试中遇到的一个问题：整数反转/"/>
+
+  <title> 面试中遇到的一个问题：整数反转 | Joyous's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Joyous's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                面试中遇到的一个问题：整数反转
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-03T10:53:46+08:00" content="2016-12-03">
+              2016-12-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/03/面试中遇到的一个问题：整数反转/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/面试中遇到的一个问题：整数反转/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://ww3.sinaimg.cn/large/0060lm7Tgw1fadfg2c33mj31kw0pok1m.jpg" alt="forest"></p>
+<p>&#x8FD9;&#x662F;&#x5728;&#x53BB;&#x8001;&#x864E;&#x91D1;&#x878D;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9762;&#x8BD5;&#x5B98;&#x95EE;&#x7684;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5F53;&#x65F6;&#x95EE;&#x9898;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;<br><strong>&#x4E0D;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x539F;&#x751F;&#x7684;&#x51FD;&#x6570;&#x3001;&#x65B9;&#x6CD5;&#xFF0C;&#x53BB;&#x5B9E;&#x73B0;&#x5C06;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x53CD;&#x8F6C;&#x3002;&#x6BD4;&#x5982; 12345 &#x7FFB;&#x8F6C;&#x6210; 54321 &#x3002;</strong><br>&#x4E0D;&#x7528;&#x60F3;&#xFF0C;&#x80AF;&#x5B9A;&#x5F88;&#x591A;&#x540C;&#x5B66;&#x62FF;&#x5230;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x4EE5;&#x540E;&#xFF0C;&#x4F1A;&#x8DDF;&#x6211;&#x4E00;&#x6837;&#xFF0C;&#x52A8;&#x624B;&#x5C31;&#x80FD;&#x5199;&#x8D77;&#x6765;&#xFF1A;</p>
+<a id="more"></a>
+<h2 id="&#x7B2C;&#x4E00;&#x884C;&#x4EE3;&#x7801;"><a href="#&#x7B2C;&#x4E00;&#x884C;&#x4EE3;&#x7801;" class="headerlink" title="&#x7B2C;&#x4E00;&#x884C;&#x4EE3;&#x7801;"></a>&#x7B2C;&#x4E00;&#x884C;&#x4EE3;&#x7801;</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rev</span><span class="params">(<span class="keyword">int</span> num)</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> temp = num;</span><br><span class="line">    <span class="keyword">while</span> (temp &gt; <span class="number">0</span>) {</span><br><span class="line">        res = <span class="number">10</span> * res + temp % <span class="number">10</span>;</span><br><span class="line">        temp /= <span class="number">10</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>{</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) {</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;&#x8F93;&#x5165;&#x8981;&#x7FFB;&#x8F6C;&#x7684;&#x6570; : &quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;&#x8F93;&#x5165;&#x7684;%u&#x7FFB;&#x8F6C;&#x7ED3;&#x679C;      : %u\n\n&quot;</span>, a, rev(a));</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x4E2A;&#x5E94;&#x8BE5;&#x662F;&#x6BCF;&#x4E2A;&#x521A;&#x5B66;&#x4EE3;&#x7801;&#x7684;&#x4EBA;&#x521A;&#x5F00;&#x59CB;&#x90FD;&#x4F1A;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#x5427;&#xFF0C;&#x6709;&#x70B9;&#x7F16;&#x7A0B;&#x601D;&#x60F3;&#x7684;&#x90FD;&#x80FD;&#x5199;&#x7684;&#x51FA;&#x6765;&#x3002;</p>
+<h2 id="&#x56DE;&#x5FC6;&#x57FA;&#x7840;"><a href="#&#x56DE;&#x5FC6;&#x57FA;&#x7840;" class="headerlink" title="&#x56DE;&#x5FC6;&#x57FA;&#x7840;"></a>&#x56DE;&#x5FC6;&#x57FA;&#x7840;</h2><p>&#x90A3;&#x4E48;&#xFF0C;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x6765;&#x56DE;&#x5FC6;&#x4E00;&#x4E0B;<code>int</code>&#x7C7B;&#x578B;&#x7684;&#x77E5;&#x8BC6;&#x3002;<br><code>int</code>&#x7528;&#x4E8E;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6574;&#x5F62;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5728;16&#x4F4D;&#x7F16;&#x8BD1;&#x5668;&#x4E2D;&#xFF0C;<code>int</code>&#x7C7B;&#x578B;&#x5360;2&#x4E2A;&#x5B57;&#x8282;&#xFF1B;&#x5728;32&#x4F4D;&#x3001;64&#x4F4D;&#x7684;&#x7F16;&#x8BD1;&#x4E2D;&#xFF0C;<code>int</code>&#x7C7B;&#x578B;&#x5360;&#x7528;4&#x4E2A;&#x5B57;&#x8282;&#x3002;<br>&#x7531;&#x4E8E;1&#x4E2A;&#x5B57;&#x8282;&#x5360;8&#x4F4D;&#xFF0C;&#x5373;<code>0000 0000</code>&#xFF0C;&#x800C;&#x5BF9;&#x4E8E;int&#x7C7B;&#x578B;&#x7684;&#x6574;&#x6570;&#x6765;&#x8BF4;&#xFF0C;&#x7B2C;&#x4E00;&#x4F4D;&#x662F;&#x5C5E;&#x4E8E;&#x7B26;&#x53F7;&#x4F4D;&#xFF0C;&#x6240;&#x4EE5;&#x4E24;&#x79CD;&#x7F16;&#x8BD1;&#x5668;&#x4E2D;&#x6700;&#x5927;&#x7684;&#x503C;&#x5206;&#x522B;&#x662F;<code>2^15-1=32767</code>&#x548C;<code>2^31-1=21474836473</code>&#x3002;<br>&#x5982;&#x679C;&#x7528;&#x7684;&#x662F;&#x6B63;&#x6574;&#x5F62;&#xFF0C;&#x5373;<code>unsigned int</code>&#x7C7B;&#x578B;&#x7684;&#x8BDD;&#xFF0C;&#x7B2C;&#x4E00;&#x4F4D;&#x5C31;&#x4E0D;&#x662F;&#x7B26;&#x53F7;&#x4F4D;&#x4E86;&#xFF0C;&#x6B64;&#x65F6;&#x6700;&#x5927;&#x503C;&#x5206;&#x522B;&#x662F;<code>2^16-1=65535</code>&#x548C;<code>2^32-1=4294967294</code>&#x3002;<br>&#x8BF4;&#x8FD9;&#x4E48;&#x4E9B;&#x57FA;&#x7840;&#x5185;&#x5BB9;&#xFF0C;&#x56DE;&#x5230;&#x4E0A;&#x9762;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x8BF4;&#x660E;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;<strong>&#x5B58;&#x5728;&#x4E00;&#x4E9B;&#x6570;&#xFF0C;&#x5728;&#x53CD;&#x8F6C;&#x4EE5;&#x540E;&#x4F1A;&#x8D8A;&#x754C;</strong>&#x3002;&#x4E0B;&#x9762;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;<br>&#x5728;16&#x4F4D;&#x7F16;&#x8BD1;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;<code>int</code>&#x7C7B;&#x578B;&#x6700;&#x5927;&#x7684;&#x503C;&#x662F;32767&#xFF0C;&#x5982;&#x679C;&#x5C31;&#x5BF9;&#x8FD9;&#x4E2A;&#x6700;&#x5927;&#x7684;&#x6570;&#x8FDB;&#x884C;&#x53CD;&#x8F6C;&#xFF0C;&#x5C31;&#x6210;&#x4E86;76723&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x8D85;&#x8FC7;&#x4E86;int&#x7C7B;&#x578B;&#x6240;&#x80FD;&#x5360;&#x6709;&#x7684;&#x6700;&#x5927;&#x503C;&#xFF0C;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x8D8A;&#x754C;&#x7684;&#x95EE;&#x9898;&#x3002;<br>&#x6240;&#x4EE5;&#xFF0C;&#x8003;&#x8651;<strong>&#x6570;&#x503C;&#x8D8A;&#x754C;</strong>&#x624D;&#x662F;&#x9762;&#x8BD5;&#x5B98;&#x95EE;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x5173;&#x952E;&#x70B9;&#x3002;</p>
+<h2 id="&#x89E3;&#x51B3;&#x65B9;&#x6848;"><a href="#&#x89E3;&#x51B3;&#x65B9;&#x6848;" class="headerlink" title="&#x89E3;&#x51B3;&#x65B9;&#x6848;"></a>&#x89E3;&#x51B3;&#x65B9;&#x6848;</h2><p>&#x5F53;&#x65F6;&#x5728;&#x5199;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x60F3;&#x5230;&#x4E86;&#x4E09;&#x4E2A;&#x65B9;&#x6CD5;&#x5427;&#xFF0C;&#x90FD;&#x662F;&#x5F88;&#x5BB9;&#x6613;&#x60F3;&#x5230;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ol>
+<li>&#x5728;&#x53CD;&#x8F6C;&#x5B8C;&#x6210;&#x4EE5;&#x540E;&#xFF0C;&#x518D;&#x6B21;&#x8FDB;&#x884C;&#x4E00;&#x4E2A;wile&#x5FAA;&#x73AF;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x53CD;&#x8F6C;&#x524D;&#x540E;&#x7684;&#x6BCF;&#x4F4D;&#x6570;&#x503C;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x3002;</li>
+<li>&#x901A;&#x8FC7;&#x4F4D;&#x79FB;&#x7684;&#x624B;&#x6BB5;&#xFF0C;&#x6765;&#x6BD4;&#x8F83;&#x53CD;&#x8F6C;&#x524D;&#x540E;&#x7684;&#x4E24;&#x4E2A;&#x6570;&#x3002;</li>
+<li>&#x5229;&#x7528;&#x6808;&#x7684;&#x540E;&#x8FDB;&#x5148;&#x51FA;&#x7684;&#x7279;&#x70B9;&#xFF0C;&#x5728;&#x53CD;&#x8F6C;&#x7684;&#x65F6;&#x5019;&#x8BB0;&#x5F55;&#x4E0B;&#x6BCF;&#x4E00;&#x4F4D;&#xFF0C;&#x7136;&#x540E;&#x53BB;&#x8FDB;&#x884C;&#x6BCF;&#x4E00;&#x4F4D;&#x7684;&#x6BD4;&#x8F83;</li>
+</ol>
+<h2 id="&#x4F18;&#x5316;&#x65B9;&#x6848;"><a href="#&#x4F18;&#x5316;&#x65B9;&#x6848;" class="headerlink" title="&#x4F18;&#x5316;&#x65B9;&#x6848;"></a>&#x4F18;&#x5316;&#x65B9;&#x6848;</h2><p>&#x4F46;&#x662F;&#x5728;&#x5199;&#x4EE3;&#x7801;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6123;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;&#x4E00;&#x60F3;&#x8FD9;&#x6837;&#x4F1A;&#x6709;&#x4E24;&#x6B21;&#x4EE5;&#x4E0A;&#x7684;&#x5FAA;&#x73AF;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x80FD;&#x518D;&#x4E00;&#x6B21;&#x5FAA;&#x73AF;&#x91CC;&#x5C31;&#x80FD;&#x505A;&#x5230;&#x5462;&#xFF1F;&#x60F3;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x6709;&#x4E86;&#x4E0B;&#x9762;&#x7684;&#x601D;&#x8DEF;&#xFF1A;<br>&#x770B;&#x5230;&#x4E0A;&#x9762;&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x6574;&#x4E2A;&#x53CD;&#x8F6C;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x6838;&#x5FC3;&#x7684;&#x4EE3;&#x7801;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x8FD9;&#x4E24;&#x53E5;&#xFF1A;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">res = <span class="number">10</span> * res + temp % <span class="number">10</span>;</span><br><span class="line">temp /= <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<p>&#x5176;&#x4E2D;&#x80FD;&#x591F;&#x5F15;&#x8D77;&#x6570;&#x503C;&#x8D8A;&#x754C;&#x7684;&#x662F;<code>10*res</code>&#x548C;<code>temp%10</code>&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x9700;&#x8981;&#x5728;&#x8FD9;&#x4E24;&#x53E5;&#x4E0A;&#x505A;&#x4E0B;&#x5224;&#x65AD;&#x5C31;&#x80FD;&#x77E5;&#x9053;&#x6570;&#x503C;&#x8D8A;&#x754C;&#x4E0E;&#x5426;&#x4E86;&#x3002;<br>&#x4E0B;&#x9762;&#x4E0A;&#x4EE3;&#x7801;:</p>
+<h3 id="C&#x5199;&#x6CD5;"><a href="#C&#x5199;&#x6CD5;" class="headerlink" title="C&#x5199;&#x6CD5;"></a><code>C</code>&#x5199;&#x6CD5;</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">rev</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> num)</span> </span>{</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> res = <span class="number">0</span>;		<span class="comment">// &#x53CD;&#x8F6C;&#x4EE5;&#x540E;&#x7684;&#x7ED3;&#x679C;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> temp = num;	<span class="comment">// &#x5B58;&#x50A8;&#x539F;&#x53CD;&#x8F6C;&#x503C;&#x7684;&#x4E34;&#x65F6;&#x53D8;&#x91CF;</span></span><br><span class="line">    <span class="keyword">while</span> (temp &gt; <span class="number">0</span>) {</span><br><span class="line">        <span class="keyword">if</span> (res == res * <span class="number">10</span> / <span class="number">10</span>) {	<span class="comment">// &#x5148;&#x4E58;&#x518D;&#x9664;&#xFF0C;&#x5982;&#x679C;&#x8D8A;&#x754C;&#x7684;&#x8BDD;&#xFF0C;&#x8FD9;&#x4E2A;&#x503C;&#x80AF;&#x5B9A;&#x4F1A;&#x56E0;&#x4E3A;&#x8D8A;&#x754C;&#x6709;&#x6240;&#x6539;&#x53D8;</span></span><br><span class="line">            res = <span class="number">10</span> * res + temp % <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span> (res % <span class="number">10</span> != temp % <span class="number">10</span>) {	<span class="comment">// &#x5982;&#x679C;&#x6709;&#x8D8A;&#x754C;&#x7684;&#x8BDD;&#xFF0C;&#x6700;&#x540E;&#x7684;&#x4E00;&#x4F4D;&#x6570;&#x4E5F;&#x4F1A;&#x6709;&#x6539;&#x53D8;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x505A;&#x4E00;&#x4E2A;&#x5224;&#x65AD;</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;&#x8D8A;&#x754C; - &quot;</span>);</span><br><span class="line">            }</span><br><span class="line">            temp /= <span class="number">10</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;current ---&gt;%d\n&quot;</span>, res);</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;&#x8D8A;&#x754C; = \n&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>{</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) {</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> a;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;&#x8F93;&#x5165;&#x8981;&#x7FFB;&#x8F6C;&#x7684;&#x6570; : &quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%u&quot;</span>, &amp;a);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;&#x8F93;&#x5165;&#x7684;%u&#x7FFB;&#x8F6C;&#x7ED3;&#x679C;      : %u\n\n&quot;</span>, a, rev(a));</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h3 id="Python&#x5199;&#x6CD5;"><a href="#Python&#x5199;&#x6CD5;" class="headerlink" title="Python&#x5199;&#x6CD5;"></a><code>Python</code>&#x5199;&#x6CD5;</h3><p>&#x7531;&#x4E8E;Python&#x5E95;&#x5C42;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x6574;&#x578B;&#x503C;&#x53EF;&#x4EE5;&#x5F88;&#x5927;&#xFF0C;&#x6240;&#x4EE5;&#x5728;python&#x4E2D;&#x4E0D;&#x4F1A;&#x9047;&#x5230;&#x8D8A;&#x754C;&#x7684;&#x60C5;&#x51B5;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rev</span><span class="params">(num)</span>:</span></span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    temp = num</span><br><span class="line">    <span class="keyword">while</span> temp &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> res == res * <span class="number">10</span> / <span class="number">10</span>:</span><br><span class="line">            res = <span class="number">10</span> * res + temp % <span class="number">10</span></span><br><span class="line">            <span class="keyword">if</span> res % <span class="number">10</span> != temp % <span class="number">10</span>: print(<span class="string">&apos;&#x4E0D;&#x76F8;&#x7B49;&#xFF0C;&#x6570;&#x503C;&#x8D8A;&#x754C;&#x4E86;&apos;</span>)</span><br><span class="line">            temp /= <span class="number">10</span></span><br><span class="line">        <span class="keyword">else</span>: print(<span class="string">&apos;&#x4E0D;&#x76F8;&#x7B49;&#xFF0C;&#x6570;&#x503C;&#x8D8A;&#x754C;&#x4E86;&apos;</span>)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&apos;__main__&apos;</span>:</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>: print(rev(input(<span class="string">&apos;num: &apos;</span>)))</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x7ED3;&#x5C3E;"><a href="#&#x7ED3;&#x5C3E;" class="headerlink" title="&#x7ED3;&#x5C3E;"></a>&#x7ED3;&#x5C3E;</h2><p>&#x73B0;&#x5728;&#x80FD;&#x60F3;&#x5230;&#x7684;&#x597D;&#x70B9;&#x7684;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x4E86;&#x5427;&#xFF0C;&#x5982;&#x679C;&#x8FD8;&#x6709;&#x522B;&#x7684;&#x597D;&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x8BDD;&#xFF0C;&#x656C;&#x8BF7;&#x7559;&#x8A00;&#x3002;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag">#C</a>
+          
+            <a href="/tags/问题/" rel="tag">#问题</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/13/升级Mac自带的python/" rel="next" title="升级Mac自带的python">
+                <i class="fa fa-chevron-left"></i> 升级Mac自带的python
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/03/面试中遇到的一个问题：整数反转/"
+           data-title="面试中遇到的一个问题：整数反转" data-url="https://github.com/JyHu/2016/12/03/面试中遇到的一个问题：整数反转/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/logo.png"
+               alt="Joyous's Home" />
+          <p class="site-author-name" itemprop="name">Joyous's Home</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JyHu" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/210127055" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一行代码"><span class="nav-number">1.</span> <span class="nav-text">第一行代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回忆基础"><span class="nav-number">2.</span> <span class="nav-text">回忆基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化方案"><span class="nav-number">4.</span> <span class="nav-text">优化方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C写法"><span class="nav-number">4.1.</span> <span class="nav-text">C写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python写法"><span class="nav-number">4.2.</span> <span class="nav-text">Python写法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">5.</span> <span class="nav-text">结尾</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1259025141'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259025141%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+  </div>
+
+
+
+
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Joyous's Home</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jyhu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
