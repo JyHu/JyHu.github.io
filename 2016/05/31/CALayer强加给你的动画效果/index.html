@@ -310,7 +310,7 @@
 <p>&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x540E;&#xFF0C;&#x53C8;&#x5728;&#x82F9;&#x679C;&#x7684;&#x5B98;&#x7F51;&#x67E5;&#x4E86;&#x4E00;&#x4E0B;<a href="https://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CATransaction_class/#//apple_ref/occ/clm/CATransaction/begin" target="_blank" rel="external">CATransaction</a>&#x7684;&#x8D44;&#x6599;&#xFF0C;&#x679C;&#x7136;&#x53D1;&#x73B0;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x8BF4;&#x6CD5;&#xFF1A;</p>
 <p><img src="http://ww4.sinaimg.cn/mw1024/8acb15f3gw1f4ewkhxml5j20ia01xdg1.jpg" alt=""></p>
 <p>&#x6700;&#x540E;&#x5C1D;&#x8BD5;&#x505A;&#x4E86;&#x4E00;&#x4E0B;&#x4EE5;&#x4E0B;&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CATransaction.begin()</span><br><span class="line">CATransaction.setDisableActions(true)</span><br><span class="line">if self.count % 2 == 0 {</span><br><span class="line">    self.testLayer.frame = CGRect(x: 100, y: 100, width: 10, height: 199)</span><br><span class="line">} else {</span><br><span class="line">    self.testLayer.frame = CGRect(x: 10, y: 30, width: 100, height: 100)</span><br><span class="line">}</span><br><span class="line">CATransaction.commit()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">CATransaction.begin()</div><div class="line">CATransaction.setDisableActions(true)</div><div class="line">if self.count % 2 == 0 {</div><div class="line">    self.testLayer.frame = CGRect(x: 100, y: 100, width: 10, height: 199)</div><div class="line">} else {</div><div class="line">    self.testLayer.frame = CGRect(x: 10, y: 30, width: 100, height: 100)</div><div class="line">}</div><div class="line">CATransaction.commit()</div></pre></td></tr></table></figure>
 <p>OK&#xFF0C;It works &#x3002;&#x3002;&#x3002;<br>&#x518D;&#x6B21;&#x4FEE;&#x6539;frame&#x5C31;&#x4E0D;&#x4F1A;&#x6709;&#x52A8;&#x753B;&#x4E86;&#x3002;</p>
 
       
@@ -448,7 +448,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -458,7 +458,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

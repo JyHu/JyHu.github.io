@@ -84,15 +84,12 @@
 
 
 
-<meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Joyous's Home">
 <meta property="og:url" content="https://github.com/JyHu/page/3/index.html">
 <meta property="og:site_name" content="Joyous's Home">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Joyous's Home">
-<meta name="twitter:description">
 
 
 
@@ -225,6 +222,110 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/15/Shell终端下的命令行设置/" itemprop="url">
+                  Shell终端下的命令行设置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-15T14:44:48+08:00" content="2016-03-15">
+              2016-03-15
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/15/Shell终端下的命令行设置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/15/Shell终端下的命令行设置/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>&#x9996;&#x5148;&#x5728;&#x7EC8;&#x7AEF;&#x8F93;&#x5165; : vim ~/.bash_profile &#x547D;&#x4EE4;&#xFF0C;&#x8FD9;&#x65F6;&#x5982;&#x679C;&#x4E4B;&#x524D;&#x6709;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5C31;&#x4F1A;&#x6253;&#x5F00;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5C31;&#x4F1A;&#x521B;&#x5EFA;&#x3002;<br>&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
+<p><code>PS1=&quot;\[\e[36;6m\][ \W ]\[\e[35;9m\] -&gt; : \[\e[0m\]&quot;</code> (&#x6548;&#x679C;&#x89C1;&#x6700;&#x540E;&#x7684;gif)</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/15/Shell终端下的命令行设置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -402,7 +503,7 @@
       
         
           <h2 id="&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain-and-TouchID-Demo"><a href="#&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain-and-TouchID-Demo" class="headerlink" title="&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain and TouchID Demo"></a><a href="https://github.com/JyHu/TouchIDAndKeyChain.git">&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#xFF1A;KeyChain and TouchID Demo</a></h2><p>&#x9996;&#x5148;&#x9700;&#x8981;&#x5F15;&#x5165;&#x4E00;&#x4E2A;&#x5E93;<code>#import &lt;LocalAuthentication/LAContext.h&gt;</code>&#xFF0C;&#x5B98;&#x65B9;&#x7684;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;TouchID&#x5B89;&#x5168;&#x9A8C;&#x8BC1;&#x767B;&#x9646;&#x7684;<code>Framework</code>&#xFF0C;&#x9996;&#x5148;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x652F;&#x6301;TouchID&#x767B;&#x9646;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// &#x5224;&#x65AD;&#x662F;&#x5426;&#x652F;&#x6301;TouchID&#x767B;&#x9646;</span><br><span class="line">- (BOOL)canEvaluatePolicy</span><br><span class="line">{</span><br><span class="line">    LAContext *context = [[LAContext alloc] init];</span><br><span class="line">    NSError *error;</span><br><span class="line">    return [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:&amp;error];</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// &#x5224;&#x65AD;&#x662F;&#x5426;&#x652F;&#x6301;TouchID&#x767B;&#x9646;</div><div class="line">- (BOOL)canEvaluatePolicy</div><div class="line">{</div><div class="line">    LAContext *context = [[LAContext alloc] init];</div><div class="line">    NSError *error;</div><div class="line">    return [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:&amp;error];</div><div class="line">}</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/03/15/TouchID登陆/#more" rel="contents">
               阅读全文 &raquo;
@@ -512,7 +613,7 @@
 <li>&#x5728;&#x672C;&#x5730;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5E76;&#x628A;&#x521B;&#x5EFA;&#x597D;&#x7684;Repository Clone&#x5230;&#x672C;&#x5730;&#x76EE;&#x5F55;&#x4E0B;&#xFF1B;</li>
 <li>CD&#x5230;&#x9879;&#x76EE;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x7684;html&#x6587;&#x4EF6;&#xFF1A;<code>printf &quot;&lt;h1&gt;Testing page&lt;h1&gt; It works.\n&quot; &gt; index.html</code></li>
 <li>push&#x5230;master&#x5206;&#x652F;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x6D4F;&#x89C8;&#x6D4B;&#x8BD5;&#x7684;&#x7F51;&#x9875; <code>&lt;username&gt;.github.io</code>&#xFF0C;&#x5982;&#x679C;&#x51FA;&#x73B0;&#x521A;&#x624D;&#x65B0;&#x5EFA;&#x7684;&#x9875;&#x9762;&#x5C31;&#x8BF4;&#x660E;&#x6210;&#x529F;&#x4E86;&#xFF1B;</li>
-<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x7236;&#x8282;&#x70B9;&#x7684;&#x5206;&#x652F;&#xFF0C;&#x5E76;&#x6E05;&#x7A7A;&#x521A;&#x624D;&#x7684;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#xFF1A;<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout <span class="comment">--orphan gh-pages</span></span><br><span class="line">git rm -rf .</span><br><span class="line">git <span class="keyword">commit</span> -a -m <span class="string">&quot;modify&quot;</span></span><br><span class="line">git push origin <span class="keyword">master</span></span><br></pre></td></tr></table></figure>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x7236;&#x8282;&#x70B9;&#x7684;&#x5206;&#x652F;&#xFF0C;&#x5E76;&#x6E05;&#x7A7A;&#x521A;&#x624D;&#x7684;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#xFF1A;<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git checkout <span class="comment">--orphan gh-pages</span></div><div class="line">git rm -rf .</div><div class="line">git <span class="keyword">commit</span> -a -m <span class="string">&quot;modify&quot;</span></div><div class="line">git push origin <span class="keyword">master</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
           <div class="post-more-link text-center">
@@ -591,7 +692,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -601,7 +702,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

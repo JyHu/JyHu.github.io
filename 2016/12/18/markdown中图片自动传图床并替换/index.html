@@ -1,0 +1,694 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="markdown,python,脚本," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/logo.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5728;&amp;#x4EE5;&amp;#x524D;&amp;#x5199;markdown&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x5173;&amp;#x4E8E;&amp;#x7528;&amp;#x5230;&amp;#x6700;&amp;#x591A;&amp;#x7684;&amp;#x56F4;&amp;#x8116;&amp;#x56FE;&amp;#x5E8A;&amp;#xFF0C;&amp;#x7ED9;&amp;#x6211">
+<meta property="og:type" content="article">
+<meta property="og:title" content="markdown中图片自动传图床并替换">
+<meta property="og:url" content="https://github.com/JyHu/2016/12/18/markdown中图片自动传图床并替换/index.html">
+<meta property="og:site_name" content="Joyous's Home">
+<meta property="og:description" content="&amp;#x5728;&amp;#x4EE5;&amp;#x524D;&amp;#x5199;markdown&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x5173;&amp;#x4E8E;&amp;#x7528;&amp;#x5230;&amp;#x6700;&amp;#x591A;&amp;#x7684;&amp;#x56F4;&amp;#x8116;&amp;#x56FE;&amp;#x5E8A;&amp;#xFF0C;&amp;#x7ED9;&amp;#x6211">
+<meta property="og:image" content="http://oi21rq6v4.bkt.clouddn.com/d0ccea200ea10574825dfe0683c5e02e">
+<meta property="og:image" content="http://oi21rq6v4.bkt.clouddn.com/db484a50d85e3e44a44eb6473449cb21">
+<meta property="og:image" content="http://oi21rq6v4.bkt.clouddn.com/acfd3c90364f6862509c27ca0814fefa">
+<meta property="og:image" content="http://oi21rq6v4.bkt.clouddn.com/df40f52f869ae5575519efbbaa7aa87e">
+<meta property="og:updated_time" content="2016-12-18T16:28:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="markdown中图片自动传图床并替换">
+<meta name="twitter:description" content="&amp;#x5728;&amp;#x4EE5;&amp;#x524D;&amp;#x5199;markdown&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x5173;&amp;#x4E8E;&amp;#x7528;&amp;#x5230;&amp;#x6700;&amp;#x591A;&amp;#x7684;&amp;#x56F4;&amp;#x8116;&amp;#x56FE;&amp;#x5E8A;&amp;#xFF0C;&amp;#x7ED9;&amp;#x6211">
+<meta name="twitter:image" content="http://oi21rq6v4.bkt.clouddn.com/d0ccea200ea10574825dfe0683c5e02e">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Joyous'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://github.com/JyHu/2016/12/18/markdown中图片自动传图床并替换/"/>
+
+  <title> markdown中图片自动传图床并替换 | Joyous's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Joyous's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                markdown中图片自动传图床并替换
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-18T23:47:44+08:00" content="2016-12-18">
+              2016-12-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/18/markdown中图片自动传图床并替换/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/18/markdown中图片自动传图床并替换/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://oi21rq6v4.bkt.clouddn.com/d0ccea200ea10574825dfe0683c5e02e" alt=""></p>
+<p>&#x5728;&#x4EE5;&#x524D;&#x5199;<code>markdown</code>&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5173;&#x4E8E;&#x7528;&#x5230;&#x6700;&#x591A;&#x7684;<strong><a href="http://weibotuchuang.sinaapp.com" target="_blank" rel="external">&#x56F4;&#x8116;&#x56FE;&#x5E8A;</a></strong>&#xFF0C;&#x7ED9;&#x6211;&#x89E3;&#x51B3;&#x4E86;&#x56FE;&#x7247;&#x5F15;&#x7528;&#x7684;&#x5927;&#x95EE;&#x9898;&#x3002;&#x4F46;&#x662F;&#x6BCF;&#x6B21;&#x90FD;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x624B;&#x52A8;&#x7684;&#x53BB;&#x4E0A;&#x4F20;&#x56FE;&#x7247;&#xFF0C;&#x7136;&#x540E;&#x5728;md&#x4E2D;&#x7528;&#x3002;&#x66F4;&#x4E3A;&#x7CDF;&#x5FC3;&#x7684;&#x662F;&#x540E;&#x6765;&#x5728;<code>Chorme</code>&#x4E2D;&#x53C8;&#x4E0D;&#x51C6;&#x7528;&#x5B83;&#xFF0C;&#x800C;&#x5728;<code>Safari</code>&#x91CC;&#x7684;&#x4F7F;&#x7528;&#x53C8;&#x4E0D;&#x662F;&#x5F88;&#x53CB;&#x597D;&#x3002;<br>&#x4E8E;&#x662F;&#x4E4E;&#xFF0C;&#x5C31;&#x840C;&#x751F;&#x4E86;&#x81EA;&#x5DF1;&#x505A;&#x4E00;&#x4E2A;&#x81EA;&#x52A8;&#x4E0A;&#x4F20;&#x66FF;&#x6362;&#x7684;&#x811A;&#x672C;&#x3002;&#x501F;&#x7528;&#x4E00;&#x4E9B;&#x73B0;&#x6709;&#x7684;&#x5F88;&#x4E0D;&#x9519;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x8F6C;&#x6362;&#x6548;&#x679C;&#x8FD8;&#x662F;&#x5F88;&#x597D;&#x7684;&#x3002;</p>
+<a id="more"></a>
+<p><strong>&#x8FD8;&#x662F;&#x5148;&#x4E0A;&#x5730;&#x5740;&#x5427;&#xFF1A;<a href="https://github.com/JyHu/useful_script/tree/master/Scripts/md&#x6587;&#x4EF6;&#x56FE;&#x7247;&#x56FE;&#x5E8A;&#x8F6C;&#x6362;">&#x70B9;&#x6211;&#x4F20;&#x9001; ~ </a></strong></p>
+<h2 id="&#x9700;&#x8981;&#x7528;&#x5230;&#x7684;&#x5DE5;&#x5177;"><a href="#&#x9700;&#x8981;&#x7528;&#x5230;&#x7684;&#x5DE5;&#x5177;" class="headerlink" title="&#x9700;&#x8981;&#x7528;&#x5230;&#x7684;&#x5DE5;&#x5177;"></a>&#x9700;&#x8981;&#x7528;&#x5230;&#x7684;&#x5DE5;&#x5177;</h2><h3 id="&#x73AF;&#x5883;"><a href="#&#x73AF;&#x5883;" class="headerlink" title="&#x73AF;&#x5883;"></a>&#x73AF;&#x5883;</h3><p>&#x4F9D;&#x7136;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x8FD8;&#x7B97;&#x4E86;&#x89E3;&#x4E00;&#x4E9B;&#x7684;<code>Python3</code>&#xFF0C;&#x5173;&#x4E8E;&#x5B83;&#xFF0C;&#x8FD8;&#x662F;&#x770B;&#x4E0B;<strong> <a href="http://www.auu.space/2016/10/13/&#x5347;&#x7EA7;Mac&#x81EA;&#x5E26;&#x7684;python/#more" target="_blank" rel="external">&#x8FD9;&#x91CC;</a></strong>&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x7684;&#x662F;Mac&#x7CFB;&#x7EDF;&#x3002;<br>&#x5176;&#x4E2D;&#x8FD8;&#x9700;&#x8981;&#x51E0;&#x4E2A;&#x5F00;&#x6E90;&#x5E93;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;pip&#x5B89;&#x88C5;&#xFF0C;pip&#x83B7;&#x53D6;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x6839;&#x636E;<strong> <a href="https://pip.pypa.io/en/stable/installing/" target="_blank" rel="external">&#x5B98;&#x7F51;&#x7684;&#x6559;&#x7A0B;&#x6587;&#x6863;</a></strong>&#x83B7;&#x53D6;&#x5B89;&#x88C5;&#x3002;</p>
+<h3 id="&#x61D2;&#x4EBA;&#x770B;&#x7684;"><a href="#&#x61D2;&#x4EBA;&#x770B;&#x7684;" class="headerlink" title="&#x61D2;&#x4EBA;&#x770B;&#x7684;"></a>&#x61D2;&#x4EBA;&#x770B;&#x7684;</h3><p>&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x770B;&#x4E0B;&#x9762;&#x7684;&#x51E0;&#x4E2A;&#x5B50;&#x76EE;&#x5F55;&#x5185;&#x5BB9;&#xFF0C;&#x5728;&#x5B89;&#x88C5;&#x597D;<code>pip</code>&#x4EE5;&#x540E;&#xFF0C;&#x76F4;&#x63A5;&#x6267;&#x884C;&#x8FD9;&#x51E0;&#x6761;&#x547D;&#x4EE4;&#x5C31;&#x884C;&#x4E86;&#x3002;<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pip <span class="keyword">install</span> <span class="comment">--upgrade requests</span></div><div class="line">pip <span class="keyword">install</span> <span class="comment">--upgrade tinify</span></div><div class="line">pip <span class="keyword">install</span> <span class="comment">--upgrade qiniu</span></div></pre></td></tr></table></figure></p>
+<h3 id="&#x5B58;&#x50A8;"><a href="#&#x5B58;&#x50A8;" class="headerlink" title="&#x5B58;&#x50A8;"></a>&#x5B58;&#x50A8;</h3><p>&#x5728;&#x5F00;&#x59CB;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x770B;&#x8FC7;&#x4E00;&#x4E9B;&#x8D44;&#x6599;&#xFF0C;&#x90FD;&#x662F;&#x7528;&#x5FAE;&#x535A;&#x4F5C;&#x4E3A;&#x56FE;&#x5E8A;&#x7684;&#x6BD4;&#x8F83;&#x591A;&#xFF0C;&#x6CA1;&#x6709;&#x4E0A;&#x4F20;&#x9650;&#x5236;&#x3001;&#x6D41;&#x91CF;&#x9650;&#x5236;&#x7B49;&#xFF0C;&#x4F46;&#x662F;&#x505A;&#x8D77;&#x6765;&#x53EF;&#x80FD;&#x76F8;&#x5BF9;&#x8981;&#x590D;&#x6742;&#x4E00;&#x4E9B;&#xFF0C;&#x7136;&#x540E;&#x8FD8;&#x6709;&#x7684;&#x4EBA;&#x7528;&#x7684;&#x4E03;&#x725B;&#xFF0C;&#x7136;&#x540E;&#x770B;&#x4E86;&#x5B98;&#x65B9;&#x7684;&#x6587;&#x6863;&#x8FD8;&#x662F;&#x5F88;&#x7B80;&#x5355;&#x7684;&#xFF0C;<strong> <a href="http://developer.qiniu.com/code/v7/sdk/python.html" target="_blank" rel="external">&#x8FD9;&#x662F;&#x5B98;&#x65B9;&#x7684;&#x5F00;&#x53D1;&#x6587;&#x6863;</a> </strong>&#xFF0C;&#x514D;&#x8D39;&#x7684;&#x4E91;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x548C;&#x6D41;&#x91CF;&#x591F;&#x4E2A;&#x4EBA;&#x4F7F;&#x7528;&#x4E86;&#x3002;<br>&#x7533;&#x8BF7;&#x597D;&#x4E2A;&#x4EBA;&#x8D26;&#x53F7;&#xFF0C;&#x7136;&#x540E;&#x627E;&#x5230;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;<br>&#x5148;&#x5230;&#x4E2A;&#x4EBA;&#x4FE1;&#x606F;&#x91CC;&#x627E;&#x5230;&#x627E;&#x5230;ak&#x548C;sk&#xFF0C;&#x7136;&#x540E;&#x5728;&#x5BF9;&#x8C61;&#x5B58;&#x50A8;&#x91CC;&#x627E;&#x5230;&#x7A7A;&#x95F4;&#x540D;&#x79F0;&#x3001;&#x57DF;&#x540D;<br><img src="http://oi21rq6v4.bkt.clouddn.com/db484a50d85e3e44a44eb6473449cb21" alt=""></p>
+<h3 id="&#x56FE;&#x7247;&#x538B;&#x7F29;"><a href="#&#x56FE;&#x7247;&#x538B;&#x7F29;" class="headerlink" title="&#x56FE;&#x7247;&#x538B;&#x7F29;"></a>&#x56FE;&#x7247;&#x538B;&#x7F29;</h3><p>&#x7531;&#x4E8E;&#x4E03;&#x725B;&#x7A7A;&#x95F4;&#x6709;&#x9650;&#xFF0C;&#x4E3A;&#x4E86;&#x8282;&#x7701;&#x7A7A;&#x95F4;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x5BF9;&#x56FE;&#x7247;&#x505A;&#x4E9B;&#x538B;&#x7F29;&#x4F18;&#x5316;&#xFF0C;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x7684;&#x662F;<code>tinypng</code>&#x505A;&#x56FE;&#x7247;&#x7684;&#x538B;&#x7F29;&#xFF0C;<strong><a href="https://tinypng.com/developers/reference/python" target="_blank" rel="external">&#x5B98;&#x65B9;&#x7684;&#x6587;&#x6863;</a> </strong>&#x3002;<br>&#x968F;&#x4FBF;&#x627E;&#x4E86;&#x4E2A;&#x5F20;&#x56FE;&#x7247;&#x538B;&#x7F29;&#x5BF9;&#x6BD4;&#x4E00;&#x4E0B;&#xFF0C;&#x8FD8;&#x662F;&#x5F88;&#x53EF;&#x89C2;&#x7684;&#xFF1A;<br><img src="http://oi21rq6v4.bkt.clouddn.com/acfd3c90364f6862509c27ca0814fefa" alt=""><br>&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x4E2A;&#x5E93;&#x8C8C;&#x4F3C;&#x7ECF;&#x5E38;&#x7684;500&#x9519;&#x8BEF;&#xFF0C;&#x800C;&#x4E14;&#x6BCF;&#x6708;&#x8FD8;&#x6709;&#x538B;&#x7F29;&#x56FE;&#x7247;&#x4E2A;&#x6570;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x4E0D;&#x8FC7;&#x4E00;&#x822C;&#x7528;&#x7684;&#x8BDD;&#x4E5F;&#x5C31;&#x591F;&#x4E86;&#xFF0C;&#x5728;&#x811A;&#x672C;&#x91CC;&#x4E5F;&#x505A;&#x4E86;&#x4E00;&#x4E0B;&#x5BB9;&#x9519;&#x5904;&#x7406;&#xFF0C;&#x5728;&#x538B;&#x7F29;&#x5931;&#x8D25;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x4E0A;&#x4F20;&#x539F;&#x56FE;&#x3002;</p>
+<h3 id="&#x56FE;&#x7247;&#x5730;&#x5740;&#x7F13;&#x5B58;"><a href="#&#x56FE;&#x7247;&#x5730;&#x5740;&#x7F13;&#x5B58;" class="headerlink" title="&#x56FE;&#x7247;&#x5730;&#x5740;&#x7F13;&#x5B58;"></a>&#x56FE;&#x7247;&#x5730;&#x5740;&#x7F13;&#x5B58;</h3><p>&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x91CD;&#x590D;&#x4E0A;&#x4F20;&#xFF0C;&#x5728;&#x672C;&#x5730;&#x8FD8;&#x505A;&#x4E86;&#x4E00;&#x4E2A;&#x7F13;&#x5B58;&#xFF0C;&#x4FDD;&#x5B58;&#x4E0B;&#x5F53;&#x524D;&#x56FE;&#x7247;&#x6216;&#x8005;&#x538B;&#x7F29;&#x540E;&#x56FE;&#x7247;&#x7684;<code>hash</code>&#x548C;&#x5F53;&#x524D;&#x56FE;&#x7247;&#x4E0A;&#x4F20;&#x5230;&#x56FE;&#x5E8A;&#x7684;&#x7F51;&#x5740;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x4FE1;&#x606F;&#xFF0C;&#x4E0B;&#x6B21;&#x518D;&#x4E0A;&#x4F20;&#x76F8;&#x540C;&#x56FE;&#x7247;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x56FE;&#x7247;&#x7684;<code>hash</code>&#x503C;&#xFF0C;&#x6765;&#x627E;&#x5230;&#x5DF2;&#x4E0A;&#x4F20;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x907F;&#x514D;&#x91CD;&#x590D;&#x4E0A;&#x4F20;&#x3002;<br>&#x7F13;&#x5B58;&#x6587;&#x4EF6;&#x5728;&#x811A;&#x672C;&#x6240;&#x5728;&#x7684;&#x7EDF;&#x8BA1;&#x76EE;&#x5F55;&#xFF0C;&#x662F;&#x7528;sqlite&#x5B58;&#x50A8;&#x3002;</p>
+<h2 id="&#x4F7F;&#x7528;"><a href="#&#x4F7F;&#x7528;" class="headerlink" title="&#x4F7F;&#x7528;"></a>&#x4F7F;&#x7528;</h2><p>&#x8001;&#x6837;&#x5B50;&#xFF1A;<br>python &#x811A;&#x672C;&#x540D; &#x6587;&#x4EF6;&#x540D; [&#x662F;&#x5426;&#x56FE;&#x7247;&#x538B;&#x7F29;]<br>&#x4F8B;&#xFF1A; <code>python ~/Dropbox/useful_script/Scripts/md&#x6587;&#x4EF6;&#x56FE;&#x7247;&#x56FE;&#x5E8A;&#x8F6C;&#x6362;/md_transfer.py ~/Desktop/t.md 0</code></p>
+<ul>
+<li>0 - &#x4E0D;&#x9700;&#x8981;&#x538B;&#x7F29;</li>
+<li>1 - &#x9700;&#x8981;&#x538B;&#x7F29;&#xFF0C;&#x6CE8;&#x610F;<code>tiniPNG</code>&#x7684;<code>key</code></li>
+</ul>
+<p><strong>&#x4EE3;&#x7801;&#x5199;&#x7684;&#x4E71;&#xFF0C;&#x5982;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x6B22;&#x8FCE;&#x7559;&#x8A00; ~</strong></p>
+<ul>
+<li>&#x4E0B;&#x9762;&#x7B97;&#x662F;&#x4E00;&#x4E2A;&#x6D41;&#x7A0B;&#x56FE;&#x5427;&#xFF0C;&#x5C06;&#x5C31;&#x7740;&#x770B;&#x5427;&#x3002;</li>
+</ul>
+<p><img src="http://oi21rq6v4.bkt.clouddn.com/df40f52f869ae5575519efbbaa7aa87e" alt=""></p>
+<h2 id="&#x6D4B;&#x8BD5;"><a href="#&#x6D4B;&#x8BD5;" class="headerlink" title="&#x6D4B;&#x8BD5;"></a>&#x6D4B;&#x8BD5;</h2><p>&#x8FD9;&#x7BC7;&#x65E5;&#x5FD7;&#x4E2D;&#x7684;&#x56FE;&#x7247;&#x5C31;&#x662F;&#x7528;&#x8FD9;&#x4E2A;&#x811A;&#x672C;&#x4F20;&#x7684;&#xFF0C;&#x5E94;&#x8BE5;&#x4E0D;&#x7528;&#x5728;&#x4E3E;&#x4F8B;&#x4E86;&#x5427;&#x3002;</p>
+<h2 id="&#x6CE8;&#x610F;"><a href="#&#x6CE8;&#x610F;" class="headerlink" title="&#x6CE8;&#x610F;"></a>&#x6CE8;&#x610F;</h2><p>&#x8FD9;&#x4E9B;&#x91CD;&#x8981;&#x7684;&#x53C2;&#x6570;&#x4E0D;&#x8981;&#x5FD8;&#x4E86;&#x54E6; ~ &#x6240;&#x4EE5;&#xFF0C;&#x6F0F;&#x6389;&#x7684;&#x8FD8;&#x662F;&#x90FD;&#x5728;&#x770B;&#x4E00;&#x904D;&#x5427; ~<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">ak</span> = <span class="string">&apos;&apos;</span>		<span class="comment"># ak</span></div><div class="line">sk = <span class="string">&apos;&apos;</span>		<span class="comment"># sk</span></div><div class="line">domain = <span class="string">&apos;&apos;</span> <span class="comment"># &#x4E0A;&#x4F20;&#x57DF;&#x540D;</span></div><div class="line">bucket = <span class="string">&apos;&apos;</span> <span class="comment"># &#x7A7A;&#x95F4;&#x540D;&#x79F0;</span></div><div class="line">tinify.key = <span class="string">&apos;&apos;</span> <span class="comment"># &#x8BBE;&#x7F6E;tinipng&#x7684;key</span></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/markdown/" rel="tag">#markdown</a>
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+            <a href="/tags/脚本/" rel="tag">#脚本</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/10/iOS中JS和OC的交互/" rel="next" title="iOS中JS和OC的交互">
+                <i class="fa fa-chevron-left"></i> iOS中JS和OC的交互
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/18/markdown中图片自动传图床并替换/"
+           data-title="markdown中图片自动传图床并替换" data-url="https://github.com/JyHu/2016/12/18/markdown中图片自动传图床并替换/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/logo.png"
+               alt="Joyous's Home" />
+          <p class="site-author-name" itemprop="name">Joyous's Home</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JyHu" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/210127055" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需要用到的工具"><span class="nav-number">1.</span> <span class="nav-text">需要用到的工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">1.1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒人看的"><span class="nav-number">1.2.</span> <span class="nav-text">懒人看的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储"><span class="nav-number">1.3.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片压缩"><span class="nav-number">1.4.</span> <span class="nav-text">图片压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片地址缓存"><span class="nav-number">1.5.</span> <span class="nav-text">图片地址缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">4.</span> <span class="nav-text">注意</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1259025141'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259025141%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+  </div>
+
+
+
+
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Joyous's Home</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jyhu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
