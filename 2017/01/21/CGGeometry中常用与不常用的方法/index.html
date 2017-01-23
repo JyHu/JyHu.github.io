@@ -1,0 +1,739 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/logo.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5728;iOS&amp;#x4E2D;&amp;#x5E03;&amp;#x5C40;&amp;#x4E00;&amp;#x4E2A;&amp;#x7EC4;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5FC5;&amp;#x9700;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x5C5E;&amp;#x6027;&amp;#x5C31;&amp;#x662F;CGRect&amp;#xFF0C;&amp;#x7531;&amp;#x4E8E;&amp;#x5B83;&amp;#x662F;C&amp;#x4E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CGGeometry中常用与不常用的方法">
+<meta property="og:url" content="https://github.com/JyHu/2017/01/21/CGGeometry中常用与不常用的方法/index.html">
+<meta property="og:site_name" content="Joyous's Home">
+<meta property="og:description" content="&amp;#x5728;iOS&amp;#x4E2D;&amp;#x5E03;&amp;#x5C40;&amp;#x4E00;&amp;#x4E2A;&amp;#x7EC4;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5FC5;&amp;#x9700;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x5C5E;&amp;#x6027;&amp;#x5C31;&amp;#x662F;CGRect&amp;#xFF0C;&amp;#x7531;&amp;#x4E8E;&amp;#x5B83;&amp;#x662F;C&amp;#x4E">
+<meta property="og:image" content="http://oi21rq6v4.bkt.clouddn.com/0b32545306e8c5457030726dc9ced0e7">
+<meta property="og:image" content="http://oi21rq6v4.bkt.clouddn.com/37b8b0baea96e0abe80f91bbd369efd9">
+<meta property="og:image" content="http://oi21rq6v4.bkt.clouddn.com/680c9db172cc66fb5fdd0cea7c72cf61">
+<meta property="og:image" content="http://oi21rq6v4.bkt.clouddn.com/0e8b4282f15a2096de79d7dc616de14b">
+<meta property="og:image" content="http://oi21rq6v4.bkt.clouddn.com/5509b787f4f4276652deff6f3c810133">
+<meta property="og:updated_time" content="2017-01-23T04:09:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CGGeometry中常用与不常用的方法">
+<meta name="twitter:description" content="&amp;#x5728;iOS&amp;#x4E2D;&amp;#x5E03;&amp;#x5C40;&amp;#x4E00;&amp;#x4E2A;&amp;#x7EC4;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5FC5;&amp;#x9700;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x5C5E;&amp;#x6027;&amp;#x5C31;&amp;#x662F;CGRect&amp;#xFF0C;&amp;#x7531;&amp;#x4E8E;&amp;#x5B83;&amp;#x662F;C&amp;#x4E">
+<meta name="twitter:image" content="http://oi21rq6v4.bkt.clouddn.com/0b32545306e8c5457030726dc9ced0e7">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Joyous'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://github.com/JyHu/2017/01/21/CGGeometry中常用与不常用的方法/"/>
+
+  <title> CGGeometry中常用与不常用的方法 | Joyous's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Joyous's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CGGeometry中常用与不常用的方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-21T22:41:48+08:00" content="2017-01-21">
+              2017-01-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/21/CGGeometry中常用与不常用的方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/21/CGGeometry中常用与不常用的方法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://oi21rq6v4.bkt.clouddn.com/0b32545306e8c5457030726dc9ced0e7" alt=""></p>
+<p>&#x5728;iOS&#x4E2D;&#x5E03;&#x5C40;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x5FC5;&#x9700;&#x7684;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x5C31;&#x662F;<code>CGRect</code>&#xFF0C;&#x7531;&#x4E8E;&#x5B83;&#x662F;<code>C</code>&#x4E2D;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x6784;&#x9020;&#x65B9;&#x5F0F;&#xFF0C;&#x800C;&#x5728;iOS&#x7684;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;&#x7740;&#x8FD8;&#x662F;&#x6709;&#x4E00;&#x4E9B;&#x4E0D;&#x65B9;&#x4FBF;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x4E8E;&#x662F;&#x6211;&#x4EEC;&#x5728;&#x5F00;&#x53D1;&#x7684;&#x65F6;&#x5019;&#x7ECF;&#x5E38;&#x7684;&#x90FD;&#x4F1A;&#x5BF9;<code>View</code>&#x505A;&#x4E00;&#x4E2A;&#x6269;&#x5C55;(<code>Category</code>)&#xFF0C;&#x7528;&#x6765;&#x65B9;&#x4FBF;&#x7684;&#x64CD;&#x4F5C;&#x7EC4;&#x4EF6;&#x7684;&#x5750;&#x6807;&#x3001;&#x5C3A;&#x5BF8;&#x3002;&#x800C;&#x6709;&#x4E00;&#x4E9B;&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x5B9E;&#x82F9;&#x679C;&#x5728;&#x5C01;&#x88C5;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x5DF2;&#x7ECF;&#x7ED9;&#x6211;&#x4EEC;&#x60F3;&#x597D;&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x662F;<code>CGGeometry</code>&#x4E2D;&#x4E00;&#x4E9B;&#x5E38;&#x89C1;&#x3001;&#x4E0D;&#x5E38;&#x89C1;&#x7684;&#x3001;&#x5E38;&#x7528;&#x3001;&#x4E0D;&#x5E38;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x8BF4;&#x660E;&#x3002;</p>
+<a id="more"></a>
+<h2 id="&#x4E00;&#x3001;&#x7CFB;&#x7EDF;&#x5B9A;&#x4E49;&#x7684;&#x7ED3;&#x6784;&#x4F53;"><a href="#&#x4E00;&#x3001;&#x7CFB;&#x7EDF;&#x5B9A;&#x4E49;&#x7684;&#x7ED3;&#x6784;&#x4F53;" class="headerlink" title="&#x4E00;&#x3001;&#x7CFB;&#x7EDF;&#x5B9A;&#x4E49;&#x7684;&#x7ED3;&#x6784;&#x4F53;"></a>&#x4E00;&#x3001;&#x7CFB;&#x7EDF;&#x5B9A;&#x4E49;&#x7684;&#x7ED3;&#x6784;&#x4F53;</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// &#x5B9A;&#x4E49;&#x4E8C;&#x7EF4;&#x5750;&#x6807;&#x7CFB;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x70B9;</span></div><div class="line"><span class="keyword">struct</span> <span class="built_in">CGPoint</span> {</div><div class="line">    <span class="built_in">CGFloat</span> x;</div><div class="line">    <span class="built_in">CGFloat</span> y;</div><div class="line">};</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="built_in">CGPoint</span> <span class="built_in">CGPoint</span>;</div><div class="line"></div><div class="line"><span class="comment">// &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5C3A;&#x5BF8;</span></div><div class="line"><span class="keyword">struct</span> <span class="built_in">CGSize</span> {</div><div class="line">    <span class="built_in">CGFloat</span> width;</div><div class="line">    <span class="built_in">CGFloat</span> height;</div><div class="line">};</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="built_in">CGSize</span> <span class="built_in">CGSize</span>;</div><div class="line"></div><div class="line"><span class="comment">// &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5411;&#x91CF;</span></div><div class="line"><span class="keyword">struct</span> <span class="built_in">CGVector</span> {</div><div class="line">    <span class="built_in">CGFloat</span> dx;</div><div class="line">    <span class="built_in">CGFloat</span> dy;</div><div class="line">};</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="built_in">CGVector</span> <span class="built_in">CGVector</span>;</div><div class="line"></div><div class="line"><span class="comment">// &#x5B9A;&#x4E49;&#x4E8C;&#x7EF4;&#x5750;&#x6807;&#x7CFB;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x957F;&#x65B9;&#x5F62;</span></div><div class="line"><span class="keyword">struct</span> <span class="built_in">CGRect</span> {</div><div class="line">    <span class="built_in">CGPoint</span> origin;</div><div class="line">    <span class="built_in">CGSize</span> size;</div><div class="line">};</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="built_in">CGRect</span> <span class="built_in">CGRect</span>;</div></pre></td></tr></table></figure>
+<h2 id="&#x4E8C;&#x3001;&#x4E00;&#x4E9B;&#x5E38;&#x91CF;"><a href="#&#x4E8C;&#x3001;&#x4E00;&#x4E9B;&#x5E38;&#x91CF;" class="headerlink" title="&#x4E8C;&#x3001;&#x4E00;&#x4E9B;&#x5E38;&#x91CF;"></a>&#x4E8C;&#x3001;&#x4E00;&#x4E9B;&#x5E38;&#x91CF;</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGPoint</span> <span class="built_in">CGPointZero</span> <span class="comment">// &#x7B49;&#x540C;&#x4E8E;CGPoint{0, 0}</span></div><div class="line"><span class="built_in">CGSize</span> <span class="built_in">CGSizeZero</span>   <span class="comment">// &#x7B49;&#x540C;&#x4E8E;CGSize{0, 0}</span></div><div class="line"><span class="built_in">CGRect</span> <span class="built_in">CGRectZero</span>   <span class="comment">// &#x7B49;&#x540C;&#x4E8E;CGRect{0&#xFF0C;0&#xFF0C;0&#xFF0C;0}</span></div><div class="line"><span class="built_in">CGRect</span> <span class="built_in">CGRectNull</span>   <span class="comment">// &#x4E3A;&#x7A7A;&#xFF0C;null</span></div><div class="line"><span class="built_in">CGRect</span> <span class="built_in">CGRectInfinite</span>   <span class="comment">// &#x65E0;&#x7A77;&#x5927;</span></div></pre></td></tr></table></figure>
+<h2 id="&#x4E09;&#x3001;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x521B;&#x5EFA;"><a href="#&#x4E09;&#x3001;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x521B;&#x5EFA;" class="headerlink" title="&#x4E09;&#x3001;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x521B;&#x5EFA;"></a>&#x4E09;&#x3001;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x521B;&#x5EFA;</h2><p>&#x7CFB;&#x7EDF;&#x5185;&#x8054;&#x51FD;&#x6570;&#x6709;&#x5B9E;&#x73B0;&#x5728;&#x6700;&#x4E0B;&#x65B9;&#x3002;</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGPoint</span> <span class="built_in">CGPointMake</span>(<span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y);</div><div class="line"><span class="built_in">CGSize</span> <span class="built_in">CGSizeMake</span>(<span class="built_in">CGFloat</span> width, <span class="built_in">CGFloat</span> height);</div><div class="line"><span class="built_in">CGVector</span> <span class="built_in">CGVectorMake</span>(<span class="built_in">CGFloat</span> dx, <span class="built_in">CGFloat</span> dy);</div><div class="line"><span class="built_in">CGRect</span> <span class="built_in">CGRectMake</span>(<span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y, <span class="built_in">CGFloat</span> width, <span class="built_in">CGFloat</span> height);</div></pre></td></tr></table></figure>
+<h2 id="&#x56DB;&#x3001;&#x5355;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x83B7;&#x53D6;"><a href="#&#x56DB;&#x3001;&#x5355;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x83B7;&#x53D6;" class="headerlink" title="&#x56DB;&#x3001;&#x5355;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x83B7;&#x53D6;"></a>&#x56DB;&#x3001;&#x5355;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x83B7;&#x53D6;</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetMinX</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetMidX</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetMaxX</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetMinY</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetMidY</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetMaxY</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetWidth</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"><span class="built_in">CGFloat</span> <span class="built_in">CGRectGetHeight</span>(<span class="built_in">CGRect</span> rect)</div></pre></td></tr></table></figure>
+<p>&#x5404;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x542B;&#x4E49;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="http://oi21rq6v4.bkt.clouddn.com/37b8b0baea96e0abe80f91bbd369efd9" alt=""></p>
+<h2 id="&#x4E94;&#x3001;&#x6BD4;&#x8F83;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;"><a href="#&#x4E94;&#x3001;&#x6BD4;&#x8F83;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;" class="headerlink" title="&#x4E94;&#x3001;&#x6BD4;&#x8F83;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;"></a>&#x4E94;&#x3001;&#x6BD4;&#x8F83;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// &#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x5750;&#x6807;&#x70B9;&#x662F;&#x5426;&#x76F8;&#x540C;</span></div><div class="line"><span class="keyword">bool</span> <span class="built_in">CGPointEqualToPoint</span>(<span class="built_in">CGPoint</span> point1, <span class="built_in">CGPoint</span> point2)</div><div class="line"><span class="comment">// &#x6BD4;&#x8F83;&#x4E24;&#x4E2A;size&#x662F;&#x5426;&#x76F8;&#x540C;</span></div><div class="line"><span class="keyword">bool</span> <span class="built_in">CGSizeEqualToSize</span>(<span class="built_in">CGSize</span> size1, <span class="built_in">CGSize</span> size2)</div><div class="line"><span class="comment">// &#x6BD4;&#x8F83;&#x4E24;&#x4E2A;rect&#x662F;&#x5426;&#x76F8;&#x540C;</span></div><div class="line"><span class="keyword">bool</span> <span class="built_in">CGRectEqualToRect</span>(<span class="built_in">CGRect</span> rect1, <span class="built_in">CGRect</span> rect2)</div><div class="line"><span class="comment">// &#x5224;&#x65AD;&#x662F;&#x5426;&#x4E3A;&#x65E0;&#x7A77;&#x5927;</span></div><div class="line"><span class="keyword">bool</span> <span class="built_in">CGRectIsInfinite</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"><span class="comment">// &#x5224;&#x65AD;&#x662F;&#x5426;&#x4E3A;&#x7A7A;&#xFF0C;&#x6709;&#x65F6;&#x8FD4;&#x56DE;null&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5F53;&#x505A;rect&#x53BB;&#x5904;&#x7406;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x6765;&#x5224;&#x65AD;</span></div><div class="line"><span class="keyword">bool</span> <span class="built_in">CGRectIsNull</span>(<span class="built_in">CGRect</span> rect)</div><div class="line"><span class="comment">// &#x5224;&#x65AD;&#x662F;&#x5426;&#x4E3A;&#x7A7A;&#xFF0C;&#x5373;width&#x3001;height&#x4E3A;0</span></div><div class="line"><span class="keyword">bool</span> <span class="built_in">CGRectIsEmpty</span>(<span class="built_in">CGRect</span> rect)</div></pre></td></tr></table></figure>
+<h2 id="&#x516D;&#x3001;&#x6709;&#x6548;&#x7684;&#x8F85;&#x52A9;&#x65B9;&#x6CD5;"><a href="#&#x516D;&#x3001;&#x6709;&#x6548;&#x7684;&#x8F85;&#x52A9;&#x65B9;&#x6CD5;" class="headerlink" title="&#x516D;&#x3001;&#x6709;&#x6548;&#x7684;&#x8F85;&#x52A9;&#x65B9;&#x6CD5;"></a>&#x516D;&#x3001;&#x6709;&#x6548;&#x7684;&#x8F85;&#x52A9;&#x65B9;&#x6CD5;</h2><ul>
+<li><code>CGRect CGRectStandardize(CGRect rect)</code><br>&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;<code>CGRect</code>&#x6765;&#x8BF4;&#xFF0C;&#x5176;&#x4E2D;&#x7684;<code>size</code>&#x90FD;&#x53EA;&#x80FD;&#x662F;&#x5927;&#x4E8E;0&#x7684;&#x6570;&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x5C06;<code>size</code>&#x8F6C;&#x6210;&#x6709;&#x6548;&#x503C;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6BD4;&#x5982;:<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CGRectMake(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)&#x8FD4;&#x56DE;(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</div><div class="line">CGRectMake(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">-1</span>)&#x8FD4;&#x56DE;(<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>)</div><div class="line">CGRectMake(<span class="number">1</span>, <span class="number">1</span>, <span class="number">-1</span>, <span class="number">1</span>)&#x8FD4;&#x56DE;(<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</div><div class="line">CGRectMake(<span class="number">1</span>, <span class="number">1</span>, <span class="number">-1</span>, <span class="number">-1</span>)&#x8FD4;&#x56DE;(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x53EA;&#x6709;&#x5F53;<code>width</code>&#x6216;<code>height</code>&#x5C0F;&#x4E8E;&#x96F6;&#x65F6;&#x624D;&#x6709;&#x6539;&#x53D8;<br>&#x5176;&#x5B9E;&#x73B0;&#x5927;&#x81F4;&#x5982;&#x4E0B;:</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">CGRect CGRectStandardize(CGRect <span class="built_in">rect</span>)</div><div class="line">{</div><div class="line">    CGRect standardizeRect = <span class="built_in">rect</span>;</div><div class="line">    <span class="built_in">if</span> (<span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">width</span> &lt; <span class="number">0</span>) {</div><div class="line">        standardizeRect.origin.x += <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">width</span>;</div><div class="line">        standardizeRect.<span class="built_in">size</span>.<span class="built_in">width</span> = fabs(standardizeRect.<span class="built_in">size</span>.<span class="built_in">width</span>);</div><div class="line">    }</div><div class="line">    <span class="built_in">if</span> (<span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">height</span> &lt; <span class="number">0</span>) {</div><div class="line">        standardizeRect.origin.y += <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">height</span>;</div><div class="line">        standardizeRect.<span class="built_in">size</span>.<span class="built_in">height</span> = fabs(standardizeRect.<span class="built_in">size</span>.<span class="built_in">height</span>);</div><div class="line">    }</div><div class="line">    <span class="built_in">return</span> standardizeRect;</div><div class="line">}</div></pre></td></tr></table></figure>
+<ul>
+<li><code>CGRect CGRectInset(CGRect rect, CGFloat dx, CGFloat dy)</code><br>&#x7528;&#x4E8E;&#x83B7;&#x5F97;&#x4E00;&#x4E2A;<code>CGRect</code>&#x5185;&#x95F4;&#x8DDD;&#x4E00;&#x5B9A;&#x8DDD;&#x79BB;&#x7684;<code>CGRect</code>&#xFF0C;&#x5982;&#x4E0B;&#x56FE;<br><img src="http://oi21rq6v4.bkt.clouddn.com/680c9db172cc66fb5fdd0cea7c72cf61" alt=""><br>&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">CGRect CGRectInset(CGRect <span class="built_in">rect</span>, CGFloat dx, CGFloat dy)</div><div class="line">{</div><div class="line">    <span class="built_in">return</span> CGRectMake(<span class="built_in">rect</span>.origin.x + dx,</div><div class="line">                      <span class="built_in">rect</span>.origin.y + dy,</div><div class="line">                      <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">width</span> - dx * <span class="number">2</span>,</div><div class="line">                      <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">height</span> - dy * <span class="number">2</span>);</div><div class="line">}</div></pre></td></tr></table></figure>
+<ul>
+<li><p><code>CGRect CGRectIntegral(CGRect rect)</code><br>&#x7C7B;&#x4F3C; <code>CGRectStandardize</code></p>
+</li>
+<li><p><code>CGRect CGRectUnion(CGRect r1, CGRect r2)</code><br>&#x4E24;&#x4E2A;<code>CGRect</code>&#x7684;&#x5408;&#x96C6;&#xFF0C;&#x533A;&#x522B;&#x4E8E;&#x6570;&#x5B66;&#x4E2D;&#x7684;&#x4EA4;&#x9645;&#xFF0C;&#x7531;&#x4E8E;&#x5728;iOS&#x4E2D;<code>CGRect</code>&#x8868;&#x793A;&#x7684;&#x662F;&#x5E73;&#x9762;&#x4E2D;&#x67D0;&#x4E00;&#x4F4D;&#x7F6E;&#x7684;&#x77E9;&#x5F62;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x7684;&#x5408;&#x96C6;&#x5982;&#x4E0B;&#x56FE;&#x4E2D;&#x7684;&#x77E9;&#x5F62;AOPG&#xFF1A;<br><img src="http://oi21rq6v4.bkt.clouddn.com/0e8b4282f15a2096de79d7dc616de14b" alt=""><br>&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">CGRect</span> CGRectUnion(CGRect <span class="built_in">r1</span>, CGRect <span class="built_in">r2</span>)</div><div class="line">{</div><div class="line">    CGFloat minx = MIN(<span class="built_in">r1</span>.origin.x, <span class="built_in">r2</span>.origin.x)<span class="comment">;</span></div><div class="line">    CGFloat miny = MIN(<span class="built_in">r1</span>.origin.y, <span class="built_in">r2</span>.origin.y)<span class="comment">;</span></div><div class="line">    CGFloat maxx = MAX(<span class="built_in">r1</span>.origin.x + <span class="built_in">r1</span>.size.width , <span class="built_in">r2</span>.origin.x + <span class="built_in">r2</span>.size.width)<span class="comment">;</span></div><div class="line">    CGFloat maxy = MAX(<span class="built_in">r1</span>.origin.y + <span class="built_in">r1</span>.size.height, <span class="built_in">r2</span>.origin.y + <span class="built_in">r2</span>.size.height)<span class="comment">;</span></div><div class="line">    return CGRectMake(minx, miny, maxx - minx, maxy - miny)<span class="comment">;</span></div><div class="line">}</div></pre></td></tr></table></figure>
+<ul>
+<li><code>CGRect CGRectIntersection(CGRect r1, CGRect r2)</code><br>&#x4E24;&#x4E2A;<code>CGRect</code>&#x7684;&#x4EA4;&#x96C6;&#xFF0C;&#x5982;&#x4E0A;&#x56FE;&#x4E2D;&#x84DD;&#x8272;&#x90E8;&#x5206;&#x77E9;&#x5F62;ETCR&#xFF0C;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">CGRect</span> CGRectIntersection(CGRect <span class="built_in">r1</span>, CGRect <span class="built_in">r2</span>)</div><div class="line">{</div><div class="line">    <span class="meta">if</span> (CGRectIntersectsRect(<span class="built_in">r1</span>, <span class="built_in">r2</span>)) {</div><div class="line">        CGFloat maxX = MAX(<span class="built_in">r1</span>.origin.x, <span class="built_in">r2</span>.origin.x)<span class="comment">;</span></div><div class="line">        CGFloat maxY = MAX(<span class="built_in">r1</span>.origin.y, <span class="built_in">r2</span>.origin.y)<span class="comment">;</span></div><div class="line">        CGFloat minRight = MIN(<span class="built_in">r1</span>.origin.x + <span class="built_in">r1</span>.size.width , <span class="built_in">r2</span>.origin.x + <span class="built_in">r2</span>.size.width)<span class="comment">;</span></div><div class="line">        CGFloat minBottom = MIN(<span class="built_in">r1</span>.origin.y + <span class="built_in">r1</span>.size.height, <span class="built_in">r2</span>.origin.y + <span class="built_in">r2</span>.size.height)<span class="comment">;</span></div><div class="line">        return CGRectMake(maxX, maxY, minRight - maxX, minBottom - maxY)<span class="comment">;</span></div><div class="line">    }</div><div class="line">    return CGRectNull<span class="comment">;</span></div><div class="line">}</div></pre></td></tr></table></figure>
+<ul>
+<li><code>CGRect CGRectOffset(CGRect rect, CGFloat dx, CGFloat dy)</code><br>&#x5411;<code>CGRect</code>&#x7684;<code>x</code>&#x6216;<code>y</code>&#x65B9;&#x5411;&#x504F;&#x79FB;</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGRect</span> <span class="built_in">CGRectOffset</span>(<span class="built_in">CGRect</span> rect, <span class="built_in">CGFloat</span> dx, <span class="built_in">CGFloat</span> dy)</div><div class="line">{</div><div class="line">    <span class="built_in">CGRect</span> trect = rect;</div><div class="line">    trect.origin = <span class="built_in">CGPointMake</span>(rect.origin.x + dx, rect.origin.y + dy);</div><div class="line">    <span class="keyword">return</span> trect;</div><div class="line">}</div></pre></td></tr></table></figure>
+<ul>
+<li><code>void CGRectDivide(CGRect rect, CGRect *  slice, CGRect *  remainder, CGFloat amount, CGRectEdge edge)</code><br>&#x5C06;<code>CGRect</code>&#x4ECE;&#x6307;&#x5B9A;&#x7684;&#x65B9;&#x5411;(<code>edge</code>)&#x6309;&#x7ED9;&#x5B9A;&#x7684;&#x5927;&#x5C0F;(<code>amount</code>)&#x8FDB;&#x884C;&#x5207;&#x5272;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;<br><img src="http://oi21rq6v4.bkt.clouddn.com/5509b787f4f4276652deff6f3c810133" alt=""><br>&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x5404;&#x4E2A;&#x53C2;&#x6570;&#x542B;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;<blockquote>
+<p><code>rect</code> &#x8981;&#x5207;&#x5272;&#x7684;<code>CGRect</code><br><code>slice</code> &#x6309;&#x5236;&#x5B9A;&#x8981;&#x6C42;&#x5207;&#x5272;&#x51FA;&#x6765;&#x7684;<code>CGRect</code><br><code>remainder</code> &#x5207;&#x5272;&#x540E;&#x5269;&#x4E0B;&#x7684;<code>CGRect</code><br><code>amount</code> &#x8981;&#x5207;&#x5272;&#x7684;&#x957F;&#x5EA6;<br><code>edge</code> &#x5F00;&#x59CB;&#x5207;&#x5272;&#x7684;&#x65B9;&#x5411;</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> CGRectDivide(CGRect <span class="built_in">rect</span>, CGRect *slice, CGRect *remainder, CGFloat amount, CGRectEdge edge)</div><div class="line">{</div><div class="line">    <span class="built_in">switch</span> (edge) {</div><div class="line">        <span class="built_in">case</span> CGRectMinXEdge:</div><div class="line">        {</div><div class="line">            slice-&gt;origin = <span class="built_in">rect</span>.origin;</div><div class="line">            slice-&gt;<span class="built_in">size</span> = CGSizeMake(amount, <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">height</span>);</div><div class="line">            remainder-&gt;origin = CGPointMake(<span class="built_in">rect</span>.origin.x + amount, <span class="built_in">rect</span>.origin.y);</div><div class="line">            remainder-&gt;<span class="built_in">size</span> = CGSizeMake(<span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">width</span> - amount, <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">height</span>);</div><div class="line">        }</div><div class="line">            <span class="built_in">break</span>;</div><div class="line">            </div><div class="line">        <span class="built_in">case</span> CGRectMaxXEdge:</div><div class="line">        {</div><div class="line">            slice-&gt;origin = CGPointMake(<span class="built_in">rect</span>.origin.x + <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">width</span> - amount, <span class="built_in">rect</span>.origin.y);</div><div class="line">            slice-&gt;<span class="built_in">size</span> = CGSizeMake(amount, <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">height</span>);</div><div class="line">            remainder-&gt;origin = <span class="built_in">rect</span>.origin;</div><div class="line">            remainder-&gt;<span class="built_in">size</span> = CGSizeMake(<span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">width</span> - amount, <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">height</span>);</div><div class="line">        }</div><div class="line">            <span class="built_in">break</span>;</div><div class="line">            </div><div class="line">        <span class="built_in">case</span> CGRectMinYEdge:</div><div class="line">        {</div><div class="line">            slice-&gt;origin = <span class="built_in">rect</span>.origin;</div><div class="line">            slice-&gt;<span class="built_in">size</span> = CGSizeMake(<span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">width</span>, amount);</div><div class="line">            remainder-&gt;origin = CGPointMake(<span class="built_in">rect</span>.origin.x, <span class="built_in">rect</span>.origin.y + amount);</div><div class="line">            remainder-&gt;<span class="built_in">size</span> = CGSizeMake(<span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">width</span>, <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">height</span> - amount);</div><div class="line">        }</div><div class="line">            <span class="built_in">break</span>;</div><div class="line">            </div><div class="line">        <span class="built_in">case</span> CGRectMaxYEdge:</div><div class="line">        {</div><div class="line">            slice-&gt;origin = CGPointMake(<span class="built_in">rect</span>.origin.x, <span class="built_in">rect</span>.origin.y + <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">height</span> - amount);</div><div class="line">            slice-&gt;<span class="built_in">size</span> = CGSizeMake(<span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">width</span>, amount);</div><div class="line">            remainder-&gt;origin = <span class="built_in">rect</span>.origin;</div><div class="line">            remainder-&gt;<span class="built_in">size</span> = CGSizeMake(<span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">width</span>, <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">height</span> - amount);</div><div class="line">        }</div><div class="line">            <span class="built_in">break</span>;</div><div class="line">            </div><div class="line">        <span class="built_in">default</span>:</div><div class="line">            <span class="built_in">break</span>;</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<ul>
+<li><code>bool CGRectContainsPoint(CGRect rect, CGPoint point)</code><br>&#x68C0;&#x67E5;&#x7ED9;&#x5B9A;&#x7684;&#x70B9;&#x4F4D;&#x7F6E;&#x662F;&#x5426;&#x5728;<code>CGRect</code>&#x533A;&#x57DF;,&#x5B9E;&#x73B0;&#x5982;&#x4E0B;:</li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">bool</span> CGRectContainsPoint(CGRect <span class="built_in">rect</span>, CGPoint <span class="built_in">point</span>)</div><div class="line">{</div><div class="line">    <span class="built_in">return</span>  <span class="built_in">point</span>.x &gt;= <span class="built_in">rect</span>.origin.x &amp;&amp;</div><div class="line">            <span class="built_in">point</span>.y &gt;= <span class="built_in">rect</span>.origin.y &amp;&amp;</div><div class="line">            <span class="built_in">point</span>.x &lt;= <span class="built_in">rect</span>.origin.x + <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">width</span> &amp;&amp;</div><div class="line">            <span class="built_in">point</span>.y &lt;= <span class="built_in">rect</span>.origin.y + <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">height</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+<ul>
+<li><code>bool CGRectContainsRect(CGRect rect1, CGRect rect2)</code><br>&#x68C0;&#x67E5;<code>rect1</code>&#x662F;&#x5426;&#x5B8C;&#x5168;&#x5305;&#x542B;<code>rect2</code>&#xFF0C;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</li>
+</ul>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">bool CGRectContainsRect(CGRect rect1, CGRect rect2)</div><div class="line">{</div><div class="line">    <span class="built_in">return</span>  rect2.<span class="built_in">origin</span>.x &gt;= rect1.<span class="built_in">origin</span>.x &amp;&amp;</div><div class="line">            rect2.<span class="built_in">origin</span>.y &gt;= rect1.<span class="built_in">origin</span>.y &amp;&amp;</div><div class="line">            rect2.<span class="built_in">origin</span>.x + rect2.size.<span class="built_in">width</span> &lt;= rect1.<span class="built_in">origin</span>.x + rect1.size.<span class="built_in">width</span> &amp;&amp;</div><div class="line">            rect2.<span class="built_in">origin</span>.y + rect2.size.<span class="built_in">height</span> &lt;= rect1.<span class="built_in">origin</span>.y + rect1.size.<span class="built_in">height</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+<ul>
+<li><code>bool CGRectIntersectsRect(CGRect rect1, CGRect rect2)</code><br>&#x68C0;&#x67E5;&#x4E24;&#x4E2A;<code>CGRect</code>&#x662F;&#x5426;&#x76F8;&#x4EA4;&#xFF0C;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</li>
+</ul>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">bool CGRectIntersectsRect(CGRect rect1, CGRect rect2)</div><div class="line">{</div><div class="line">    <span class="built_in">return</span>  CGRectContainsPoint(rect1, rect2.<span class="built_in">origin</span>) ||</div><div class="line">            CGRectContainsPoint(rect1, CGPointMake(rect2.<span class="built_in">origin</span>.x + rect2.size.<span class="built_in">width</span>, rect2.<span class="built_in">origin</span>.y)) ||</div><div class="line">            CGRectContainsPoint(rect1, CGPointMake(rect2.<span class="built_in">origin</span>.x, rect2.<span class="built_in">origin</span>.y + rect2.size.<span class="built_in">height</span>)) ||</div><div class="line">            CGRectContainsPoint(rect1, CGPointMake(rect2.<span class="built_in">origin</span>.x + rect2.size.<span class="built_in">width</span>, rect2.<span class="built_in">origin</span>.y + rect2.size.<span class="built_in">height</span>));</div><div class="line">}</div></pre></td></tr></table></figure>
+<h2 id="&#x4E03;&#x3001;&#x4E00;&#x4E9B;&#x6301;&#x4E45;&#x5316;&#x7684;&#x65B9;&#x6CD5;"><a href="#&#x4E03;&#x3001;&#x4E00;&#x4E9B;&#x6301;&#x4E45;&#x5316;&#x7684;&#x65B9;&#x6CD5;" class="headerlink" title="&#x4E03;&#x3001;&#x4E00;&#x4E9B;&#x6301;&#x4E45;&#x5316;&#x7684;&#x65B9;&#x6CD5;"></a>&#x4E03;&#x3001;&#x4E00;&#x4E9B;&#x6301;&#x4E45;&#x5316;&#x7684;&#x65B9;&#x6CD5;</h2><ul>
+<li><p><code>CFDictionaryRef  CGPointCreateDictionaryRepresentation(CGPoint point)</code><br>&#x5C06;&#x4E00;&#x4E2A;&#x70B9;&#x5750;&#x6807;&#x8F6C;&#x6362;&#x6210;&#x5BF9;&#x5E94;&#x7684;&#x4E00;&#x4E2A;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#x5B57;&#x5178;&#xFF0C;&#x5982;<code>CGPoint{1,2}</code>&#xFF0C;&#x8F6C;&#x6362;&#x6210;<code>{&quot;X&quot;:&quot;1&quot;,&quot;Y&quot;:&quot;2&quot;}</code></p>
+</li>
+<li><p><code>bool CGPointMakeWithDictionaryRepresentation(CFDictionaryRef cg_nullable dict, CGPoint * cg_nullable point)</code><br>&#x5C06;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#x7C7B;&#x578B;&#x8F6C;&#x7684;&#x503C;&#x8F6C;&#x6362;&#x6210;&#x4E00;&#x4E2A;<code>CGPoint</code></p>
+</li>
+<li><p><code>CFDictionaryRef  CGSizeCreateDictionaryRepresentation(CGSize size)</code><br>&#x5C06;&#x4E00;&#x4E2A;CGSize&#x8F6C;&#x6362;&#x6210;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#xFF0C;&#x5982;<code>CGSize{1,2}</code>&#xFF0C;&#x8F6C;&#x6362;&#x6210;<code>{&quot;Width&quot;:&quot;1&quot;,&quot;Height&quot;:&quot;2&quot;}</code></p>
+</li>
+<li><p><code>bool CGSizeMakeWithDictionaryRepresentation(CFDictionaryRef cg_nullable dict, CGSize * cg_nullable size)</code><br>&#x5C06;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#x8F6C;&#x6362;&#x6210;<code>CGSize</code></p>
+</li>
+<li><p><code>CFDictionaryRef  CGRectCreateDictionaryRepresentation(CGRect rect)</code><br>&#x5C06;CGRect&#x8F6C;&#x6362;&#x6210;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#xFF0C;&#x5982;<code>CGRect{1,2,3,4}</code>&#xFF0C;&#x8F6C;&#x6362;&#x6210;<code>{&quot;X&quot;:&quot;1&quot;,&quot;Y&quot;:&quot;2&quot;,&quot;Width&quot;:&quot;3&quot;,&quot;Height&quot;:&quot;4&quot;}</code></p>
+</li>
+<li><p><code>bool CGRectMakeWithDictionaryRepresentation(CFDictionaryRef cg_nullable dict, CGRect * cg_nullable rect)</code><br>&#x5C06;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#x8F6C;&#x6362;&#x6210;&#x4E00;&#x4E2A;<code>CGRect</code></p>
+</li>
+</ul>
+<h2 id="&#x516B;&#x3001;&#x7CFB;&#x7EDF;&#x5185;&#x8054;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;"><a href="#&#x516B;&#x3001;&#x7CFB;&#x7EDF;&#x5185;&#x8054;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;" class="headerlink" title="&#x516B;&#x3001;&#x7CFB;&#x7EDF;&#x5185;&#x8054;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;"></a>&#x516B;&#x3001;&#x7CFB;&#x7EDF;&#x5185;&#x8054;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;</h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">CGPoint CGPointMake(CGFloat x, CGFloat y)</div><div class="line">{</div><div class="line">  CGPoint p; p.x = x; p.y = y; <span class="built_in">return</span> p;</div><div class="line">}</div><div class="line"></div><div class="line">CGSize CGSizeMake(CGFloat <span class="built_in">width</span>, CGFloat <span class="built_in">height</span>)</div><div class="line">{</div><div class="line">  CGSize <span class="built_in">size</span>; <span class="built_in">size</span>.<span class="built_in">width</span> = <span class="built_in">width</span>; <span class="built_in">size</span>.<span class="built_in">height</span> = <span class="built_in">height</span>; <span class="built_in">return</span> <span class="built_in">size</span>;</div><div class="line">}</div><div class="line"></div><div class="line">CGVector CGVectorMake(CGFloat dx, CGFloat dy)</div><div class="line">{</div><div class="line">  CGVector vector; vector.dx = dx; vector.dy = dy; <span class="built_in">return</span> vector;</div><div class="line">}</div><div class="line"></div><div class="line">CGRect CGRectMake(CGFloat x, CGFloat y, CGFloat <span class="built_in">width</span>, CGFloat <span class="built_in">height</span>)</div><div class="line">{</div><div class="line">  CGRect <span class="built_in">rect</span>;</div><div class="line">  <span class="built_in">rect</span>.origin.x = x; <span class="built_in">rect</span>.origin.y = y;</div><div class="line">  <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">width</span> = <span class="built_in">width</span>; <span class="built_in">rect</span>.<span class="built_in">size</span>.<span class="built_in">height</span> = <span class="built_in">height</span>;</div><div class="line">  <span class="built_in">return</span> <span class="built_in">rect</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">bool</span> __CGPointEqualToPoint(CGPoint point1, CGPoint point2)</div><div class="line">{</div><div class="line">  <span class="built_in">return</span> point1.x == point2.x &amp;&amp; point1.y == point2.y;</div><div class="line">}</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> CGPointEqualToPoint __CGPointEqualToPoint</span></div><div class="line"></div><div class="line"><span class="keyword">bool</span> __CGSizeEqualToSize(CGSize size1, CGSize size2)</div><div class="line">{</div><div class="line">  <span class="built_in">return</span> size1.<span class="built_in">width</span> == size2.<span class="built_in">width</span> &amp;&amp; size1.<span class="built_in">height</span> == size2.<span class="built_in">height</span>;</div><div class="line">}</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> CGSizeEqualToSize __CGSizeEqualToSize</span></div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/09/第三方中的appkey、appSecret等的操作联系/" rel="next" title="第三方中的appkey、appSecret等的操作联系">
+                <i class="fa fa-chevron-left"></i> 第三方中的appkey、appSecret等的操作联系
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/21/CGGeometry中常用与不常用的方法/"
+           data-title="CGGeometry中常用与不常用的方法" data-url="https://github.com/JyHu/2017/01/21/CGGeometry中常用与不常用的方法/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/logo.png"
+               alt="Joyous's Home" />
+          <p class="site-author-name" itemprop="name">Joyous's Home</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JyHu" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/210127055" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、系统定义的结构体"><span class="nav-number">1.</span> <span class="nav-text">一、系统定义的结构体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、一些常量"><span class="nav-number">2.</span> <span class="nav-text">二、一些常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、结构体的创建"><span class="nav-number">3.</span> <span class="nav-text">三、结构体的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、单个属性的获取"><span class="nav-number">4.</span> <span class="nav-text">四、单个属性的获取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、比较类的方法"><span class="nav-number">5.</span> <span class="nav-text">五、比较类的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、有效的辅助方法"><span class="nav-number">6.</span> <span class="nav-text">六、有效的辅助方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、一些持久化的方法"><span class="nav-number">7.</span> <span class="nav-text">七、一些持久化的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、系统内联函数的定义"><span class="nav-number">8.</span> <span class="nav-text">八、系统内联函数的定义</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1259025141'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259025141%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+  </div>
+
+
+
+
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Joyous's Home</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jyhu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
