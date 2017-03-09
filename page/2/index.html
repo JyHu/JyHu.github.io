@@ -244,6 +244,112 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/07/【转】基本递归-算法精解-C语言描述/" itemprop="url">
+                  【转】基本递归、尾递归(算法精解:C语言描述)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-07T09:17:45+08:00" content="2016-09-07">
+              2016-09-07
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/07/【转】基本递归-算法精解-C语言描述/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/07/【转】基本递归-算法精解-C语言描述/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="&#x57FA;&#x672C;&#x9012;&#x5F52;"><a href="#&#x57FA;&#x672C;&#x9012;&#x5F52;" class="headerlink" title="&#x57FA;&#x672C;&#x9012;&#x5F52;"></a>&#x57FA;&#x672C;&#x9012;&#x5F52;</h1><p>&#x5F00;&#x59CB;&#x4E4B;&#x524D;&#xFF0C;&#x9996;&#x5148;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x4E0D;&#x4F1A;&#x4EE5;&#x9012;&#x5F52;&#x7684;&#x5F62;&#x5F0F;&#x601D;&#x8003;&#x7684;&#x95EE;&#x9898;&#x3002;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x60F3;&#x8BA1;&#x7B97;&#x6574;&#x6570;<code>n</code>&#x7684;&#x9636;&#x4E58;&#xFF0C;<code>n</code>&#x7684;&#x9636;&#x4E58;&#x53EF;&#x5199;&#x4F5C;<code>n!</code>&#xFF0C;&#x5176;&#x7ED3;&#x679C;&#x662F;<code>1~n</code>&#x4E4B;&#x95F4;&#x7684;&#x5404;&#x6570;&#x4E4B;&#x79EF;&#x3002;&#x6BD4;&#x5982;&#xFF0C;<code>4!=4*3*3*1</code>&#x3002;&#x4E00;&#x79CD;&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#x662F;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x5176;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x4E0E;&#x5B83;&#x4E4B;&#x524D;&#x7684;&#x6570;&#x76F8;&#x4E58;&#x4F5C;&#x4E3A;&#x7ED3;&#x679C;&#x518D;&#x53C2;&#x4E0E;&#x4E0B;&#x4E00;&#x6B21;&#x8BA1;&#x7B97;&#x3002;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x79F0;&#x4E3A;&#x8FED;&#x4EE3;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x6B63;&#x5F0F;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">n</span>! = (<span class="built_in">n</span>)(<span class="built_in">n</span> - <span class="number">1</span>)(<span class="built_in">n</span> - <span class="number">2</span>)(<span class="built_in">n</span> - <span class="number">3</span>) &#xB7;&#xB7;&#xB7; (<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<p>&#x770B;&#x5F85;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x5C06;<code>n!</code>&#x5B9A;&#x4E49;&#x4E3A;&#x66F4;&#x5C0F;&#x7684;&#x9636;&#x4E58;&#x5F62;&#x5F0F;&#x3002;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x8FD9;&#x4E00;&#x6B65;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;<code>n!</code>&#x5B9A;&#x4E49;&#x4E3A;&#x66F4;&#x5C0F;&#x7684;&#x9636;&#x4E58;&#x5F62;&#x5F0F;&#x3002;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x8FD9;&#x4E00;&#x6B65;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;<code>n!</code>&#x5B9A;&#x4E49;&#x4E3A;<code>n-1</code>&#x9636;&#x4E58;&#x7684;<code>n</code>&#x500D;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x6C42;&#x89E3;<code>(n-1)!</code>&#x7684;&#x8FC7;&#x7A0B;&#x540C;<code>n!</code>&#x4E00;&#x6837;&#xFF0C;&#x53EA;&#x662F;&#x53D8;&#x5C0F;&#x4E86;&#x4E00;&#x4E9B;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x518D;&#x628A;<code>(n-1)!</code>&#x770B;&#x505A;<code>n-1</code>&#x500D;&#x7684;<code>(n-2)&#xFF01;</code>&#xFF0C;<code>(n-2)!</code>&#x770B;&#x505A;<code>n-2</code>&#x500D;&#x7684;<code>(n-3)!</code>&#xFF0C;&#x4E00;&#x76F4;&#x5230;<code>n=1</code>&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x8BA1;&#x7B97;&#x5B8C;&#x4E86;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x9012;&#x5F52;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x6B63;&#x5F0F;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;</p>
+<p><img src="http://ww1.sinaimg.cn/large/8acb15f3jw1f7krryg8osj20fq03paa7.jpg" alt=""></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/07/【转】基本递归-算法精解-C语言描述/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/06/斐波那契兔子的衍生问题/" itemprop="url">
                   斐波那契兔子的衍生问题
                 </a>
@@ -1173,109 +1279,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/30/iOS方法调用之NSInvocation/" itemprop="url">
-                  iOS方法调用之NSInvocation
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-30T23:50:41+08:00" content="2016-04-30">
-              2016-04-30
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/30/iOS方法调用之NSInvocation/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/30/iOS方法调用之NSInvocation/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&#x5728;iOS&#x4E2D;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x4E00;&#x79CD;&#x662F;<code>performSelecter</code>&#x7CFB;&#x5217;&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x662F;&#x6211;&#x4EEC;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x3002;<br>&#x4F8B;&#x5982;&#xFF0C;&#x8C03;&#x7528;&#x6D4B;&#x8BD5;&#x7C7B;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@implementation TestClass</div><div class="line">- (NSString *)testWithArg1:(NSString *)arg1 arg2:(NSString *)arg2</div><div class="line">{</div><div class="line">    NSString *res = [NSString stringWithFormat:@&quot;you called me with %@ and %@&quot;, arg1, arg2];</div><div class="line">    NSLog(@&quot;%@&quot;, res);</div><div class="line">    return res;</div><div class="line">}</div><div class="line">@end</div></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/30/iOS方法调用之NSInvocation/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1321,7 +1324,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1331,7 +1334,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
