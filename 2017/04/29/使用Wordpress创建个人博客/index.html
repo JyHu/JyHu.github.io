@@ -414,9 +414,7 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/29/使用Wordpress创建个人博客/"
-           data-title="使用Wordpress创建个人博客" data-url="https://github.com/JyHu/2017/04/29/使用Wordpress创建个人博客/">
-      </div>
+      <div id="gitment-container"></div>
     
   </div>
 
@@ -686,6 +684,26 @@
 
 
 
+
+   
+   
+   
+   
+   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+   
+       <script type="text/javascript">
+           var gitment = new Gitment({
+               id: window.location.pathname, 
+               owner: 'JyHu',
+               repo: 'jyhu.github.io',
+               oauth: {
+                   client_id: '003e599703f981da5794',
+                   client_secret: 'ee79dc7f843ab5d840c91acf980c3c6bee95f7aa',
+               }});
+           gitment.render('gitment-container');
+       </script>
+   
 
   
   
