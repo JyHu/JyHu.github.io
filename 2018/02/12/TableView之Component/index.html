@@ -1,0 +1,710 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/logo.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x8FD9;&amp;#x79CD;&amp;#x6A21;&amp;#x5F0F;&amp;#x662F;&amp;#x6211;&amp;#x5728;&amp;#x4E0A;&amp;#x5BB6;&amp;#x516C;&amp;#x53F8;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x91CC;&amp;#x7528;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x79CD;&amp;#x65B9;&amp;#x5F0F;&amp;#xFF0C;&amp;#x6574;&amp;#x4F53;">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TableView之Component">
+<meta property="og:url" content="https://github.com/JyHu/2018/02/12/TableView之Component/index.html">
+<meta property="og:site_name" content="Joyous&#39;s Home">
+<meta property="og:description" content="&amp;#x8FD9;&amp;#x79CD;&amp;#x6A21;&amp;#x5F0F;&amp;#x662F;&amp;#x6211;&amp;#x5728;&amp;#x4E0A;&amp;#x5BB6;&amp;#x516C;&amp;#x53F8;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x91CC;&amp;#x7528;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x79CD;&amp;#x65B9;&amp;#x5F0F;&amp;#xFF0C;&amp;#x6574;&amp;#x4F53;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oi21rq6v4.bkt.clouddn.com/2018-03-02-ComponentAction.png">
+<meta property="og:image" content="http://oi21rq6v4.bkt.clouddn.com/2018-03-02-component_assemble.png">
+<meta property="og:updated_time" content="2018-03-02T04:02:10.834Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TableView之Component">
+<meta name="twitter:description" content="&amp;#x8FD9;&amp;#x79CD;&amp;#x6A21;&amp;#x5F0F;&amp;#x662F;&amp;#x6211;&amp;#x5728;&amp;#x4E0A;&amp;#x5BB6;&amp;#x516C;&amp;#x53F8;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x91CC;&amp;#x7528;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x79CD;&amp;#x65B9;&amp;#x5F0F;&amp;#xFF0C;&amp;#x6574;&amp;#x4F53;">
+<meta name="twitter:image" content="http://oi21rq6v4.bkt.clouddn.com/2018-03-02-ComponentAction.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Joyous'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://github.com/JyHu/2018/02/12/TableView之Component/"/>
+
+  <title> TableView之Component | Joyous's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Joyous's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                TableView之Component
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-02-12T12:00:16+08:00" content="2018-02-12">
+              2018-02-12
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/02/12/TableView之Component/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/02/12/TableView之Component/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x662F;&#x6211;&#x5728;&#x4E0A;&#x5BB6;&#x516C;&#x53F8;&#x7684;&#x9879;&#x76EE;&#x91CC;&#x7528;&#x5230;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x6574;&#x4F53;&#x6765;&#x8BF4;&#x5C31;&#x50CF;&#x662F;&#x62FC;&#x79EF;&#x6728;&#x4E00;&#x6837;&#x628A;&#x5404;&#x4E2A;&#x5C55;&#x793A;&#x7EC4;&#x4EF6;&#x3001;&#x54CD;&#x5E94;&#x4E8B;&#x4EF6;&#x62C6;&#x5206;&#x51FA;&#x53BB;&#xFF0C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x7C7B;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x751F;&#x4EA7;&#x51FA;&#x6765;&#x518D;&#x7EC4;&#x88C5;&#x5C55;&#x793A;&#x3002;</p>
+<p><img src="http://oi21rq6v4.bkt.clouddn.com/2018-03-02-ComponentAction.png" alt=""></p>
+<p>&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x628A;&#x6BCF;&#x4E2A;&#x6700;&#x5C0F;&#x7684;&#x5C01;&#x88C5;&#x7EC4;&#x4EF6;&#x53EB;&#x505A;&#x4E00;&#x4E2A;<code>Component</code>&#xFF0C;&#x6BCF;&#x4E2A;&#x4E8B;&#x4EF6;&#x7684;&#x54CD;&#x5E94;&#x52A8;&#x4F5C;&#x90FD;&#x53EB;&#x505A;&#x4E00;&#x4E2A;<code>Action</code>&#x3002;</p>
+<a id="more"></a>
+<h2 id="&#x7EA6;&#x5B9A;"><a href="#&#x7EA6;&#x5B9A;" class="headerlink" title="&#x7EA6;&#x5B9A;"></a>&#x7EA6;&#x5B9A;</h2><p>&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x5BF9;&#x4E8E;&#x540E;&#x53F0;&#x7684;&#x4F9D;&#x8D56;&#x6027;&#x5F88;&#x5F3A;&#xFF0C;&#x524D;&#x7AEF;&#x53EA;&#x9700;&#x8981;&#x5C01;&#x88C5;&#x597D;&#x4E0D;&#x540C;&#x7684;&#x5C0F;&#x7EC4;&#x4EF6;&#x548C;&#x5927;&#x6982;&#x7684;&#x6846;&#x67B6;&#x5373;&#x53EF;&#xFF0C;&#x7531;&#x540E;&#x53F0;&#x63D0;&#x4F9B;&#x6765;&#x89C4;&#x5B9A;&#x5E03;&#x5C40;&#x7684;&#x6837;&#x5F0F;&#x548C;&#x54CD;&#x5E94;&#x7684;&#x4E8B;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x524D;&#x540E;&#x7AEF;&#x5C31;&#x5FC5;&#x987B;&#x6709;&#x4E00;&#x4E2A;&#x5B8C;&#x5168;&#x7EDF;&#x4E00;&#x7684;&#x7EA6;&#x5B9A;&#x3002;<br>&#x4E0B;&#x9762;&#x662F;<code>json</code>&#x6570;&#x636E;&#x683C;&#x5F0F;&#xFF1A;</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">    <span class="string">&quot;component&quot;</span>: {</div><div class="line">        # &#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x4E0B;&#x7684;&#x6570;&#x636E;&#x8D44;&#x6E90;&#xFF0C;&#x5F53;&#x7136;&#x4E5F;&#x80FD;`component`&#x5D4C;&#x5957;</div><div class="line">        </div><div class="line">        <span class="string">&quot;action&quot;</span>: {</div><div class="line">            # &#x54CD;&#x5E94;&#x52A8;&#x4F5C;</div><div class="line">        },</div><div class="line">        # &#x7EC4;&#x4EF6;&#x7C7B;&#x578B;</div><div class="line">        <span class="string">&quot;componentType&quot;</span>: <span class="string">&quot;word&quot;</span></div><div class="line">    },</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x8FD9;&#x662F;&#x8BC4;&#x8BBA;&#x5185;&#x5BB9;&#x7684;&#x4E00;&#x4E2A;&#x89C6;&#x56FE;&#xFF1A;</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">  <span class="attr">&quot;component&quot;</span> : {</div><div class="line">    <span class="attr">&quot;action&quot;</span> : {</div><div class="line">      <span class="attr">&quot;actionType&quot;</span> : <span class="string">&quot;detail&quot;</span>,</div><div class="line">      <span class="attr">&quot;clearMsgNum&quot;</span> : <span class="string">&quot;1&quot;</span>,</div><div class="line">      <span class="attr">&quot;flag&quot;</span> : <span class="string">&quot;-3&quot;</span>,</div><div class="line">      <span class="attr">&quot;go_comments&quot;</span> : <span class="string">&quot;1&quot;</span>,</div><div class="line">      <span class="attr">&quot;id&quot;</span> : <span class="string">&quot;480151&quot;</span>,</div><div class="line">      <span class="attr">&quot;title&quot;</span> : <span class="string">&quot;&#x91CA;&#x7136;&quot;</span>,</div><div class="line">      <span class="attr">&quot;type&quot;</span> : <span class="string">&quot;thread&quot;</span></div><div class="line">    },</div><div class="line">    <span class="attr">&quot;componentType&quot;</span> : <span class="string">&quot;postsNewMessage&quot;</span>,</div><div class="line">    <span class="attr">&quot;datetime&quot;</span> : <span class="string">&quot;2016-11-02 17:44:26&quot;</span>,</div><div class="line">    <span class="attr">&quot;description&quot;</span> : <span class="string">&quot;&#x5CE8;&#x7709;&#x5C71;&#xFF0C;&#x4E91;&#x4E2D;&#x82B1;&#x5CAD;&quot;</span>,</div><div class="line">    <span class="attr">&quot;messageCount&quot;</span> : <span class="string">&quot;1&quot;</span>,</div><div class="line">    <span class="attr">&quot;messageGroupId&quot;</span> : <span class="string">&quot;480151&quot;</span>,</div><div class="line">    <span class="attr">&quot;name&quot;</span> : <span class="string">&quot;&#x91CA;&#x7136;&quot;</span>,</div><div class="line">    <span class="attr">&quot;picUrl&quot;</span> : <span class="string">&quot;http://s3.mingxingyichu.cn/group6/M00/92/78/wKgBjFUDbQaADktKAAXsk4b7S1s41.jpeg?imageMogr2/quality/95&quot;</span>,</div><div class="line">    <span class="attr">&quot;postSummary&quot;</span> : <span class="string">&quot;http://ww2.sinaimg.cn/large/006AYr4pjw1f8s239mmx0j30m80de0ti.jpg&quot;</span>,</div><div class="line">    <span class="attr">&quot;userFansNum&quot;</span> : <span class="string">&quot;6&quot;</span></div><div class="line">  },</div><div class="line">  <span class="attr">&quot;message_type&quot;</span> : <span class="string">&quot;thread_msg&quot;</span></div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x6211;&#x4EEC;&#x5728;&#x524D;&#x7AEF;&#x5C06;&#x6A21;&#x5757;&#x5206;&#x4E3A;&#x4E86;&#x5F88;&#x591A;&#x79CD;&#xFF0C;&#x5305;&#x62EC;&#x6587;&#x5B57;&#x6A21;&#x5757;&#x3001;&#x56FE;&#x7247;&#x6A21;&#x5757;&#x3001;&#x56FE;&#x6587;&#x6DF7;&#x6392;&#x6A21;&#x5757;&#x3001;&#x89C6;&#x9891;&#x64AD;&#x653E;&#x6A21;&#x5757;&#x3001;&#x5546;&#x54C1;&#x6A21;&#x5757;&#x3001;&#x63A8;&#x8350;&#x6A21;&#x5757;&#x3001;&#x6807;&#x7B7E;&#x6A21;&#x5757;&#x7B49;&#x7B49;&#x6570;&#x5341;&#x4E0A;&#x767E;&#x4E2A;&#x5C0F;&#x6A21;&#x5757;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x4E0D;&#x540C;&#x7684;&#x5D4C;&#x5957;&#x8FBE;&#x5230;&#x9875;&#x9762;&#x5C55;&#x793A;&#x7684;&#x76EE;&#x7684;&#xFF0C;&#x5982;&#x56FE;(&#x622A;&#x53D6;&#x7684;&#x662F;&#x8611;&#x83C7;&#x8857;&#x7684;&#x56FE;&#x7247;&#xFF0C;&#x6211;&#x4EEC;&#x7684;APP&#x8C8C;&#x4F3C;&#x4E0B;&#x67B6;&#x4E86;)&#xFF1A;</p>
+<p><img src="http://oi21rq6v4.bkt.clouddn.com/2018-03-02-component_assemble.png" alt=""></p>
+<h2 id="&#x521B;&#x5EFA;&#x57FA;&#x7C7B;"><a href="#&#x521B;&#x5EFA;&#x57FA;&#x7C7B;" class="headerlink" title="&#x521B;&#x5EFA;&#x57FA;&#x7C7B;"></a>&#x521B;&#x5EFA;&#x57FA;&#x7C7B;</h2><p>&#x56E0;&#x4E3A;&#x6240;&#x6709;&#x7684;&#x53EF;&#x5C01;&#x88C5;&#x7684;&#x7EC4;&#x4EF6;&#x90FD;&#x662F;&#x7EA6;&#x5B9A;&#x597D;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x505A;&#x4E00;&#x4E2A;&#x57FA;&#x7C7B;&#x5BF9;&#x8BBE;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x505A;&#x7EDF;&#x4E00;&#x7684;&#x5206;&#x79BB;&#x63D0;&#x53D6;</p>
+<ul>
+<li><code>Component</code></li>
+</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@interface</span> <span class="attribute">CustomComponent </span>: UIView</div><div class="line"></div><div class="line"><span class="variable">@property</span> (nonatomic,strong) CustomAction *firedAction;</div><div class="line"><span class="variable">@property</span> (nonatomic, weak) NSDictionary *detailStars;</div><div class="line"><span class="variable">@property</span> (nonatomic, retain) NSDictionary  *data;</div><div class="line"></div><div class="line"><span class="selector-tag">-</span>(id) <span class="selector-tag">initWithFrame</span><span class="selector-pseudo">:(CGRect)frame</span> <span class="selector-tag">data</span><span class="selector-pseudo">:(NSDictionary</span> *)<span class="selector-tag">data</span>;</div><div class="line"><span class="selector-tag">-</span>(id) <span class="selector-tag">initWithContainer</span><span class="selector-pseudo">:(UIView</span> *)<span class="selector-tag">container</span> <span class="selector-tag">data</span><span class="selector-pseudo">:(NSDictionary</span> *)<span class="selector-tag">data</span>;</div><div class="line"><span class="selector-tag">-</span>(void) <span class="selector-tag">initUI</span>;</div><div class="line"></div><div class="line"><span class="selector-tag">-</span>(CGFloat)<span class="selector-tag">getComponentHeightWithData</span><span class="selector-pseudo">:(NSDictionary</span> *)<span class="selector-tag">data</span> <span class="selector-tag">withRealWidth</span><span class="selector-pseudo">:(CGFloat)realWidth</span>;</div><div class="line"></div><div class="line"><span class="comment">//&#x70B9;&#x51FB;action</span></div><div class="line"><span class="selector-tag">-</span>(void)<span class="selector-tag">fireAction</span>;</div><div class="line"><span class="selector-tag">-</span>(void)<span class="selector-tag">fireActions</span><span class="selector-pseudo">:(NSInteger)index</span>;</div><div class="line"><span class="selector-tag">-</span>(void)<span class="selector-tag">fireActionWith</span><span class="selector-pseudo">:(NSDictionary</span> *)<span class="selector-tag">data</span>;</div><div class="line"></div><div class="line">@<span class="selector-tag">end</span></div></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x91CC;&#x7684;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x6216;&#x8005;&#x6839;&#x636E;Action&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x4E8B;&#x4EF6;&#x662F;&#x52A0;&#x5728;&#x5355;&#x72EC;&#x7684;<code>Component</code>&#x91CC;&#xFF0C;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x52A0;&#x7684;&#x4E00;&#x4E2A;&#x70B9;&#x51FB;&#x7684;&#x624B;&#x52BF;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x6839;&#x636E;&#x9700;&#x6C42;&#x6765;&#x505A;&#x4FEE;&#x6539;&#x3002;<br>&#x91CC;&#x9762;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5C31;&#x662F;<code>View</code>&#x7684;&#x5B9A;&#x5236;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x4E3E;&#x4F8B;&#x4E86;&#x3002;</p>
+<ul>
+<li><code>Action</code></li>
+</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@interface</span> <span class="attribute">CustomAction </span>: NSObject</div><div class="line"></div><div class="line"><span class="comment">// &#x7EDF;&#x8BA1;&#x4FE1;&#x606F;</span></div><div class="line"><span class="variable">@property</span> (nonatomic, copy) NSDictionary *trackEventInfor;  </div><div class="line"></div><div class="line"><span class="selector-tag">-</span>(id)<span class="selector-tag">initWith</span><span class="selector-pseudo">:(NSDictionary</span> *)<span class="selector-tag">data</span>;</div><div class="line"><span class="selector-tag">-</span>(void)<span class="selector-tag">initData</span>;</div><div class="line"><span class="selector-tag">-</span>(void)<span class="selector-tag">fire</span>;</div><div class="line"></div><div class="line">@<span class="selector-tag">end</span></div></pre></td></tr></table></figure>
+<p>&#x5982;&#x89C6;&#x9891;&#x64AD;&#x653E;&#x7684;&#x4E8B;&#x4EF6;&#xFF1A;</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ActionVideo</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)fire {</div><div class="line">    [<span class="keyword">super</span> fire];</div><div class="line">    <span class="built_in">NSString</span> *videoUrl = [_data objectForKey:<span class="string">@&quot;videoUrl&quot;</span>];</div><div class="line">    <span class="keyword">if</span> (![<span class="built_in">NSString</span> isBlankString:videoUrl]) {</div><div class="line">        <span class="built_in">NSURL</span> *movieURL = [<span class="built_in">NSURL</span> URLWithString:videoUrl];</div><div class="line">        AutoRatoteMPMoviePlayerViewController *controller = [[AutoRatoteMPMoviePlayerViewController alloc] initWithContentURL:movieURL];</div><div class="line">        controller.delegateController = <span class="keyword">self</span>.delegateNavigationController;</div><div class="line">        </div><div class="line">        [controller play];</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<h2 id="&#x521B;&#x5EFA;&#x5DE5;&#x5382;&#x7C7B;"><a href="#&#x521B;&#x5EFA;&#x5DE5;&#x5382;&#x7C7B;" class="headerlink" title="&#x521B;&#x5EFA;&#x5DE5;&#x5382;&#x7C7B;"></a>&#x521B;&#x5EFA;&#x5DE5;&#x5382;&#x7C7B;</h2><ul>
+<li><code>ComponentFactory</code></li>
+</ul>
+<p>&#x7528;&#x4E8E;&#x6839;&#x636E;&#x7ED9;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x521B;&#x5EFA;&#x6BCF;&#x4E2A;&#x5C0F;&#x7684;&#x7EC4;&#x4EF6;</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">@implementation <span class="type">ComponentFactory</span></div><div class="line"></div><div class="line">+(<span class="type">CustomComponent</span> *)createComponentWithFrame:(<span class="type">CGRect</span>)frame <span class="class"><span class="keyword">data</span>:(<span class="type">NSDictionary</span> *)<span class="keyword">data</span> navigation:(<span class="type">UINavigationController</span> *)delegteNavigarionController{</span></div><div class="line"><span class="class">    </span></div><div class="line"><span class="class">    <span class="type">NSString</span> * <span class="title">componentStr</span> = [<span class="type">ComponentFactory</span> <span class="title">getComponentTypeWithData</span>:<span class="title">data</span>];</span></div><div class="line"><span class="class">    <span class="type">Class</span> <span class="title">someClass</span> = <span class="type">NSClassFromString(componentStr)</span>;</span></div><div class="line"><span class="class">    <span class="type">CustomComponent</span> *<span class="title">cell</span> = (<span class="type">CustomComponent</span> *)[[<span class="title">someClass</span> <span class="title">alloc</span>] <span class="title">initWithFrame</span>:<span class="title">frame</span> <span class="title">data</span>:<span class="title">data</span>];</span></div><div class="line"><span class="class">    </span></div><div class="line"><span class="class">    <span class="title">cell</span>.<span class="title">delegateNavigationController</span> = <span class="title">delegteNavigarionController</span>;</span></div><div class="line"><span class="class">    <span class="title">return</span> <span class="title">cell</span>;</span></div><div class="line"><span class="class">}</span></div><div class="line"></div><div class="line">+(<span class="type">CGFloat</span> )getComponentHeightWithData:(<span class="type">NSDictionary</span> *)<span class="class"><span class="keyword">data</span> withRealWidth:(<span class="type">CGFloat</span>)realWidth{</span></div><div class="line"><span class="class">    // &#x6839;&#x636E;&#x7ED9;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x5185;&#x5BB9;&#x6765;&#x8BA1;&#x7B97;&#x5F53;&#x524D;&#x6A21;&#x5757;&#x7684;&#x9AD8;&#x5EA6;</span></div><div class="line"><span class="class">}</span></div><div class="line"></div><div class="line">+(<span class="type">NSString</span> *)getComponentTypeWithData:(<span class="type">NSDictionary</span> *)<span class="class"><span class="keyword">data</span>{</span></div><div class="line"><span class="class">    <span class="type">NSString</span> * <span class="title">componentStr</span> = @&quot;<span class="type">CustomComponent</span>&quot;;</span></div><div class="line"><span class="class">    <span class="type">NSString</span> *<span class="title">componentType</span> = <span class="title">data</span>[@&quot;<span class="title">component</span>&quot;][@&quot;<span class="title">componentType</span>&quot;];</span></div><div class="line"><span class="class">    </span></div><div class="line"><span class="class">    <span class="title">if</span>([@&quot;<span class="title">word</span>&quot; <span class="title">isEqual</span>:<span class="title">componentType</span>]){</span></div><div class="line"><span class="class">        <span class="title">componentStr</span> = @&quot;<span class="type">ComponentWord</span>&quot;;</span></div><div class="line"><span class="class">    }</span></div><div class="line">    <span class="keyword">if</span>([@<span class="string">&quot;videoCell&quot;</span> isEqual:componentType]){</div><div class="line">        componentStr = @<span class="string">&quot;ComponentVideoCell&quot;</span>;</div><div class="line">    }</div><div class="line">    <span class="keyword">if</span>([@<span class="string">&quot;calendar&quot;</span> isEqual:componentType]){</div><div class="line">        componentStr = @<span class="string">&quot;ComponentCalendar&quot;</span>;</div><div class="line">    }</div><div class="line">    <span class="keyword">if</span> ([@<span class="string">&quot;calendarWorthy&quot;</span> isEqualToString:componentType]) {</div><div class="line">        componentStr = @<span class="string">&quot;ComponentCalendarWorthy&quot;</span>;</div><div class="line">    }</div><div class="line">    </div><div class="line">    // ...</div><div class="line"></div><div class="line">    return componentStr;</div><div class="line">}</div><div class="line"></div><div class="line">+(<span class="type">CustomComponent</span> *)createComponentWithContainer:(<span class="type">UIView</span> *)view <span class="class"><span class="keyword">data</span>:(<span class="type">NSDictionary</span> *)<span class="keyword">data</span> navigation:(<span class="type">UINavigationController</span> *)delegteNavigarionController{</span></div><div class="line"><span class="class">    <span class="type">CGRect</span> <span class="title">frame</span> = <span class="title">view</span>.<span class="title">bounds</span>;</span></div><div class="line"><span class="class">    <span class="type">CustomComponent</span> *<span class="title">cell</span> = [<span class="type">ComponentFactory</span> <span class="title">createComponentWithFrame</span>:<span class="title">frame</span> <span class="title">data</span>:<span class="title">data</span> <span class="title">navigation</span>:<span class="title">delegteNavigarionController</span>];</span></div><div class="line"><span class="class">    <span class="title">return</span> <span class="title">cell</span>;</span></div><div class="line"><span class="class">}</span></div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x8FD9;&#x91CC;&#x4E3B;&#x8981;&#x662F;&#x628A;<code>if-else</code>&#x7684;&#x7C7B;&#x578B;&#x5224;&#x65AD;&#x632A;&#x5230;&#x8FD9;&#x91CC;&#x6765;&#x4E86;&#x3002;</p>
+<ul>
+<li><code>ActionFactory</code></li>
+</ul>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">@implementation <span class="type">ActionFactory</span></div><div class="line"></div><div class="line">+(<span class="type">CustomAction</span> *)createActionWithData:(<span class="type">NSDictionary</span> *)<span class="class"><span class="keyword">data</span> withDetaiStarData:(<span class="type">NSDictionary</span> *)starDic navigation:(<span class="type">UINavigationController</span> *)delegateNavigationController{</span></div><div class="line"><span class="class">    <span class="type">CustomAction</span> *<span class="title">action</span>;</span></div><div class="line"><span class="class">    <span class="title">if</span> (![<span class="title">data</span> <span class="title">isKindOfClass</span>:[<span class="type">NSDictionary</span> <span class="title">class</span>]]) {</span></div><div class="line"><span class="class">        <span class="title">return</span> <span class="title">nil</span>;</span></div><div class="line"><span class="class">    }</span></div><div class="line">    <span class="type">NSString</span> *actionType = <span class="class"><span class="keyword">data</span>[@&quot;actionType&quot;];</span></div><div class="line">    <span class="keyword">if</span> (!actionType) {</div><div class="line">        return nil;</div><div class="line">    }</div><div class="line">    </div><div class="line">    <span class="type">NSString</span> *<span class="class"><span class="keyword">type</span> = <span class="keyword">data</span>[@&quot;<span class="keyword">type</span>&quot;];</span></div><div class="line">    <span class="type">NSString</span> *child = <span class="class"><span class="keyword">data</span>[@&quot;child&quot;];</span></div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ([@<span class="string">&quot;livingShow&quot;</span> isEqualToString:actionType]) {   //&#x76F4;&#x64AD;&#x64AD;&#x653E;</div><div class="line">        action = [[<span class="type">ActionLiveShow</span> alloc] initWith:<span class="class"><span class="keyword">data</span>];</span></div><div class="line">    }</div><div class="line">    <span class="keyword">if</span> ([@<span class="string">&quot;thread&quot;</span> isEqualToString:actionType]) {</div><div class="line">        <span class="keyword">if</span> ([@<span class="string">&quot;&quot;</span> isEqualToString:child]) {// &#x5E16;&#x5B50;&#x5217;&#x8868;</div><div class="line">            action = [[<span class="type">ActionThread</span> alloc] initWith:<span class="class"><span class="keyword">data</span>];</span></div><div class="line">        }</div><div class="line">        <span class="keyword">if</span> ([@<span class="string">&quot;topiclist&quot;</span> isEqualToString:child]) {// &#x4E13;&#x9898;&#x5217;&#x8868;</div><div class="line">            action = [[<span class="type">ActionTopicList</span> alloc] initWith:<span class="class"><span class="keyword">data</span>];</span></div><div class="line">        }</div><div class="line">    }</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ([@<span class="string">&quot;detail&quot;</span> isEqual:actionType]) {</div><div class="line">        // &#x5E16;&#x5B50;&#x8BE6;&#x60C5;&#x9875;</div><div class="line">        <span class="keyword">if</span> ([@<span class="string">&quot;thread&quot;</span> isEqual:<span class="class"><span class="keyword">type</span>]) {</span></div><div class="line"><span class="class">            <span class="title">action</span> = [[<span class="type">ActionThreadDetail</span> <span class="title">alloc</span>]<span class="title">initWith</span>:<span class="title">data</span>];</span></div><div class="line"><span class="class">        }</span></div><div class="line">        // &#x7528;&#x6237;&#x7A7A;&#x95F4;&#x8BE6;&#x60C5;&#x9875;</div><div class="line">        <span class="keyword">if</span> ([@<span class="string">&quot;user&quot;</span> isEqual:<span class="class"><span class="keyword">type</span>]) {</span></div><div class="line"><span class="class">            <span class="title">action</span>=[[<span class="type">ActionSpace</span> <span class="title">alloc</span>] <span class="title">initWith</span>:<span class="title">data</span>];</span></div><div class="line"><span class="class">        }</span></div><div class="line">    }</div><div class="line">    <span class="keyword">if</span> ([@<span class="string">&quot;list&quot;</span> isEqualToString:actionType]) {</div><div class="line">        <span class="keyword">if</span> ([@<span class="string">&quot;msg&quot;</span> isEqualToString:<span class="class"><span class="keyword">type</span>]) {    //&#x6D88;&#x606F;&#x56DE;&#x590D;&#x6211;&#x7684;&#xFF0C;&#x793E;&#x533A;&#x901A;&#x77E5;&#xFF0C;&#x6D3B;&#x52A8;&#x901A;&#x77E5;</span></div><div class="line"><span class="class">            <span class="title">action</span> = [[<span class="type">ActionReplyMine</span> <span class="title">alloc</span>] <span class="title">initWith</span>:<span class="title">data</span>];</span></div><div class="line"><span class="class">        }</span></div><div class="line">        <span class="keyword">if</span> ([@<span class="string">&quot;msgEvent&quot;</span> isEqualToString:<span class="class"><span class="keyword">type</span>]) {</span></div><div class="line"><span class="class">            <span class="title">action</span> = [[<span class="type">ActionActivityNoticeDetail</span> <span class="title">alloc</span>]<span class="title">initWith</span>:<span class="title">data</span>];</span></div><div class="line"><span class="class">        }</span></div><div class="line">    }</div><div class="line"></div><div class="line">    return action;</div><div class="line">}</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x91CC;&#x4E5F;&#x662F;&#x6839;&#x636E;&#x7ED9;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x6765;&#x521B;&#x5EFA;&#x5177;&#x4F53;&#x4E8B;&#x4EF6;&#x7684;&#x5B9E;&#x4F8B;&#x3002;</p>
+<h2 id="&#x9875;&#x9762;&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;"><a href="#&#x9875;&#x9762;&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;" class="headerlink" title="&#x9875;&#x9762;&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;"></a>&#x9875;&#x9762;&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;</h2><p>&#x5F53;&#x7136;&#xFF0C;&#x7531;&#x4E8E;&#x6570;&#x636E;&#x7684;&#x7ED3;&#x6784;&#x5316;&#xFF0C;&#x8FD9;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x505A;&#x4E00;&#x5C42;&#x5C01;&#x88C5;&#x3002;</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView numberOfRowsInSection:(<span class="built_in">NSInteger</span>)section</div><div class="line">{</div><div class="line">    <span class="keyword">return</span> _data.count;</div><div class="line">}</div><div class="line"></div><div class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</div><div class="line">{</div><div class="line">    <span class="built_in">NSDictionary</span> *dic = <span class="keyword">self</span>.data[indexPath.row];</div><div class="line">    <span class="built_in">NSInteger</span> cellHeight = [ComponentFactory getComponentHeightWithData:dic withRealWidth:<span class="keyword">self</span>.tableView.frame.size.width];</div><div class="line">    <span class="keyword">return</span> cellHeight;</div><div class="line">}</div><div class="line"></div><div class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</div><div class="line">{</div><div class="line">    CustomComponent *component;</div><div class="line">    <span class="built_in">NSInteger</span> row = [indexPath row];</div><div class="line">    <span class="built_in">NSDictionary</span> *data = _data[row];</div><div class="line">    <span class="built_in">NSString</span> * identifier= [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;reuse%@&quot;</span>, data[<span class="string">@&quot;componentType&quot;</span>]];</div><div class="line">    </div><div class="line">    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];</div><div class="line">    </div><div class="line">    <span class="keyword">if</span>(cell == <span class="literal">nil</span>) {</div><div class="line">        cell = [[CustomTableViewCell alloc] initWithStyle:<span class="built_in">UITableViewCellStyleDefault</span> reuseIdentifier:identifier];</div><div class="line">        </div><div class="line">        <span class="built_in">CGFloat</span> cellHeight = [ComponentFactory getComponentHeightWithData:data withRealWidth:tableView.frame.size.width];</div><div class="line">        <span class="built_in">CGRect</span> frame = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, tableView.frame.size.width, cellHeight);</div><div class="line">        component = [ComponentFactory createComponentWithFrame:frame data:data navigation:<span class="keyword">self</span>.navigationController];</div><div class="line">        cell.component = component;</div><div class="line">    }</div><div class="line">    </div><div class="line">    component.data = data;</div><div class="line">    component.row = row;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> cell;</div><div class="line">}</div></pre></td></tr></table></figure>
+<h2 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h2><p>&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x5F88;&#x9002;&#x5408;&#x9605;&#x8BFB;&#x5185;&#x5BB9;&#x7684;&#x5C55;&#x793A;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x6587;&#x7AE0;&#x7C7B;&#x578B;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x7531;&#x4E8E;&#x9875;&#x9762;&#x7684;&#x5C55;&#x793A;&#x6837;&#x5F0F;&#x6709;&#x540E;&#x53F0;&#x63A7;&#x5236;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x63D0;&#x4F9B;&#x4E86;&#x66F4;&#x591A;&#x53EF;&#x5B9A;&#x5236;&#x7684;&#x53EF;&#x80FD;&#x6027;&#x3002;<br>&#x4E0A;&#x9762;&#x4E5F;&#x53EA;&#x662F;&#x4E00;&#x79CD;&#x7C97;&#x7CD9;&#x7684;&#x4EE3;&#x7801;&#x5C55;&#x793A;&#xFF0C;&#x8981;&#x60F3;&#x6DF1;&#x7A76;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x5F88;&#x591A;&#x7EC6;&#x8282;&#x4E0A;&#x505A;&#x4F18;&#x5316;&#x3002;<br>&#x4E0D;&#x8FC7;&#x7F3A;&#x70B9;&#x4E5F;&#x5F88;&#x660E;&#x663E;&#xFF0C;&#x540E;&#x53F0;&#x4F9D;&#x8D56;&#x6027;&#x5F88;&#x5F3A;&#xFF0C;&#x800C;&#x4E14;&#x8868;&#x683C;&#x89C6;&#x56FE;&#x7684;&#x4EA4;&#x4E92;&#x6027;&#x4E0D;&#x597D;&#xFF0C;&#x5BF9;&#x4E8E;&#x5185;&#x5BB9;&#x7684;&#x66F4;&#x6539;&#x3001;cell&#x4F4D;&#x7F6E;&#x7684;&#x8C03;&#x6574;&#x90FD;&#x4E0D;&#x65B9;&#x4FBF;&#x3002;<br>&#x603B;&#x4E4B;&#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x5BF9;&#x4E8E;&#x67D0;&#x79CD;&#x9700;&#x6C42;&#x800C;&#x4EA7;&#x751F;&#x7684;&#x4E00;&#x79CD;&#x4E66;&#x5199;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x627E;&#x5BF9;&#x5E94;&#x7528;&#x573A;&#x666F;&#xFF0C;&#x505A;&#x597D;&#x4F18;&#x5316;&#xFF0C;&#x8FD9;&#x4E5F;&#x4F1A;&#x7ED9;&#x6211;&#x4EEC;&#x7684;APP&#x63D0;&#x4F9B;&#x4E30;&#x5BCC;&#x7684;&#x529F;&#x80FD;&#x548C;&#x5F00;&#x53D1;&#x4F53;&#x9A8C;&#x3002;</p>
+<p>&#x6570;&#x636E;&#x7684;&#x4F9D;&#x8D56;&#x6027;&#x592A;&#x5F3A;&#xFF0C;&#x800C;&#x4E14;&#x6709;&#x539F;&#x6765;&#x9879;&#x76EE;&#x73B0;&#x6210;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5C31;&#x61D2;&#x5F97;&#x5199;demo&#x4E86;&#xFF0C;&#x5C06;&#x5C31;&#x7740;&#x770B;&#x5427;&#x3002;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/02/TableView之基础模式/" rel="next" title="TableView之基础模式">
+                <i class="fa fa-chevron-left"></i> TableView之基础模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/01/TableView之协议托管/" rel="prev" title="TableView之协议托管">
+                TableView之协议托管 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2018/02/12/TableView之Component/"
+           data-title="TableView之Component" data-url="https://github.com/JyHu/2018/02/12/TableView之Component/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/logo.png"
+               alt="Joyous's Home" />
+          <p class="site-author-name" itemprop="name">Joyous's Home</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JyHu" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/210127055" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#约定"><span class="nav-number">1.</span> <span class="nav-text">约定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建基类"><span class="nav-number">2.</span> <span class="nav-text">创建基类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建工厂类"><span class="nav-number">3.</span> <span class="nav-text">创建工厂类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面使用实例"><span class="nav-number">4.</span> <span class="nav-text">页面使用实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1259025141'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259025141%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+  </div>
+
+
+
+
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Joyous's Home</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jyhu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

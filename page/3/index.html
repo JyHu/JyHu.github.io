@@ -245,6 +245,433 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/07/【转】基本递归-算法精解-C语言描述/" itemprop="url">
+                  【转】基本递归、尾递归(算法精解:C语言描述)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-07T09:17:45+08:00" content="2016-09-07">
+              2016-09-07
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/07/【转】基本递归-算法精解-C语言描述/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/07/【转】基本递归-算法精解-C语言描述/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="&#x57FA;&#x672C;&#x9012;&#x5F52;"><a href="#&#x57FA;&#x672C;&#x9012;&#x5F52;" class="headerlink" title="&#x57FA;&#x672C;&#x9012;&#x5F52;"></a>&#x57FA;&#x672C;&#x9012;&#x5F52;</h1><p>&#x5F00;&#x59CB;&#x4E4B;&#x524D;&#xFF0C;&#x9996;&#x5148;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x4E0D;&#x4F1A;&#x4EE5;&#x9012;&#x5F52;&#x7684;&#x5F62;&#x5F0F;&#x601D;&#x8003;&#x7684;&#x95EE;&#x9898;:&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x60F3;&#x8BA1;&#x7B97;&#x6574;&#x6570;<code>n</code>&#x7684;&#x9636;&#x4E58;&#xFF0C;<code>n</code>&#x7684;&#x9636;&#x4E58;&#x53EF;&#x5199;&#x4F5C;<code>n!</code>&#xFF0C;&#x5176;&#x7ED3;&#x679C;&#x662F;<code>1~n</code>&#x4E4B;&#x95F4;&#x7684;&#x5404;&#x6570;&#x4E4B;&#x79EF;&#x3002;&#x6BD4;&#x5982;&#xFF0C;<code>4!=4*3*3*1</code>&#x3002;&#x4E00;&#x79CD;&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#x662F;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x5176;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x4E0E;&#x5B83;&#x4E4B;&#x524D;&#x7684;&#x6570;&#x76F8;&#x4E58;&#x4F5C;&#x4E3A;&#x7ED3;&#x679C;&#x518D;&#x53C2;&#x4E0E;&#x4E0B;&#x4E00;&#x6B21;&#x8BA1;&#x7B97;&#x3002;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x79F0;&#x4E3A;&#x8FED;&#x4EE3;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x6B63;&#x5F0F;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">n</span>! = (<span class="built_in">n</span>)(<span class="built_in">n</span> - <span class="number">1</span>)(<span class="built_in">n</span> - <span class="number">2</span>)(<span class="built_in">n</span> - <span class="number">3</span>) &#xB7;&#xB7;&#xB7; (<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<p>&#x770B;&#x5F85;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x5C06;<code>n!</code>&#x5B9A;&#x4E49;&#x4E3A;&#x66F4;&#x5C0F;&#x7684;&#x9636;&#x4E58;&#x5F62;&#x5F0F;&#x3002;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x8FD9;&#x4E00;&#x6B65;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;<code>n!</code>&#x5B9A;&#x4E49;&#x4E3A;&#x66F4;&#x5C0F;&#x7684;&#x9636;&#x4E58;&#x5F62;&#x5F0F;&#x3002;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x8FD9;&#x4E00;&#x6B65;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;<code>n!</code>&#x5B9A;&#x4E49;&#x4E3A;<code>n-1</code>&#x9636;&#x4E58;&#x7684;<code>n</code>&#x500D;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x6C42;&#x89E3;<code>(n-1)!</code>&#x7684;&#x8FC7;&#x7A0B;&#x540C;<code>n!</code>&#x4E00;&#x6837;&#xFF0C;&#x53EA;&#x662F;&#x53D8;&#x5C0F;&#x4E86;&#x4E00;&#x4E9B;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x518D;&#x628A;<code>(n-1)!</code>&#x770B;&#x505A;<code>n-1</code>&#x500D;&#x7684;<code>(n-2)&#xFF01;</code>&#xFF0C;<code>(n-2)!</code>&#x770B;&#x505A;<code>n-2</code>&#x500D;&#x7684;<code>(n-3)!</code>&#xFF0C;&#x4E00;&#x76F4;&#x5230;<code>n=1</code>&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x8BA1;&#x7B97;&#x5B8C;&#x4E86;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x9012;&#x5F52;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x6B63;&#x5F0F;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;</p>
+<p><img src="http://ww1.sinaimg.cn/large/8acb15f3jw1f7krryg8osj20fq03paa7.jpg" alt=""></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/07/【转】基本递归-算法精解-C语言描述/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/06/斐波那契兔子的衍生问题/" itemprop="url">
+                  斐波那契兔子的衍生问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-06T09:21:28+08:00" content="2016-09-06">
+              2016-09-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/06/斐波那契兔子的衍生问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/06/斐波那契兔子的衍生问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://ww3.sinaimg.cn/large/0060lm7Tgw1fadw9onzckj30sg0g5td8.jpg" height="360"></p>
+<h2 id="&#x5199;&#x5728;&#x5934;&#x91CC;&#x7684;&#x516C;&#x5F0F;&#xFF1A;"><a href="#&#x5199;&#x5728;&#x5934;&#x91CC;&#x7684;&#x516C;&#x5F0F;&#xFF1A;" class="headerlink" title="&#x5199;&#x5728;&#x5934;&#x91CC;&#x7684;&#x516C;&#x5F0F;&#xFF1A;"></a>&#x5199;&#x5728;&#x5934;&#x91CC;&#x7684;&#x516C;&#x5F0F;&#xFF1A;</h2><p> <code>a[i] = a[i-1] + a[i-(x-1)]</code></p>
+<p>&#x4ECA;&#x5929;&#x8981;&#x8BF4;&#x7684;&#x662F;&#x8DDF;&#x53EF;&#x7231;&#x7684;&#x5154;&#x5B50;&#x6709;&#x5173;&#x7684;&#x95EE;&#x9898;</p>
+<p>&#x5927;&#x5BB6;&#x5728;&#x5B66;&#x4E60;C&#x8BED;&#x8A00;&#x57FA;&#x7840;&#x6216;&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x57FA;&#x7840;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x80AF;&#x5B9A;&#x90FD;&#x5B66;&#x8FC7;&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x7531;&#x5154;&#x5B50;&#x4EA7;&#x4ED4;&#x95EE;&#x9898;&#x5F15;&#x7533;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x5982;<a href="http://baike.baidu.com/view/112871.htm" target="_blank" rel="external">&#x767E;&#x5EA6;&#x767E;&#x79D1;</a>&#x4E2D;&#x6240;&#x8FF0;&#x3002;</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/06/斐波那契兔子的衍生问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/26/正则表达式简明示例教程/" itemprop="url">
+                  正则表达式简明示例教程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-26T21:01:05+08:00" content="2016-08-26">
+              2016-08-26
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/26/正则表达式简明示例教程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/26/正则表达式简明示例教程/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="&#x4E00;&#x3001;&#x4EC0;&#x4E48;&#x662F;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;"><a href="#&#x4E00;&#x3001;&#x4EC0;&#x4E48;&#x662F;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;" class="headerlink" title="&#x4E00;&#x3001;&#x4EC0;&#x4E48;&#x662F;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;"></a>&#x4E00;&#x3001;&#x4EC0;&#x4E48;&#x662F;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</h2><p>&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x4E00;&#x79CD;&#x4EBA;&#x4EEC;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x67D0;&#x7C7B;&#x95EE;&#x9898;&#x800C;&#x53D1;&#x660E;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x901A;&#x8FC7;&#x7B80;(fu)&#x5355;(za)&#x7684;&#x8BED;&#x6CD5;&#x62FC;&#x63A5;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x5339;&#x914D;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x7136;&#x540E;&#x5E94;&#x7528;&#x4E8E;&#x5404;&#x79CD;&#x7A0B;&#x5E8F;&#x8BED;&#x8A00;&#xFF0C;&#x8FDB;&#x884C;&#x7ED3;&#x679C;&#x7684;&#x641C;&#x7D22;&#x5339;&#x914D;&#x3002;&#x4EE5;&#x4E0B;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;&#x4F60;&#x662F;&#x5426;&#x9047;&#x5230; &#xFF1F;</p>
+<ul>
+<li>&#x641C;&#x7D22;&#x67D0;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x67D0;&#x4E9B;&#x6587;&#x4EF6;&#x540D;&#xFF1F;</li>
+<li>&#x5199;&#x4EE3;&#x7801;&#x8FC7;&#x7A0B;&#x4E2D;&#x5BFB;&#x627E;&#x3001;&#x4FEE;&#x6539;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x3001;&#x65B9;&#x6CD5;&#x540D;&#xFF1F;</li>
+<li>&#x5224;&#x65AD;&#x624B;&#x673A;&#x53F7;&#x3001;&#x90AE;&#x7BB1;&#x3001;&#x8EAB;&#x4EFD;&#x8BC1;&#x53F7;&#x662F;&#x5426;&#x5408;&#x6CD5;&#xFF1F;</li>
+<li>&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x6570;&#x5B57;&#xFF1F;</li>
+<li>&#x63D0;&#x53D6;&#x4E00;&#x4E2A;&#x7F51;&#x9875;&#x6E90;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x624B;&#x673A;&#x53F7;&#xFF1F;</li>
+</ul>
+<p>&#x7B49;&#x7B49;&#x573A;&#x666F;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x4E00;&#x4E00;&#x8D58;&#x8FF0;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4E00;&#x4E2A;&#x6B63;&#x786E;&#x3001;&#x6709;&#x6548;&#x7684;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5C06;&#x4F1A;&#x662F;&#x4E00;&#x4EF6;&#x975E;&#x5E38;&#x75DB;&#x82E6;&#x7684;&#x4E8B;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x4F1A;&#x4E86;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E00;&#x5207;&#x5C06;&#x4F1A;&#x5F88;&#x8F7B;&#x677E;&#x4E86;&#x3002;<br>&#x5176;&#x5B9E;&#xFF0C;&#x6B63;&#x5219;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x53EA;&#x8981;&#x4F60;&#x8DDF;&#x7740;&#x6572;&#x4E00;&#x904D;&#x6D4B;&#x8BD5;&#x4E00;&#x904D;&#xFF0C;&#x591A;&#x7406;&#x89E3;&#x7406;&#x89E3;&#x4E0D;&#x591A;&#x7684;&#x51E0;&#x79CD;&#x8BED;&#x6CD5;&#xFF0C;&#x4E5F;&#x5C31;&#x591F;&#x65E5;&#x5E38;&#x5F00;&#x53D1;&#x4F7F;&#x7528;&#x4E86;&#x3002;</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/26/正则表达式简明示例教程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/02/Visual-Formate-Language-VFL/" itemprop="url">
+                  Visual Formate Language (VFL)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-02T10:38:11+08:00" content="2016-06-02">
+              2016-06-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/02/Visual-Formate-Language-VFL/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/02/Visual-Formate-Language-VFL/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Visual-Format-Language"><a href="#Visual-Format-Language" class="headerlink" title="Visual Format Language"></a><a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/VisualFormatLanguage.html#//apple_ref/doc/uid/TP40010853-CH27-SW1" target="_blank" rel="external"><code>Visual Format Language</code></a></h1><p>&#x6765;&#x5F20;2016&#x5E74;6&#x6708;&#x7684;&#x65E5;&#x5386;&#x7684;&#x65E5;&#x5386;</p>
+<p><img src="http://ww2.sinaimg.cn/large/8acb15f3jw1f4gravr1maj20eq08w3z5.jpg" alt=""></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/02/Visual-Formate-Language-VFL/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/31/CALayer强加给你的动画效果/" itemprop="url">
                   CALayer强加给你的动画效果
                 </a>
@@ -853,420 +1280,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/30/iOS方法调用之NSInvocation/" itemprop="url">
-                  iOS方法调用之NSInvocation
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-30T23:50:41+08:00" content="2016-04-30">
-              2016-04-30
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/30/iOS方法调用之NSInvocation/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/30/iOS方法调用之NSInvocation/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&#x5728;iOS&#x4E2D;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x4E00;&#x79CD;&#x662F;<code>performSelecter</code>&#x7CFB;&#x5217;&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x662F;&#x6211;&#x4EEC;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x3002;<br>&#x4F8B;&#x5982;&#xFF0C;&#x8C03;&#x7528;&#x6D4B;&#x8BD5;&#x7C7B;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@implementation TestClass</div><div class="line">- (NSString *)testWithArg1:(NSString *)arg1 arg2:(NSString *)arg2</div><div class="line">{</div><div class="line">    NSString *res = [NSString stringWithFormat:@&quot;you called me with %@ and %@&quot;, arg1, arg2];</div><div class="line">    NSLog(@&quot;%@&quot;, res);</div><div class="line">    return res;</div><div class="line">}</div><div class="line">@end</div></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/30/iOS方法调用之NSInvocation/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/12/iOS在桌面及锁屏状态下的推送交互操作/" itemprop="url">
-                  iOS在桌面及锁屏状态下的推送交互操作
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-12T17:19:45+08:00" content="2016-04-12">
-              2016-04-12
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/12/iOS在桌面及锁屏状态下的推送交互操作/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/12/iOS在桌面及锁屏状态下的推送交互操作/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://ww1.sinaimg.cn/large/8acb15f3jw1f2uancr54wj20ku05k0t9.jpg" alt=""></p>
-<p><code>iOS</code>&#x7684;&#x901A;&#x77E5;&#xFF0C;&#x4E0D;&#x7BA1;&#x662F;&#x672C;&#x5730;&#x901A;&#x77E5;&#x8FD8;&#x662F;<code>APNS</code>&#x63A8;&#x9001;&#x901A;&#x77E5;&#xFF0C;&#x5728;<code>iOS8</code>&#x4E4B;&#x524D;&#x90FD;&#x53EA;&#x6709;&#x5C55;&#x793A;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x5E76;&#x4F1A;&#x63D0;&#x4F9B;&#x7ED9;&#x5F00;&#x53D1;&#x8005;&#x4E00;&#x4E9B;&#x4EA4;&#x4E92;&#x6027;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x662F;&#x5728;<code>iOS8</code>&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x63A8;&#x51FA;&#x4E86;&#x6309;&#x94AE;&#x9009;&#x62E9;&#x6027;&#x7684;&#x4EA4;&#x4E92;&#xFF0C;&#x5728;<code>iOS9</code>&#x4EE5;&#x540E;&#x53C8;&#x63A8;&#x51FA;&#x4E86;&#x8F93;&#x5165;&#x5185;&#x5BB9;&#x7684;&#x4EA4;&#x4E92;&#x3002;&#x6BD4;&#x5982;&#x5FAE;&#x4FE1;&#x548C;&#x77ED;&#x4FE1;&#x7684;&#x4E0B;&#x62C9;&#x56DE;&#x590D;&#x3002;<br><strong>&#x6CE8;&#x610F;</strong>&#xFF1A;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#x90FD;&#x5728;<code>APPDelegate</code>&#x4E2D;&#x8FDB;&#x884C;&#x3002;</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/12/iOS在桌面及锁屏状态下的推送交互操作/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/10/iOS相册操作之-ALAssetsLibrary/" itemprop="url">
-                  iOS相册操作之'ALAssetsLibrary'
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-10T14:36:45+08:00" content="2016-04-10">
-              2016-04-10
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/10/iOS相册操作之-ALAssetsLibrary/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/10/iOS相册操作之-ALAssetsLibrary/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&#x5728;<code>iOS8.0</code>&#x4E4B;&#x524D;&#xFF0C;&#x76F8;&#x518C;&#x3001;&#x56FE;&#x7247;&#x64CD;&#x4F5C;&#x4F7F;&#x7528;&#x7684;&#x662F;<a href="https://developer.apple.com/library/ios/documentation/AssetsLibrary/Reference/AssetsLibraryFramework/index.html#//apple_ref/doc/uid/TP40009730" target="_blank" rel="external"><code>AssetsLibrary.framework</code></a>(&#x4EE5;&#x4E0B;&#x7B80;&#x79F0;<code>AF</code>)&#xFF0C;&#x4E4B;&#x540E;&#x5462;&#x53C8;&#x65B0;&#x589E;&#x4E86;&#x4E00;&#x4E2A;&#x6846;&#x67B6;<code>Photos.framework</code>(&#x4EE5;&#x4E0B;&#x7B80;&#x79F0;<code>PF</code>)&#xFF0C;&#x6240;&#x4EE5;&#x5462;<code>AF</code>&#x5C31;&#x968F;&#x4E4B;&#x88AB;&#x5E9F;&#x5F03;&#x6389;&#x4E86;&#xFF0C;&#x4EE5;&#x82F9;&#x679C;&#x7684;&#x60EF;&#x4F8B;&#x5462;&#xFF0C;&#x867D;&#x7136;&#x662F;&#x5E9F;&#x5F03;&#xFF0C;&#x4F46;&#x662F;&#x80AF;&#x5B9A;&#x8FD8;&#x5728;&#x7EF4;&#x62A4;&#xFF0C;&#x5BF9;&#x4E8E;&#x7248;&#x672C;&#x8981;&#x6C42;8&#x4EE5;&#x4E0B;&#x7684;APP&#x6765;&#x8BF4;&#xFF0C;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x4F7F;&#x7528;<code>AF</code>&#x7684;&#xFF1B;&#x5F53;&#x7136;&#x5BF9;&#x4E8E;&#x53EA;&#x8981;&#x6C42;8&#x4EE5;&#x4E0A;&#x7684;APP&#x6765;&#x8BF4;&#xFF0C;&#x90A3;&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;<code>PF</code>&#x5566;&#xFF0C;&#x8FD9;&#x4E2A;&#x5728;&#x4EE5;&#x540E;&#x518D;&#x8BF4;&#x3002;<br><code>AF</code>&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x8FDB;&#x884C;&#x56FE;&#x7247;&#x3001;&#x76F8;&#x518C;&#x3001;&#x89C6;&#x9891;&#x7B49;&#x7684;&#x8BFB;&#x53D6;&#x548C;&#x5199;&#x5165;&#xFF0C;&#x5176;&#x4E2D;&#x7684;&#x64CD;&#x4F5C;&#x5927;&#x591A;&#x662F;&#x901A;&#x8FC7;<code>Block</code>&#x6765;&#x64CD;&#x4F5C;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x6570;&#x636E;&#x7684;&#x8BFB;&#x53D6;&#x4E5F;&#x5927;&#x591A;&#x662F;&#x901A;&#x8FC7;<code>KVC</code>&#x6765;&#x83B7;&#x53D6;&#x7684;&#x3002;<br>&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5BF9;&#x4E8E;&#x76F8;&#x518C;&#x7684;&#x64CD;&#x4F5C;&#x662F;&#x9700;&#x8981;&#x7528;&#x6237;&#x6743;&#x9650;&#x7684;&#xFF0C;&#x5F53;&#x7136;&#x4E0D;&#x9700;&#x8981;&#x4F60;&#x53BB;&#x4E3B;&#x52A8;&#x8BF7;&#x6C42;&#x6388;&#x6743;&#xFF0C;&#x7CFB;&#x7EDF;&#x4F1A;&#x5728;&#x4F60;&#x521D;&#x6B21;&#x64CD;&#x4F5C;&#x76F8;&#x518C;&#x7684;&#x65F6;&#x5019;&#x53BB;&#x5411;&#x7528;&#x6237;&#x7533;&#x8BF7;&#x6743;&#x9650;&#x3002;</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/10/iOS相册操作之-ALAssetsLibrary/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/10/记录一次‘unrecognized-selector-sent-to-instance-’问题的解决过程/" itemprop="url">
-                  unrecognized selector sent to instance
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-10T12:55:54+08:00" content="2016-04-10">
-              2016-04-10
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/10/记录一次‘unrecognized-selector-sent-to-instance-’问题的解决过程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/10/记录一次‘unrecognized-selector-sent-to-instance-’问题的解决过程/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="&#x95EE;&#x9898;&#x51FA;&#x73B0;&#x7684;&#x8FC7;&#x7A0B;"><a href="#&#x95EE;&#x9898;&#x51FA;&#x73B0;&#x7684;&#x8FC7;&#x7A0B;" class="headerlink" title="&#x95EE;&#x9898;&#x51FA;&#x73B0;&#x7684;&#x8FC7;&#x7A0B;"></a>&#x95EE;&#x9898;&#x51FA;&#x73B0;&#x7684;&#x8FC7;&#x7A0B;</h1><p>&#x70B9;&#x51FB;&#x4E00;&#x4E2A;&#x6309;&#x94AE;&#xFF0C;&#x9875;&#x9762;&#x90FD;&#x8FD8;&#x6CA1;&#x51FA;&#x73B0;&#x7684;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x76F4;&#x63A5;&#x5C31;&#x7A0B;&#x5E8F;&#x5D29;&#x6E83;&#xFF0C;&#x5E76;&#x4E14;&#x65AD;&#x5728;&#x4E86;<code>main.m</code>&#x4E2D;&#xFF0C;&#x5E76;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x51FA;&#x73B0;&#x4E0B;&#x9762;&#x7684;&#x9519;&#x8BEF;&#x63D0;&#x793A;&#x5185;&#x5BB9;&#xFF1A;</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2016-04-08 17:09:17.529 mxyc[262:12134] -[__NSCFNumber rangeOfCharacterFromSet:]: unrecognized selector sent <span class="keyword">to</span><span class="built_in"> instance </span>0xb000000532432803</div><div class="line">libc++abi.dylib: terminate_handler unexpectedly threw an exception</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/10/记录一次‘unrecognized-selector-sent-to-instance-’问题的解决过程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1312,7 +1325,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
